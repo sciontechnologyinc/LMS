@@ -14,13 +14,13 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="<?php echo e(url('dashboard')); ?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Books</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="<?php echo e(url('addbooks')); ?>">Add New Book</a></li>
+                            <li><i class="fa fa-plus"></i><a href="<?php echo e(url('books.create')); ?>">Add New Book</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="<?php echo e(url('books')); ?>">Book List</a></li>
                             
                         </ul>
@@ -38,8 +38,8 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="<?php echo e(url('addmembers')); ?>">Add New Member</a></li>
                             <li><i class="menu-icon fa fa-users"></i><a href="<?php echo e(url('members')); ?>">Member List</a></li>
-                            <li><i class="menu-icon fa fa-users text-success"></i><a href="forms-advanced.html">New members</a></li>
-                            <li><i class="menu-icon fa fa-globe text-success"></i><a href="forms-advanced.html">Visitors</a></li>
+                            <li><i class="menu-icon fa fa-users text-success"></i><a href="#">New members</a></li>
+                            <li><i class="menu-icon fa fa-globe text-success"></i><a href="#">Visitors</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -47,24 +47,24 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-hand-o-right"></i><a href="<?php echo e(url('bookissue')); ?>">Issue a Book</a></li>
                             <li><i class="menu-icon fa fa-calendar-check-o"></i><a href="<?php echo e(url('bookissue')); ?>">Issued Books</a></li>
-                            <li><i class="menu-icon fa fa-times"></i><a href="font-themify.html">Non-return Books</a></li>
+                            <li><i class="menu-icon fa fa-times"></i><a href="#">Non-return Books</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="<?php echo e(url('generalsettings')); ?>"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-book"></i>My book list </a>
+                        <a href="#"> <i class="menu-icon fa fa-book"></i>My book list </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Terms & Condition</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus"></i><a href="charts-chartjs.html">Add New Terms</a></li>
-                            <li><i class="menu-icon fa fa-eye"></i><a href="charts-flot.html">View Terms</a></li>
+                            <li><i class="menu-icon fa fa-plus"></i><a href="#.">Add New Terms</a></li>
+                            <li><i class="menu-icon fa fa-eye"></i><a href="#">View Terms</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-power-off" style="color:red"></i> <label style="color:red"> Logout </label> </a>
+                        <a href="#"> <i class="menu-icon fa fa-power-off" style="color:red"></i> <label style="color:red"> Logout </label> </a>
                     </li>
 
                 </ul>
