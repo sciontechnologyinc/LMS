@@ -53,17 +53,16 @@
                       {!!Form::text('writername',null, ['placeholder' => 'writername', 'class' => 'form-control'])!!}
                       </div>
                       
-                      <div class="input-field col s12 m12 l12 xl8 offset-xl2">
-                            <i class="material-icons prefix">business</i>
+                      <div class="form-group">
+                            <i class="material-icons prefix"></i>
+                            <label>Category :</label>
                                 <select name="category">
                                     <option value="" disabled {{ old('category') ? '' : 'selected' }}>Choose a category</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}" {{ old('category') ? 'selected' : '' }}>{{$category->categoryname}}</option>
                                     @endforeach
                                 </select>
-                                <label>Category</label>
-                            </div>
-
+                      </div>
                       </div>
                     </div>
                      

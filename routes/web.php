@@ -26,15 +26,7 @@ Route::get('create', function () {
 
 Route::resource('categories','CategoryController');
 
-
-Route::get('addbooks', function () {
-    return view('books.create');
-});
-
 Route::resource('books','BookController');
-
-
-
 
 Route::get('addmembers', function () {
     return view('members.create');
@@ -69,3 +61,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Category
+Route::get('books.create','CategoryController@categorycheckbox');
