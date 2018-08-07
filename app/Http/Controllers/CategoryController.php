@@ -20,6 +20,12 @@ class CategoryController extends Controller
         return view('categories.index', ['categories' => $categories]);
     }
 
+    public function categorycheckbox()
+    {
+	    $categories = Category::orderBy('id')->get();
+        return view('books.create', ['categories' => $categories]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
