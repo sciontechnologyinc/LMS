@@ -12,7 +12,7 @@ class Book extends Model
                             'booknumber',
                             'bookprice',
                             'writername',
-                            'category as categoryname',
+                            'category',
                             'status',
                             'booktype',
                             'bookcondition',

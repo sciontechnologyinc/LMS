@@ -58,19 +58,19 @@
 
                       </div>
                       
-                      <div class="input-field col s12 m12 l12 xl8 offset-xl2">
-                            <i class="material-icons prefix">business</i>
+                      <div class="form-group">
+                            <i class="material-icons prefix"></i>
+                            <label>Category :</label>
                                 <select name="category">
                                     <option value="" disabled <?php echo e(old('category') ? '' : 'selected'); ?>>Choose a category</option>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($category->id); ?>" <?php echo e(old('category') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
-                                <label>Category</label>
-                            </div>
-
+                      </div>
                       </div>
                     </div>
+                     
 </div>
             <div class="col-lg-6">
                     <div class="card">

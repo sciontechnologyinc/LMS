@@ -11,7 +11,7 @@
  <?php $__env->startSection('content'); ?>
 
 
-    <a class="btn btn-primary col-lg-2 offset-9" href="<?php echo e(url('addbooks')); ?>" style="margin-bottom: 10px;">Create New</a>
+    <a class="btn btn-primary col-lg-2 offset-9" href="<?php echo e(url('books.create')); ?>" style="margin-bottom: 10px;">Create New</a>
 
    <div class="col-md-12">
                     <div class="card">
