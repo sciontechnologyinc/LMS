@@ -36,12 +36,11 @@
                         <td>{{ $category->id }}</td>
                         <td> {{ $category->categoryname }}
                         </td>
-                        
                         <td><center>
-                        <div class="row-2">
-                        <a class="btn btn-success btn-sm" href="categories/{!! $category->id !!}/edit">Edit</a>
+                        <div class="form-group" style="display:inline-flex">
+                        <a class="btn btn-success btn-sm mr-1" href="categories/{!! $category->id !!}/edit"><i class="fa fa-edit"></i></a>
                         {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/categories/' . $category->id]) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                        {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
                         {!! Form::close() !!}
                         </div>
                         </center></td>
