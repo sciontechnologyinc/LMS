@@ -20,7 +20,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Books</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="<?php echo e(url('addbooks')); ?>">Add New Book</a></li>
+                            <li><i class="fa fa-plus"></i><a href="<?php echo e(url('books.create')); ?>">Add New Book</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="<?php echo e(url('books')); ?>">Book List</a></li>
                             
                         </ul>
