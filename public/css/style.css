@@ -1,0 +1,256 @@
+html,
+body {
+    background-color: #fff;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/img/lmsbackground.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 65px;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.links>a {
+    color: white;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.signin {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.signindesc {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.form-box {
+    margin-top: 25px;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+input.username {
+    border: 0px;
+    outline: none;
+    width: 100%;
+    color: #3f3f3f !important;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input.password {
+    border: 0px;
+    outline: none;
+    width: 100%;
+    color: #3f3f3f !important;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.div-password {
+    margin-top: 7px;
+}
+
+.form-buttons {
+    display: inline-flex;
+    margin: 10px;
+}
+
+.login-btn {
+    background: #0066ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.panel-body {
+    padding: 15px;
+    border: 1px solid #eff0f4;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 14px 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.form-group label {
+    font-weight: normal;
+}
+
+.help-block {
+    color: red;
+}
+
+.forgot-pass {
+    background: #0066ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #0051cc !important;
+}
+
+.forgot-:hover {
+    background: #0051cc !important;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    font-size: 28px;
+}
+
+.featured-books-title {
+    color: #3f3f3f !important;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.featured-books {
+    background: white;
+}
+
+.books-container {
+    text-align: center;
+    width: auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    color: #3f3f3f;
+}
+
+.books img {
+    width: auto;
+    height: 200px;
+}
+
+.books {
+    width: auto;
+    padding: 5px;
+}
+
+.booklists {
+    display: flex;
+    margin: auto;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+nav.navbar.navbar-expand-md.navbar-light.navbar-laravel {
+    background: none !important;
+}
+
+a.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+a.navbar-brand {
+    color: white !important;
+}
+
+.links>a:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, .6) 30%, #0051cc 50%, rgba(0, 0, 0, .6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+}
+
+@-webkit-keyframes shine {
+    from {
+        -webkit-mask-position: 150%;
+    }
+    to {
+        -webkit-mask-position: -50%;
+    }
+}
+
+.book-desc {
+    width: 135px;
+}
+
+.btn-link {
+    color: white;
+}
+
+.btn-link:hover {
+    color: rgb(153, 153, 153) !important;
+}
