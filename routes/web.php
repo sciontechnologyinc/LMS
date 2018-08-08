@@ -11,20 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-
-Route::get('dashboard', function () {
-    return view('admin.index');
-});
 
 Route::get('create', function () {
     return view('categories.create');
 });
 
 Route::resource('categories','CategoryController');
+
+Route::get('dashboard', function () {
+    return view('dashboard.index');
+});
+
+Route::resource('dashboard','DashboardController');
+
 
 Route::resource('books','BookController');
 
