@@ -1,16 +1,14 @@
-@extends('admin.master.template')
+<?php $__env->startSection('sidepanel'); ?>
+    <?php echo $__env->make('admin.layouts.sidepanel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-@section('sidepanel')
-    @include('admin.layouts.sidepanel')
-@endsection
+<?php $__env->startSection('header'); ?>
+    <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-@section('header')
-    @include('admin.layouts.header')
-@endsection
-
-@section('title','Dashboard')
+<?php $__env->startSection('title','Dashboard'); ?>
  
- @section('content')
+ <?php $__env->startSection('content'); ?>
  <div class="content mt-3">
 
 <div class="col-sm-6 col-lg-3">
@@ -38,10 +36,8 @@
 
              <h4 class="mb-0">
                  
-                 <span class="count">foreach ($books as $book) {
-                                echo $book->id;
-                                     }
-                </span>
+     
+             
              </h4>
              <p class="text-light">Books</p>
 
@@ -89,4 +85,5 @@
      </div>
  </div>
 
- @endsection
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

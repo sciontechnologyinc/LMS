@@ -12,7 +12,6 @@
  
  @section('content')
 
-
     <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('create') }}" style="margin-bottom: 10px;">Create New</a>
 
    <div class="col-md-12">

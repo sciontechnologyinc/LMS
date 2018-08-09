@@ -91,16 +91,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-    	// $book = Book::find($id);
-        // return view('books/edit', ['book' => $book]);
+    	$book = Book::find($id);
+        return view('books/edit', ['book' => $book]);
 
-        $categories  = Category::orderBy('categoryname','asc')->get();
-
-        $book = Book::find($id);
-        return view('books.edit')->with([
-            'departments'  => $departments,
-            'book'     => $book
-        ]);
     }
     
 
