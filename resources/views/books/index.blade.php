@@ -13,7 +13,7 @@
  @section('content')
 
 
-    <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('addbooks') }}" style="margin-bottom: 10px;">Create New</a>
+    <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('books.create') }}" style="margin-bottom: 10px;">Create New</a>
 
    <div class="col-md-12">
                     <div class="card">
@@ -47,13 +47,14 @@
                         <td><a class="btn btn-xs btn-success col-lg-8 offset-2">{{ $book->booknumber }}</a></td>
                         
                         <td><center>
-                        <a class="btn btn-success btn-sm" href="books/{!! $book->id !!}/edit">Edit</a>
+                        <div class="form-group" style="display:inline-flex">
+                        <a class="btn btn-success btn-sm mr-1" href="books/{!! $book->id !!}/edit"><i class="fa fa-edit"></i></a>
+                        {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/books/' . $book->id]) !!}
+                        {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+                        {!! Form::close() !!}
+                        </div>    
+                    </center></td>
 
-
-                    {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/books/' . $book->id]) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                    {!! Form::close() !!}
-                        </center></td>
                       </tr>
                     </tbody>
                      @endforeach
