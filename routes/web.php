@@ -23,7 +23,10 @@ Route::get('dashboard', function () {
     return view('dashboard.index');
 });
 
-Route::resource('dashboard','DashboardController');
+Route::get('', function () {
+    return view('welcome');
+});
+// Route::resource('dashboard','DashboardController');
 
 
 Route::resource('books','BookController');
