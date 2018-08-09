@@ -17,7 +17,7 @@
    <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Complete Category list</strong>
+                            <strong class="card-title">Complete Category List</strong>
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
