@@ -44,7 +44,9 @@
                         <td> {{ $book->ISBN }}</td>
                         <td> {{ $book->category }}</td>
                         <td> {{ $book->writername }}</td>
-                        <td><a class="btn btn-xs btn-success col-lg-8 offset-2">{{ $book->booknumber }}</a></td>
+                        
+                        <td class="numeric" data-title="Avail">
+						<span class="label label-success btn-success"><span class="fa fa-check"></span> ({{ $book->booknumber }})</span></td>
                         
                         <td><center>
                         <div class="form-group" style="display:inline-flex">

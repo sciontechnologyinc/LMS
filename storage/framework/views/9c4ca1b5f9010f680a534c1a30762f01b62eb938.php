@@ -10,13 +10,12 @@
  
  <?php $__env->startSection('content'); ?>
 
-
     <a class="btn btn-primary col-lg-2 offset-9" href="<?php echo e(url('create')); ?>" style="margin-bottom: 10px;">Create New</a>
 
    <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Complete Category list</strong>
+                            <strong class="card-title">Complete Category List</strong>
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">

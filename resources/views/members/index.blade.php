@@ -37,11 +37,13 @@
                                 <div class="col-sm-2"></div>
                               </div>
                               <div class="row-2">
-                                  <div class="col-sm-4 edit-btn"><i class="fa fa-edit"></i> Edit</div>
+                              <div class="form-group" style="display:inline-flex">
+                              <a class="btn btn-success btn-sm mr-1" href="members/{!! $member->id !!}/edit"><i class="fa fa-edit"></i></a>
                                   {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]) !!}
                                   {{ Form::button('<i class="fa fa-trash">Delete</i>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )  }}
                                   {!! Form::close() !!}
                                   <div class="col-sm-4 details-btn"><i class="fa fa-eye"></i> Details</div>
+                                  </div>
                               </div>
                             </div>
                             @endforeach 
