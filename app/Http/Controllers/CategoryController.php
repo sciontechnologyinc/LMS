@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
+use App\Bookissue;
 use App\Category;
+use App\Generalsettings;
+use App\Member;
+use App\User;
+use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use function Psy\debug;

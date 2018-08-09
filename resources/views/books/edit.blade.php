@@ -30,7 +30,7 @@
  @endif
 
 
-    {!! Form::open(['id' => 'dataForm', 'url' => '/books']) !!}
+    {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/books/' . $book->id ]) !!}
     <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>

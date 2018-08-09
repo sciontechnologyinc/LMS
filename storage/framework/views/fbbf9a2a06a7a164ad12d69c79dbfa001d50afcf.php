@@ -28,7 +28,7 @@
  <?php endif; ?>
 
 
-    <?php echo Form::open(['id' => 'dataForm', 'url' => '/books']); ?>
+    <?php echo Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/books/' . $book->id ]); ?>
 
     <div class="col-lg-6">
                     <div class="card">

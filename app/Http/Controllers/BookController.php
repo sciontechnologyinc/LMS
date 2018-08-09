@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Book;
+use App\Bookissue;
 use App\Category;
+use App\Generalsettings;
+use App\Member;
+use App\User;
+use Carbon\Carbon;
 use DB;
 use Session;
 use function Psy\debug;
@@ -93,6 +98,7 @@ class BookController extends Controller
     {
     	$book = Book::find($id);
         return view('books/edit', ['book' => $book]);
+        
 
     }
     
