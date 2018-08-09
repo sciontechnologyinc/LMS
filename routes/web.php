@@ -42,6 +42,7 @@ Route::get('generalsettings', function () {
     return view('admin.pages.generalsettings');
 });
 
+Route::get('/register', 'RegisterController@index');
 
 Route::get('/pages', 'GeneralsettingsController@index');
 
@@ -59,6 +60,11 @@ Route::get('lms', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+;
+
+
 
 //Category
 Route::get('books.create','CategoryController@categorycheckbox');
+
+
