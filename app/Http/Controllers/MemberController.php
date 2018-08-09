@@ -45,6 +45,7 @@ class MemberController extends Controller
             'gender' => 'required',
             'contactnumber' => 'required',
             'email' => 'required',
+            'LRN' => 'required',
             'profession' => 'required',
             'department' => 'required',
             'subjects' => 'required',
@@ -75,6 +76,7 @@ class MemberController extends Controller
         $member->gender = $request->input('gender');
         $member->contactnumber = $request->input('contactnumber');  
         $member->email = $request->input('email');
+        $member->LRN = $request->input('LRN');
         $member->profession = $request->input('profession');
         $member->department = $request->input('department');
         $member->subjects = $request->input('subjects');

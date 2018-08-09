@@ -61,6 +61,13 @@
                       </div>
 
                       <div class="form-group">
+                            <?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
+
+                            <?php echo Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control' ]); ?>
+
+                      </div>
+
+                      <div class="form-group">
                             <?php echo Form::label('profession', 'Profession', array('class' => 'form-control-label')); ?>
 
                             <?php echo Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control' ]); ?>

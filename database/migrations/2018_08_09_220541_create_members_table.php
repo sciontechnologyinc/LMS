@@ -19,6 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('gender');
             $table->string('contactnumber');
             $table->string('email');
+            $table->string('LRN');
             $table->string('profession');
             $table->string('department');
             $table->string('subjects');

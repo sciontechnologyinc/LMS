@@ -11,6 +11,7 @@ class Member extends Model
 		'gender',
 		'contactnumber',
 		'email',
+		'LRN',
 		'profession',
 		'department',
 		'subjects',

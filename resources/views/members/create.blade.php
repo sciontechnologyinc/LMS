@@ -55,6 +55,11 @@
                       </div>
 
                       <div class="form-group">
+                            {!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
+                            {!!Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
+                      </div>
+
+                      <div class="form-group">
                             {!!Form::label('profession', 'Profession', array('class' => 'form-control-label'))!!}
                             {!!Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control' ])!!}
                       </div>

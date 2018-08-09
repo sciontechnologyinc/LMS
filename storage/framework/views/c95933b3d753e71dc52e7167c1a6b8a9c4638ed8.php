@@ -16,9 +16,9 @@
          <div class="card-body pb-0">
              
              <h4 class="mb-0">
-                 <span class="count">10468</span>
+             <span class="no-padding center mt txt-sm">Total(<?php echo e($t_members); ?>)</span> 
              </h4>
-             <p class="text-light">Users</p>
+             <a href="<?php echo e(url('members')); ?>"><p class="text-light">Members</p></a>
 
              <div class="chart-wrapper px-0" style="height:70px;" height="70">
                  
@@ -39,7 +39,8 @@
      
               <span class="no-padding center mt txt-sm">Total(<?php echo e($t_books); ?>)</span> 
              </h4>
-             <p class="text-light">Books</p>
+             <a href="<?php echo e(url('books')); ?>"><p class="text-light">Books</p></a>
+             
 
              <div class="chart-wrapper px-0" style="height:70px;" height="70">
                 
