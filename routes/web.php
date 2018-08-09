@@ -19,14 +19,10 @@ Route::get('create', function () {
 
 Route::resource('categories','CategoryController');
 
-Route::get('dashboard', function () {
-    return view('dashboard.index');
-});
-
 Route::get('', function () {
     return view('welcome');
 });
-// Route::resource('dashboard','DashboardController');
+Route::resource('dashboard','DashboardController');
 
 
 Route::resource('books','BookController');
