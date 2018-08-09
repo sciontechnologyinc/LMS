@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Book;
 use App\Category;
 use DB;
+use Session;
 use function Psy\debug;
 
 class BookController extends Controller
@@ -19,6 +20,10 @@ class BookController extends Controller
     public function index()
     {
 	    $books = Book::orderBy('id')->get();
+        return view('books.index', ['books' => $books]);
+
+
+        $books = DB::table('books')->count();
         return view('books.index', ['books' => $books]);
     }
 
@@ -86,16 +91,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-    	// $book = Book::find($id);
-        // return view('books/edit', ['book' => $book]);
+    	$book = Book::find($id);
+        return view('books/edit', ['book' => $book]);
 
-        $categories  = Category::orderBy('categoryname','asc')->get();
-
-        $book = Book::find($id);
-        return view('books.edit')->with([
-            'departments'  => $departments,
-            'book'     => $book
-        ]);
     }
     
 

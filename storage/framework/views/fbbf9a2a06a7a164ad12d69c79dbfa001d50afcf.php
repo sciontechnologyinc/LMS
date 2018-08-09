@@ -6,7 +6,7 @@
     <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('title','Add Book list'); ?>
+<?php $__env->startSection('title','Update Category list'); ?>
  
  <?php $__env->startSection('content'); ?>
 
@@ -30,7 +30,6 @@
 
     <?php echo Form::open(['id' => 'dataForm', 'url' => '/books']); ?>
 
-    
     <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
@@ -38,39 +37,48 @@
                       <div class="form-group">
                       <?php echo Form::label('Book Name', 'Book Name', array('class' => 'form-control-label')); ?>
 
-                      <?php echo Form::text('bookname',null, ['placeholder' => 'bookname', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('bookname',$book->bookname, ['placeholder' => 'bookname', 'class' => 'form-control']); ?>
 
                       </div>
                       <div class="form-group"><label class="form-control-label">Book ISBN No</label>
-                      <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('ISBN',$book->ISBN, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
 
                       </div>
                       <div class="form-group"><label class="form-control-label">Available book number</label>
-                      <?php echo Form::text('booknumber',null, ['placeholder' => 'book number', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('booknumber',$book->booknumber, ['placeholder' => 'book number', 'class' => 'form-control']); ?>
 
                       </div>
                       <div class="form-group"><label class="form-control-label">Book Price</label>
-                      <?php echo Form::text('bookprice',null, ['placeholder' => 'P 00.00', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('bookprice',$book->bookprice, ['placeholder' => 'P 00.00', 'class' => 'form-control']); ?>
 
                       </div>
                       <div class="form-group"><label class="form-control-label">Writer Name</label>
-                      <?php echo Form::text('writername',null, ['placeholder' => 'writername', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('writername',$book->writername, ['placeholder' => 'writername', 'class' => 'form-control']); ?>
 
                       </div>
-                      
-                      <div class="form-group">
-                            <i class="material-icons prefix"></i>
-                            <label>Category :</label>
-                                <select name="category">
-                                    <option value="" disabled <?php echo e(old('category') ? '' : 'selected'); ?>>Choose a category</option>
-                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>" <?php echo e(old('category') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
+                      <div class="form-group"><label class="form-control-label">Category</label>
+                      <?php echo Form::text('category',$book->category, ['placeholder' => 'category', 'class' => 'form-control']); ?>
+
                       </div>
+                         <div class="row form-group">
+                            <div class="col col-md-3"><label class="form-control-label">Category</label></div>
+                            <div class="col col-md-9">
+                              <div class="form-check-inline form-check">
+                                <label for="inline-checkbox1" class="form-check-label ">
+                                  <input type="checkbox" id="inline-checkbox1" name="category" value="option1" class="form-check-input">Programming 
+                                </label>&nbsp
+                                <label for="inline-checkbox2" class="form-check-label ">
+                                  <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="option2" class="form-check-input">Math
+                                </label>&nbsp
+                                <label for="inline-checkbox3" class="form-check-label ">
+                                  <input type="checkbox" id="inline-checkbox3" name="inline-checkbox3" value="option3" class="form-check-input">Science
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+
                       </div>
                     </div>
-                     
 </div>
             <div class="col-lg-6">
                     <div class="card">
@@ -95,7 +103,7 @@
                           </div>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          <?php echo Form::textarea('details',null, ['placeholder' => 'details', 'class' => 'form-control']); ?>
+                          <?php echo Form::textarea('details',$book->details, ['placeholder' => 'details', 'class' => 'form-control']); ?>
 
                           </div>
                               <label for="inline-checkbox3" class="form-check-label ">Status</label>
@@ -107,13 +115,12 @@
                       </div>
 
                      <div class="card-footer">
-                     <?php echo Form::submit('Create Books', ['class' => 'btn btn-primary']); ?>
+                     <?php echo Form::submit('Update Book', ['class' => 'btn btn-primary  col-lg-4 offset-8']); ?>
 
 
                       </div>
                     </div>
 </div>
-
     <?php echo Form::close(); ?>
 
 <?php $__env->stopSection(); ?>

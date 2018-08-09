@@ -40,7 +40,7 @@
             
         </div>
         <div class="featured-books">
-                <div class="featured-books-title">Featured Books</div>
+                <div class="featured-books-title">Featured Books JETRO</div>
                 <div class="books-container">
                     <div class="booklists">
                     <div class="books"><img src="/img/Book1.jpg" alt=""><div class="book-desc">Game of Thrones</div></div>

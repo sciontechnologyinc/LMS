@@ -36,8 +36,8 @@
 
              <h4 class="mb-0">
                  
-                 <span class="count">Total(<?php echo e($t_books); ?>)
-                </span>
+     
+             
              </h4>
              <p class="text-light">Books</p>
 
