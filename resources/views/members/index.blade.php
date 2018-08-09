@@ -32,13 +32,15 @@
                         @foreach($members as $member)
                             <div class="per-member">
                               <div class="row">
-                                <div class="col-sm-4"><img src= "/storage/uploads/{{$member->photo}}" >&nbsp;</div>
+                                <div class="col-sm-4 photo"><img src= "/storage/uploads/{{$member->photo}}" >&nbsp;</div>
                                 <div class="col-sm-6 membername">{{ $member->membername  }}<br>{{ $member->contactnumber  }}</div>
                                 <div class="col-sm-2"></div>
                               </div>
                               <div class="row-2">
                                   <div class="col-sm-4 edit-btn"><i class="fa fa-edit"></i> Edit</div>
-                                  <div class="col-sm-4 delete-btn"><i class="fa fa-trash"></i> Delete</div>
+                                  {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]) !!}
+                                  {{ Form::button('<i class="fa fa-trash">Delete</i>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )  }}
+                                  {!! Form::close() !!}
                                   <div class="col-sm-4 details-btn"><i class="fa fa-eye"></i> Details</div>
                               </div>
                             </div>
