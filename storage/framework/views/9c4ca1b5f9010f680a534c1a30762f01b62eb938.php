@@ -35,13 +35,12 @@
                         <td> <?php echo e($category->categoryname); ?>
 
                         </td>
-                        
                         <td><center>
-                        <div class="row-2">
-                        <a class="btn btn-success btn-sm" href="categories/<?php echo $category->id; ?>/edit">Edit</a>
+                        <div class="form-group" style="display:inline-flex">
+                        <a class="btn btn-success btn-sm mr-1" href="categories/<?php echo $category->id; ?>/edit"><i class="fa fa-edit"></i></a>
                         <?php echo Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/categories/' . $category->id]); ?>
 
-                        <?php echo Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']); ?>
+                        <?php echo e(Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )); ?>
 
                         <?php echo Form::close(); ?>
 
