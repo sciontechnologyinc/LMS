@@ -27,9 +27,9 @@
                         <th><input type="text" placeholder="Search Member" class="search-memberlist"></th>
                       </tr> 
                       <tr>
-                      @foreach($members as $member)
                         <td>
                         <div class="member-listcontainer">
+                        @foreach($members as $member)
                             <div class="per-member">
                               <div class="row">
                                 <div class="col-sm-4"><img src= "/storage/uploads/{{$member->photo}}" >&nbsp;</div>
@@ -42,14 +42,13 @@
                                   <div class="col-sm-4 details-btn"><i class="fa fa-eye"></i> Details</div>
                               </div>
                             </div>
-                            
-                            
+                            @endforeach 
                         </div>
                         </td>
                       </tr>
                     </thead>
                     <tbody>
-                    @endforeach
+                  
                     </tbody>
                   </table>
                         </div>

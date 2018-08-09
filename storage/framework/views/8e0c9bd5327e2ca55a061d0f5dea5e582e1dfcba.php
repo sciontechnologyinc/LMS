@@ -25,9 +25,10 @@
                         <th><input type="text" placeholder="Search Member" class="search-memberlist"></th>
                       </tr> 
                       <tr>
-                      <?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      
                         <td>
                         <div class="member-listcontainer">
+                        <?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="per-member">
                               <div class="row">
                                 <div class="col-sm-4"><img src= "/storage/uploads/<?php echo e($member->photo); ?>" >&nbsp;</div>
@@ -40,14 +41,15 @@
                                   <div class="col-sm-4 details-btn"><i class="fa fa-eye"></i> Details</div>
                               </div>
                             </div>
-                            
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                             
                         </div>
                         </td>
+                        
                       </tr>
                     </thead>
                     <tbody>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  
                     </tbody>
                   </table>
                         </div>
