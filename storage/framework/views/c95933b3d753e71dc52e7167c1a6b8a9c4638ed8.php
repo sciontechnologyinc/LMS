@@ -37,7 +37,7 @@
              <h4 class="mb-0">
                  
      
-             <span class="no-padding center mt txt-sm">Total(<?php echo e($t_books); ?>)</span>
+             
              </h4>
              <p class="text-light">Books</p>
 
