@@ -28,47 +28,90 @@
         </ul>
     </div>
  @endif
- 
+ <link rel="stylesheet" href="{!! ('/css/memberlistcss.css') !!}">
+
+
  {!! Form::open(['id' => 'dataForm', 'url' => '/members', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
  <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                      <div class="form-group">
-                            {!!Form::label('membername', 'Member Name', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('membername',null, ['placeholder' => 'Member  Name', 'class' => 'form-control' ])!!}
-                      </div>
 
-                          <div class="form-group"><label class="">Gender</label>
-                         {!! Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,array('class' => 'form-control')) !!}
-                         
+                        <div class="form-group">
+                              {!!Form::label('membername', 'Name', array('class' => 'form-control-label'))!!}
+                          <div class="iconic-input">
+                          <div class="input-group margin-bottom-sm">
+                          <span class="input-group-addon">
+                            <i class="fa fa-user"></i></span>
+                            {!!Form::text('membername',null, ['placeholder' => 'Name', 'class' => 'form-control' ])!!}
                           </div>
-
-                      <div class="form-group">
-                            {!!Form::label('contactnumber', 'Contact Number', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('contactnumber',null, ['placeholder' => 'Contact Number', 'class' => 'form-control' ])!!}
+                        </div>
                       </div>
 
-                      <div class="form-group">
-                            {!!Form::label('email', 'Email-Address', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('email',null, ['placeholder' => 'Email-Address', 'class' => 'form-control' ])!!}
-                      </div>
 
-                      <div class="form-group">
-                            {!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
-                      </div>
+                    <div class="form-group">
+                         {!!Form::label('gender', 'Gender', array('class' => 'form-control-label'))!!}
+                         <div class="iconic-input">
+                      <div class="input-group margin-bottom-sm">
+                      <span class="input-group-addon">
+                      <i class="fa fa-intersex custom"></i></span>
+                         {!! Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,array('class' => 'form-control')) !!}
+                         </div>
+							      </div>
+						    </div>
+						
 
-                      <div class="form-group">
-                            {!!Form::label('profession', 'Profession', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control' ])!!}
-                      </div>
+                       
+
+						<div class="form-group">
+									{!!Form::label('contactnumber', 'Contact Number', array('class' => 'form-control-label'))!!}	
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-phone-square"></i></span>
+									{!!Form::text('contactnumber',null, ['placeholder' => 'Contact Number', 'class' => 'form-control' ])!!}
+								</div>
+							</div>
+						</div>
+
+							<div class="form-group">
+									{!!Form::label('email', 'Email-Address', array('class' => 'form-control-label'))!!}
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-envelope"></i></span>
+									{!!Form::text('email',null, ['placeholder' => 'Email-Address', 'class' => 'form-control' ])!!}
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+								<i class="fa fa-id-card"></i></span>
+									{!!Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+									{!!Form::label('profession', 'Profession', array('class' => 'form-control-label'))!!}
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-user"></i></span>
+									{!!Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control' ])!!}
+								</div>
+							</div>
+						</div>
                       
                         
 
                       </div>
                     </div>
-</div>
+              </div>
             <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
@@ -76,58 +119,58 @@
 
 
 
-                          <div class="form-group"><label class="">Department</label>
+                        <div class="form-group">
+                            <label class="">Department</label>
+                           <div class="iconic-input">
+                        <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon">
+                          <i class="fa fa-building"></i></span>
                          {!! Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control')) !!}
-                         
-                          </div>
+                         </div>
+						          </div>
+                  </div>
 
-                         <div class="row form-group">
-                            <div class="col col-md-3"><label class="form-control-label">Check Subjects</label></div>
-                            <div class="col col-md-9">
-                              <div class="form-check-inline form-check">
-                                <label for="inline-checkbox1" class="form-check-label ">
-                                  <input type="checkbox" id="inline-checkbox1" name="subjects[]" value="bangla" class="form-check-input">Bangla 
-                                </label>
-                                <label for="inline-checkbox2" class="form-check-label ">
-                                  <input type="checkbox" id="inline-checkbox2" name="subjects[]" value="english" class="form-check-input">English 
-                                </label>
-                                <label for="inline-checkbox3" class="form-check-label ">
-                                  <input type="checkbox" id="inline-checkbox3" name="subjects[]" value="history" class="form-check-input">History
-                                </label>
-                              </div>
-                              <div class="form-check-inline form-check">
-                                <label for="inline-checkbox1" class="form-check-label ">
-                                  <input type="checkbox" id="inline-checkbox1" name="subjects[]" value="politics" class="form-check-input">Politics 
-                                </label>
-                                <label for="inline-checkbox2" class="form-check-label ">
-                                  <input type="checkbox" id="inline-checkbox2" name="subjects[]" value="technology" class="form-check-input">Technology 
-                                </label>
-                                <label for="inline-checkbox3" class="form-check-label ">
-                                  <input type="checkbox" id="inline-checkbox3" name="subjects[]" value="worldhumanity" class="form-check-input">World Humanity
-                                </label>
-                              </div>
-                            </div>
-                          </div>
+              <div class="form-group">
+							<label style="width:100%;">Check Subjects </label>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="subjects" type="checkbox" name="subjects[]" value="1" required="">Bangla							</label>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="subjects" type="checkbox" name="subjects[]" value="2" required="">English							</label>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="subjects" type="checkbox" name="subjects[]" value="3" required="">History							</label>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="subjects" type="checkbox" name="subjects[]" value="4" required="">Politics							</label>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="subjects" type="checkbox" name="subjects[]" value="5" required="">Technology							</label>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="subjects" type="checkbox" name="subjects[]" value="6" required="">World humanity							</label><br/>
 
-                          <div class="form-group">
-                            {!!Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('livingaddress',null, ['placeholder' => 'Living Address', 'class' => 'form-control' ])!!}
-                      </div>
+							</div>
+                  <br><br><br> 
+                  <div class="form-group">
+                      {!!Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                      <i class="fa fa-map-marker"></i></span>
+                      {!!Form::text('livingaddress',null, ['placeholder' => 'Living Address', 'class' => 'form-control' ])!!}
+                    </div>
+                  </div>
+                </div>
                           
                           
-								<div class="form-group">  
-                                
-									<div>
-                                    <label class="form-control-label">Upload Photo</label> <br>
-										
-									        	{{Form::file('photo')}}
-
-									</div>
-								
-									<div>
-                                        <br>
-								<img src="https://yourprogramming.com/library/images/localhost.jpg"  style="max-width: 100%;"></div>
-								</div>
+								<div class="form-group">                  
+                  <div class="row">
+									<label>Choose photo<br>
+									<label for="phto" class="custom-file-upload" style="display: inline-block;">
+										<i class="fa fa-cloud-upload"></i> Upload Photo
+									</label>
+									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
+                </label>
+              </div>
+            </div>
+								<br>
+	
                       </div>
 
                      <div class="card-footer">

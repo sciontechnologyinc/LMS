@@ -36,10 +36,19 @@
                       <div class="row form-group">
                             <div class="col col-md-12">
 
-                              <div class="input-group">
-                              <?php echo Form::text('categoryname',$category->categoryname, ['placeholder' => 'Name of Category', 'class' => 'form-control col-lg-8 offset-1']); ?>
+                          <div class="form-group">
+							<div class="form-group col-md-6 offset-2">
+								<?php echo Form::label('categoryname', 'Category Name', array('class' => 'form-control-label')); ?>
 
-                                </div>
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+                                <i class="fa fa-list-alt"></i></span>
+									<?php echo Form::text('categoryname',$category->categoryname, ['placeholder' => 'Category Name', 'class' => 'form-control col-lg-12' ]); ?>
+
+								</div>
+							</div>
+						</div>
 
                                 <br>
                                 <?php echo Form::submit('Update Category', ['class' => 'btn btn-primary  col-lg-2 offset-8']); ?>

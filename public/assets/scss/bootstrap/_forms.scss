@@ -228,8 +228,8 @@ select.form-control-lg {
 .form-check-inline {
   display: inline-flex;
   align-items: center;
-  padding-left: 0; // Override base .form-check
-  margin-right: $form-check-inline-margin-x;
+  margin-left: -33px;
+
 
   // Undo .form-check-input defaults and add some `margin-right`.
   .form-check-input {

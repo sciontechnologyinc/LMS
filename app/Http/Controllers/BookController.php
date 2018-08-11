@@ -24,6 +24,9 @@ class BookController extends Controller
      */
     public function index()
     {
+
+        
+        
 	    $books = Book::orderBy('id')->get();
         return view('books.index', ['books' => $books]);
 
@@ -31,6 +34,8 @@ class BookController extends Controller
         $books = DB::table('books')->count();
         return view('books.index', ['books' => $books]);
     }
+
+ 
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +60,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-
+     
 
         $data = $request->validate([
             'bookname' => 'required',

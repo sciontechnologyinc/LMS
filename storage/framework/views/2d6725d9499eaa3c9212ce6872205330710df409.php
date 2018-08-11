@@ -35,36 +35,79 @@
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                      <div class="form-group">
+
+                     <div class="form-group">
                       <?php echo Form::label('Book Name', 'Book Name', array('class' => 'form-control-label')); ?>
 
-                      <?php echo Form::text('bookname',null, ['placeholder' => 'bookname', 'class' => 'form-control']); ?>
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-book"></i></span>
+                      <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control']); ?>
 
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Book ISBN No</label>
-                      <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
+                    </div>
+                </div>
+             </div>
 
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Available book number</label>
-                      <?php echo Form::text('booknumber',null, ['placeholder' => 'book number', 'class' => 'form-control']); ?>
+                   <div class="form-group">
+                      <?php echo Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label')); ?>
 
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Book Price</label>
-                      <?php echo Form::text('bookprice',null, ['placeholder' => 'P 00.00', 'class' => 'form-control']); ?>
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-undo"></i></span>
+                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
 
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Writer Name</label>
-                      <?php echo Form::text('writername',null, ['placeholder' => 'writername', 'class' => 'form-control']); ?>
+                    </div>
+                </div>
+             </div>
 
-                      </div>
-                      
+                    <div class="form-group">
+                      <?php echo Form::label('Available book number', 'Available book number', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-book"></i></span>
+                    <?php echo Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
+             <div class="form-group">
+                      <?php echo Form::label('Book Price', 'Book Price', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-money"></i></span>
+                    <?php echo Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
+                <div class="form-group">
+                      <?php echo Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-user"></i></span>
+                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+    
                       <div class="form-group">
                             <i class="material-icons prefix"></i>
                             <label>Category :</label>
                                 <select name="category">
                                     <option value="" disabled <?php echo e(old('category') ? '' : 'selected'); ?>>Choose a category</option>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>" <?php echo e(old('category') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></option>
+                                        <option value="<?php echo e($category->categoryname); ?>" <?php echo e(old('category') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                       </div>
@@ -98,13 +141,7 @@
                           <?php echo Form::textarea('details',null, ['placeholder' => 'details', 'class' => 'form-control']); ?>
 
                           </div>
-                              <label for="inline-checkbox3" class="form-check-label ">Status</label>
-                                <select class="standardSelect form-control" tabindex="1" name="status">
-                                    <option value="" selected disabled hidden>Availability</option>
-                                    <option value="available">Available</option>
-                                    <option value="unavailable">Unavailable</option>
-                                </select>
-                      </div>
+  
 
                      <div class="card-footer">
                      <?php echo Form::submit('Create Books', ['class' => 'btn btn-primary']); ?>

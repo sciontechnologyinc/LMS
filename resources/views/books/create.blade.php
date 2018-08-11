@@ -36,30 +36,69 @@
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                      <div class="form-group">
+
+                     <div class="form-group">
                       {!!Form::label('Book Name', 'Book Name', array('class' => 'form-control-label'))!!}
-                      {!!Form::text('bookname',null, ['placeholder' => 'bookname', 'class' => 'form-control'])!!}
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Book ISBN No</label>
-                      {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control'])!!}
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Available book number</label>
-                      {!!Form::text('booknumber',null, ['placeholder' => 'book number', 'class' => 'form-control'])!!}
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Book Price</label>
-                      {!!Form::text('bookprice',null, ['placeholder' => 'P 00.00', 'class' => 'form-control'])!!}
-                      </div>
-                      <div class="form-group"><label class="form-control-label">Writer Name</label>
-                      {!!Form::text('writername',null, ['placeholder' => 'writername', 'class' => 'form-control'])!!}
-                      </div>
-                      
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-book"></i></span>
+                      {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
+                   <div class="form-group">
+                      {!!Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-undo"></i></span>
+                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
+                    <div class="form-group">
+                      {!!Form::label('Available book number', 'Available book number', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-book"></i></span>
+                    {!!Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
+             <div class="form-group">
+                      {!!Form::label('Book Price', 'Book Price', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-money"></i></span>
+                    {!!Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
+                <div class="form-group">
+                      {!!Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-user"></i></span>
+                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+    
                       <div class="form-group">
                             <i class="material-icons prefix"></i>
                             <label>Category :</label>
                                 <select name="category">
                                     <option value="" disabled {{ old('category') ? '' : 'selected' }}>Choose a category</option>
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}" {{ old('category') ? 'selected' : '' }}>{{$category->categoryname}}</option>
+                                        <option value="{{$category->categoryname}}" {{ old('category') ? 'selected' : '' }}>{{$category->categoryname}}</option>
                                     @endforeach
                                 </select>
                       </div>
@@ -89,13 +128,7 @@
                            <div class="form-group"><label class="form-control-label">Details</label>
                           {!!Form::textarea('details',null, ['placeholder' => 'details', 'class' => 'form-control'])!!}
                           </div>
-                              <label for="inline-checkbox3" class="form-check-label ">Status</label>
-                                <select class="standardSelect form-control" tabindex="1" name="status">
-                                    <option value="" selected disabled hidden>Availability</option>
-                                    <option value="available">Available</option>
-                                    <option value="unavailable">Unavailable</option>
-                                </select>
-                      </div>
+  
 
                      <div class="card-footer">
                      {!!Form::submit('Create Books', ['class' => 'btn btn-primary']) !!}

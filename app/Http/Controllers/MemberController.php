@@ -19,7 +19,11 @@ class MemberController extends Controller
 	    $members = Member::orderBy('id')->get();
         return view('members.index', ['members' => $members]);
     }
-
+    public function member()
+    {
+	    $members = Member::orderBy('id')->get();
+        return view('members.edit', ['members' => $members]);
+    }
     /**
      * Show the form for creating a new resource.
      *
