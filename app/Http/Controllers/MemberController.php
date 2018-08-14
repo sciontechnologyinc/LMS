@@ -6,6 +6,10 @@ use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use function Psy\debug;
+use Image;
+use Storage;
+use Purifier;
+
 
 class MemberController extends Controller
 {
@@ -126,7 +130,48 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $member = Member::find($id);
-        $data = $request->all();
+        $data = $request->validate([
+            'membername' => 'required',
+            'gender' => 'required',
+            'contactnumber' => 'required',
+            'email' => 'required',
+            'LRN' => 'required',
+            'profession' => 'required',
+            'department' => 'required',
+            'subjects' => 'required',
+            'livingaddress' => 'required',
+            'photo' => 'image|nullable|max:1999'
+
+            
+        ]);
+            $member->membername =$request->input('membername');
+            $member->gender =$request->input('gender');
+            $member->contactnumber =$request->input('contactnumber');
+            $member->email =$request->input('email');
+            $member->LRN =$request->input('LRN');
+            $member->profession =$request->input('profession'); 
+            $member->department =$request->input('department');
+            $member->subjects =$request->input('subjects');
+            $member->livingaddress =$request->input('livingaddress');
+
+            if($request->hasFile('photo')){
+
+                $image = $request->file('photo');
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                $location = storage_path('public/' . $filename);
+            
+                $oldFilename = $member->photo;
+
+                $member->photo = $filename;
+
+                Storage::delete($oldFilename);
+
+            }
+
+
+
+
+        
         $member->update($data);
 
 	    Session::flash('success', $member['membername'] . ' updated successfully');

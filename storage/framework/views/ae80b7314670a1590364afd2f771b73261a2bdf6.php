@@ -134,7 +134,7 @@
                            <div class="iconic-input">
                         <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon">
-                          <i class="fa fa-building"></i></span>
+                        <i class="fa fa-bank"></i></span>
                          <?php echo Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control')); ?>
 
                          </div>

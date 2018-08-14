@@ -30,7 +30,7 @@
  @endif
  <link rel="stylesheet" href="{!! ('/css/memberlistcss.css') !!}">
 
- {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/members/' . $member->id ]) !!}
+ {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/members/' . $member->id, 'files' => true]) !!}
 
  <div class="wrapper" style="min-height: 450px;">
             
@@ -47,7 +47,7 @@
 									<label for="phto" class="custom-file-uploads" style="display: inline-block;">
 										<i class="fa fa-camera pointer text-primary"></i> <small>Choose Photo</small>
 									</label>
-									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
+									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg" value="{{$member->photo}}">
 									</label>
 						
 
@@ -71,11 +71,11 @@
 							</li>
 							<li>
 								<div class="title">Profession</div>
-								<div class="desk">student</div>
+								<div class="desk">{{ $member->profession  }}</div>
 							</li>
 							<li>
 								<div class="title">Department</div>
-								<div class="desk">Political Science</div>
+								<div class="desk">{{ $member->department  }}</div>
 							</li>
 							<li>
 								<div class="title">Book issued</div>
@@ -99,7 +99,7 @@
 				<div class="panel">
 					<div class="panel-body pbody-media">
 						<div class="profile-desk">
-							<h3>pravanjan nayak <small>[ student ] [ Political Science ]</small></h3>
+							<h3>{{ $member->membername  }} <small>[ {{ $member->profession  }} ] [ {{ $member->department  }}  ]</small></h3>
               <span class="designation">Chosen subjects are: Technology <b class="text-danger">|</b> </span><br>
               <br><br>
 							<p>Update your info <span class="fa fa-arrow-down"></span></p><br>
@@ -172,6 +172,17 @@
 							</div>
 						</div>
 
+							<div class="form-group">
+									{!!Form::label('Department', 'Department', array('class' => 'form-control-label'))!!}
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+								<i class="fa fa-bank"></i></span>
+									{!!Form::text('department',$member->department, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
+								</div>
+							</div>
+						</div>
+
 						<div class="form-group">
 									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
@@ -186,17 +197,17 @@
 						<div class="form-group">
 								<label style="width:100%;">Subjects</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects[]" value="{{$member->id}}">Math</label>
+									<input type="checkbox" name="subjects" value="{{$member->id}}">Math</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects[]" value="{{$member->id}}">English</label>
+									<input type="checkbox" name="subjects" value="{{$member->id}}">English</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects[]" value="{{$member->id}}">History</label>
+									<input type="checkbox" name="subjects" value="{{$member->id}}">History</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects[]" value="{{$member->id}}">Politics</label>
+									<input type="checkbox" name="subjects" value="{{$member->id}}">Politics</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects[]" checked="" value="5">Technology</label>
+									<input type="checkbox" name="subjects"  value="{{$member->id}}">Technology</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects[]" checked="" value="6">World Humanity</label>
+									<input type="checkbox" name="subjects"  value="{{$member->id}}">World Humanity</label>
 						</div>
 				
 						
