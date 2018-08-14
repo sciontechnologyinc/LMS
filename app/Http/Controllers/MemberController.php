@@ -144,6 +144,25 @@ class MemberController extends Controller
 
             
         ]);
+
+            if($request->hasFile('photo')){
+            
+                $filenameWithExt = $request->file('photo')->getClientOriginalName();
+    
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+    
+                $extension = $request->file('photo')->getClientOriginalExtension();
+    
+                $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                
+                $path = $request->file('photo')->storeAs('public/uploads', $fileNameToStore);
+            }else{
+                $fileNameToStore = 'noimage.jpg';
+            }
+
+
+            $member->update($data);
+                       
             $member->membername =$request->input('membername');
             $member->gender =$request->input('gender');
             $member->contactnumber =$request->input('contactnumber');
@@ -153,26 +172,9 @@ class MemberController extends Controller
             $member->department =$request->input('department');
             $member->subjects =$request->input('subjects');
             $member->livingaddress =$request->input('livingaddress');
-
-            if($request->hasFile('photo')){
-
-                $image = $request->file('photo');
-                $filename = time() . '.' . $image->getClientOriginalExtension();
-                $location = storage_path('public/' . $filename);
-            
-                $oldFilename = $member->photo;
-
-                $member->photo = $filename;
-
-                Storage::delete($oldFilename);
-
-            }
-
-
-
-
+            $member->photo = $fileNameToStore;
+            $member->save();
         
-        $member->update($data);
 
 	    Session::flash('success', $member['membername'] . ' updated successfully');
         return redirect('/members');
