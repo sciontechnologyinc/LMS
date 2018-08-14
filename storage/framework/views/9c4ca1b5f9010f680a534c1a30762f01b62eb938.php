@@ -9,6 +9,25 @@
 <?php $__env->startSection('title','Category list'); ?>
  
  <?php $__env->startSection('content'); ?>
+ 
+ <?php if($message = Session::get('success')): ?>
+    <div class="alert alert-success">
+        <p><?php echo e($message); ?></p>
+    </div>
+<?php endif; ?>
+
+ <?php if(count($errors) > 0 ): ?>
+    <div class="alert alert-danger">
+        <strong>Whoooppss !!</strong> There were some problem with your input. <br>
+        <ul>
+          <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li> <?php echo e($error); ?> </li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+    </div>
+ <?php endif; ?>
+
+ <span class="alert-danger"><?php echo e($errors->first('deleteForm')); ?></span>
 
     <a class="btn btn-primary col-lg-2 offset-9" href="<?php echo e(url('create')); ?>" style="margin-bottom: 10px;">Create New</a>
 

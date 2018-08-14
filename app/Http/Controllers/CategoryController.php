@@ -51,6 +51,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+         $category = $request->all();
          $data = $request->validate([
             'categoryname' => 'required',
 
@@ -58,8 +59,8 @@ class CategoryController extends Controller
         ]);
         Category::create($data);
 
-	    Session::flash('success', $data['categoryname'] . ' added successfully');
-	    return redirect()->back()->with('success','Added successfuly');
+	    Session::flash('success', $category['categoryname'] . ' Added successfully');
+        return redirect('/categories')->with('success','Added successfuly');
     }
 
     /**
@@ -98,8 +99,8 @@ class CategoryController extends Controller
         $data = $request->all();
         $category->update($data);
 
-	    Session::flash('success', $category['categoryname'] . ' updated successfully');
-        return redirect()->back()->with('success','Added successfuly');
+	    Session::flash('success', $category['categoryname'] . ' Updated successfully');
+        return redirect('/categories')->with('success','Updated successfuly');
     }
 
     /**
@@ -113,7 +114,7 @@ class CategoryController extends Controller
 	    $category = Category::find($id);
 	    $category->destroy($id);
 
-	    Session::flash('success', $category['categoryname'] . ' deleted successfully');
-	    return redirect()->back()->with('success','Added successfuly');
+	    Session::flash('success', $category['categoryname'] . ' Deleted successfully');
+	    return redirect()->back()->with('success','Deleted successfuly');
     }
 }

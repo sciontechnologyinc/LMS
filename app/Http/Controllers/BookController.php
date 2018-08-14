@@ -61,25 +61,38 @@ class BookController extends Controller
     public function store(Request $request)
     {
      
-
+        $book = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
             'ISBN' => 'required',
-            'booknumber' => 'required',
-            'bookprice' => 'required',
+            'booknumber' => 'required|numeric',
+            'bookprice' => 'required|numeric',
             'writername' => 'required',
             'category' => 'required',
             'status' => 'required',
             'booktype' => 'required',
             'bookcondition' => 'required',
             'details' => 'required',
+            
 
             
+        ],[
+            'bookname.required' => ' The book name field is required.',
+            'ISBN.required' => ' The ISBN field is required.',
+            'booknumber.required' => ' The book number field is required.',
+            'bookprice.required' => ' The book price field is required.',
+            'writername.required' => ' The writer name field is required.',
+            'category.required' => ' The category  field is required.',
+            'status.required' => ' The status  field is required.',
+            'booktype.required' => ' The book type field is required.',
+            'bookcondition.required' => ' The book condition field is required.',
+            'details.required' => ' The details field is required.',
+
         ]);
 	    Book::create($data);
 
-	    Session::flash('success', $data['bookname'] . ' added successfully');
-	    return redirect()->back()->with('success','Added successfuly');
+	    Session::flash('success', $book['bookname'] . ' Added successfully');
+        return redirect('/books')->with('success','Added successfuly');
     }
 
     /**
@@ -121,8 +134,8 @@ class BookController extends Controller
         $data = $request->all();
         $book->update($data);
 
-	    Session::flash('success', $book['bookname'] . ' updated successfully');
-        return redirect()->back()->with('success','Added successfuly');
+	    Session::flash('success', $book['bookname'] . ' Updated successfully');
+        return redirect('/books')->with('success','Updated successfuly');
     }
 
     /**
@@ -136,7 +149,7 @@ class BookController extends Controller
 	    $book = Book::find($id);
 	    $book->destroy($id);
 
-	    Session::flash('success', $book['bookname'] . ' deleted successfully');
-	    return redirect()->back()->with('success','Added successfuly');
+	    Session::flash('success1', $book['bookname'] . ' Deleted successfully');
+	    return redirect()->back()->with('success1','Deleted successfuly');
     }
 }

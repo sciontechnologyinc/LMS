@@ -6,12 +6,18 @@
     <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('title','Add Book list'); ?>
+<?php $__env->startSection('title','Add Books'); ?>
  
  <?php $__env->startSection('content'); ?>
 
  <?php if($message = Session::get('success')): ?>
     <div class="alert alert-success">
+        <p><?php echo e($message); ?></p>
+    </div>
+<?php endif; ?>
+
+<?php if($message = Session::get('unsuccess')): ?>
+    <div class="alert alert-danger">
         <p><?php echo e($message); ?></p>
     </div>
 <?php endif; ?>
@@ -36,7 +42,7 @@
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
 
-                     <div class="form-group">
+                     <div class="form-group <?php echo e($errors->has('firstname') ? 'has-error' : ''); ?>">
                       <?php echo Form::label('Book Name', 'Book Name', array('class' => 'form-control-label')); ?>
 
                     <div class="iconic-input">
@@ -45,7 +51,9 @@
                     <i class="fa fa-book"></i></span>
                       <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control']); ?>
 
+                     
                     </div>
+                    <span class="text-danger"><?php echo e($errors->first('bookname')); ?></span>
                 </div>
              </div>
 
@@ -59,6 +67,7 @@
                     <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
 
                     </div>
+                    <span class="text-danger"><?php echo e($errors->first('ISBN')); ?></span>
                 </div>
              </div>
 
@@ -72,6 +81,7 @@
                     <?php echo Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control']); ?>
 
                     </div>
+                    <span class="text-danger"><?php echo e($errors->first('booknumber')); ?></span>
                 </div>
              </div>
 
@@ -85,6 +95,7 @@
                     <?php echo Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control']); ?>
 
                     </div>
+                    <span class="text-danger"><?php echo e($errors->first('bookprice')); ?></span>
                 </div>
              </div>
 
@@ -98,6 +109,7 @@
                     <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control']); ?>
 
                     </div>
+                    <span class="text-danger"><?php echo e($errors->first('writername')); ?></span>
                 </div>
              </div>
     
@@ -111,6 +123,7 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                       </div>
+                      <span class="text-danger"><?php echo e($errors->first('category')); ?></span>
                       </div>
                     </div>
                      
@@ -124,23 +137,27 @@
                          <?php echo Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')); ?>
 
                           </div>
+                          <span class="text-danger"><?php echo e($errors->first('status')); ?></span>
                               
                           <div class="form-group"><label class="">Book Type</label>
                          <?php echo Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control')); ?>
 
                           <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
                           </div>
+                          <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
 
                           <div class="form-group"><label class="">Book Condition</label>
                          <?php echo Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control')); ?>
 
                           <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
                           </div>
+                          <span class="text-danger"><?php echo e($errors->first('bookcondition')); ?></span>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          <?php echo Form::textarea('details',null, ['placeholder' => 'details', 'class' => 'form-control']); ?>
+                          <?php echo Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control']); ?>
 
                           </div>
+                          <span class="text-danger"><?php echo e($errors->first('details')); ?></span>
   
 
                      <div class="card-footer">

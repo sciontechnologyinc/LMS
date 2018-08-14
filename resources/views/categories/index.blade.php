@@ -11,6 +11,25 @@
 @section('title','Category list')
  
  @section('content')
+ 
+ @if($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+@endif
+
+ @if(count($errors) > 0 )
+    <div class="alert alert-danger">
+        <strong>Whoooppss !!</strong> There were some problem with your input. <br>
+        <ul>
+          @foreach($errors->all() as $error)
+              <li> {{ $error }} </li>
+          @endforeach
+        </ul>
+    </div>
+ @endif
+
+ <span class="alert-danger">{{ $errors->first('deleteForm') }}</span>
 
     <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('create') }}" style="margin-bottom: 10px;">Create New</a>
 

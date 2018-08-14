@@ -12,7 +12,23 @@
  
  @section('content')
 
+ @if($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+@endif
 
+ @if(count($errors) > 0 )
+    <div class="alert alert-danger">
+        <strong>Whoooppss !!</strong> There were some problem with your input. <br>
+        <ul>
+          @foreach($errors->all() as $error)
+              <li> {{ $error }} </li>
+          @endforeach
+        </ul>
+    </div>
+ @endif
+ 
     <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('books.create') }}" style="margin-bottom: 10px;">Create New</a>
 
    <div class="col-md-12">

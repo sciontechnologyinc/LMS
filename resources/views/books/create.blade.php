@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Add Book list')
+@section('title','Add Books')
  
  @section('content')
 
@@ -17,6 +17,13 @@
         <p>{{ $message }}</p>
     </div>
 @endif
+
+ @if($message = Session::get('success1'))
+    <div class="alert alert-danger">
+        <p>{{ $message }}</p>
+    </div>
+@endif
+
 
  @if(count($errors) > 0 )
     <div class="alert alert-danger">
@@ -37,14 +44,16 @@
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
 
-                     <div class="form-group">
+                     <div class="form-group {{ $errors->has('firstname') ? 'has-error' : '' }}">
                       {!!Form::label('Book Name', 'Book Name', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
                       {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control'])!!}
+                     
                     </div>
+                    <span class="text-danger">{{ $errors->first('bookname') }}</span>
                 </div>
              </div>
 
@@ -56,6 +65,7 @@
                     <i class="fa fa-undo"></i></span>
                     {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control'])!!}
                     </div>
+                    <span class="text-danger">{{ $errors->first('ISBN') }}</span>
                 </div>
              </div>
 
@@ -67,6 +77,7 @@
                     <i class="fa fa-book"></i></span>
                     {!!Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control'])!!}
                     </div>
+                    <span class="text-danger">{{ $errors->first('booknumber') }}</span>
                 </div>
              </div>
 
@@ -78,6 +89,7 @@
                     <i class="fa fa-money"></i></span>
                     {!!Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control'])!!}
                     </div>
+                    <span class="text-danger">{{ $errors->first('bookprice') }}</span>
                 </div>
              </div>
 
@@ -89,6 +101,7 @@
                     <i class="fa fa-user"></i></span>
                     {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
                     </div>
+                    <span class="text-danger">{{ $errors->first('writername') }}</span>
                 </div>
              </div>
     
@@ -102,6 +115,7 @@
                                     @endforeach
                                 </select>
                       </div>
+                      <span class="text-danger">{{ $errors->first('category') }}</span>
                       </div>
                     </div>
                      
@@ -114,20 +128,24 @@
                          <label class="form-control-label">Status</label>
                          {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')) !!}
                           </div>
+                          <span class="text-danger">{{ $errors->first('status') }}</span>
                               
                           <div class="form-group"><label class="">Book Type</label>
                          {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control')) !!}
                           <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
                           </div>
+                          <span class="text-danger">{{ $errors->first('booktype') }}</span>
 
                           <div class="form-group"><label class="">Book Condition</label>
                          {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control')) !!}
                           <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
                           </div>
+                          <span class="text-danger">{{ $errors->first('bookcondition') }}</span>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',null, ['placeholder' => 'details', 'class' => 'form-control'])!!}
+                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control'])!!}
                           </div>
+                          <span class="text-danger">{{ $errors->first('details') }}</span>
   
 
                      <div class="card-footer">
