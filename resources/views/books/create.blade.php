@@ -50,7 +50,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                      {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control'])!!}
+                      {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control', 'required' => ''])!!}
                      
                     </div>
                     <span class="text-danger">{{ $errors->first('bookname') }}</span>
@@ -58,12 +58,12 @@
              </div>
 
                    <div class="form-group">
-                      {!!Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label'))!!}
+                      {!!Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label' ))!!}
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control'])!!}
+                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('ISBN') }}</span>
                 </div>
@@ -75,7 +75,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    {!!Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control'])!!}
+                    {!!Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('booknumber') }}</span>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    {!!Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control'])!!}
+                    {!!Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('bookprice') }}</span>
                 </div>
@@ -99,7 +99,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
+                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('writername') }}</span>
                 </div>
@@ -126,24 +126,24 @@
                       <div class="card-body card-block">
                          <div class="form-group">
                          <label class="form-control-label">Status</label>
-                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')) !!}
+                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control', 'required' => '')) !!}
                           </div>
                           <span class="text-danger">{{ $errors->first('status') }}</span>
                               
                           <div class="form-group"><label class="">Book Type</label>
-                         {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control')) !!}
+                         {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control', 'required' => '')) !!}
                           <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
                           </div>
                           <span class="text-danger">{{ $errors->first('booktype') }}</span>
 
                           <div class="form-group"><label class="">Book Condition</label>
-                         {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control')) !!}
+                         {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control', 'required' => '')) !!}
                           <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
                           </div>
                           <span class="text-danger">{{ $errors->first('bookcondition') }}</span>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control'])!!}
+                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control', 'required' => ''])!!}
                           </div>
                           <span class="text-danger">{{ $errors->first('details') }}</span>
   

@@ -19,6 +19,7 @@ Route::get('create', function () {
 
 Route::resource('categories','CategoryController');
 
+
 Route::get('', function () {
     return view('welcome');
 });
@@ -33,10 +34,6 @@ Route::get('addmembers', function () {
 
 Route::resource('members','MemberController');
 
-
-Route::get('bookissue', function () {
-    return view('admin.pages.bookissue');
-});
 
 Route::get('generalsettings', function () {
     return view('admin.pages.generalsettings');
@@ -60,7 +57,12 @@ Route::get('lms', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-;
+
+Route::get('addterms', function () {
+    return view('terms.create');
+});
+
+Route::resource('terms','TermController');
 
 
 

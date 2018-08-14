@@ -59,8 +59,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Terms & Condition</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus"></i><a href="#.">Add New Terms</a></li>
-                            <li><i class="menu-icon fa fa-eye"></i><a href="#">View Terms</a></li>
+                            <li><i class="menu-icon fa fa-plus"></i><a href="<?php echo e(url('addterms')); ?>">Add New Terms</a></li>
+                            <li><i class="menu-icon fa fa-eye"></i><a href="<?php echo e(url('terms')); ?>">View Terms</a></li>
                         </ul>
                     </li>
                     <li>
