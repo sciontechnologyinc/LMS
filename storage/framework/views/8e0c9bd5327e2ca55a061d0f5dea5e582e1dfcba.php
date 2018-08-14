@@ -36,11 +36,11 @@
                               </div>
                               <div class="row-2">
                               <center>
-                              <div class="form-group" style="display:inline-flex">
-                              <a class="btn btn-sm mr-1" href="members/<?php echo $member->id; ?>/edit"><i class="fa fa-edit">&nbsp;Edit</i></a>
-                                  <?php echo Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]); ?>
+                                <div class="form-group" style="display:inline-flex">
+                                 <a class="btn btn-sm mr-1" href="members/<?php echo $member->id; ?>/edit"><span class="fa fa-edit">&nbsp;Edit</span></a>
+                                  <?php echo Form::open(['class' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]); ?>
 
-                                  <?php echo e(Form::button('<i class="fa fa-trash">Delete</i>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )); ?>
+                                  <?php echo e(Form::button('<span class="fa fa-trash">&nbsp;Delete</span>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )); ?>
 
                                   <?php echo Form::close(); ?>
 

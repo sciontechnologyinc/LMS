@@ -51,13 +51,17 @@
     .col-sm-4.edit-btn:hover {
         cursor: pointer;
         color: #007f00;
+
     }
     
     .col-sm-4.delete-btn:hover {
         cursor: pointer;
         color: rgba(207, 0, 0, 0.808);
     }
-    
+
+    .delete-btn{
+        color:#a94442;
+    }
     .col-sm-4.details-btn:hover {
         cursor: pointer;
         color: #086f9e;
@@ -173,6 +177,8 @@
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
+        border: none;
+        background: none;
     }
     
     .modal-header {
@@ -274,6 +280,7 @@
         background-image: none;
         border: 1px solid transparent;
         border-radius: 4px;
+        color: #65CEA7;
     }
     
     .bg-info {

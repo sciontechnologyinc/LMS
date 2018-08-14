@@ -38,10 +38,10 @@
                               </div>
                               <div class="row-2">
                               <center>
-                              <div class="form-group" style="display:inline-flex">
-                              <a class="btn btn-sm mr-1" href="members/{!! $member->id !!}/edit"><i class="fa fa-edit">&nbsp;Edit</i></a>
-                                  {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]) !!}
-                                  {{ Form::button('<i class="fa fa-trash">Delete</i>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )  }}
+                                <div class="form-group" style="display:inline-flex">
+                                 <a class="btn btn-sm mr-1" href="members/{!! $member->id !!}/edit"><span class="fa fa-edit">&nbsp;Edit</span></a>
+                                  {!! Form::open(['class' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]) !!}
+                                  {{ Form::button('<span class="fa fa-trash">&nbsp;Delete</span>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )  }}
                                   {!! Form::close() !!}
                               
                                   </div>
