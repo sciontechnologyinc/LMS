@@ -395,3 +395,12 @@ input.contactmessagefield {
     font-size: 20px;
 }
 
+h5#exampleModalLabel {
+    color: #16a085 !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+
+button.btn.btn-secondary {
+    background: #16a085;
+}
