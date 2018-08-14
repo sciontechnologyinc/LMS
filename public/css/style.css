@@ -226,6 +226,7 @@ a.nav-link {
 
 a.navbar-brand {
     color: white !important;
+    display:none;
 }
 
 .links>a:hover {
