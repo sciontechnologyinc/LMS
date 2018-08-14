@@ -144,17 +144,17 @@
               <div class="form-group">
 							<label style="width:100%;">Check Subjects </label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="1" >Bangla							</label>
+								<input class="subjects" type="checkbox" name="subjects[]" value="Math" >Math							</label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="2" >English							</label>
+								<input class="subjects" type="checkbox" name="subjects[]" value="English" >English							</label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="3">History							</label>
+								<input class="subjects" type="checkbox" name="subjects[]" value="History">History							</label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="4" >Politics							</label>
+								<input class="subjects" type="checkbox" name="subjects[]" value="Politics" >Politics							</label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="5" >Technology							</label>
+								<input class="subjects" type="checkbox" name="subjects[]" value="Technology" >Technology							</label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="6" >World humanity							</label><br/>
+								<input class="subjects" type="checkbox" name="subjects[]" value="World humanity" >World humanity							</label><br/>
 
 							</div>
                   <br><br><br> 

@@ -170,14 +170,12 @@ class MemberController extends Controller
             $member->LRN =$request->input('LRN');
             $member->profession =$request->input('profession'); 
             $member->department =$request->input('department');
-            $member->subjects =$request->input('subjects');
             $member->livingaddress =$request->input('livingaddress');
             $member->photo = $fileNameToStore;
             $member->save();
         
 
-	    Session::flash('success', $member['membername'] . ' updated successfully');
-        return redirect('/members');
+	    return redirect()->back()->with('success','Updated successfuly');
     }
 
     /**

@@ -41,7 +41,7 @@
 					<div class="panel-body">
 
 							<div class="profile-pic text-center">
-							<img alt="Logger" type="file" class="photo" src= "/storage/uploads/<?php echo e($member->photo); ?>"><br>
+							<img alt="Logger" type="file" class="photo" src= "<?php echo e(asset($member->photo)); ?>"><br>
 							<label class="pointer text-primary"> 
 									<label for="phto" class="custom-file-uploads" style="display: inline-block;">
 										<i class="fa fa-camera pointer text-primary"></i> <small>Choose Photo</small>
@@ -99,7 +99,7 @@
 					<div class="panel-body pbody-media">
 						<div class="profile-desk">
 							<h3><?php echo e($member->membername); ?> <small>[ <?php echo e($member->profession); ?> ] [ <?php echo e($member->department); ?>  ]</small></h3>
-              <span class="designation">Chosen subjects are: Technology <b class="text-danger">|</b> </span><br>
+              <span class="designation">Chosen subjects are: <?php echo e($member->subjects); ?> <b class="text-danger">|</b> </span><br>
               <br><br>
 							<p>Update your info <span class="fa fa-arrow-down"></span></p><br>
 
