@@ -44,7 +44,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #040403;
+    background-color: #080d13;
     color: white;
     text-align: center;
  }
@@ -281,6 +281,11 @@ input.contactmessagefield {
     padding-bottom: 25px;
 }
 
+.contact1 {
+    display: inline-block;
+    margin: 25px;
+}
+
 .contact-school {
     padding-top: 20px;
 }
@@ -366,23 +371,23 @@ input.contactmessagefield {
 }
 
 .about-mission {
-    background: #040403;
+    background: #1e334d;
     color: whitesmoke;
     float: unset;
     padding: 10px;
     font-size: 30px;
     font-weight: bold;
-    font-family: initial;
+    font-family: 'Raleway', sans-serif;
 }
 
 .about-vision {
-    background: #040403;
+    background: #1e334d;
     color: whitesmoke;
     float: unset;
     padding: 10px;
     font-size: 30px;
     font-weight: bold;
-    font-family: initial;
+    font-family: 'Raleway', sans-serif;
 }
 
 .about-missiondesc {
