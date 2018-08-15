@@ -1,0 +1,301 @@
+.mail-box {
+    border-spacing: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+.mail-box > aside {
+    display: table-cell;
+    float: none;
+    height: 100%;
+    vertical-align: top;
+}
+.mail-nav-bg-color {
+    background: #d1d5e1;
+}
+.mail-nav-body {
+    padding: 15px;
+}
+.mail-nav {
+
+    width: 240px;
+}
+
+.mail-box-info {
+    position: relative;
+    background: #fff;
+    padding: 15px;
+}
+
+.mail-box-info .mail-list {
+    margin-top: 30px;
+}
+
+.mail-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.compose-mail {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+.text-center {
+    text-align: center;
+}
+
+.compose-mail .form-group {
+    border: 1px solid #eaebee;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.compose-mail .form-group label {
+    line-height: 34px;
+    width: 10%;
+    float: left;
+    padding-left: 10px;
+    margin-bottom: 0;
+    background: #eaebee;
+    margin-right: 10px;
+    font-weight: normal;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.compose-mail input, .compose-mail input:focus {
+    border: none;
+    padding: 0;
+    width: 80%;
+    float: left;
+}
+.form-control {
+    box-shadow: none;
+    display: block;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+.compose-editor {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 100%;
+}
+.compose-editor textarea {
+    border-color: #eaebee;
+}
+textarea.form-control {
+    height: auto;
+}
+.compose-btn {
+    float: left;
+}
+.btn-primary {
+    background-color: #424F63;
+    border-color: #374152;
+    color: #FFFFFF;
+}
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+ h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.mail-nav h4 {
+    margin: 0;
+    padding: 15px;
+    background: #5c6e8a;
+    color: #fff;
+}
+ header {
+    display: block;
+ }
+ .wrapper {
+    padding: 15px;
+}
+.compose-mail .form-group label {
+    line-height: 34px;
+    width: 10%;
+    float: left;
+    padding-left: 10px;
+    margin-bottom: 0;
+    background: #e1e4ec;
+    margin-right: 10px;
+}
+.col-md-12{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+}
+.panel-group {
+    margin-bottom: 20px;
+}
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 4px;
+}
+.panel-heading.dark {
+    background: #353F4F;
+    color: #fff;
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-heading{
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+}
+.panel-title>a {
+    color: inherit;
+}
+a{
+    text-decoration: none;
+    background-color: transparent;
+}
+.fa.pull-right {
+    margin-left: .3em;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.pointer {
+    cursor: pointer;
+}
+.collapse.in {
+    display: block;
+    visibility: visible;
+}
+
+.panel-heading+.panel-collapse>.panel-body {
+    border-top: 1px solid #ddd;
+}
+.panel-body {
+    padding: 15px;
+    border: 1px solid #eff0f4;
+}
+
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+.modal-content {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    border: 2px solid #d2d2d2;
+    box-shadow: 0px 5px 3px #ffffff;
+    position: relative;
+    background-color: #fff;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-heading {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    color: #535351;
+    font-size: 14px;
+    font-weight: bold;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-control {
+    box-shadow: none;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+textarea.form-control {
+    height: auto;
+}
+.modal.fade.sm0.show {
+    margin-left: 425px;
+}

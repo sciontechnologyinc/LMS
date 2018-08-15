@@ -16,11 +16,12 @@
     </div>
 <?php endif; ?>
 
-<?php if($message = Session::get('unsuccess')): ?>
+ <?php if($message = Session::get('success1')): ?>
     <div class="alert alert-danger">
         <p><?php echo e($message); ?></p>
     </div>
 <?php endif; ?>
+
 
  <?php if(count($errors) > 0 ): ?>
     <div class="alert alert-danger">
@@ -49,7 +50,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                      <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control', 'required' => '']); ?>
 
                      
                     </div>
@@ -58,13 +59,13 @@
              </div>
 
                    <div class="form-group">
-                      <?php echo Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label')); ?>
+                      <?php echo Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label' )); ?>
 
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('ISBN')); ?></span>
@@ -78,7 +79,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    <?php echo Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('booknumber')); ?></span>
@@ -92,7 +93,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    <?php echo Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('bookprice')); ?></span>
@@ -106,7 +107,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('writername')); ?></span>
@@ -134,27 +135,27 @@
                       <div class="card-body card-block">
                          <div class="form-group">
                          <label class="form-control-label">Status</label>
-                         <?php echo Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')); ?>
+                         <?php echo Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control', 'required' => '')); ?>
 
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('status')); ?></span>
                               
                           <div class="form-group"><label class="">Book Type</label>
-                         <?php echo Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control')); ?>
+                         <?php echo Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control', 'required' => '')); ?>
 
                           <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
 
                           <div class="form-group"><label class="">Book Condition</label>
-                         <?php echo Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control')); ?>
+                         <?php echo Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control', 'required' => '')); ?>
 
                           <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('bookcondition')); ?></span>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          <?php echo Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control']); ?>
+                          <?php echo Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control', 'required' => '']); ?>
 
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('details')); ?></span>

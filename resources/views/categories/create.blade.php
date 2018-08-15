@@ -44,7 +44,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
                                 <i class="fa fa-list-alt"></i></span>
-									{!!Form::text('categoryname',null, ['placeholder' => 'Category Name', 'class' => 'form-control col-lg-12' ])!!}
+									{!!Form::text('categoryname',null, ['placeholder' => 'Category Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
 								</div>
 							</div>
 						</div>
