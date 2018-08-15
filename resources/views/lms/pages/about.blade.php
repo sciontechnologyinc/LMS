@@ -33,3 +33,11 @@
  </div>
 
  @endsection
+
+ <style>
+
+.menu-list2 a {
+    color:#2e77d1 !important;
+}
+        
+</style>

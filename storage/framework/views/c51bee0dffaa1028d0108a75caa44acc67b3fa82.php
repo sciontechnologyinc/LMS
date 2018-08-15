@@ -35,7 +35,13 @@
 </div>
 <?php $__env->stopSection(); ?>
 
+<style>
 
+.menu-list3 a {
+    color:#2e77d1 !important;
+}
+                
+</style>
 
 
 <?php echo $__env->make('lms.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

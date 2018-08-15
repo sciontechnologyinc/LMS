@@ -3,12 +3,9 @@
     
 <nav class="menu-container">
     <div class="lms-menu">
-    
-        <div class="menu-list">HOME</div>
-        <div class="menu-list">ABOUT</div>
-        <div class="menu-list">CONTACT</div>
-        
-        
+        <div class="menu-list1"><a href="<?php echo e(url('lms')); ?>">HOME</a></div>
+        <div class="menu-list2"><a href="<?php echo e(url('about')); ?>">ABOUT</a></div>
+        <div class="menu-list3"><a href="<?php echo e(url('contact')); ?>">CONTACT</a></div>
 </div>
 
 </nav>

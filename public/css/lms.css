@@ -10,6 +10,21 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+.menu-list1 a {
+    text-decoration: none !important;
+    color: white;
+}
+
+.menu-list2 a {
+    text-decoration: none !important;
+    color: white;
+}
+
+.menu-list3 a {
+    text-decoration: none !important;
+    color: white;
+}
+
 .menu-container {
     text-align: center;
     border-top: 1px Solid white;
@@ -18,7 +33,13 @@ body {
     margin: 40px;
 }
 
-.menu-list {
+.menu-list1 {
+    margin: 15px;
+}
+.menu-list2 {
+    margin: 15px;
+}
+.menu-list3 {
     margin: 15px;
 }
 
@@ -121,7 +142,17 @@ input.searchbartext {
     cursor: pointer;
 }
 
-.menu-list:hover {
+.menu-list1:hover {
+    color:#2e77d1;
+    cursor:pointer;
+}
+
+.menu-list2:hover {
+    color:#2e77d1;
+    cursor:pointer;
+}
+
+.menu-list3:hover {
     color:#2e77d1;
     cursor:pointer;
 }

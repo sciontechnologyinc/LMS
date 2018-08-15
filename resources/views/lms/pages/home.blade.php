@@ -1,3 +1,5 @@
+
+
 @extends('lms.master.template')
 
 
@@ -57,3 +59,12 @@
 
 
 @endsection
+
+
+<style>
+
+.menu-list1 a {
+    color:#2e77d1 !important;
+}
+        
+</style>

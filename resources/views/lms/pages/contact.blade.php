@@ -38,5 +38,11 @@
 </div>
 @endsection
 
+<style>
 
+.menu-list3 a {
+    color:#2e77d1 !important;
+}
+                
+</style>
 
