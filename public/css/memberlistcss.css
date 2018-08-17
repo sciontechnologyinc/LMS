@@ -88,7 +88,7 @@
     }
     
     .pbody-media {
-        height: 230px;
+        height: 178px;
     }
     
     .text-center {
@@ -285,7 +285,8 @@
     
     .bg-info {
         background-color: #d9edf7!important;
-        height: 844px;
+        height: 940px;
+        
     }
     
     ul.p-info .title {
@@ -309,16 +310,7 @@
         list-style: none;
     }
     
-    body {
-        font-family: 'Open Sans', sans-serif;
-        color: #7a7676;
-        line-height: 20px;
-        overflow-x: hidden;
-        font-size: 14px;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-font-smoothing: antialiased;
-    }
+ 
     .custom-file-upload {
         border: 1px solid #ccc;
         display: inline-block;
@@ -352,4 +344,39 @@
     }
     form.deleteForm {
         margin-top: 6px;
+    }
+    .btns {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        transition: all .15s ease-in-out;
+        border-radius: 0;
+        cursor: pointer;
+        box-shadow: none;
+        outline: 0 !important;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .btn-primaries {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .offsets-9 {
+        margin-left: 75%;
+    }
+    .btn-info {
+        color: #fff;
+        background-color: #5bc0de;
+        border-color: #46b8da;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
     }

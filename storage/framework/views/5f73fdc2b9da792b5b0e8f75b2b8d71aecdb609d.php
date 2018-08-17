@@ -100,8 +100,8 @@
 						<div class="profile-desk">
 							<h3><?php echo e($member->membername); ?> <small>[ <?php echo e($member->profession); ?> ] [ <?php echo e($member->department); ?>  ]</small></h3>
               <span class="designation">Chosen subjects are: <?php echo e($member->subjects); ?> <b class="text-danger">|</b> </span><br>
-              <br><br>
-							<p>Update your info <span class="fa fa-arrow-down"></span></p><br>
+              <br>
+							<p>Update your info <span class="fa fa-arrow-down"></span></p>
 
 							
 							
@@ -239,7 +239,7 @@
 
 							<div class="form-group">
 								<br>
-							   <?php echo Form::submit('Update User info', ['class' => 'btn btn-info  col-lg-2']); ?>
+							   <?php echo Form::submit('Update User info', ['class' => 'btn btn-info  col-lg-3']); ?>
 
 
 			

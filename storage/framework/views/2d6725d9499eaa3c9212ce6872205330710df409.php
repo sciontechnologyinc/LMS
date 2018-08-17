@@ -65,7 +65,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => '']); ?>
+                    <?php echo Form::number('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('ISBN')); ?></span>
@@ -79,7 +79,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    <?php echo Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control', 'required' => '']); ?>
+                    <?php echo Form::number('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('booknumber')); ?></span>
@@ -93,7 +93,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    <?php echo Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control', 'required' => '']); ?>
+                    <?php echo Form::number('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('bookprice')); ?></span>
@@ -114,10 +114,13 @@
                 </div>
              </div>
     
-                      <div class="form-group">
-                            <i class="material-icons prefix"></i>
-                            <label>Category :</label>
-                                <select name="category">
+                                 <div class="form-group">
+                                     <label>Category</label>
+                                            <div class="iconic-input">
+                                      <div class="input-group margin-bottom-sm">
+                                      <span class="input-group-addon">
+                                      <i class="fa fa-list-alt"></i></span>
+                                <select name="category" class="form-control">
                                     <option value="" disabled <?php echo e(old('category') ? '' : 'selected'); ?>>Choose a category</option>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($category->categoryname); ?>" <?php echo e(old('category') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></option>
@@ -127,7 +130,10 @@
                       <span class="text-danger"><?php echo e($errors->first('category')); ?></span>
                       </div>
                     </div>
+
+</div>
                      
+</div>
 </div>
             <div class="col-lg-6">
                     <div class="card">

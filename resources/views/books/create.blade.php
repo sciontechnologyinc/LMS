@@ -63,7 +63,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => ''])!!}
+                    {!!Form::number('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('ISBN') }}</span>
                 </div>
@@ -75,7 +75,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    {!!Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control', 'required' => ''])!!}
+                    {!!Form::number('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('booknumber') }}</span>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    {!!Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control', 'required' => ''])!!}
+                    {!!Form::number('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('bookprice') }}</span>
                 </div>
@@ -105,10 +105,13 @@
                 </div>
              </div>
     
-                      <div class="form-group">
-                            <i class="material-icons prefix"></i>
-                            <label>Category :</label>
-                                <select name="category">
+                                 <div class="form-group">
+                                     <label>Category</label>
+                                            <div class="iconic-input">
+                                      <div class="input-group margin-bottom-sm">
+                                      <span class="input-group-addon">
+                                      <i class="fa fa-list-alt"></i></span>
+                                <select name="category" class="form-control">
                                     <option value="" disabled {{ old('category') ? '' : 'selected' }}>Choose a category</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->categoryname}}" {{ old('category') ? 'selected' : '' }}>{{$category->categoryname}}</option>
@@ -118,7 +121,10 @@
                       <span class="text-danger">{{ $errors->first('category') }}</span>
                       </div>
                     </div>
+
+</div>
                      
+</div>
 </div>
             <div class="col-lg-6">
                     <div class="card">

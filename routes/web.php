@@ -19,6 +19,12 @@ Route::get('create', function () {
 
 Route::resource('categories','CategoryController');
 
+Route::get('bookissue', function () {
+    return view('bookissues.create');
+});
+
+Route::resource('bookissues','BookissueController');
+
 
 Route::get('', function () {
     return view('welcome');

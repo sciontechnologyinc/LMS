@@ -46,7 +46,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-retweet"></i>Book Issue</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-hand-o-right"></i><a href="{{ url('bookissue') }}">Issue a Book</a></li>
-                            <li><i class="menu-icon fa fa-calendar-check-o"></i><a href="{{ url('bookissue') }}">Issued Books</a></li>
+                            <li><i class="menu-icon fa fa-calendar-check-o"></i><a href="{{ url('bookissues') }}">Issued Books</a></li>
                             <li><i class="menu-icon fa fa-times"></i><a href="#">Non-return Books</a></li>
                         </ul>
                     </li>

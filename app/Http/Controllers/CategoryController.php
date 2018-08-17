@@ -59,8 +59,8 @@ class CategoryController extends Controller
         ]);
         Category::create($data);
 
-	    Session::flash('success', $category['categoryname'] . ' Added successfully');
-        return redirect('/categories')->with('success','Added successfuly');
+	    Session::flash('success', ' Added successfully');
+        return redirect()->back()->with('success','Added successfuly');
     }
 
     /**

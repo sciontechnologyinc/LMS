@@ -27,7 +27,7 @@
     </div>
  <?php endif; ?>
 
- <span class="alert-danger"><?php echo e($errors->first('deleteForm')); ?></span>
+ 
 
     <a class="btn btn-primary col-lg-2 offset-9" href="<?php echo e(url('create')); ?>" style="margin-bottom: 10px;">Create New</a>
 

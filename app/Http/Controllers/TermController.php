@@ -98,6 +98,7 @@ class TermController extends Controller
     public function update(Request $request, $id)
     {
         $term = Term::find($id);
+        $term->update($request->all());
         $data = $request->validate([
             'headline' => 'required',
             'condition' => 'required',

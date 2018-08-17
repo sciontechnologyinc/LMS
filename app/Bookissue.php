@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bookissue extends Model
 {
-    protected $table = 'bookissue';
+    protected $table = 'bookissues';
     protected $fillable =  ['bookname',
-                            'ISBN',
+                            'datehour',
                             'memberid'];
 
 

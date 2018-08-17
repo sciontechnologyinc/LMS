@@ -43,7 +43,7 @@
                           <div class="input-group margin-bottom-sm">
                           <span class="input-group-addon">
                             <i class="fa fa-user"></i></span>
-                            {!!Form::text('membername',null, ['placeholder' => 'Name', 'class' => 'form-control' ])!!}
+                            {!!Form::text('membername',null, ['placeholder' => 'Name', 'class' => 'form-control', 'required' => ''])!!}
                           </div>
                         </div>
                       </div>
@@ -55,7 +55,7 @@
                       <div class="input-group margin-bottom-sm">
                       <span class="input-group-addon">
                       <i class="fa fa-intersex custom"></i></span>
-                         {!! Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,array('class' => 'form-control')) !!}
+                         {!! Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,array('class' => 'form-control', 'required' => '')) !!}
                          </div>
 							      </div>
 						    </div>
@@ -69,7 +69,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-phone-square"></i></span>
-									{!!Form::text('contactnumber',null, ['placeholder' => 'Contact Number', 'class' => 'form-control' ])!!}
+									{!!Form::number('contactnumber',null, ['placeholder' => 'Contact Number', 'class' => 'form-control', 'required' => ''])!!}
 								</div>
 							</div>
 						</div>
@@ -80,7 +80,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-envelope"></i></span>
-									{!!Form::text('email',null, ['placeholder' => 'Email-Address', 'class' => 'form-control' ])!!}
+									{!!Form::email('email',null, ['placeholder' => 'Email-Address', 'class' => 'form-control', 'required' => ''])!!}
 								</div>
 							</div>
 						</div>
@@ -91,7 +91,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									{!!Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
+									{!!Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => ''])!!}
 								</div>
 							</div>
 						</div>
@@ -102,7 +102,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-user"></i></span>
-									{!!Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control' ])!!}
+									{!!Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control', 'required' => ''])!!}
 								</div>
 							</div>
 						</div>
@@ -125,12 +125,12 @@
                         <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon">
                         <i class="fa fa-bank"></i></span>
-                         {!! Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control')) !!}
+                         {!! Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control', 'required' => '')) !!}
                          </div>
 						          </div>
                   </div>
 
-              <div class="form-group">
+              <div class="form-group" required="">
 							<label style="width:100%;">Check Subjects </label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
 								<input class="subjects" type="checkbox" name="subjects[]" value="Math" >Math							</label>
@@ -153,7 +153,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                       <i class="fa fa-map-marker"></i></span>
-                      {!!Form::text('livingaddress',null, ['placeholder' => 'Living Address', 'class' => 'form-control' ])!!}
+                      {!!Form::text('livingaddress',null, ['placeholder' => 'Living Address', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                   </div>
                 </div>

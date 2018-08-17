@@ -64,7 +64,7 @@ class BookController extends Controller
         $book = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
-            'ISBN' => 'required',
+            'ISBN' => 'required|numeric',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
@@ -92,7 +92,7 @@ class BookController extends Controller
 	    Book::create($data);
 
 	    Session::flash('success', $book['bookname'] . ' Added successfully');
-        return redirect('/books')->with('success','Added successfuly');
+        return redirect()->back()->with('success','Added successfuly');
     }
 
     /**

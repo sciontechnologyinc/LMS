@@ -51,8 +51,8 @@ class MemberController extends Controller
         $data = $request->validate([
             'membername' => 'required',
             'gender' => 'required',
-            'contactnumber' => 'required',
-            'email' => 'required',
+            'contactnumber' => 'required|max:11',
+            'email' => 'required|email',
             'LRN' => 'required',
             'profession' => 'required',
             'department' => 'required',

@@ -101,8 +101,8 @@
 						<div class="profile-desk">
 							<h3>{{ $member->membername  }} <small>[ {{ $member->profession  }} ] [ {{ $member->department  }}  ]</small></h3>
               <span class="designation">Chosen subjects are: {{ $member->subjects  }} <b class="text-danger">|</b> </span><br>
-              <br><br>
-							<p>Update your info <span class="fa fa-arrow-down"></span></p><br>
+              <br>
+							<p>Update your info <span class="fa fa-arrow-down"></span></p>
 
 							
 							
@@ -225,7 +225,7 @@
 
 							<div class="form-group">
 								<br>
-							   {!!Form::submit('Update User info', ['class' => 'btn btn-info  col-lg-2']) !!}
+							   {!!Form::submit('Update User info', ['class' => 'btn btn-info  col-lg-3']) !!}
 
 			
 							</div>

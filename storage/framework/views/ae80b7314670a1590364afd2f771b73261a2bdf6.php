@@ -43,7 +43,7 @@
                           <div class="input-group margin-bottom-sm">
                           <span class="input-group-addon">
                             <i class="fa fa-user"></i></span>
-                            <?php echo Form::text('membername',null, ['placeholder' => 'Name', 'class' => 'form-control' ]); ?>
+                            <?php echo Form::text('membername',null, ['placeholder' => 'Name', 'class' => 'form-control', 'required' => '']); ?>
 
                           </div>
                         </div>
@@ -57,7 +57,7 @@
                       <div class="input-group margin-bottom-sm">
                       <span class="input-group-addon">
                       <i class="fa fa-intersex custom"></i></span>
-                         <?php echo Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,array('class' => 'form-control')); ?>
+                         <?php echo Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,array('class' => 'form-control', 'required' => '')); ?>
 
                          </div>
 							      </div>
@@ -72,7 +72,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-phone-square"></i></span>
-									<?php echo Form::text('contactnumber',null, ['placeholder' => 'Contact Number', 'class' => 'form-control' ]); ?>
+									<?php echo Form::number('contactnumber',null, ['placeholder' => 'Contact Number', 'class' => 'form-control', 'required' => '']); ?>
 
 								</div>
 							</div>
@@ -85,7 +85,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-envelope"></i></span>
-									<?php echo Form::text('email',null, ['placeholder' => 'Email-Address', 'class' => 'form-control' ]); ?>
+									<?php echo Form::email('email',null, ['placeholder' => 'Email-Address', 'class' => 'form-control', 'required' => '']); ?>
 
 								</div>
 							</div>
@@ -98,7 +98,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									<?php echo Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control' ]); ?>
+									<?php echo Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => '']); ?>
 
 								</div>
 							</div>
@@ -111,7 +111,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-user"></i></span>
-									<?php echo Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control' ]); ?>
+									<?php echo Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control', 'required' => '']); ?>
 
 								</div>
 							</div>
@@ -135,13 +135,13 @@
                         <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon">
                         <i class="fa fa-bank"></i></span>
-                         <?php echo Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control')); ?>
+                         <?php echo Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control', 'required' => '')); ?>
 
                          </div>
 						          </div>
                   </div>
 
-              <div class="form-group">
+              <div class="form-group" required="">
 							<label style="width:100%;">Check Subjects </label>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
 								<input class="subjects" type="checkbox" name="subjects[]" value="Math" >Math							</label>
@@ -165,7 +165,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                       <i class="fa fa-map-marker"></i></span>
-                      <?php echo Form::text('livingaddress',null, ['placeholder' => 'Living Address', 'class' => 'form-control' ]); ?>
+                      <?php echo Form::text('livingaddress',null, ['placeholder' => 'Living Address', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                   </div>

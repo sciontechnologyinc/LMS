@@ -31,22 +31,32 @@
         
         <link rel="stylesheet" href="{!! ('/css/termscss.css') !!}">
 
+
+
  <div class="wrapper" style="min-height: 450px;">
             <div class="col-md-12">
+			
     <!--collapse start-->
     @foreach($terms as $term)
+	
 	<div class="panel-group " id="accordion">
     
 				<div class="panel row_4">
 			<div class="panel-heading dark">
 				<h4 class="panel-title">
+				
 					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne0" aria-expanded="false">
                     {{ $term->headline  }}				
                 	</a>
-					<span class="fa fa-trash text-danger pull-right pointer delete" data-record="4"></span>
+					
+					{!! Form::open(['class' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id]) !!}
+					<button class="fa fa-trash text-danger pull-right pointer delete" data-record="4" type="submit"></button>
 					<span class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
+					{!! Form::close() !!}
+					
 				</h4>
 			</div>
+			
 			<div id="collapseOne0" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				<div class="panel-body">
                 {{ $term->condition  }}					
@@ -54,7 +64,7 @@
             </div>
             
 			<!-- Small modal -->
-			<div class="modal fade sm0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				<div class="modal fade sm0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 			  <div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="row">
@@ -63,13 +73,14 @@
 							
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input type="text" id="subject4" class="form-control" placeholder="Headline" value="{{ $term->headline  }}">
+								{!!Form::text('headline',$term->headline, ['placeholder' => 'Head Line', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<div class="col-sm-12 text-center">
-									<textarea rows="6" id="info4" class="form-control" placeholder="write terms">{{ $term->condition  }}</textarea><br>
+								{!!Form::textarea('condition',$term->condition, ['placeholder' => 'Write Terms', 'class' => 'form-control', 'required' => ''])!!}<br>
 									<button class="btn btn-primary pull-right update_term" type="submit" data-record="4"><b class="fa fa-edit"></b> Update The term</button><br><br>
 								</div>
 							</div>
@@ -82,4 +93,5 @@
         @endforeach 
 		          
 </div>
+
  @endsection

@@ -29,7 +29,7 @@
     </div>
  @endif
 
- <span class="alert-danger">{{ $errors->first('deleteForm') }}</span>
+ 
 
     <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('create') }}" style="margin-bottom: 10px;">Create New</a>
 

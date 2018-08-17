@@ -1,10 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Addcategory;
-use Illuminate\Http\Request;
 
-class AddcategoryController extends Controller
+use App\Book;
+use App\Bookissue;
+use App\Category;
+use App\Generalsettings;
+use App\Member;
+use App\User;
+use Carbon\Carbon;
+use DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use function Psy\debug;
+
+class BookissueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +23,9 @@ class AddcategoryController extends Controller
      */
     public function index()
     {
-        $addbooks = addbooks::all();
-        return view ('admin.pages.booklist',compact('addbooks'));
-
-
+	    $bookissues = Bookissue::orderBy('id')->get();
+        return view('bookissues.index', ['bookissues' => $bookissues]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +33,7 @@ class AddcategoryController extends Controller
      */
     public function create()
     {
-        return view('categorylist.index');
+        return view('bookissues.create');
     }
 
     /**
@@ -37,13 +44,18 @@ class AddcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'categoryname' => 'required',
+         $bookissue = $request->all();
+         $data = $request->validate([
+            'bookname' => 'required',
+            'memberid' => 'required',
+            'datehour' => 'required',
 
+            
         ]);
+        Bookissue::create($data);
 
-        Addcategory::create($request->all());
-        return redirect()->back()->with('success','Post created successfuly');
+	    Session::flash('success', ' Added successfully');
+        return redirect()->back()->with('success','Added successfuly');
     }
 
     /**
@@ -65,7 +77,8 @@ class AddcategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+    	$bookissue = Bookissue::find($id);
+        return view('bookissues/edit', ['bookissue' => $bookissue]);
     }
 
     /**
@@ -77,7 +90,12 @@ class AddcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bookissue = Bookissue::find($id);
+        $data = $request->all();
+        $bookissue->update($data);
+
+	    Session::flash('success', ' Updated successfully');
+        return redirect('/bookissues')->with('success','Updated successfuly');
     }
 
     /**
@@ -88,6 +106,10 @@ class AddcategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+	    $bookissue = Bookissue::find($id);
+	    $bookissue->destroy($id);
+
+	    Session::flash('success', ' Deleted successfully');
+	    return redirect()->back()->with('success','Deleted successfuly');
     }
 }

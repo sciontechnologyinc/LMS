@@ -26,8 +26,10 @@
         </ul>
     </div>
  <?php endif; ?>
+ <a class="btns btn-primaries col-lg-2 offsets-9" href="<?php echo e(url('addmembers')); ?>" style="margin-bottom: 10px;">Create New</a>
         
         <link rel="stylesheet" href="<?php echo ('/css/memberlistcss.css'); ?>">
+       
 
  <div class="col-md-12">
                     <div class="card">
