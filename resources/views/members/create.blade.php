@@ -20,7 +20,7 @@
 
  @if(count($errors) > 0 )
     <div class="alert alert-danger">
-        <strong>Whoooppss !!</strong> There were some problem with your input. <br>
+        <strong>Whoooppss !!</strong> There were some problem with your Input. <br>
         <ul>
           @foreach($errors->all() as $error)
               <li> {{ $error }} </li>
