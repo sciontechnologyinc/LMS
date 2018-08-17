@@ -10,6 +10,21 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+.menu-list1 a {
+    text-decoration: none !important;
+    color: white;
+}
+
+.menu-list2 a {
+    text-decoration: none !important;
+    color: white;
+}
+
+.menu-list3 a {
+    text-decoration: none !important;
+    color: white;
+}
+
 .menu-container {
     text-align: center;
     border-top: 1px Solid white;
@@ -18,7 +33,13 @@ body {
     margin: 40px;
 }
 
-.menu-list {
+.menu-list1 {
+    margin: 15px;
+}
+.menu-list2 {
+    margin: 15px;
+}
+.menu-list3 {
     margin: 15px;
 }
 
@@ -44,7 +65,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #040403;
+    background-color: #080d13;
     color: white;
     text-align: center;
  }
@@ -121,7 +142,17 @@ input.searchbartext {
     cursor: pointer;
 }
 
-.menu-list:hover {
+.menu-list1:hover {
+    color:#2e77d1;
+    cursor:pointer;
+}
+
+.menu-list2:hover {
+    color:#2e77d1;
+    cursor:pointer;
+}
+
+.menu-list3:hover {
     color:#2e77d1;
     cursor:pointer;
 }
@@ -281,6 +312,11 @@ input.contactmessagefield {
     padding-bottom: 25px;
 }
 
+.contact1 {
+    display: inline-block;
+    margin: 25px;
+}
+
 .contact-school {
     padding-top: 20px;
 }
@@ -366,23 +402,23 @@ input.contactmessagefield {
 }
 
 .about-mission {
-    background: #040403;
+    background: #1e334d;
     color: whitesmoke;
     float: unset;
     padding: 10px;
     font-size: 30px;
     font-weight: bold;
-    font-family: initial;
+    font-family: 'Raleway', sans-serif;
 }
 
 .about-vision {
-    background: #040403;
+    background: #1e334d;
     color: whitesmoke;
     float: unset;
     padding: 10px;
     font-size: 30px;
     font-weight: bold;
-    font-family: initial;
+    font-family: 'Raleway', sans-serif;
 }
 
 .about-missiondesc {

@@ -1,61 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
 
-<div class="container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="/img/Carousel.jpg" style="width:100%;">
-        <div class="carousel-caption">
-        <h3>Welcome to Library</h3>
-        <p>Culiat High School Library Management System</p>
-      </div>
-      </div>
+@extends('lms.master.template')
 
-      <div class="item">
-        <img src="/img/Carousel2.jpg" style="width:100%;">
-        <div class="carousel-caption">
-        <h3>Accounts</h3>
-        <p>View Account History, Borrowed Books, and more</p>
-      </div>
-      </div>
+
+
+@section('content')
+<div class="searchbar">
+    <div class="bar-row">
+        <div class="bookname"><input type="text" class="searchbartext" placeholder="Book Name"/></div>
+        <div class="authorname"><input type="text" class="searchbartext" placeholder="Author Name"/></div>
+        <div class="publishername"><input type="text" class="searchbartext" placeholder="Publisher Name"/></div>
+        <div class="searchbtn">Search</div>
+    </div>
     
-      <div class="item">
-        <img src="/img/Carousel3.jpg" style="width:100%;">
-        <div class="carousel-caption">
-        <h3>Books</h3>
-        <p>Check available books online. Anytime, anywhere!</p>
+</div>
+
+<div class="booklist-container">
+    <div class="booklist-title">List of Books</div>
+    <div class="booklist-row">
+        <div class="perbook-container">
+            <div class="perbook-img"><img src="/img/Book1.jpg" alt=""></div>
+            <div class="perbook-title" data-toggle="modal" data-target="#myModal">Game of Thrones</div>
+        </div>
+        <div class="perbook-container">
+            <div class="perbook-img"><img src="/img/Book1.jpg" alt=""></div>
+            <div class="perbook-title" data-toggle="modal" data-target="#myModal">Book One Sample</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Game of Thrones</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <div class="book-isbn">Book ISBN No. : 12345678</div>
+        <div class="availbook-number">Available Book No. : 5</div>
+        <div class="book-price">Book Price : $1000.00</div>
+        <div class="writer-name">Writer Name : Michael Waje</div>
+        <div class="book-category">Book Category : Fantasy</div>
+        <div class="book-status">Status : Available</div>
+        <div class="book-type">Book Type : Physical</div>
+        <div class="book-adtl-details">Details : This book is a fiction</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 </div>
 
-</body>
-</html>
+
+@endsection
+
+
+<style>
+
+.menu-list1 a {
+    color:#2e77d1 !important;
+}
+        
+</style>

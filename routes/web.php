@@ -53,12 +53,19 @@ Route::post('/store', 'GeneralsettingsController@store')->name('pages.store');
 
 
 Route::get('lms', function () {
-    return view('lms.index');
+    return view('lms.pages.home');
 });
 
-Route::get('lms', function () {
-    return view('lms.index');
+Route::get('contact', function () {
+    return view('lms.pages.contact');
 });
+
+Route::get('about', function () {
+    return view('lms.pages.about');
+});
+
+
+
 
 Auth::routes();
 

@@ -1,11 +1,11 @@
 @extends('lms.master.template')
 
 @section('header')
-    @include('lms.layouts.header')
+    @include('lms.partial.header')
 @endsection
 
 @section('footer')
-    @include('lms.layouts.footer')
+    @include('lms.partial.footer')
 @endsection
 
 @section('home')
