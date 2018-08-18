@@ -38,7 +38,7 @@
 			
 	<!--collapse start-->
 	
-    @foreach($terms as $term)
+    @foreach($bookissues as $bookissue)
 	
 	<div class="panel-group " id="accordion">
     
