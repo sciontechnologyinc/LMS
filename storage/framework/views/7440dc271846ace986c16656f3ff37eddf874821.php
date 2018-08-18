@@ -10,7 +10,7 @@
  
  <?php $__env->startSection('content'); ?>
 
-   <?php echo Form::open(['id' => 'dataForm', 'url' => '/books']); ?>
+   <?php echo Form::open(['id' => 'dataForm', 'url' => 'bookissues/create', 'method' => 'POST']); ?>
 
  <div class="col-lg-6">
                     <div class="card">
@@ -24,7 +24,7 @@
                                       <div class="input-group margin-bottom-sm">
                                       <span class="input-group-addon">
                                       <i class="fa fa-list-alt"></i></span>
-                                <select name="bookname" class="form-control">
+                                      <select class="form-control select select2-hidden-accessible" name="book" id="book" required="" tabindex="-1" aria-hidden="true">
                                     <option value="" disabled <?php echo e(old('bookname') ? '' : 'selected'); ?>>Choose a bookname</option>
                                     <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($book->bookname); ?>" <?php echo e(old('bookname') ? 'selected' : ''); ?>><?php echo e($book->bookname); ?></option>
@@ -37,8 +37,8 @@
 
                        
                         <div class="form-group"><div class="form-group">
-                          <label><button class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
-                          <span class="book_result"></span>
+                        <label><button class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
+						            <span class="book_result fa fa-check-circle text-success" style='display:none;' ><b class="text-warning"><?php echo e($book->booknumber); ?> Books </b>   available</span>
                         </label></div></div>
                         <div class="form-group"><label class="form-control-label">Member ID</label><input type="text" class="form-control" id="member_id" name="member" placeholder="Member ID" autocomplete="off"></div>
                        <div class="form-group">
@@ -135,7 +135,25 @@
         $(".hour_area").hide();
       }
     });
-});
+
+
+$(".check_book").click(function(){
+		if( $('#book').val().length>0){
+			$.ajax({
+				type: "POST",url: url+"bookissues/create/check_book",
+				data:{ book: $('#book').val()},
+				success: function(result){
+					$(".book_result").html(result);
+				},error: function (request, status, error) {
+					$(".book_result").html(request.responseText);
+				}
+			});
+		}else{
+			$(".book_result").html("<b class='text-danger'>Select book from <b class='text-success'>Book Name</b> field</b>");
+		}
+	});
+
+  });
 </script>
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
