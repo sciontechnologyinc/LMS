@@ -81,6 +81,8 @@ Route::resource('terms','TermController');
 
 //Category
 Route::get('books.create','CategoryController@categorycheckbox');
+//books
+Route::get('bookissues.create','BookController@booksdropdown');
 
 
 

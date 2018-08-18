@@ -9,22 +9,33 @@
 <?php $__env->startSection('title','Issue a book to a member'); ?>
  
  <?php $__env->startSection('content'); ?>
+
+   <?php echo Form::open(['id' => 'dataForm', 'url' => '/books']); ?>
+
  <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                        <div class="form-group"><label class="form-control-label">Book Name</label><div class="iconic-input">
-                        
-                        <select class="form-control select select2-hidden-accessible" name="book" id="book" required="" tabindex="-1" aria-hidden="true">
-                          <option selected="" value="">Choose Book</option>
-                          <option value="1"></option></select>
-                                    <span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" style="width: 501px;">
-                                    <span class="selection">
-                                    <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-book-container">
-                                    <span class="select2-selection__rendered" id="select2-book-container" title="Choose Book"></span>
-                                    <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                            </div>
-                          </div>
+
+                          
+                          <div class="form-group">
+                                     <label>Book Name</label>
+                                            <div class="iconic-input">
+                                      <div class="input-group margin-bottom-sm">
+                                      <span class="input-group-addon">
+                                      <i class="fa fa-list-alt"></i></span>
+                                <select name="bookname" class="form-control">
+                                    <option value="" disabled <?php echo e(old('bookname') ? '' : 'selected'); ?>>Choose a bookname</option>
+                                    <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($book->bookname); ?>" <?php echo e(old('bookname') ? 'selected' : ''); ?>><?php echo e($book->bookname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                      </div>
+                      <span class="text-danger"><?php echo e($errors->first('bookname')); ?></span>
+                      </div>
+                    </div>
+
+                       
                         <div class="form-group"><div class="form-group">
                           <label><button class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
                           <span class="book_result"></span>
