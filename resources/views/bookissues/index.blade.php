@@ -34,43 +34,11 @@
 
 
  <div class="wrapper" style="min-height: 450px;">
-<<<<<<< HEAD
-            <div class="col-md-12">
-			
-	<!--collapse start-->
-	
-    @foreach($bookissues as $bookissue)
-	
-	<div class="panel-group " id="accordion">
-    
-				<div class="panel row_4">
-			<div class="panel-heading dark">
-				<h4 class="panel-title">
-				
-					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne0" aria-expanded="false">
-                    {{ $term->headline  }}				
-                	</a>
-					
-					{!! Form::open(['class' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id]) !!}
-					<button class="fa fa-trash text-danger pull-right pointer delete" data-record="4" type="submit"></button>
-					<span class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
-					{!! Form::close() !!}
-					
-				</h4>
-			</div>
-			
-			<div id="collapseOne0" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-				<div class="panel-body">
-                {{ $term->condition  }}					
-            </div>
-            </div>
-=======
             <link href="https://yourprogramming.com/library/libs/css/table-responsive.css" rel="stylesheet">
 <div class="row">
     <div class="col-sm-12">
         <section class="panel">
             <header class="panel-heading">
->>>>>>> ddf41ea03ec256bcbaa4c47b59057e7ebbd48931
             
             </header>
             <div class="panel-body">
