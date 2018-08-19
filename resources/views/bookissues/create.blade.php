@@ -136,11 +136,21 @@
       }
     });
 
+  //     $('#book').on('change', function() {
+  //       if ( this.value == "{{$book->bookname}}" )
+  //       //.....................^.......
+  //       {
+  //         $(".book_result").show();
+  //       }
+
+  // });
+
 
 $(".check_book").click(function(){
 		if( $('#book').val().length>0){
 			$.ajax({
-				type: "POST",url: "bookissues/create",
+				type: "POST",
+        url: "bookissues/create",
 				data:{ book: $('#book').val()},
 				success: function(result){
 					$(".book_result").html(result);
