@@ -140,7 +140,7 @@
 $(".check_book").click(function(){
 		if( $('#book').val().length>0){
 			$.ajax({
-				type: "POST",url: url+"bookissues/create/check_book",
+				type: "POST",url: "bookissues/create",
 				data:{ book: $('#book').val()},
 				success: function(result){
 					$(".book_result").html(result);
