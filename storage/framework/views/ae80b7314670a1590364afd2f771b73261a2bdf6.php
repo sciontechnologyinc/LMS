@@ -18,7 +18,7 @@
 
  <?php if(count($errors) > 0 ): ?>
     <div class="alert alert-danger">
-        <strong>Whoooppss !!</strong> There were some problem with your input. <br>
+        <strong>Whoooppss !!</strong> There were some problem with your Input. <br>
         <ul>
           <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <li> <?php echo e($error); ?> </li>
