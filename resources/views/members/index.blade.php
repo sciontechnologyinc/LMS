@@ -51,7 +51,9 @@
                         @foreach($members as $member)
                             <div class="per-member">
                               <div class="row">
-                                <div class="col-sm-4 photo"><img src= "/storage/uploads/{{$member->photo}}" >&nbsp;</div>
+                              <div class="col-sm-4 photo"> @if(($member->photo)) <img src="/storage/uploads/user77.png">&nbsp;</div> @else <img src="{{$member->photo}}"> 
+                                
+                                @endif
                                 <div class="col-sm-6 membername">{{ $member->membername  }}<br>{{ $member->contactnumber  }}</div>
                                 <div class="col-sm-2"></div>
                               </div>

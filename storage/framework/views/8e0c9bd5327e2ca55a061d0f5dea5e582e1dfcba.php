@@ -49,7 +49,9 @@
                         <?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="per-member">
                               <div class="row">
-                                <div class="col-sm-4 photo"><img src= "/storage/uploads/<?php echo e($member->photo); ?>" >&nbsp;</div>
+                              <div class="col-sm-4 photo"> <?php if(($member->photo)): ?> <img src="/storage/uploads/user77.png">&nbsp;</div> <?php else: ?> <img src="<?php echo e($member->photo); ?>"> 
+                                
+                                <?php endif; ?>
                                 <div class="col-sm-6 membername"><?php echo e($member->membername); ?><br><?php echo e($member->contactnumber); ?></div>
                                 <div class="col-sm-2"></div>
                               </div>

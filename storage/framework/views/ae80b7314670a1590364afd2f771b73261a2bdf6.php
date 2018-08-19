@@ -174,7 +174,7 @@
                           
 								<div class="form-group">                  
                   <div class="row">
-									<label>Choose photo<br>
+									<label>Choose photo (<small>optional</small>) <br>
 									<label for="phto" class="custom-file-upload" style="display: inline-block;">
 										<i class="fa fa-cloud-upload"></i> Upload Photo
 									</label>

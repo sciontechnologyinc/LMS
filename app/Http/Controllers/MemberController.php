@@ -63,19 +63,19 @@ class MemberController extends Controller
             
         ]);
 
-        if($request->hasFile('photo')){
+        if($request->hasFile('<img src="/storage/uploads/user77.png>')){
             
-            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            $filenameWithExt = $request->file('<img src="/storage/uploads/user77.png>')->getClientOriginalName();
 
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $extension = $request->file('photo')->getClientOriginalExtension();
+            $extension = $request->file('<img src="/storage/uploads/user77.png>')->getClientOriginalExtension();
 
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             
-            $path = $request->file('photo')->storeAs('public/uploads', $fileNameToStore);
+            $path = $request->file('<img src="/storage/uploads/user77.png>')->storeAs('public/uploads', $fileNameToStore);
         }else{
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = '<img src="/storage/uploads/{{ $member->photo  }}>';
         }
 
         
@@ -175,7 +175,7 @@ class MemberController extends Controller
             $member->save();
         
 
-	    return redirect()->back()->with('success','Updated successfuly');
+            return redirect('/members')->with('success','Updated successfuly');
     }
 
     /**

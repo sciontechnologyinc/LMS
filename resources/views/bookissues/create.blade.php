@@ -41,7 +41,7 @@
                         <label><button class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
 						            <span class="book_result fa fa-check-circle text-success" style='display:none;' ><b class="text-warning">{{$book->booknumber}} Books </b>   available</span>
                         </label></div></div>
-                        <div class="form-group"><label class="form-control-label">Member ID</label><input type="text" class="form-control" id="member_id" name="member" placeholder="Member ID" autocomplete="off"></div>
+                        <div class="form-group"><label class="form-control-label">Member ID</label><input type="text" data-toggle="tooltip" title="Hooray!" class="form-control" id="member_id" name="member" placeholder="Member ID" autocomplete="off"></div>
                        <div class="form-group">
                       <label style="width:100%">
                         <button class="btn btn-info pointer check_member" type="button"><i class="fa fa-retweet"></i></button> Check Member &nbsp; 
@@ -135,6 +135,8 @@
         $(".hour_area").hide();
       }
     });
+
+    $('[data-toggle="tooltip"]').tooltip();   
 
   //     $('#book').on('change', function() {
   //       if ( this.value == "{{$book->bookname}}" )
