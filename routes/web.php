@@ -96,6 +96,8 @@ Route::resource('terms','TermController');
 
 //Category
 Route::get('books/create','CategoryController@categorycheckbox');
+//category edit
+Route::get('books/edit','CategoryController@categorycheckbox1');
 //subject
 Route::get('members/create','SubjectController@subjectcheckbox');
 //department

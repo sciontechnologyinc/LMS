@@ -105,23 +105,16 @@
                 </div>
              </div>
     
-                                 <div class="form-group">
-                                     <label>Category</label>
-                                            <div class="iconic-input">
-                                      <div class="input-group margin-bottom-sm">
-                                      <span class="input-group-addon">
-                                      <i class="fa fa-list-alt"></i></span>
-                                <select name="category" class="form-control">
-                                    <option value="" disabled {{ old('category') ? '' : 'selected' }}>Choose a category</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->categoryname}}" {{ old('category') ? 'selected' : '' }}>{{$category->categoryname}}</option>
-                                    @endforeach
-                                </select>
-                      </div>
-                      <span class="text-danger">{{ $errors->first('category') }}</span>
-                      </div>
-                    </div>
+             <div class="form-group">
+							<label style="width:100%;">Category </label>
+              @foreach($categories as $category)
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="categoryname" type="checkbox" name="categoryname" value="{{$category->categoryname}}">{{$category->categoryname}}</label>
+                @endforeach
+							</div>
 
+                     <br><br> <span class="text-danger">{{ $errors->first('categoryname') }}</span>
+                   
 </div>
                      
 </div>

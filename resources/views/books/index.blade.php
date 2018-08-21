@@ -58,7 +58,7 @@
                         <td> {{ $book->bookname }}</td>
                         <td> {{ $book->booktype }}</td>
                         <td> {{ $book->ISBN }}</td>
-                        <td> {{ $book->category }}</td>
+                        <td> {{ $book->categoryname }}</td>
                         <td> {{ $book->writername }}</td>
                         
                         <td class="numeric" data-title="Avail">

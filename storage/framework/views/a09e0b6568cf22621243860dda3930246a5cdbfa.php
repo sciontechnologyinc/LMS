@@ -56,7 +56,7 @@
                         <td> <?php echo e($book->bookname); ?></td>
                         <td> <?php echo e($book->booktype); ?></td>
                         <td> <?php echo e($book->ISBN); ?></td>
-                        <td> <?php echo e($book->category); ?></td>
+                        <td> <?php echo e($book->categoryname); ?></td>
                         <td> <?php echo e($book->writername); ?></td>
                         
                         <td class="numeric" data-title="Avail">

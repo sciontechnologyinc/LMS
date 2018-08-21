@@ -25,8 +25,6 @@ class BookController extends Controller
     public function index()
     {
 
-        
-        
 	    $books = Book::orderBy('id')->get();
         return view('books.index', ['books' => $books]);
 
@@ -51,7 +49,6 @@ class BookController extends Controller
     {
         $categories = Category::orderBy('dept_name','asc')->get();
 
-
         return view('books.create')->with([
             'categories'  => $categories
         ]);
@@ -67,13 +64,14 @@ class BookController extends Controller
     {
      
         $book = $request->all();
+        $category = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
             'ISBN' => 'required|numeric',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
-            'category' => 'required',
+            'categoryname' => 'required',
             'status' => 'required',
             'booktype' => 'required',
             'bookcondition' => 'required',
@@ -87,7 +85,7 @@ class BookController extends Controller
             'booknumber.required' => ' The book number field is required.',
             'bookprice.required' => ' The book price field is required.',
             'writername.required' => ' The writer name field is required.',
-            'category.required' => ' The category  field is required.',
+            'categoryname.required' => ' The category  field is required.',
             'status.required' => ' The status  field is required.',
             'booktype.required' => ' The book type field is required.',
             'bookcondition.required' => ' The book condition field is required.',
@@ -117,12 +115,15 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-    	$book = Book::find($id);
-        return view('books/edit', ['book' => $book]);
+        $book = Book::find($id);
+        $categories = Category::find($id);
+        $categories = DB::table('categories')->get();
         
-
+   
+        
+        return view('books/edit', ['book' => $book,'categories'=>$categories]);
     }
     
 

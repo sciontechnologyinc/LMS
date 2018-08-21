@@ -149,8 +149,13 @@
     $(function () {
         $(".check_book").click(function () {
 
-            var selectedValue = $("#book").val();
+            if($('#book').val() == null){
+              var selectedValue = $("#book").val();
+              $(".book_result").html("<b class='text-danger'>Select book from <b class='text-success'>Book Name</b> field</b>");
+            }else{
+              var selectedValue = $("#book").val();
             $(".book_result").html("<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + selectedValue + " Books </b>   available</span></span>");
+            }
         });
     });
 </script>

@@ -42,7 +42,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                      <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control']); ?>
+                      <?php echo Form::text('bookname',$book->bookname, ['placeholder' => 'Book name', 'class' => 'form-control']); ?>
 
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('ISBN',$book->ISBN, ['placeholder' => 'ISBN', 'class' => 'form-control']); ?>
 
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    <?php echo Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('booknumber',$book->booknumber, ['placeholder' => 'Book number', 'class' => 'form-control']); ?>
 
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    <?php echo Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('bookprice',$book->bookprice, ['placeholder' => 'Book price', 'class' => 'form-control']); ?>
 
                     </div>
                 </div>
@@ -94,27 +94,20 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('writername',$book->writername, ['placeholder' => 'Writer name', 'class' => 'form-control']); ?>
 
                     </div>
                 </div>
              </div>
-                             <div class="form-group">
-                                            <label>Category</label>
-                                            <div class="iconic-input">
-                                      <div class="input-group margin-bottom-sm">
-                                      <span class="input-group-addon">
-                                      <i class="fa fa-list-alt"></i></span>
-                                      <select name="category" class="form-control">
-                                              
-                                                  <option value="<?php echo e($book->category); ?>"><?php echo e($book->category); ?></option>
-                                             
-                                          </select>
-                                          
-                                           
-                                        </div>
-                                    </div>
-                                 </div>
+
+             <div class="form-group">
+							<label style="width:100%;">Category </label>
+              <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="categoryname" type="checkbox" name="categoryname" value="<?php echo e($category->categoryname); ?>" <?php echo e(old('categoryname') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></label>
+                                
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							</div>
 
                       </div>
                     </div>

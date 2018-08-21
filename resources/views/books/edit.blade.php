@@ -42,7 +42,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                      {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control'])!!}
+                      {!!Form::text('bookname',$book->bookname, ['placeholder' => 'Book name', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
@@ -53,7 +53,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control'])!!}
+                    {!!Form::text('ISBN',$book->ISBN, ['placeholder' => 'ISBN', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
@@ -64,7 +64,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    {!!Form::text('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control'])!!}
+                    {!!Form::text('booknumber',$book->booknumber, ['placeholder' => 'Book number', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
@@ -75,7 +75,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    {!!Form::text('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control'])!!}
+                    {!!Form::text('bookprice',$book->bookprice, ['placeholder' => 'Book price', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
@@ -86,26 +86,19 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
+                    {!!Form::text('writername',$book->writername, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
-                             <div class="form-group">
-                                            <label>Category</label>
-                                            <div class="iconic-input">
-                                      <div class="input-group margin-bottom-sm">
-                                      <span class="input-group-addon">
-                                      <i class="fa fa-list-alt"></i></span>
-                                      <select name="category" class="form-control">
-                                              
-                                                  <option value="{{ $book->category }}">{{ $book->category }}</option>
-                                             
-                                          </select>
-                                          
-                                           
-                                        </div>
-                                    </div>
-                                 </div>
+
+             <div class="form-group">
+							<label style="width:100%;">Category </label>
+              @foreach($categories as $category)
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+								<input class="categoryname" type="checkbox" name="categoryname" value="{{$category->categoryname}}" {{ old('categoryname') ? 'selected' : '' }}>{{$category->categoryname}}</label>
+                                
+                @endforeach
+							</div>
 
                       </div>
                     </div>
