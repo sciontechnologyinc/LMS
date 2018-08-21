@@ -98,7 +98,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									<?php echo Form::text('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => '']); ?>
+									<?php echo Form::number('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => '']); ?>
 
 								</div>
 							</div>

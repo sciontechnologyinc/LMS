@@ -12,7 +12,7 @@
  
  @section('content')
 
-   {!! Form::open(['id' => 'dataForm', 'url' => 'bookissues/create', 'method' => 'POST']) !!}
+   {!! Form::open(['id' => 'dataForm', 'url' => '/bookissues', 'method' => 'POST']) !!}
  <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
@@ -32,6 +32,7 @@
                                     @endforeach
                                 </select>
                       </div>
+                      
                       <span class="text-danger">{{ $errors->first('bookname') }}</span>
                       </div>
                     </div>
@@ -113,7 +114,7 @@
                       </div>
                     </div>
 </div>
-
+{!! Form::close() !!}
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
@@ -136,20 +137,10 @@
       }
     });
 
-    $('[data-toggle="tooltip"]').tooltip();   
-
-  //     $('#book').on('change', function() {
-  //       if ( this.value == "{{$book->bookname}}" )
-  //       //.....................^.......
-  //       {
-  //         $(".book_result").show();
-  //       }
-
-  // });
 
 
 $(".check_book").click(function(){
-		if( $('#book').val().length>0){
+		if( $('#book').val()){
 			$.ajax({
 				type: "POST",
         url: "bookissues/create",
@@ -167,4 +158,5 @@ $(".check_book").click(function(){
 
   });
 </script>
+
  @endsection

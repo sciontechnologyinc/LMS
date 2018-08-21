@@ -38,7 +38,7 @@
 
                           <div class="form-group">
 							<div class="form-group col-md-6 offset-2">
-								<?php echo Form::label('categoryname', 'Category Name', array('class' => 'form-control-label', 'data-toggle' => 'tooltip', 'title' => 'Hooray!')); ?>
+								<?php echo Form::label('categoryname', 'Category Name', array('class' => 'form-control-label')); ?>
 
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
@@ -63,11 +63,6 @@
     <?php echo Form::close(); ?>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();   
-  });
-</script>
+    
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

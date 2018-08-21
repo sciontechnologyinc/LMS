@@ -10,7 +10,7 @@
  
  <?php $__env->startSection('content'); ?>
 
-   <?php echo Form::open(['id' => 'dataForm', 'url' => 'bookissues/create', 'method' => 'POST']); ?>
+   <?php echo Form::open(['id' => 'dataForm', 'url' => '/bookissues', 'method' => 'POST']); ?>
 
  <div class="col-lg-6">
                     <div class="card">
@@ -31,6 +31,7 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                       </div>
+                      
                       <span class="text-danger"><?php echo e($errors->first('bookname')); ?></span>
                       </div>
                     </div>
@@ -112,6 +113,7 @@
                       </div>
                     </div>
 </div>
+<?php echo Form::close(); ?>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -135,20 +137,10 @@
       }
     });
 
-    $('[data-toggle="tooltip"]').tooltip();   
-
-  //     $('#book').on('change', function() {
-  //       if ( this.value == "<?php echo e($book->bookname); ?>" )
-  //       //.....................^.......
-  //       {
-  //         $(".book_result").show();
-  //       }
-
-  // });
 
 
 $(".check_book").click(function(){
-		if( $('#book').val().length>0){
+		if( $('#book').val()){
 			$.ajax({
 				type: "POST",
         url: "bookissues/create",
@@ -166,5 +158,6 @@ $(".check_book").click(function(){
 
   });
 </script>
+
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

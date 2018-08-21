@@ -136,7 +136,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-envelope"></i></span>
-									<?php echo Form::text('email',$member->email, ['placeholder' => 'Email-Address', 'class' => 'form-control' ]); ?>
+									<?php echo Form::email('email',$member->email, ['placeholder' => 'Email-Address', 'class' => 'form-control' ]); ?>
 
 								</div>
 							</div>
@@ -161,7 +161,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-phone-square"></i></span>
-									<?php echo Form::text('contactnumber',$member->contactnumber, ['placeholder' => 'Contact Number', 'class' => 'form-control' ]); ?>
+									<?php echo Form::number('contactnumber',$member->contactnumber, ['placeholder' => 'Contact Number', 'class' => 'form-control' ]); ?>
 
 								</div>
 							</div>
@@ -200,7 +200,7 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									<?php echo Form::text('LRN',$member->LRN, ['placeholder' => 'LRN', 'class' => 'form-control' ]); ?>
+									<?php echo Form::number('LRN',$member->LRN, ['placeholder' => 'LRN', 'class' => 'form-control' ]); ?>
 
 								</div>
 							</div>
