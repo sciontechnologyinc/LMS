@@ -33,10 +33,30 @@
                             
                         </ul>
                     </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list"></i></i>Subjects</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus"></i><a href="{{ url('addsubject') }}">Add New Subject</a></li>
+                            <li><i class="fa fa-list-alt"></i><a href="{{ url('subjects') }}">Subject List</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bank"></i>Departments</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus"></i><a href="{{ url('adddepartment') }}">Add New Department</a></li>
+                            <li><i class="fa fa-list-alt"></i><a href="{{ url('departments') }}">Department List</a></li>
+                            
+                        </ul>
+                    </li>
+
+
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Members</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-plus"></i><a href="{{ url('addmembers') }}">Add New Member</a></li>
+                            <li><i class="menu-icon fa fa-plus"></i><a href="{{ url('members/create') }}">Add New Member</a></li>
                             <li><i class="menu-icon fa fa-users"></i><a href="{{ url('members') }}">Member List</a></li>
                             <li><i class="menu-icon fa fa-users text-success"></i><a href="#">New members</a></li>
                             <li><i class="menu-icon fa fa-globe text-success"></i><a href="#">Visitors</a></li>

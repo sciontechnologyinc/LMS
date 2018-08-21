@@ -119,33 +119,18 @@
 
 
 
-                        <div class="form-group">
-                            <label class="">Department</label>
-                           <div class="iconic-input">
-                        <div class="input-group margin-bottom-sm">
-                        <span class="input-group-addon">
-                        <i class="fa fa-bank"></i></span>
-                         {!! Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control', 'required' => '')) !!}
-                         </div>
-						          </div>
-                  </div>
 
-              <div class="form-group" required="">
+                    <div class="form-group">
 							<label style="width:100%;">Check Subjects </label>
+              @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="Math" >Math							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="English" >English							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="History">History							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="Politics" >Politics							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="Technology" >Technology							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="World humanity" >World humanity							</label><br/>
-
+								<input class="subjects" type="checkbox" name="subjects[]" value="{{$subject->subjectname}}" {{ old('subjects') ? 'selected' : '' }} >{{$subject->subjectname}}</label>
+                @endforeach
 							</div>
+
+
+
+
                   <br><br><br> 
                   <div class="form-group">
                       {!!Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label'))!!}

@@ -180,18 +180,22 @@
 							</div>
 						</div>
 
-							<div class="form-group">
-									<?php echo Form::label('Department', 'Department', array('class' => 'form-control-label')); ?>
-
-								<div class="iconic-input">
-								<div class="input-group margin-bottom-sm">
-								<span class="input-group-addon">
-								<i class="fa fa-bank"></i></span>
-									<?php echo Form::text('department',$member->department, ['placeholder' => 'LRN', 'class' => 'form-control' ]); ?>
-
-								</div>
-							</div>
-						</div>
+                             <div class="form-group">
+                                            <label>Department</label>
+                                            <div class="iconic-input">
+                                      <div class="input-group margin-bottom-sm">
+                                      <span class="input-group-addon">
+                                      <i class="fa fa-list-alt"></i></span>
+                                      <select name="department" class="form-control">
+                                              
+                                                  <option value="<?php echo e($member->department); ?>"><?php echo e($member->department); ?></option>
+                                             
+                                          </select>
+                                          
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
 
 						<div class="form-group">
 									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
@@ -209,17 +213,17 @@
 						<div class="form-group">
 								<label style="width:100%;">Subjects</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->id); ?>">Math</label>
+									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">Math</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->id); ?>">English</label>
+									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">English</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->id); ?>">History</label>
+									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">History</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->id); ?>">Politics</label>
+									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">Politics</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects"  value="<?php echo e($member->id); ?>">Technology</label>
+									<input type="checkbox" name="subjects"  value="<?php echo e($member->subjects); ?>">Technology</label>
 									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects"  value="<?php echo e($member->id); ?>">World Humanity</label>
+									<input type="checkbox" name="subjects"  value="<?php echo e($member->subjects); ?>">World Humanity</label>
 						</div>
 				
 						

@@ -28,7 +28,7 @@
         </ul>
     </div>
  @endif
- <a class="btns btn-primaries col-lg-2 offsets-9" href="{{ url('addmembers') }}" style="margin-bottom: 10px;">Create New</a>
+ <a class="btns btn-primaries col-lg-2 offsets-9" href="{{ url('members/create') }}" style="margin-bottom: 10px;">Create New</a>
         
         <link rel="stylesheet" href="{!! ('/css/memberlistcss.css') !!}">
        

@@ -10,13 +10,14 @@
  
  <?php $__env->startSection('content'); ?>
  <div class="content mt-3">
+ <link rel="stylesheet" href="<?php echo ('/css/headercss.css'); ?>">
 
 <div class="col-sm-6 col-lg-3">
      <div class="card text-white bg-flat-color-1">
          <div class="card-body pb-0">
              
              <h4 class="mb-0">
-             <span class="no-padding center mt txt-sm">Total(<?php echo e($t_members); ?>)</span> 
+             <span class="no-padding center mt txt-sm count"><?php echo e($t_members); ?></span> 
              </h4>
              <a href="<?php echo e(url('members')); ?>"><p class="text-light">Members</p></a>
 
@@ -37,7 +38,7 @@
              <h4 class="mb-0">
                  
      
-              <span class="no-padding center mt txt-sm">Total(<?php echo e($t_books); ?>)</span> 
+              <span class="no-padding center mt txt-sm count"><?php echo e($t_books); ?></span> 
              </h4>
              <a href="<?php echo e(url('books')); ?>"><p class="text-light">Books</p></a>
              

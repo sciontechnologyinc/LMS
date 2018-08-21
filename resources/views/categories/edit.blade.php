@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Add Category list')
+@section('title','Update Category')
  
  @section('content')
 

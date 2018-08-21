@@ -19,6 +19,21 @@ Route::get('create', function () {
 
 Route::resource('categories','CategoryController');
 
+
+Route::get('addsubject', function () {
+    return view('subjects.create');
+});
+
+Route::resource('subjects','SubjectController');
+
+Route::get('adddepartment', function () {
+    return view('departments.create');
+});
+
+Route::resource('departments','DepartmentController');
+
+
+
 Route::get('bookissue', function () {
     return view('bookissues.create');
 });
@@ -81,6 +96,10 @@ Route::resource('terms','TermController');
 
 //Category
 Route::get('books/create','CategoryController@categorycheckbox');
+//subject
+Route::get('members/create','SubjectController@subjectcheckbox');
+//department
+// Route::get('members/create','DepartmentController@departmentdropdown');
 //books
 Route::get('bookissues/create','BookController@booksdropdown');
 

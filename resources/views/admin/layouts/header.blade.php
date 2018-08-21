@@ -25,7 +25,7 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   <img src="storage/uploads/admin.png" class="admin"> {{ Auth::user()->email }} <i class="fa fa-caret-down"></i>
+                                   <img src="{!! asset('storage/uploads/admin.png') !!}" class="admin"> {{ Auth::user()->email }} <i class="fa fa-caret-down"></i>
                                 </a>
 
                         <div class="user-menu dropdown-menu">

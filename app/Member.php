@@ -14,7 +14,7 @@ class Member extends Model
 		'LRN',
 		'profession',
 		'department',
-		'subjects',
+		'subject',
 		'livingaddress',
 		'photo'
 

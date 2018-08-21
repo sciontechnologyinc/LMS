@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function categorycheckbox()
     {
 	    $categories = Category::orderBy('id')->get();
-        return view('books.create', ['categories' => $categories]);
+        return view('books/create', ['categories' => $categories]);
     }
 
     /**

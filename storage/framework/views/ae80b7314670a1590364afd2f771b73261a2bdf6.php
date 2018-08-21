@@ -129,34 +129,18 @@
 
 
 
-                        <div class="form-group">
-                            <label class="">Department</label>
-                           <div class="iconic-input">
-                        <div class="input-group margin-bottom-sm">
-                        <span class="input-group-addon">
-                        <i class="fa fa-bank"></i></span>
-                         <?php echo Form::select('department', array('sociology' => 'Sociology', 'politicalscience' => 'Political Science'), null,array('class' => 'form-control', 'required' => '')); ?>
 
-                         </div>
-						          </div>
-                  </div>
-
-              <div class="form-group" required="">
+                    <div class="form-group">
 							<label style="width:100%;">Check Subjects </label>
+              <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="Math" >Math							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="English" >English							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="History">History							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="Politics" >Politics							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="Technology" >Technology							</label>
-								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="World humanity" >World humanity							</label><br/>
-
+								<input class="subjects" type="checkbox" name="subjects[]" value="<?php echo e($subject->subjectname); ?>" <?php echo e(old('subjects') ? 'selected' : ''); ?> ><?php echo e($subject->subjectname); ?></label>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>
+
+
+
+
                   <br><br><br> 
                   <div class="form-group">
                       <?php echo Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label')); ?>
