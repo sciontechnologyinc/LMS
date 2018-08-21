@@ -28,7 +28,7 @@
                                       <select class="form-control select select2-hidden-accessible" name="book" id="book" required="" tabindex="-1" aria-hidden="true">
                                     <option value="" disabled {{ old('bookname') ? '' : 'selected' }}>Choose a bookname</option>
                                     @foreach($books as $book)
-                                        <option value="{{$book->bookname}}" {{ old('bookname') ? 'selected' : '' }}>{{$book->bookname}}</option>
+                                        <option value="{{$book->booknumber}}" {{ old('bookname') ? 'selected' : '' }}>{{$book->bookname}}</option>
                                     @endforeach
                                 </select>
                       </div>
@@ -39,8 +39,8 @@
 
                        
                         <div class="form-group"><div class="form-group">
-                        <label><button class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
-						            <span class="book_result fa fa-check-circle text-success" style='display:none;' ><b class="text-warning">{{$book->booknumber}} Books </b>   available</span>
+                        <label><button  class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
+						            <span class="book_result" ></span>
                         </label></div></div>
                         <div class="form-group"><label class="form-control-label">Member ID</label><input type="text" data-toggle="tooltip" title="Hooray!" class="form-control" id="member_id" name="member" placeholder="Member ID" autocomplete="off"></div>
                        <div class="form-group">
@@ -139,24 +139,20 @@
 
 
 
-$(".check_book").click(function(){
-		if( $('#book').val()){
-			$.ajax({
-				type: "POST",
-        url: "bookissues/create",
-				data:{ book: $('#book').val()},
-				success: function(result){
-					$(".book_result").html(result);
-				},error: function (request, status, error) {
-					$(".book_result").html(request.responseText);
-				}
-			});
-		}else{
-			$(".book_result").html("<b class='text-danger'>Select book from <b class='text-success'>Book Name</b> field</b>");
-		}
-	});
+
 
   });
+</script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".check_book").click(function () {
+
+            var selectedValue = $("#book").val();
+            $(".book_result").html("<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + selectedValue + " Books </b>   available</span></span>");
+        });
+    });
 </script>
 
  @endsection

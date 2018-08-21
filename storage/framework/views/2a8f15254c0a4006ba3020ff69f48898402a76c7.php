@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?php echo asset('assets/css/flag-icon.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo asset('assets/css/cs-skin-elastic.css'); ?>">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="<?php echo asset('assets/scss/style.scss'); ?>">
     <link rel="stylesheet" href="<?php echo asset('assets/scss/style.css'); ?>">
     <link href="<?php echo asset('assets/css/lib/vector-map/jqvmap.min.css'); ?>" rel="stylesheet">
 
