@@ -19,18 +19,19 @@
             <div class="perbook-img"><img src="<?php echo e(asset('storage/uploads/book_icon.png')); ?>" alt=""></div>
             <div class="perbook-title" data-toggle="modal" data-target="#myModal"><?php echo e($book->bookname); ?> </div>
         </div>
-
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
         </div>
     </div>
 </div>
 
 
 <!-- The Modal -->
+<?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Game of Thrones</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo e($book->bookname); ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -50,9 +51,10 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+    
   </div>
 </div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 <?php $__env->stopSection(); ?>
