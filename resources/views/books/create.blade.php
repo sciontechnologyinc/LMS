@@ -36,7 +36,7 @@
     </div>
  @endif
 
-
+ <link rel="stylesheet" href="{!! ('/css/memberlistcss.css') !!}">
     {!! Form::open(['id' => 'dataForm', 'url' => '/books']) !!}
     
     <div class="col-lg-6">
@@ -128,14 +128,34 @@
                          {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control', 'required' => '')) !!}
                           </div>
                           <span class="text-danger">{{ $errors->first('status') }}</span>
-                              
-                          <div class="form-group"><label class="">Book Type</label>
-                         {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control', 'required' => '')) !!}
-                          <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
-                          </div>
+                                
+                          <div class="form-group">
+                          <label class="form-control-label">Book Type</label>
+               
+                        <select class="form-control booktype" id="booktype" name="booktype" required="">
+                            <option value="" selected=""> Choose physical/digital </option>
+                            <option value="physical"> Physical</option>
+                            <option value="digital"> Digital</option>
+                        </select>
+                            </div>
+            
+      
                           <span class="text-danger">{{ $errors->first('booktype') }}</span>
 
-                          <div class="form-group"><label class="">Book Condition</label>
+                          	<div class="form-group book_digital" style='display:none;'>                  
+                                  
+									<label>Choose photo  <br>
+									<label for="bookphoto" class="custom-file-upload" style="display: inline-block;">
+										<i class="fa fa-cloud-upload"></i> Upload Photo
+									</label>
+									<input id="bookphoto" name="bookphoto" hidden="true" class="bookphoto" type="file" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+               
+
+                          <span class="text-danger">{{ $errors->first('booktype') }}</span>
+
+                          <div class="form-group"><label class="form-control-label">Book Condition</label>
                          {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control', 'required' => '')) !!}
                           <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
                           </div>
@@ -155,11 +175,30 @@
         </div>
 </div>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#booktype').on('change', function() {
+      if ( this.value == 'digital' )
+      //.....................^.......
+      {
+        $(".book_digital").show();
+      }
+      else
+      {
+        $(".book_digital").hide();
+      }
+
+    });
+
+  });
+</script>
+
     {!! Form::close() !!}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
      $("#dataForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
+                 var x = confirm("Are you sure you want to add?");
                     if (x) {
                         return true;
                     }

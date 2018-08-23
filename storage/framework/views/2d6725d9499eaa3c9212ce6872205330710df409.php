@@ -34,7 +34,7 @@
     </div>
  <?php endif; ?>
 
-
+ <link rel="stylesheet" href="<?php echo ('/css/memberlistcss.css'); ?>">
     <?php echo Form::open(['id' => 'dataForm', 'url' => '/books']); ?>
 
     
@@ -118,7 +118,7 @@
 							<label style="width:100%;">Category </label>
               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-                    
+                                
 								<input class="categoryname" type="checkbox" name="categoryname[]" value="<?php echo e($category->categoryname); ?>" <?php echo e(old('categoryname', $category->categoryname) == 'value' ? 'checked="checked"' : ''); ?>> <?php echo e($category->categoryname); ?></label>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>
@@ -138,15 +138,34 @@
 
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('status')); ?></span>
-                              
-                          <div class="form-group"><label class="">Book Type</label>
-                         <?php echo Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'), null,array('class' => 'form-control', 'required' => '')); ?>
-
-                          <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
-                          </div>
+                                
+                          <div class="form-group">
+                          <label class="form-control-label">Book Type</label>
+               
+                        <select class="form-control booktype" id="booktype" name="booktype" required="">
+                            <option value="" selected=""> Choose physical/digital </option>
+                            <option value="physical"> Physical</option>
+                            <option value="digital"> Digital</option>
+                        </select>
+                            </div>
+            
+      
                           <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
 
-                          <div class="form-group"><label class="">Book Condition</label>
+                          	<div class="form-group book_digital" style='display:none;'>                  
+                                  
+									<label>Choose photo  <br>
+									<label for="bookphoto" class="custom-file-upload" style="display: inline-block;">
+										<i class="fa fa-cloud-upload"></i> Upload Photo
+									</label>
+									<input id="bookphoto" name="bookphoto" hidden="true" class="bookphoto" type="file" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+               
+
+                          <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
+
+                          <div class="form-group"><label class="form-control-label">Book Condition</label>
                          <?php echo Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control', 'required' => '')); ?>
 
                           <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
@@ -169,7 +188,41 @@
         </div>
 </div>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#booktype').on('change', function() {
+      if ( this.value == 'digital' )
+      //.....................^.......
+      {
+        $(".book_digital").show();
+      }
+      else
+      {
+        $(".book_digital").hide();
+      }
+
+    });
+
+  });
+</script>
+
     <?php echo Form::close(); ?>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+     $("#dataForm").submit(function (event) {
+                 var x = confirm("Are you sure you want to delete?");
+                    if (x) {
+                        return true;
+                    }
+                    else {
+
+                        event.preventDefault();
+                        return false;
+                    }
+
+                });
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
