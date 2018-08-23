@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Book;
 use App\Bookissue;
 use App\Category;
 use App\Generalsettings;
 use App\Member;
+use App\Subject;
 use App\User;
 use Carbon\Carbon;
-use DB;
-use Session;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use function Psy\debug;
+use DB;
+use Image;
+use Storage;
+use Purifier;
 
 class BookController extends Controller
 {
@@ -81,6 +84,8 @@ class BookController extends Controller
             'booktype' => 'required',
             'bookcondition' => 'required',
             'details' => 'required',
+            'digitalphoto' => 'image|nullable|max:1999'
+
             
 
             
@@ -97,11 +102,39 @@ class BookController extends Controller
             'details.required' => ' The details field is required.',
 
         ]);
-        Book::create($data);
 
+        if($request->hasFile('digitalphoto')){
+            
+            $filenameWithExt = $request->file('digitalphoto')->getClientOriginalName();
 
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-	    Session::flash('success', $book['bookname'] . ' Added successfully');
+            $extension = $request->file('digitalphoto')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            
+            $path = $request->file('digitalphoto')->storeAs('public/uploads', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'book_icon.png';
+        }
+
+        
+        $book = new Book;
+        $book->bookname = $request->input('bookname');
+        $book->ISBN = $request->input('ISBN');
+        $book->booknumber = $request->input('booknumber');  
+        $book->bookprice = $request->input('bookprice');
+        $book->writername = $request->input('writername');
+        $book->categoryname = implode(', ', (array) $request->get('categoryname'));
+        $book->status = $request->input('status');
+        $book->booktype = $request->input('booktype');
+        $book->bookcondition = $request->input('bookcondition');
+        $book->details = $request->input('details');
+        $book->digitalphoto = $fileNameToStore;
+        $book->save();
+        
+
+	
         return redirect()->back()->with('success','Added successfuly');
     }
 
@@ -143,13 +176,54 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->merge([ 
-            'categoryname' => implode(', ', (array) $request->get('categoryname'))
+        $book = $request->all();
+        $data = $request->validate([
+            'bookname' => 'required',
+            'ISBN' => 'required|numeric',
+            'booknumber' => 'required|numeric',
+            'bookprice' => 'required|numeric',
+            'writername' => 'required',
+            'categoryname' => 'required',
+            'status' => 'required',
+            'booktype' => 'required',
+            'bookcondition' => 'required',
+            'details' => 'required',
+            'digitalphoto' => 'image|nullable|max:1999'
+
+            
+
+            
         ]);
-    
+
+        if($request->hasFile('digitalphoto')){
+            
+            $filenameWithExt = $request->file('digitalphoto')->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            $extension = $request->file('digitalphoto')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            
+            $path = $request->file('digitalphoto')->storeAs('public/uploads', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'book_icon.png';
+        }
+
+        
         $book = Book::find($id);
-        $data = $request->all();
-        $book->update($data);
+        $book->bookname = $request->input('bookname');
+        $book->ISBN = $request->input('ISBN');
+        $book->booknumber = $request->input('booknumber');  
+        $book->bookprice = $request->input('bookprice');
+        $book->writername = $request->input('writername');
+        $book->categoryname = implode(', ', (array) $request->get('categoryname'));
+        $book->status = $request->input('status');
+        $book->booktype = $request->input('booktype');
+        $book->bookcondition = $request->input('bookcondition');
+        $book->details = $request->input('details');
+        $book->digitalphoto = $fileNameToStore;
+        $book->save();
 
 	
         return redirect('/books')->with('success','Updated successfuly');

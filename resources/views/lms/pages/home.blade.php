@@ -16,15 +16,16 @@
 </div>
 
 <div class="booklist-container">
+
     <div class="booklist-title">List of Books</div>
     <div class="booklist-row">
+    @foreach($books as $book)
         <div class="perbook-container">
-            <div class="perbook-img"><img src="/img/Book1.jpg" alt=""></div>
-            <div class="perbook-title" data-toggle="modal" data-target="#myModal">Game of Thrones</div>
+        
+            <div class="perbook-img"><img src="{{asset('storage/uploads/book_icon.png')}}" alt=""></div>
+            <div class="perbook-title" data-toggle="modal" data-target="#myModal">{{$book->bookname}} </div>
         </div>
-        <div class="perbook-container">
-            <div class="perbook-img"><img src="/img/Book1.jpg" alt=""></div>
-            <div class="perbook-title" data-toggle="modal" data-target="#myModal">Book One Sample</div>
+
         </div>
     </div>
 </div>
@@ -41,19 +42,21 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="book-isbn">Book ISBN No. : 12345678</div>
-        <div class="availbook-number">Available Book No. : 5</div>
-        <div class="book-price">Book Price : $1000.00</div>
-        <div class="writer-name">Writer Name : Michael Waje</div>
-        <div class="book-category">Book Category : Fantasy</div>
-        <div class="book-status">Status : Available</div>
-        <div class="book-type">Book Type : Physical</div>
-        <div class="book-adtl-details">Details : This book is a fiction</div>
+        <div class="book-isbn">Book ISBN No. : {{$book->ISBN}}</div>
+        <div class="availbook-number">Available Book No. : {{$book->booknumber}}</div>
+        <div class="book-price">Book Price : {{$book->bookprice}}</div>
+        <div class="writer-name">Writer Name : {{$book->writername}}</div>
+        <div class="book-category">Book Category : {{$book->catergoryname}}</div>
+        <div class="book-status">Status : {{$book->status}}</div>
+        <div class="book-type">Book Type : {{$book->booktype}}</div>
+        <div class="book-condition">Book Type : {{$book->bookcondition}}</div>
+        <div class="book-adtl-details">Details : {{$book->details}}</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
+    @endforeach 
   </div>
 </div>
 

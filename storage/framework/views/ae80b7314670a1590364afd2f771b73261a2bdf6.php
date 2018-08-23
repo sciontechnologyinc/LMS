@@ -170,18 +170,18 @@
                   </div>
                 </div>
                           
-                          
-				<div class="form-group">                  
-                  <div class="row">
-									<label>Choose photo (<small>optional</small>) <br>
+                            
+                            <div class="form-group">                  
+                            <div class="row">
+                                <label>Choose photo (<small>optional</small>) <br>
 									<label for="phto" class="custom-file-upload" style="display: inline-block;">
 										<i class="fa fa-cloud-upload"></i> Upload Photo
 									</label>
 									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
-                </label>
-              </div>
-            </div>
-								<br>
+                        </label>
+                    </div>
+                    </div>
+					<br>
 	
                       </div>
 

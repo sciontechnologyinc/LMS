@@ -16,6 +16,8 @@ class Book extends Model
                             'status',
                             'booktype',
                             'bookcondition',
-                            'details'];
+                            'details',
+                            'digitalphoto'
+                        ];
 
 }

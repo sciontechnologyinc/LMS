@@ -54,7 +54,7 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-         $department = $request->all();
+         $data = $request->all();
          $data = $request->validate([
             'departmentname' => 'required',
 

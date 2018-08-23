@@ -24,7 +24,7 @@ Route::get('addsubject', function () {
     return view('subjects.create');
 });
 
-Route::resource('subjects','DepartmentController');
+Route::resource('subjects','SubjectController');
 
 Route::get('adddepartment', function () {
     return view('departments.create');
@@ -68,8 +68,10 @@ Route::post('/store', 'GeneralsettingsController@store')->name('pages.store');
 
 
 Route::get('lms', function () {
-    return view('lms.pages.home');
+    return view('lms/pages/home');
 });
+
+Route::resource('lms','LmsController');
 
 Route::get('contact', function () {
     return view('lms.pages.contact');

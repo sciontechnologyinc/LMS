@@ -35,7 +35,7 @@
  <?php endif; ?>
 
  <link rel="stylesheet" href="<?php echo ('/css/memberlistcss.css'); ?>">
-    <?php echo Form::open(['id' => 'dataForm', 'url' => '/books']); ?>
+ <?php echo Form::open(['id' => 'dataForm', 'url' => '/books', 'method' => 'POST', 'enctype' => 'multipart/form-data']); ?>
 
     
     <div class="col-lg-6">
@@ -152,15 +152,16 @@
       
                           <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
 
-                          	<div class="form-group book_digital" style='display:none;'>                  
-                                  
-									<label>Choose photo  <br>
-									<label for="bookphoto" class="custom-file-upload" style="display: inline-block;">
+                     <div class="form-group book_digital" style='display:none;'>                  
+                            <div class="row">
+                                <label>Choose photo (<small>optional</small>) <br>
+									<label for="phto" class="custom-file-upload" style="display: inline-block;">
 										<i class="fa fa-cloud-upload"></i> Upload Photo
 									</label>
-									<input id="bookphoto" name="bookphoto" hidden="true" class="bookphoto" type="file" accept="image/x-png,image/gif,image/jpeg">
-                                </label>
-                            </div>
+									<input id="phto" name="digitalphoto" hidden="true" class="digitalphoto" type="file" accept="image/x-png,image/gif,image/jpeg">
+                        </label>
+                    </div>
+                    </div>
                
 
                           <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
@@ -187,7 +188,21 @@
                 </div>
         </div>
 </div>
+<?php echo Form::close(); ?>    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+     $("#data").submit(function (event) {
+                 var x = confirm("Are you sure you want to delete?");
+                    if (x) {
+                        return true;
+                    }
+                    else {
 
+                        event.preventDefault();
+                        return false;
+                    }
+
+                });
+</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
@@ -207,12 +222,11 @@
   });
 </script>
 
-    <?php echo Form::close(); ?>
-
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
      $("#dataForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
+                 var x = confirm("Are you sure you want to add?");
                     if (x) {
                         return true;
                     }
@@ -224,5 +238,7 @@
 
                 });
 </script>
+
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

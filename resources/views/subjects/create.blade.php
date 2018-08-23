@@ -33,7 +33,7 @@
     {!! Form::open(['id' => 'dataForm', 'url' => '/subjects']) !!}
     <div class="col-lg-12">
                     <div class="card">
-                      <div class="card-header"><strong>Create</strong><small> Category</small></div>
+                      <div class="card-header"><strong>Create</strong><small> Subject</small></div>
                       <div class="card-body card-block">
 
 

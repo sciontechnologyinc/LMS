@@ -10,15 +10,16 @@
 </div>
 
 <div class="booklist-container">
+
     <div class="booklist-title">List of Books</div>
     <div class="booklist-row">
+    <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="perbook-container">
-            <div class="perbook-img"><img src="/img/Book1.jpg" alt=""></div>
-            <div class="perbook-title" data-toggle="modal" data-target="#myModal">Game of Thrones</div>
+        
+            <div class="perbook-img"><img src="<?php echo e(asset('storage/uploads/book_icon.png')); ?>" alt=""></div>
+            <div class="perbook-title" data-toggle="modal" data-target="#myModal"><?php echo e($book->bookname); ?> </div>
         </div>
-        <div class="perbook-container">
-            <div class="perbook-img"><img src="/img/Book1.jpg" alt=""></div>
-            <div class="perbook-title" data-toggle="modal" data-target="#myModal">Book One Sample</div>
+
         </div>
     </div>
 </div>
@@ -35,19 +36,21 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="book-isbn">Book ISBN No. : 12345678</div>
-        <div class="availbook-number">Available Book No. : 5</div>
-        <div class="book-price">Book Price : $1000.00</div>
-        <div class="writer-name">Writer Name : Michael Waje</div>
-        <div class="book-category">Book Category : Fantasy</div>
-        <div class="book-status">Status : Available</div>
-        <div class="book-type">Book Type : Physical</div>
-        <div class="book-adtl-details">Details : This book is a fiction</div>
+        <div class="book-isbn">Book ISBN No. : <?php echo e($book->ISBN); ?></div>
+        <div class="availbook-number">Available Book No. : <?php echo e($book->booknumber); ?></div>
+        <div class="book-price">Book Price : <?php echo e($book->bookprice); ?></div>
+        <div class="writer-name">Writer Name : <?php echo e($book->writername); ?></div>
+        <div class="book-category">Book Category : <?php echo e($book->catergoryname); ?></div>
+        <div class="book-status">Status : <?php echo e($book->status); ?></div>
+        <div class="book-type">Book Type : <?php echo e($book->booktype); ?></div>
+        <div class="book-condition">Book Type : <?php echo e($book->bookcondition); ?></div>
+        <div class="book-adtl-details">Details : <?php echo e($book->details); ?></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
   </div>
 </div>
 
