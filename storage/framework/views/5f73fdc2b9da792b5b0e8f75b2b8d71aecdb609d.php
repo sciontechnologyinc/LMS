@@ -42,7 +42,7 @@
 
 							<div class="profile-pic text-center">
 							<?php if($member->photo): ?>
-                                <img value="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" type="file" class="photo" src="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" />&nbsp;
+                                <img value="<?php echo e(asset('storage/uploads/'.$member->id.$member->photo)); ?>" type="file" class="photo" src="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" />&nbsp;
                                 <?php else: ?>
                                 <img value="<?php echo e(asset('storage/uploads/'.$member->id.$member->photo)); ?>" type="file" class="photo" src="storage/uploads/user_icon.png" />
                                 <?php endif; ?>

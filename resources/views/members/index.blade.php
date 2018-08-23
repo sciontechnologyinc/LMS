@@ -55,7 +55,7 @@
                                 @if($member->photo)
                                 <img src="{{asset('storage/uploads/'.$member->photo)}}" />&nbsp;
                                 @else
-                                <img src="storage/uploads/user_icon.png" />
+                                <img src="{{asset('storage/uploads/user_icon.png')}}" />
                                 @endif
                                 </div>
                                 <div class="col-sm-6 membername">{{ $member->membername  }}<br>{{ $member->contactnumber  }}</div>

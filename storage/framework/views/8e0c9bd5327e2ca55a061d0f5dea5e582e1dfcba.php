@@ -53,7 +53,7 @@
                                 <?php if($member->photo): ?>
                                 <img src="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" />&nbsp;
                                 <?php else: ?>
-                                <img src="storage/uploads/user_icon.png" />
+                                <img src="<?php echo e(asset('storage/uploads/user_icon.png')); ?>" />
                                 <?php endif; ?>
                                 </div>
                                 <div class="col-sm-6 membername"><?php echo e($member->membername); ?><br><?php echo e($member->contactnumber); ?></div>
@@ -86,5 +86,20 @@
                         </div>
                     </div>
                 </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+     $("#deleteForm").submit(function (event) {
+                 var x = confirm("Are you sure you want to delete?");
+                    if (x) {
+                        return true;
+                    }
+                    else {
+
+                        event.preventDefault();
+                        return false;
+                    }
+
+                });
+</script>
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

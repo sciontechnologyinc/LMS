@@ -173,7 +173,7 @@ class MemberController extends Controller
                 
                 $path = $request->file('photo')->storeAs('public/uploads', $fileNameToStore);
             }else{
-                $fileNameToStore = 'noimage.jpg';
+                $fileNameToStore = 'user_icon.png';
             }
 
 

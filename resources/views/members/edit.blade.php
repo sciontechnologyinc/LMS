@@ -43,7 +43,7 @@
 
 							<div class="profile-pic text-center">
 							@if($member->photo)
-                                <img value="{{asset('storage/uploads/'.$member->photo)}}" type="file" class="photo" src="{{asset('storage/uploads/'.$member->photo)}}" />&nbsp;
+                                <img value="{{asset('storage/uploads/'.$member->id.$member->photo)}}" type="file" class="photo" src="{{asset('storage/uploads/'.$member->photo)}}" />&nbsp;
                                 @else
                                 <img value="{{asset('storage/uploads/'.$member->id.$member->photo)}}" type="file" class="photo" src="storage/uploads/user_icon.png" />
                                 @endif
