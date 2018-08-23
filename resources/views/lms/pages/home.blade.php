@@ -20,10 +20,10 @@
     <div class="booklist-title">List of Books</div>
     <div class="booklist-row">
     @foreach($books as $book)
-        <div class="perbook-container">
+        <div class="perbook-container" data-toggle="modal" data-target="#myModal">
         
             <div class="perbook-img"><img src="{{asset('storage/uploads/book_icon.png')}}" alt=""></div>
-            <div class="perbook-title" data-toggle="modal" data-target="#myModal">{{$book->bookname}} </div>
+            <div class="perbook-title" >{{$book->bookname}} </div>
         </div>
     @endforeach 
         </div>
