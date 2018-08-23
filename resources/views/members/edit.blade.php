@@ -30,7 +30,7 @@
  @endif
  <link rel="stylesheet" href="{!! ('/css/memberlistcss.css') !!}">
 
- {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/members/' . $member->id, 'files' => true]) !!}
+ {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/members/' . $member->id, 'enctype' => 'multipart/form-data']) !!}
 
  <div class="wrapper" style="min-height: 450px;">
             
@@ -43,9 +43,9 @@
 
 							<div class="profile-pic text-center">
 							@if($member->photo)
-                                <img value="storage/uploads/{{ $member->photo }}" type="file" class="photo" src="storage/uploads/{{ $member->photo }}" />&nbsp;
+                                <img value="{{asset('storage/uploads/'.$member->photo)}}" type="file" class="photo" src="{{asset('storage/uploads/'.$member->photo)}}" />&nbsp;
                                 @else
-                                <img value="storage/uploads/{{ $member->photo }}" type="file" class="photo" src="storage/uploads/user_icon.png" />
+                                <img value="{{asset('storage/uploads/'.$member->id.$member->photo)}}" type="file" class="photo" src="storage/uploads/user_icon.png" />
                                 @endif
 							 <br>
 							<label class="pointer text-primary"> 
@@ -211,7 +211,6 @@
 							<label style="width:100%;">Check Subjects </label>
              				 @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-                                <input type="hidden" name="subject" value="{{$subject->subjectname}}">
 								<input class="subject" type="checkbox" name="subject[]" value="{{$subject->subjectname}}">{{$subject->subjectname}}</label>
                				 @endforeach
 							</div>

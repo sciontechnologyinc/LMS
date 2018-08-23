@@ -70,7 +70,6 @@ class BookController extends Controller
        
      
         $book = $request->all();
-        $category = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
             'ISBN' => 'required|numeric',
@@ -144,11 +143,15 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->merge([ 
+            'categoryname' => implode(', ', (array) $request->get('categoryname'))
+        ]);
+    
         $book = Book::find($id);
         $data = $request->all();
         $book->update($data);
 
-	    Session::flash('success', $book['bookname'] . ' Updated successfully');
+	
         return redirect('/books')->with('success','Updated successfuly');
     }
 

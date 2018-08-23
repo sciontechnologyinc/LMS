@@ -57,6 +57,9 @@ class MemberController extends Controller
     public function store(Request $request)
     {
 
+        $request->merge([ 
+            'subject' => implode(', ', (array) $request->get('subject'))
+        ]);
 
         $member = $request->all();
         $data = $request->validate([
@@ -141,7 +144,8 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $member = Member::find($id);
+        
+        $member = $request->all();
         $data = $request->validate([
             'membername' => 'required',
             'gender' => 'required',
@@ -150,7 +154,7 @@ class MemberController extends Controller
             'LRN' => 'required',
             'profession' => 'required',
             'department' => 'required',
-            'subjects' => 'required',
+            'subject' => 'required',
             'livingaddress' => 'required',
             'photo' => 'image|nullable|max:1999'
 
@@ -173,16 +177,17 @@ class MemberController extends Controller
             }
 
 
-            $member->update($data);
-                       
-            $member->membername =$request->input('membername');
-            $member->gender =$request->input('gender');
-            $member->contactnumber =$request->input('contactnumber');
-            $member->email =$request->input('email');
-            $member->LRN =$request->input('LRN');
-            $member->profession =$request->input('profession'); 
-            $member->department =$request->input('department');
-            $member->livingaddress =$request->input('livingaddress');
+          
+            $member = Member::find($id);
+            $member->membername = $request->input('membername');
+            $member->gender = $request->input('gender');
+            $member->contactnumber = $request->input('contactnumber');  
+            $member->email = $request->input('email');
+            $member->LRN = $request->input('LRN');
+            $member->profession = $request->input('profession');
+            $member->department = $request->input('department');
+            $member->subject = implode(', ', (array) $request->get('subject'));
+            $member->livingaddress = $request->input('livingaddress');
             $member->photo = $fileNameToStore;
             $member->save();
         

@@ -53,7 +53,7 @@
                               <div class="row">
                               <div class="col-sm-4 photo"> 
                                 @if($member->photo)
-                                <img src="storage/uploads/{{ $member->photo }}" />&nbsp;
+                                <img src="{{asset('storage/uploads/'.$member->photo)}}" />&nbsp;
                                 @else
                                 <img src="storage/uploads/user_icon.png" />
                                 @endif

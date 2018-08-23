@@ -51,9 +51,9 @@
                               <div class="row">
                               <div class="col-sm-4 photo"> 
                                 <?php if($member->photo): ?>
-                                <img alt= "" src="storage/uploads/<?php echo e($member->photo); ?>" />&nbsp;
+                                <img src="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" />&nbsp;
                                 <?php else: ?>
-                                <img alt= "" src="storage/uploads/user_icon.png" />
+                                <img src="storage/uploads/user_icon.png" />
                                 <?php endif; ?>
                                 </div>
                                 <div class="col-sm-6 membername"><?php echo e($member->membername); ?><br><?php echo e($member->contactnumber); ?></div>

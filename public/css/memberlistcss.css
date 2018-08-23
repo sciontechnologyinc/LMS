@@ -380,3 +380,8 @@
         background-color: #007bff;
         border-color: #007bff;
     }
+    .col-sm-4.photo img {
+        height: 70px;
+        width: 80px;
+        border-radius: 50%;
+    }

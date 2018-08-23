@@ -28,7 +28,7 @@
  <?php endif; ?>
  <link rel="stylesheet" href="<?php echo ('/css/memberlistcss.css'); ?>">
 
- <?php echo Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/members/' . $member->id, 'files' => true]); ?>
+ <?php echo Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/members/' . $member->id, 'enctype' => 'multipart/form-data']); ?>
 
 
  <div class="wrapper" style="min-height: 450px;">
@@ -42,9 +42,9 @@
 
 							<div class="profile-pic text-center">
 							<?php if($member->photo): ?>
-                                <img value="storage/uploads/<?php echo e($member->photo); ?>" type="file" class="photo" src="storage/uploads/<?php echo e($member->photo); ?>" />&nbsp;
+                                <img value="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" type="file" class="photo" src="<?php echo e(asset('storage/uploads/'.$member->photo)); ?>" />&nbsp;
                                 <?php else: ?>
-                                <img value="storage/uploads/<?php echo e($member->photo); ?>" type="file" class="photo" src="storage/uploads/user_icon.png" />
+                                <img value="<?php echo e(asset('storage/uploads/'.$member->id.$member->photo)); ?>" type="file" class="photo" src="storage/uploads/user_icon.png" />
                                 <?php endif; ?>
 							 <br>
 							<label class="pointer text-primary"> 
@@ -221,7 +221,6 @@
 							<label style="width:100%;">Check Subjects </label>
              				 <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-                                <input type="hidden" name="subject" value="<?php echo e($subject->subjectname); ?>">
 								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
                				 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>

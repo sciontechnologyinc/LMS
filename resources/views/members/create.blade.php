@@ -138,7 +138,6 @@
 							<label style="width:100%;">Check Subjects </label>
               @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-                                <input type="hidden" name="subject" value="{{$subject->subjectname}}">
 								<input class="subject" type="checkbox" name="subject[]" value="{{$subject->subjectname}}">{{$subject->subjectname}}</label>
                 @endforeach
 							</div>

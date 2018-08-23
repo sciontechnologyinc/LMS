@@ -149,7 +149,6 @@
 							<label style="width:100%;">Check Subjects </label>
               <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-                                <input type="hidden" name="subject" value="<?php echo e($subject->subjectname); ?>">
 								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>
@@ -172,7 +171,7 @@
                 </div>
                           
                           
-								<div class="form-group">                  
+								<div class="form-group profile-pic img">                  
                   <div class="row">
 									<label>Choose photo (<small>optional</small>) <br>
 									<label for="phto" class="custom-file-upload" style="display: inline-block;">
