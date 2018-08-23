@@ -112,19 +112,34 @@
                       </div>
                     </div>
               </div>
-            <div class="col-lg-6">
+              <div class="col-lg-6">
                     <div class="card">
-                      <div class="card-header"><strong>Second</strong><small> Portion</small></div>
+                      <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
 
-
-
+                    <div class="form-group">
+                       {!!Form::label('deparment', 'Deparment', array('class' => 'form-control-label'))!!}
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon">
+                            <i class="fa fa-bank"></i></span>
+                            <select name="department" class="form-control">
+                                    <option value="" disabled {{ old('department') ? '' : 'selected' }}>Choose a deparment</option>
+                                    @foreach($departments as $department)
+                                        <option value="{{$department->id}}" {{ old('department') ? 'selected' : '' }}>{{$department->departmentname}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                      </div>
+                    </div>
+                     
 
                     <div class="form-group">
 							<label style="width:100%;">Check Subjects </label>
               @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="{{$subject->subjectname}}" {{ old('subjects') ? 'selected' : '' }} >{{$subject->subjectname}}</label>
+                                <input type="hidden" name="subject" value="{{$subject->subjectname}}">
+								<input class="subject" type="checkbox" name="subject[]" value="{{$subject->subjectname}}">{{$subject->subjectname}}</label>
                 @endforeach
 							</div>
 
@@ -161,6 +176,8 @@
                      <div class="card-footer">
                      {!!Form::submit('Add Member', ['class' => 'btn btn-primary']) !!}
                     </div>
+            </div>
+      </div>
 </div>
 {!! Form::close() !!}
  @endsection

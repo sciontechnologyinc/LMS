@@ -24,7 +24,7 @@ Route::get('addsubject', function () {
     return view('subjects.create');
 });
 
-Route::resource('subjects','SubjectController');
+Route::resource('subjects','DepartmentController');
 
 Route::get('adddepartment', function () {
     return view('departments.create');

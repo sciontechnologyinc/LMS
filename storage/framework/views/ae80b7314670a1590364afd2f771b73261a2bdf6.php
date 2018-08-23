@@ -122,19 +122,35 @@
                       </div>
                     </div>
               </div>
-            <div class="col-lg-6">
+              <div class="col-lg-6">
                     <div class="card">
-                      <div class="card-header"><strong>Second</strong><small> Portion</small></div>
+                      <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
 
+                    <div class="form-group">
+                       <?php echo Form::label('deparment', 'Deparment', array('class' => 'form-control-label')); ?>
 
-
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon">
+                            <i class="fa fa-bank"></i></span>
+                            <select name="department" class="form-control">
+                                    <option value="" disabled <?php echo e(old('department') ? '' : 'selected'); ?>>Choose a deparment</option>
+                                    <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($department->id); ?>" <?php echo e(old('department') ? 'selected' : ''); ?>><?php echo e($department->departmentname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                      </div>
+                    </div>
+                     
 
                     <div class="form-group">
 							<label style="width:100%;">Check Subjects </label>
               <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subjects" type="checkbox" name="subjects[]" value="<?php echo e($subject->subjectname); ?>" <?php echo e(old('subjects') ? 'selected' : ''); ?> ><?php echo e($subject->subjectname); ?></label>
+                                <input type="hidden" name="subject" value="<?php echo e($subject->subjectname); ?>">
+								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>
 
@@ -174,6 +190,8 @@
                      <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary']); ?>
 
                     </div>
+            </div>
+      </div>
 </div>
 <?php echo Form::close(); ?>
 

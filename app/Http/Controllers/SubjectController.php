@@ -31,8 +31,9 @@ class SubjectController extends Controller
 
     public function subjectcheckbox()
     {
-	    $subjects = Subject::orderBy('id')->get();
-        return view('members/create', ['subjects' => $subjects]);
+        $subjects = Subject::orderBy('id')->get();
+        $departments = Department::orderBy('id')->get();
+        return view('members/create', ['subjects' => $subjects,'departments' => $departments]);
     }
 
     /**

@@ -109,16 +109,16 @@
 							<label style="width:100%;">Category </label>
               @foreach($categories as $category)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="categoryname" type="checkbox" name="categoryname" value="{{$category->categoryname}}">{{$category->categoryname}}</label>
+                                <input type="hidden" name="categoryname" value="{{$category->categoryname}}">
+								<input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->categoryname}}">{{$category->categoryname}}</label>
                 @endforeach
 							</div>
 
                      <br><br> <span class="text-danger">{{ $errors->first('categoryname') }}</span>
                    
-</div>
-                     
-</div>
-</div>
+                    </div>             
+            </div>
+    </div>
             <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
@@ -151,7 +151,8 @@
                      {!!Form::submit('Create Books', ['class' => 'btn btn-primary']) !!}
 
                       </div>
-                    </div>
+                </div>
+        </div>
 </div>
 
     {!! Form::close() !!}

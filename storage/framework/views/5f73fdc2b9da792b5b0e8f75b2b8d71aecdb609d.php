@@ -41,7 +41,12 @@
 					<div class="panel-body">
 
 							<div class="profile-pic text-center">
-							<img alt="Logger" type="file" class="photo" src= "<?php echo e(asset($member->photo)); ?>"><br>
+							<?php if($member->photo): ?>
+                                <img value="storage/uploads/<?php echo e($member->photo); ?>" type="file" class="photo" src="storage/uploads/<?php echo e($member->photo); ?>" />&nbsp;
+                                <?php else: ?>
+                                <img value="storage/uploads/<?php echo e($member->photo); ?>" type="file" class="photo" src="storage/uploads/user_icon.png" />
+                                <?php endif; ?>
+							 <br>
 							<label class="pointer text-primary"> 
 									<label for="phto" class="custom-file-uploads" style="display: inline-block;">
 										<i class="fa fa-camera pointer text-primary"></i> <small>Choose Photo</small>
@@ -99,7 +104,7 @@
 					<div class="panel-body pbody-media">
 						<div class="profile-desk">
 							<h3><?php echo e($member->membername); ?> <small>[ <?php echo e($member->profession); ?> ] [ <?php echo e($member->department); ?>  ]</small></h3>
-              <span class="designation">Chosen subjects are: <?php echo e($member->subjects); ?> <b class="text-danger">|</b> </span><br>
+              <span class="designation">Chosen Subjects are: <?php echo e($member->subject); ?> <b class="text-danger">|</b> </span><br>
               <br>
 							<p>Update your info <span class="fa fa-arrow-down"></span></p>
 
@@ -210,21 +215,16 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-								<label style="width:100%;">Subjects</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">Math</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">English</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">History</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="<?php echo e($member->subjects); ?>">Politics</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects"  value="<?php echo e($member->subjects); ?>">Technology</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects"  value="<?php echo e($member->subjects); ?>">World Humanity</label>
-						</div>
+						
+
+             				<div class="form-group">
+							<label style="width:100%;">Check Subjects </label>
+             				 <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+                                <input type="hidden" name="subject" value="<?php echo e($subject->subjectname); ?>">
+								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
+               				 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							</div>
 				
 						
 

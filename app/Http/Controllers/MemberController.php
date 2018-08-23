@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
+use App\Bookissue;
+use App\Category;
+use App\Generalsettings;
 use App\Member;
+use App\Subject;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use function Psy\debug;
+use DB;
 use Image;
 use Storage;
 use Purifier;
@@ -50,6 +58,7 @@ class MemberController extends Controller
     {
 
 
+        $member = $request->all();
         $data = $request->validate([
             'membername' => 'required',
             'gender' => 'required',
@@ -58,7 +67,7 @@ class MemberController extends Controller
             'LRN' => 'required',
             'profession' => 'required',
             'department' => 'required',
-            'subjects' => 'required',
+            'subject' => 'required',
             'livingaddress' => 'required',
             'photo' => 'image|nullable|max:1999'
 
@@ -89,9 +98,7 @@ class MemberController extends Controller
         $member->LRN = $request->input('LRN');
         $member->profession = $request->input('profession');
         $member->department = $request->input('department');
-        $member->subjects = $request->input('subjects');
-        $member->membername = $request->membername;
-        $member->subjects = implode(',', $request->subjects);
+        $member->subject = implode(', ', (array) $request->get('subject'));
         $member->livingaddress = $request->input('livingaddress');
         $member->photo = $fileNameToStore;
         $member->save();
@@ -118,8 +125,11 @@ class MemberController extends Controller
      */
     public function edit($id)
     {
-    	$member = Member::find($id);
-        return view('members/edit', ['member' => $member]);
+        $member = Member::find($id);
+        $subjects = Subject::find($id);
+        $subjects = DB::table('subjects')->get();
+        
+        return view('members/edit', ['member' => $member,'subjects' => $subjects]);
     }
 
     /**

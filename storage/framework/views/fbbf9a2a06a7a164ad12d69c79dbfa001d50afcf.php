@@ -104,7 +104,8 @@
 							<label style="width:100%;">Category </label>
               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="categoryname" type="checkbox" name="categoryname" value="<?php echo e($category->categoryname); ?>" <?php echo e(old('categoryname') ? 'selected' : ''); ?>><?php echo e($category->categoryname); ?></label>
+                                <input type="hidden" name="categoryname[]" value="0">
+								<input class="categoryname" type="checkbox"  name="categoryname[]" value="<?php echo e($category->categoryname); ?>" <?php echo e(old('categoryname') ? 'checked' : ''); ?>><?php echo e($category->categoryname); ?></label>
                                 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>

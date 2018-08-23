@@ -62,6 +62,12 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->merge([ 
+            'categoryname' => implode(', ', (array) $request->get('categoryname'))
+        ]);
+    
+       
      
         $book = $request->all();
         $category = $request->all();
@@ -92,7 +98,9 @@ class BookController extends Controller
             'details.required' => ' The details field is required.',
 
         ]);
-	    Book::create($data);
+        Book::create($data);
+
+
 
 	    Session::flash('success', $book['bookname'] . ' Added successfully');
         return redirect()->back()->with('success','Added successfuly');

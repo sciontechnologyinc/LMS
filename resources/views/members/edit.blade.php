@@ -42,7 +42,12 @@
 					<div class="panel-body">
 
 							<div class="profile-pic text-center">
-							<img alt="Logger" type="file" class="photo" src= "{{asset($member->photo)}}"><br>
+							@if($member->photo)
+                                <img value="storage/uploads/{{ $member->photo }}" type="file" class="photo" src="storage/uploads/{{ $member->photo }}" />&nbsp;
+                                @else
+                                <img value="storage/uploads/{{ $member->photo }}" type="file" class="photo" src="storage/uploads/user_icon.png" />
+                                @endif
+							 <br>
 							<label class="pointer text-primary"> 
 									<label for="phto" class="custom-file-uploads" style="display: inline-block;">
 										<i class="fa fa-camera pointer text-primary"></i> <small>Choose Photo</small>
@@ -100,7 +105,7 @@
 					<div class="panel-body pbody-media">
 						<div class="profile-desk">
 							<h3>{{ $member->membername  }} <small>[ {{ $member->profession  }} ] [ {{ $member->department  }}  ]</small></h3>
-              <span class="designation">Chosen subjects are: {{ $member->subjects  }} <b class="text-danger">|</b> </span><br>
+              <span class="designation">Chosen Subjects are: {{ $member->subject  }} <b class="text-danger">|</b> </span><br>
               <br>
 							<p>Update your info <span class="fa fa-arrow-down"></span></p>
 
@@ -200,21 +205,16 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-								<label style="width:100%;">Subjects</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="{{$member->subjects}}">Math</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="{{$member->subjects}}">English</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="{{$member->subjects}}">History</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects" value="{{$member->subjects}}">Politics</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects"  value="{{$member->subjects}}">Technology</label>
-									<label for="inline-checkbox1" class="form-check-label" style="width:30%; margin-left:0px;background:#ececec;margin:0.5%;border-radius:20px;">
-									<input type="checkbox" name="subjects"  value="{{$member->subjects}}">World Humanity</label>
-						</div>
+						
+
+             				<div class="form-group">
+							<label style="width:100%;">Check Subjects </label>
+             				 @foreach($subjects as $subject)
+								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
+                                <input type="hidden" name="subject" value="{{$subject->subjectname}}">
+								<input class="subject" type="checkbox" name="subject[]" value="{{$subject->subjectname}}">{{$subject->subjectname}}</label>
+               				 @endforeach
+							</div>
 				
 						
 

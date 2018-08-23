@@ -95,8 +95,8 @@
 							<label style="width:100%;">Category </label>
               @foreach($categories as $category)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="categoryname" type="checkbox" name="categoryname" value="{{$category->categoryname}}" {{ old('categoryname') ? 'selected' : '' }}>{{$category->categoryname}}</label>
-                                
+                                <input type="hidden" name="categoryname" value="{{$category->categoryname}}">
+								<input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->categoryname}}">{{$category->categoryname}}</label>
                 @endforeach
 							</div>
 
