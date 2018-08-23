@@ -50,7 +50,7 @@
 							</div>
 						</div>
                                 <br>
-                                <?php echo Form::submit('Create Category', ['class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
+                                <?php echo Form::submit('Create Category', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
 
 
                               </div>
@@ -62,7 +62,22 @@
 
     <?php echo Form::close(); ?>
 
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+     $("#dataForm").submit(function (event) {
+                 var x = confirm("Are you sure you want to delete?");
+                    if (x) {
+                        return true;
+                    }
+                    else {
 
+                        event.preventDefault();
+                        return false;
+                    }
+
+                });
+</script>
     
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

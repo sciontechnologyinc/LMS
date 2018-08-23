@@ -59,6 +59,21 @@
 </div>
 
     {!! Form::close() !!}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+     $("#dataForm").submit(function (event) {
+                 var x = confirm("Are you sure you want to add?");
+                    if (x) {
+                        return true;
+                    }
+                    else {
+
+                        event.preventDefault();
+                        return false;
+                    }
+
+                });
+</script>
 
     
 @endsection()
