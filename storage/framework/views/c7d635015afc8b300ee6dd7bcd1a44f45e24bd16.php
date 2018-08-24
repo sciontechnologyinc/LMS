@@ -14,10 +14,10 @@
     <div class="booklist-title">List of Books</div>
     <div class="booklist-row">
     <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="perbook-container">
+        <div class="perbook-container" data-toggle="modal" data-target="#myModal">
         
             <div class="perbook-img"><img src="<?php echo e(asset('storage/uploads/book_icon.png')); ?>" alt=""></div>
-            <div class="perbook-title" data-toggle="modal" data-target="#myModal"><?php echo e($book->bookname); ?> </div>
+            <div class="perbook-title" ><?php echo e($book->bookname); ?> </div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
         </div>
