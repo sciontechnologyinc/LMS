@@ -49,13 +49,14 @@
                     {{ $term->headline  }}				
                 	</a>
 					
-					{!! Form::open(['class' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id]) !!}
+					{!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id]) !!}
 					<button class="fa fa-trash text-danger pull-right pointer delete" data-record="4" type="submit"></button>
 					<span class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
 					{!! Form::close() !!}
 					
 				</h4>
 			</div>
+			
 			
 			<div id="collapseOne0" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 				<div class="panel-body">
