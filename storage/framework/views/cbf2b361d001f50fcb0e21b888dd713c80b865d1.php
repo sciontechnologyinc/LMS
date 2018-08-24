@@ -47,10 +47,10 @@
                     <?php echo e($term->headline); ?>				
                 	</a>
 					
-					<?php echo Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id]); ?>
+					<?php echo Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id, 'rel' => 'tooltip', 'title' => 'Delete']); ?>
 
 					<button class="fa fa-trash text-danger pull-right pointer delete" data-record="4" type="submit"></button>
-					<span class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
+					<span rel="tooltip" title="Edit" class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
 					<?php echo Form::close(); ?>
 
 					
@@ -111,6 +111,14 @@
 
                 });
 </script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $("[rel=tooltip]").tooltip({ placement: 'top'});
+	    
+	});
+</script>
+        
 
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
