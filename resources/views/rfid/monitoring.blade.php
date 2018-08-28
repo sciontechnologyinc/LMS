@@ -4,8 +4,8 @@
 <link href="css/monitoring.css" rel="stylesheet"> 
 <link href="css/lms2.css" rel="stylesheet"> 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script scr="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <div class="img-logo"><img src="{{asset('img/half.jpg')}}"></div>
 <div class="container">
 <div class="filter-bar">
@@ -33,9 +33,13 @@
         <option value="Arrived"/>
         <option value="Departed"/>
     </datalist></div>
+    <input type="text" class="RFIDSAVEEEE" autofocus>
 </div>
-  <h2 class="menu-list1">Monitoring</h2>          
-  <table class="table">
+  <h2 class="menu-list1">Monitoring</h2>   
+
+  <!-- {!!Form::text('RFIDSAVEEEE',null, ['placeholder' => 'test No', 'class' => 'form-control col-lg-4', 'required' => '' ])!!} -->
+  
+  <table class="table  offset-1">
     <thead>
       <tr>
         <th>#</th>
@@ -46,26 +50,36 @@
         <th>Status</th>
       </tr>
     </thead>
+  @foreach($members as $member)
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>09199182828</td>
-        <td>Juan Dela Cruz</td>
-        <td>9:00 AM</td>
-        <td></td>
-        <td>IN</td>
-      </tr>
-
-       <tr>
-        <td>1</td>
-        <td>09199182828</td>
-        <td>Juan Dela Cruz</td>
-        <td>9:00 AM</td>
-        <td>11:00 AM</td>
-        <td>OUT</td>
-      </tr>
+       
 
     </tbody>
+    @endforeach
   </table>
 </div>
+{!! Form::close() !!}  
+
+<script>
+
+  $(document).ready(function(){
+    var now = new Date();
+    $('.RFIDSAVEEEE').focus();
+
+      $('.RFIDSAVEEEE').change(function(){
+          $('tbody').append('<tr>'+
+        '<td>1</td>'+
+        '<td>{{ $member->LRN }}</td>'+
+        '<td>{{ $member->membername}}</td>'+
+        '<td>'+now+'</td>'+
+        '<td>'+now+'</td>'+
+        '<td>OUT</td>'+
+        '</tr>');
+
+        $('.RFIDSAVEEEE').val('');
+        $('.RFIDSAVEEEE').focus();
+      })
+
+  });
+</script>
 @endsection

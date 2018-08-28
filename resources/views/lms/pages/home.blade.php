@@ -2,7 +2,13 @@
 @extends('lms.master.template')
 
 @section('content')
+<style>
 
+.menu-list1 a {
+    color:#2e77d1 !important;
+}
+        
+</style>
 <div class="searchbar">
     <div class="bar-row">
         <div class="bookname"><input type="text" id="search" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
@@ -18,7 +24,7 @@
     <div class="booklist-title">List of Books</div>
     <div class="booklist-row">
     @foreach($books as $book)
-        <div class="perbook-container" data-toggle="modal" data-target="#myModal">
+        <div class="perbook-container" data-toggle="modal" data-target= "#{{$book->id}}">
         <div class="perbook-img">
                                 @if($book->digitalphoto)
                                 <img src="{{asset('storage/uploads/'.$book->digitalphoto)}}" alt="">&nbsp;
@@ -39,9 +45,10 @@
 
 <!-- The Modal -->
 @foreach($books as $book)
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{$book->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     
   <div class="modal-dialog" role="document">
+      
     <div class="modal-content">
       <div class="modal-header">
           
@@ -65,13 +72,12 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
-      @endforeach
+   
     </div>
     
   </div>
 </div>
-
-
+@endforeach
 
 <script type="text/javascript">
 $('#search').on('keyup',function(){
@@ -88,13 +94,7 @@ $('#search').on('keyup',function(){
 
 </script>
 
+
+
+
 @endsection
-
-
-<style>
-
-.menu-list1 a {
-    color:#2e77d1 !important;
-}
-        
-</style>

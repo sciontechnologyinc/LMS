@@ -1,5 +1,11 @@
 <?php $__env->startSection('content'); ?>
+<style>
 
+.menu-list1 a {
+    color:#2e77d1 !important;
+}
+        
+</style>
 <div class="searchbar">
     <div class="bar-row">
         <div class="bookname"><input type="text" id="search" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
@@ -15,7 +21,7 @@
     <div class="booklist-title">List of Books</div>
     <div class="booklist-row">
     <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="perbook-container" data-toggle="modal" data-target="#myModal">
+        <div class="perbook-container" data-toggle="modal" data-target= "#<?php echo e($book->id); ?>">
         <div class="perbook-img">
                                 <?php if($book->digitalphoto): ?>
                                 <img src="<?php echo e(asset('storage/uploads/'.$book->digitalphoto)); ?>" alt="">&nbsp;
@@ -36,9 +42,10 @@
 
 <!-- The Modal -->
 <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<?php echo e($book->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     
   <div class="modal-dialog" role="document">
+      
     <div class="modal-content">
       <div class="modal-header">
           
@@ -62,13 +69,12 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+   
     </div>
     
   </div>
 </div>
-
-
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 <script type="text/javascript">
 $('#search').on('keyup',function(){
@@ -85,14 +91,9 @@ $('#search').on('keyup',function(){
 
 </script>
 
+
+
+
 <?php $__env->stopSection(); ?>
 
-
-<style>
-
-.menu-list1 a {
-    color:#2e77d1 !important;
-}
-        
-</style>
 <?php echo $__env->make('lms.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
