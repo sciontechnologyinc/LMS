@@ -19,14 +19,14 @@
             <div class="perbook-img"><img src="<?php echo e(asset('storage/uploads/book_icon.png')); ?>" alt=""></div>
             <div class="perbook-title" ><?php echo e($book->bookname); ?> </div>
         </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+    
         </div>
     </div>
 </div>
 
 
 <!-- The Modal -->
-<?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
