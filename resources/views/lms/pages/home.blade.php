@@ -1,16 +1,14 @@
 
-
 @extends('lms.master.template')
 
-
-
 @section('content')
+
 <div class="searchbar">
     <div class="bar-row">
-        <div class="bookname"><input type="text" class="searchbartext" placeholder="Book Name"/></div>
-        <div class="authorname"><input type="text" class="searchbartext" placeholder="Author Name"/></div>
-        <div class="publishername"><input type="text" class="searchbartext" placeholder="Publisher Name"/></div>
-        <div class="searchbtn">Search</div>
+        <div class="bookname"><input type="text" id="search" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
+        <!-- <div class="authorname"><input type="text" id="search" class="searchbartext" placeholder="Author Name"/></div> -->
+        <!-- <div class="publishername"><input type="text" class="searchbartext" placeholder="Publisher Name"/></div> -->
+        <div class="searchbtn" type="submit">Search</div>
     </div>
     
 </div>
@@ -21,12 +19,20 @@
     <div class="booklist-row">
     @foreach($books as $book)
         <div class="perbook-container" data-toggle="modal" data-target="#myModal">
-        
-            <div class="perbook-img"><img src="{{asset('storage/uploads/book_icon.png')}}" alt=""></div>
-            <div class="perbook-title" >{{$book->bookname}} </div>
+        <div class="perbook-img">
+                                @if($book->digitalphoto)
+                                <img src="{{asset('storage/uploads/'.$book->digitalphoto)}}" alt="">&nbsp;
+                                @else
+                                <img src="{{asset('storage/uploads/book_icon.png')}}" alt="">
+                                @endif
+         
         </div>
+        <div class="perbook-title" >{{$book->bookname}} </div>
+   </div>
+   
     @endforeach 
         </div>
+
     </div>
 </div>
 
@@ -34,9 +40,11 @@
 <!-- The Modal -->
 @foreach($books as $book)
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+          
         <h5 class="modal-title" id="exampleModalLabel">{{$book->bookname}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -53,15 +61,32 @@
         <div class="book-condition">Book Type : {{$book->bookcondition}}</div>
         <div class="book-adtl-details">Details : {{$book->details}}</div>
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+      @endforeach
     </div>
     
   </div>
 </div>
-@endforeach
 
+
+
+<script type="text/javascript">
+$('#search').on('keyup',function(){
+    $value=$(this).val();
+    $.ajax({
+      type : 'get',
+      url  : '{{URL::to('lms')}}',
+      data : {'search':$value},
+      success:function(data){
+          $('').html(data);
+      }
+    });
+})
+
+</script>
 
 @endsection
 

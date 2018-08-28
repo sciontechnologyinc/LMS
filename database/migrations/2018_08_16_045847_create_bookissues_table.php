@@ -16,6 +16,7 @@ class CreateBookissuesTable extends Migration
         Schema::create('bookissues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('bookname');
+            $table->string('bookholder');
             $table->string('memberid');
             $table->string('datehour');
             $table->timestamps();

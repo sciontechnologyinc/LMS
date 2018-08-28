@@ -71,7 +71,9 @@ Route::get('lms', function () {
     return view('lms/pages/home');
 });
 
-Route::resource('lms','LmsController');
+Route::get('/lms','LmsController@search');
+
+Route::get('/lms','LmsController@index');
 
 Route::get('contact', function () {
     return view('lms.pages.contact');
@@ -79,6 +81,10 @@ Route::get('contact', function () {
 
 Route::get('about', function () {
     return view('lms.pages.about');
+});
+
+Route::get('monitoring', function () {
+    return view('rfid/monitoring');
 });
 
 

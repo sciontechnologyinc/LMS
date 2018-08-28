@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Book;
+use DB;
 class LmsController extends Controller
 {
     /**
@@ -17,6 +18,28 @@ class LmsController extends Controller
         $books = Book::orderBy('id')->get();
         return view('lms/pages/home', ['books' => $books]);
 
+    }
+
+    public function search(Request $request)
+    {
+        if($request->ajax()){
+            
+            $output = "";
+            $books=DB::table('books')->where('bookname','LIKE','%'.$request->search.'%')->get()
+                                   ->orWhere('writername','LIKE','%'.$request->search.'%')->get();
+
+        if ($books)
+        {
+            foreach($books as $key => $book){
+                $output.=   '<div class="booklist-container">'.
+                            '<div class="perbook-title" >'.$book->bookname.'</div>'.
+                            '</div>';
+
+            }
+            return Response($output);
+            }
+
+        }
     }
 
     /**
