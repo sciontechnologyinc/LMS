@@ -62,7 +62,7 @@
         <div class="availbook-number">Available Book No. : {{$book->booknumber}}</div>
         <div class="book-price">Book Price : {{$book->bookprice}}</div>
         <div class="writer-name">Writer Name : {{$book->writername}}</div>
-        <div class="book-category">Book Category : {{$book->catergoryname}}</div>
+        <div class="book-category">Book Category : {{$book->categoryname}}</div>
         <div class="book-status">Status : {{$book->status}}</div>
         <div class="book-type">Book Type : {{$book->booktype}}</div>
         <div class="book-condition">Book Type : {{$book->bookcondition}}</div>
