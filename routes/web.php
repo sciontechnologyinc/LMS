@@ -19,6 +19,8 @@ Route::get('create', function () {
 
 Route::resource('categories','CategoryController');
 
+Route::resource('rfid','RfidController');
+
 
 Route::get('addsubject', function () {
     return view('subjects.create');
@@ -71,7 +73,15 @@ Route::get('lms', function () {
     return view('lms/pages/home');
 });
 
-Route::resource('lms','LmsController');
+Route::get('/lms','LmsController@search');
+
+Route::get('/lms','LmsController@index');
+
+Route::get('/rfid', function () {
+    return view('rfid/monitoring');
+});
+
+Route::get('/rfid','RfidController@rfid');
 
 Route::get('contact', function () {
     return view('lms.pages.contact');
@@ -80,8 +90,6 @@ Route::get('contact', function () {
 Route::get('about', function () {
     return view('lms.pages.about');
 });
-
-
 
 
 Auth::routes();

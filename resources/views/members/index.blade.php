@@ -64,9 +64,9 @@
                               <div class="row-2">
                               <center>
                                 <div class="form-group" style="display:inline-flex">
-                                 <a class="btn btn-sm mr-1" href="members/{!! $member->id !!}/edit"><span class="fa fa-edit">&nbsp;Edit</span></a>
+                                 <a rel="tooltip" title="Edit" class="btn btn-sm mr-1" href="members/{!! $member->id !!}/edit"><span class="fa fa-edit">&nbsp;Edit</span></a>
                                   {!! Form::open(['class' => 'deleteForm', 'method' => 'DELETE', 'url' => '/members/' . $member->id]) !!}
-                                  {{ Form::button('<span class="fa fa-trash">&nbsp;Delete</span>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn'] )  }}
+                                  {{ Form::button('<span class="fa fa-trash">&nbsp;Delete</span>', ['type' => 'submit', 'class' => 'col-sm-4 delete-btn', 'rel' => 'tooltip', 'title' => 'Delete'] )  }}
                                   {!! Form::close() !!}
                               
                                   </div>
@@ -100,4 +100,14 @@
 
                 });
 </script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $("[rel=tooltip]").tooltip({ placement: 'top'});
+	    
+	});
+</script>
+        
  @endsection
+
+ 

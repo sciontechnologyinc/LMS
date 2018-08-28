@@ -15,6 +15,8 @@
         
     </head>
     <body>
+    <title>LMS</title>
+
         <div class="flex-center position-ref full-height">
             <?php if(Route::has('login')): ?>
                 <div class="top-right links">
@@ -40,7 +42,7 @@
             
         </div>
         <div class="featured-books">
-                <div class="featured-books-title">Featured Books JETRO</div>
+                <div class="featured-books-title">Featured Books</div>
                 <div class="books-container">
                     <div class="booklists">
                     <div class="books"><img src="/img/Book1.jpg" alt=""><div class="book-desc">Game of Thrones</div></div>

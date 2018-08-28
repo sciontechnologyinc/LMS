@@ -56,9 +56,9 @@
                         </td>
                         <td><center>
                         <div class="form-group" style="display:inline-flex">
-                        <a class="btn btn-success btn-sm mr-1" href="categories/{!! $category->id !!}/edit"><i class="fa fa-edit"></i></a>
+                        <a rel="tooltip" title="Edit" class="btn btn-success btn-sm mr-1" href="categories/{!! $category->id !!}/edit"><i class="fa fa-edit"></i></a>
                         {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/categories/' . $category->id]) !!}
-                        {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+                        {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm', 'rel' => 'tooltip', 'title' => 'Delete'] )  }}
                         {!! Form::close() !!}
                         </div>
                         </center></td>
@@ -84,5 +84,12 @@
                     }
 
                 });
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $("[rel=tooltip]").tooltip({ placement: 'top'});
+	    $("[rel=tooltip]").tooltip({ placement: 'top'});
+	});
 </script>
  @endsection

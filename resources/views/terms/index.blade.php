@@ -49,9 +49,9 @@
                     {{ $term->headline  }}				
                 	</a>
 					
-					{!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id]) !!}
+					{!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/terms/' . $term->id, 'rel' => 'tooltip', 'title' => 'Delete']) !!}
 					<button class="fa fa-trash text-danger pull-right pointer delete" data-record="4" type="submit"></button>
-					<span class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
+					<span rel="tooltip" title="Edit" class="fa fa-edit text-default pull-right pointer" data-toggle="modal" data-target=".sm0"></span>
 					{!! Form::close() !!}
 					
 				</h4>
@@ -110,5 +110,13 @@
 
                 });
 </script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $("[rel=tooltip]").tooltip({ placement: 'top'});
+	    
+	});
+</script>
+        
 
  @endsection
