@@ -43,6 +43,12 @@ class BookController extends Controller
     }
  
 
+    public function lms()
+    {
+        $books = Book::orderBy('id')->get();
+        return view('lms.pages.home', ['books' => $books]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

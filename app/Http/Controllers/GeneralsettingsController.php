@@ -19,7 +19,8 @@ class GeneralsettingsController extends Controller
      */
     public function index()
     {
-            return view('pages.generalsettings');
+        $generalsettings = Generalsettings::orderBy('id')->get();
+        return view('lms/pages/about', ['generalsettings' => $generalsettings]);
     }
 
     /**
@@ -82,13 +83,13 @@ class GeneralsettingsController extends Controller
         $generalsettings = new Generalsettings;
         $generalsettings->systemname = $request->input('systemname');
         $generalsettings->systememail = $request->input('systememail');
-        $generalsettings->systemcontactno = $request->input('systememail');
+        $generalsettings->systemcontactno = $request->input('systemcontactno');
         $generalsettings->uploadsystemlogo = $fileNameToStore;
         $generalsettings->uploadfavicon = $fileNameToStore;        
-        $generalsettings->address = $request->input('systememail');
-        $generalsettings->about = $request->input('systememail');
-        $generalsettings->mission = $request->input('systememail');
-        $generalsettings->vision = $request->input('systememail');
+        $generalsettings->address = $request->input('address');
+        $generalsettings->about = $request->input('about');
+        $generalsettings->mission = $request->input('mission');
+        $generalsettings->vision = $request->input('vision');
         $generalsettings->save();
 
         return redirect()->back()->with('success','Added successfuly');

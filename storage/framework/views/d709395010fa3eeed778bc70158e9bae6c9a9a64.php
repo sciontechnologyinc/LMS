@@ -7,7 +7,7 @@
                 <div class="card-header"><?php echo e(__('Login')); ?></div>
 
                 <div class="card-body">
-                    <form method="POST" action="<?php echo e(route('login')); ?>" aria-label="<?php echo e(__('Login')); ?>">
+                    <form method="POST" action="<?php echo e(route('lms/pages/home')); ?>" aria-label="<?php echo e(__('Login')); ?>">
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group row">
