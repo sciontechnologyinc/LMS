@@ -20,7 +20,7 @@ class GeneralsettingsController extends Controller
     public function index()
     {
         $generalsettings = Generalsettings::orderBy('id')->get();
-        return view('lms/pages/about', ['generalsettings' => $generalsettings]);
+        return view('home.about', ['generalsettings' => $generalsettings]);
     }
 
     /**

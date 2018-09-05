@@ -206,7 +206,7 @@ class MemberController extends Controller
 	    $member = Member::find($id);
 	    $member->destroy($id);
 
-	    Session::flash('success', $member['membername'] . ' deleted successfully');
+	    Session::flash('success', ' Deleted successfully');
 	    return redirect('/members');
     }
 }

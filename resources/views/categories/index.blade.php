@@ -52,8 +52,7 @@
                       <tr>
 
                         <td>{{ $category->id }}</td>
-                        <td> {{ $category->categoryname }}
-                        </td>
+                        <td> {{ $category->categoryname }}</td>
                         <td><center>
                         <div class="form-group" style="display:inline-flex">
                         <a rel="tooltip" title="Edit" class="btn btn-success btn-sm mr-1" href="categories/{!! $category->id !!}/edit"><i class="fa fa-edit"></i></a>

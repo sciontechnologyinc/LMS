@@ -12,27 +12,11 @@
  <div class="content mt-3">
  <link rel="stylesheet" href="<?php echo ('/css/headercss.css'); ?>">
 
-<div class="col-sm-6 col-lg-3">
-     <div class="card text-white bg-flat-color-1">
-         <div class="card-body pb-0">
-             
-             <h4 class="mb-0">
-             <span class="no-padding center mt txt-sm count"><?php echo e($t_members); ?></span> 
-             </h4>
-             <a href="<?php echo e(url('members')); ?>"><p class="text-light">Members</p></a>
 
-             <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                 
-             </div>
-
-         </div>
-
-     </div>
- </div>
  <!--/.col-->
 
  <div class="col-sm-6 col-lg-3">
-     <div class="card text-white bg-flat-color-2">
+     <div class="card text-white bg-flat-color-5">
          <div class="card-body pb-0">
 
              <h4 class="mb-0">
@@ -53,6 +37,25 @@
  <!--/.col-->
 
  <div class="col-sm-6 col-lg-3">
+     <div class="card text-white bg-flat-color-4">
+         <div class="card-body pb-0">
+             
+             <h4 class="mb-0">
+             <span class="no-padding center mt txt-sm count"><?php echo e($t_members); ?></span> 
+             </h4>
+             <a href="<?php echo e(url('members')); ?>"><p class="text-light">Members</p></a>
+
+             <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                 
+             </div>
+
+         </div>
+
+     </div>
+ </div>
+
+
+ <div class="col-sm-6 col-lg-3">
      <div class="card text-white bg-flat-color-3">
          <div class="card-body pb-0">
 
@@ -71,13 +74,13 @@
  <!--/.col-->
 
  <div class="col-sm-6 col-lg-3">
-     <div class="card text-white bg-flat-color-4">
+     <div class="card text-white bg-flat-color-2">
          <div class="card-body pb-0">
 
              <h4 class="mb-0">
-                 <span class="count">10468</span>
+             <span class="no-padding center mt txt-sm count"><?php echo e($t_categories); ?></span> 
              </h4>
-             <p class="text-light">Members online</p>
+             <a href="<?php echo e(url('categories')); ?>"><p class="text-light">Categories</p></a>
 
              <div class="chart-wrapper px-3" style="height:70px;" height="70">
                 
@@ -86,6 +89,42 @@
          </div>
      </div>
  </div>
+
+  <div class="col-sm-6 col-lg-3">
+     <div class="card text-white bg-flat-color-1">
+         <div class="card-body pb-0">
+
+             <h4 class="mb-0">
+             <span class="no-padding center mt txt-sm count"><?php echo e($t_subjects); ?></span> 
+             </h4>
+             <a href="<?php echo e(url('subjects')); ?>"><p class="text-light">Subjects</p></a>
+
+             <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                
+             </div>
+
+         </div>
+     </div>
+ </div>
+
+  <div class="col-sm-6 col-lg-3">
+     <div class="card text-white bg-flat-color-5">
+         <div class="card-body pb-0">
+
+             <h4 class="mb-0">
+             <span class="no-padding center mt txt-sm count"><?php echo e($t_departments); ?></span> 
+             </h4>
+             <a href="<?php echo e(url('deparments')); ?>"><p class="text-light">Departments</p></a>
+
+             <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                
+             </div>
+
+         </div>
+     </div>
+ </div>
+
+  
 
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

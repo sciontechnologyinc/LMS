@@ -15,7 +15,7 @@
         
     </head>
     <body>
-    <title>LMS</title>
+    <title>Orajen Marketing Corp</title>
 
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))

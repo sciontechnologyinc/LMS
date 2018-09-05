@@ -32,7 +32,7 @@
 
 
  <div class="wrapper" style="min-height: 450px;">
-            <link href="https://yourprogramming.com/library/libs/css/table-responsive.css" rel="stylesheet">
+            
 <div class="row">
     <div class="col-sm-12">
         <section class="panel">

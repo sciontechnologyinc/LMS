@@ -35,6 +35,10 @@ Route::get('', function () {
     return view('welcome');
 });
 Route::resource('dashboard','DashboardController');
+
+Route::resource('/home','LmsController');
+
+
 Route::resource('books','BookController');
 Route::get('addmembers', function () {
     return view('members.create');
@@ -44,30 +48,36 @@ Route::get('generalsettings', function () {
     return view('admin.pages.generalsettings');
 });
 Route::get('/register', 'RegisterController@index');
-Route::get('/pages', 'GeneralsettingsController@index');
 Route::post('/store', 'GeneralsettingsController@store')->name('pages.store');
-Route::get('lms', function () {
-    return view('lms/pages/home');
+
+Route::get('home', function () {
+    return view('home.index');
 });
-Route::get('/lms','LmsController@search');
-Route::get('/lms','LmsController@index');
+Route::get('/home','LmsController@search');
+Route::get('/home','LmsController@index');
 Route::get('/rfid', function () {
     return view('rfid/monitoring');
 });
 Route::get('/rfid','RfidController@rfid');
 Route::get('contact', function () {
-    return view('lms.pages.contact');
+    return view('home.contact');
 });
 Route::get('about', function () {
-    return view('lms.pages.about');
+    return view('home.about');
 });
+Route::get('about', 'GeneralsettingsController@index');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('addterms', function () {
     return view('terms.create');
 });
+
+Route::get('changepassword', function () {
+    return view('settings.index');
+});
+
 Route::resource('terms','TermController');
 //Category
 Route::get('books/create','CategoryController@categorycheckbox');
@@ -76,23 +86,21 @@ Route::get('books/edit','CategoryController@categorycheckbox1');
 //subject
 Route::get('members/create','SubjectController@subjectcheckbox');
 //department
-// Route::get('members/create','DepartmentController@departmentdropdown');
-//books
 Route::get('bookissues/create','BookController@booksdropdown');
 
 
 
 
-Route::post('/lms/pages/home', [
+Route::post('/home', [
     'uses' => 'LoginController@login',
-    'as'   => 'lms/pages/home'
+    'as'   => 'home.index'
 ]);
 
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('lms.page.home', function(){
-          return view('lms.pages.home');
-    })->name('lms');;
+    Route::get('home.index', function(){
+          return view('home.index');
+    })->name('home');;
 
     Route::get('dashboard.index', function(){
         return view('dashboard.index');

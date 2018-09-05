@@ -50,9 +50,7 @@
                       <tr>
 
                         <td><?php echo e($category->id); ?></td>
-                        <td> <?php echo e($category->categoryname); ?>
-
-                        </td>
+                        <td> <?php echo e($category->categoryname); ?></td>
                         <td><center>
                         <div class="form-group" style="display:inline-flex">
                         <a rel="tooltip" title="Edit" class="btn btn-success btn-sm mr-1" href="categories/<?php echo $category->id; ?>/edit"><i class="fa fa-edit"></i></a>

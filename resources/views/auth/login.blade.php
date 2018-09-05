@@ -2,6 +2,14 @@
 
 @section('content')
 
+@if (count($errors))
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -9,7 +17,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('lms/pages/home') }}" aria-label="{{ __('Login') }}">
+                    <form method="POST" action="{{ route('home.index') }}" aria-label="{{ __('Login') }}">
                         @csrf
 
                         <div class="form-group row">

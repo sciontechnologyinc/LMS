@@ -33,7 +33,7 @@
 
                                
 
-                                <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                                <a class="nav-link" href="<?php echo e(url('changepassword')); ?>"><i class="fa fa-cog"></i> Settings</a>
 
                                     <a class="nav-link" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();

@@ -8,6 +8,8 @@ use App\Bookissue;
 use App\Category;
 use App\Generalsettings;
 use App\Member;
+use App\Subject;
+use App\Department;
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -34,17 +36,21 @@ class DashboardController extends Controller
         $t_categories = Category::all()->count();
         $t_generalsettings = Generalsettings::all()->count();
         $t_members = Member::all()->count();
+        $t_subjects = Subject::all()->count();
+        $t_departments = Department::all()->count();
         $t_users = User::all()->count();
 
 
         return view('dashboard.index')
             ->with([
-                't_books'             =>  $t_books,
-                't_bookissues'        =>  $t_bookissues,
-                't_categories'        =>  $t_categories,
-                't_generalsettings'   =>  $t_generalsettings,
-                't_members'           =>  $t_members,
-                't_users'             =>  $t_users,
+                't_books'                =>  $t_books,
+                't_bookissues'           =>  $t_bookissues,
+                't_categories'           =>  $t_categories,
+                't_generalsettings'      =>  $t_generalsettings,
+                't_members'              =>  $t_members,
+                't_subjects'             =>  $t_subjects,
+                't_departments'           =>  $t_departments,
+                't_users'                =>  $t_users,
   
             ]);
     }

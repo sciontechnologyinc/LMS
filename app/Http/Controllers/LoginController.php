@@ -26,9 +26,11 @@ class LoginController extends Controller
                 return redirect()->route('dashboard.index');
             }
 
-                return redirect()->route('lms.pages.home');
+                return redirect()->route('home.index');
         }
 
-                return redirect()->back();
+            
+            return redirect()->back();
+                
     }
 }

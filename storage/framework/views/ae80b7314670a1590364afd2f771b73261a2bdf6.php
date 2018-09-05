@@ -171,19 +171,31 @@
                 </div>
                           
                             
-                            <div class="form-group">                  
-                            <div class="row">
-                                <label>Choose photo (<small>optional</small>) <br>
-									<label for="phto" class="custom-file-upload" style="display: inline-block;">
+
+
+                                      <div class="form-group photos">
+							<div class="col-lg-7 ">
+								<div class="row">
+									<label>Choose photo (<small>optional</small>)
+									<label for="file-upload" class="custom-file-upload" style="">
 										<i class="fa fa-cloud-upload"></i> Upload Photo
 									</label>
-									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
-                        </label>
-                    </div>
-                    </div>
-					<br>
-	
-                      </div>
+									<input id="file-upload" name="photo" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
+									<button type="button" id="remove_photo" class="btn btn-danger" style="width: 94%; display: none;"><span class="ladda-label">Remove?</span></button>
+									
+								</label>
+                                </div>
+							</div>
+							
+							<div class="col-lg-5">
+								<div class="row">
+									<img class="pre_img" src="https://yourprogramming.com/library/images/no_img.jpg" style="width: 100%; max-width: 100%;">
+									<p class="image_view"></p><img src="">
+                                    </div>
+                                    </div>
+						    	</div>
+                                <br>
+                            </div>
 
                      <div class="card-footer">
                      <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary']); ?>
@@ -209,5 +221,65 @@
 
                 });
 </script>
+
+<style>
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 14px 12px;
+    cursor: pointer;
+    width:94%;
+    font-size: 18px;
+    text-align: center;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+$(function () {
+	//logo image preview 
+	function filePreview(input){
+		if(input.files && input.files[0]){
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('.pre_img').hide();
+				$('.image_view').after('<img src="'+e.target.result+'" />');
+				$('.photos img').css('max-width','100%');
+				$("#remove_photo").show(200);
+				$(".custom-file-upload").slideUp(0);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$('.photo').change(function(){
+		filePreview(this);	
+		$('.upload_photo').show();
+	});
+
+	//remove logo img 
+	$("#remove_photo").click(function(){
+		$('.photos img').hide();
+		$('.pre_img').show();
+		$('.photo').val('');
+		$("#remove_photo").slideUp(300);
+		$('.upload_photo').slideUp();
+		$('.custom-file-upload').slideDown(0);
+	});
+	
+	$(".upload_photo").click(function(){
+		var new_img = $('.new_img').attr('src');
+		$('.pre_img_main').attr('src',new_img);
+		var mainPhto = $('.photo').val();
+		alert(mainPhto);
+	});
+	//check is one of the check-box chosen or not
+	$('.checkbox-inline').click(function(){
+		$('.sub').prop('required',false);
+	});
+})
+</script>
+
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

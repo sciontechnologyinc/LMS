@@ -16,7 +16,7 @@ class LmsController extends Controller
     public function index()
     {
         $books = Book::orderBy('id')->get();
-        return view('lms/pages/home', ['books' => $books]);
+        return view('home.index', ['books' => $books]);
     }
 
     public function search(Request $request)

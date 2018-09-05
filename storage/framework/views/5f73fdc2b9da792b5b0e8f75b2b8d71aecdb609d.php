@@ -52,6 +52,7 @@
 										<i class="fa fa-camera pointer text-primary"></i> <small>Choose Photo</small>
 									</label>
 									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg" value="<?php echo e($member->photo); ?>">
+									
 									</label>
 						
 
