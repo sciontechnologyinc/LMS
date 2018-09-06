@@ -12,20 +12,15 @@
     <title>LMS</title>
 </head>
 <body>
-<?php echo $__env->yieldContent('header'); ?>
-<?php echo $__env->yieldContent('home'); ?>
-<?php echo $__env->yieldContent('booksearch'); ?>
-<?php echo $__env->yieldContent('booklist'); ?>
-<!-- <?php echo $__env->yieldContent('about'); ?> -->
-<!-- <?php echo $__env->yieldContent('contact'); ?> -->
-<?php echo $__env->yieldContent('footer'); ?>
-<script>
+    <?php echo $__env->make('lms.partial.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('lms.partial.banner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->yieldContent('content'); ?>
+    <?php echo $__env->make('lms.partial.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
-</script>
 </body>
 </html>

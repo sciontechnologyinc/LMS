@@ -18,7 +18,7 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
-Route::resource('rfid','RfidController');
+
 Route::get('addsubject', function () {
     return view('subjects.create');
 });

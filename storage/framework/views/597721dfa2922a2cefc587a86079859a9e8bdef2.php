@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?php echo asset('assets/css/flag-icon.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo asset('assets/css/cs-skin-elastic.css'); ?>">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="<?php echo asset('assets/scss/style.scss'); ?>">
     <link rel="stylesheet" href="<?php echo asset('assets/scss/style.css'); ?>">
     <link href="<?php echo asset('assets/css/lib/vector-map/jqvmap.min.css'); ?>" rel="stylesheet">
 
@@ -56,8 +57,8 @@
 
     <!-- Right Panel -->
 
-<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="<?php echo asset('assets/js/vendor/jquery-2.1.4.min.js'); ?>"></script>
+    <script src="<?php echo asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/plugins.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/main.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/lib/chart-js/Chart.bundle.js'); ?>"></script>

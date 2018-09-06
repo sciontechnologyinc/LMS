@@ -1,4 +1,13 @@
 <?php $__env->startSection('content'); ?>
+
+<?php if(count($errors)): ?>
+    <ul>
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <li><?php echo e($error); ?></li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </ul>
+<?php endif; ?>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -6,7 +15,7 @@
                 <div class="card-header"><?php echo e(__('Login')); ?></div>
 
                 <div class="card-body">
-                    <form method="POST" action="<?php echo e(route('login')); ?>" aria-label="<?php echo e(__('Login')); ?>">
+                    <form method="POST" action="<?php echo e(route('home.index')); ?>" aria-label="<?php echo e(__('Login')); ?>">
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group row">
