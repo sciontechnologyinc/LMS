@@ -18,7 +18,10 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 32de94c51ca7c76ebeec341460270409bd957ce3
 Route::get('addsubject', function () {
     return view('subjects.create');
 });
