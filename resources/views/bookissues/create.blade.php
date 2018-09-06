@@ -28,7 +28,7 @@
                                       <select class="form-control select select2-hidden-accessible" name="bookname" id="bookname" required="" tabindex="-1" aria-hidden="true">
                                     <option value="" disabled {{ old('bookname') ? '' : 'selected' }}>Choose a bookname</option>
                                     @foreach($books as $book)
-                                        <option value="{{$book->booknumber}} {{$book->bookname}}" {{ old('bookname') ? 'selected' : '' }}>{{$book->bookname}}</option>
+                                        <option value="{{$book->bookname}}" {{ old('bookname') ? 'selected' : '' }}>{{$book->bookname}}</option>
                                     @endforeach
                                 </select>
                       </div>
@@ -36,12 +36,12 @@
                       </div>
                     </div>
 
-                       
+                         
                         <div class="form-group"><div class="form-group">
                         <label><button  class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; <br>
 						           <br> <span class="book_result" ></span>
                         </label></div></div>
-
+               
 
 
 					
@@ -73,7 +73,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-calendar"></i></span>
-              {!!Form::date('date_from',null, ['placeholder' => 'Date from', 'class' => 'form-control', 'required' => ''])!!}
+              {!!Form::text('date_from',null, ['placeholder' => 'Date from', 'class' => 'form-control date', 'required' => ''])!!}
 						</div>
 					</div>
 			</div>
@@ -84,7 +84,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-calendar"></i></span>
-              {!!Form::date('date_to',null, ['placeholder' => 'Date To', 'class' => 'form-control', 'required' => ''])!!}
+              {!!Form::text('date_to',null, ['placeholder' => 'Date To', 'class' => 'form-control date', 'required' => ''])!!}
 						</div>
           </div>
         </div> 
@@ -134,7 +134,7 @@ $(function(){
       $(".book_result").html("<b class='text-danger'>Select book from <b class='text-success'>Book Name</b> field</b>");
     }else{
       var selectedValue = $("#bookname").val();
-    $(".book_result").html("<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + selectedValue + " Books </b>   available</span></span>");
+    $(".book_result").html("<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + {{$book->booknumber}} + selectedValue + " Books </b>   available</span></span>");
     }
  });
 	//check is book issued by date or hour 
@@ -160,4 +160,14 @@ $(function(){
 	});
 })
 </script> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+      $('.date').datepicker({
+      format: 'mm/dd/yy'
+});
+})
+</script>
  @endsection

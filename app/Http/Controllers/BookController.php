@@ -39,7 +39,8 @@ class BookController extends Controller
     public function booksdropdown()
     {
 	    $books = Book::orderBy('id')->get();
-        return view('bookissues.create', ['books' => $books]);
+	    $bookissues = Bookissue::orderBy('id')->get();
+        return view('bookissues.create', ['books' => $books, 'bookissues' => $bookissues]);
     }
  
 
