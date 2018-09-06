@@ -18,10 +18,12 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
-<<<<<<< HEAD
+Route::get('/rfid', function () {
+    return view('rfid.monitoring');
+});
+Route::get('/rfid','RfidController@rfid');
 
-=======
->>>>>>> 32de94c51ca7c76ebeec341460270409bd957ce3
+
 Route::get('addsubject', function () {
     return view('subjects.create');
 });
@@ -58,10 +60,6 @@ Route::get('home', function () {
 });
 Route::get('/home','LmsController@search');
 Route::get('/home','LmsController@index');
-Route::get('/rfid', function () {
-    return view('rfid/monitoring');
-});
-Route::get('/rfid','RfidController@rfid');
 Route::get('contact', function () {
     return view('home.contact');
 });
