@@ -36,15 +36,22 @@
     <input type="text" class="RFIDSAVEEEE" autofocus>
    
 </div>
-  <h2 class="menu-list1">Monitoring</h2>   
-  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '', 'enctype' => 'multipart/form-data']) !!}
-      {!!Form::text('studentid',null , ['placeholder' => 'studentid Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
-      {!!Form::text('studentname',null, ['placeholder' => 'studentname Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
-      {!!Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+  <h2 class="menu-list1">Monitoring</h2>  
+ 
+      {!! Form::open(['id' => 'dataForm', 'url' => '/rfid', 'method' => 'POST']) !!}
+
+
+
+@foreach($members as $member)
+      <input class="form-control col-lg-12" type="text" value="{{$member->LRN}}" {{ old('studentid') ? 'selected' : '' }} name="studentid" id="studentid"/>                                 
+      <input class="form-control col-lg-12" type="text" value="{{$member->membername}}" {{ old('studentname') ? 'selected' : '' }} name="studentname" id="studentname"/>
+      {!!Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '',  ])!!}
       {!!Form::text('timeout',null, ['placeholder' => 'timeout Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
       {!!Form::text('status',null, ['placeholder' => 'status Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+      @endforeach
       {!!Form::submit('Create logsheet', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']) !!}
-  {!! Form::close() !!}
+{!! Form::close() !!}
+  
 <button href="{{ url('/rfidgetdata') }}" class="btn btn-primary">test</button>
     <table class="table  offset-1">
           <thead>

@@ -18,14 +18,16 @@ class RfidController extends Controller
      */
     public function index()
     {
-
+	    $rfids = Rfid::orderBy('id')->get();
+	    $members = Member::orderBy('id')->get();
+        return view('rfid.monitoring', ['rfids' => $rfids, 'members' => $members]);
     }
 
-    public function rfidgetdata()
-    {
-        $rfids = Rfid::orderBy('id')->where('studentid', 'JETRO')->get();
-        return view('rfid.monitoring', ['rfids' => $rfids]);
-    }
+    // public function rfidgetdata()
+    // {
+    //     $rfids = Rfid::orderBy('id')->where('studentid', 'JETRO')->get();
+    //     return view('rfid.monitoring', ['rfids' => $rfids]);
+    // }
     /**
      * Show the form for creating a new resource.
      *
@@ -36,12 +38,12 @@ class RfidController extends Controller
         //
     }
 
-    public function rfid()
-    {
-        $rfids = Rfid::orderBy('id')->get();
-        $member = DB::table('members')->where('LRN', '1234141412')->pluck('LRN');
-        return view('rfid.monitoring', ['rfids' => $rfids,'member'=>$member]);
-    }
+    // public function rfid()
+    // {
+    //     $rfids = Rfid::orderBy('id')->get();
+    //     $member = DB::table('members')->where('LRN', '1234141412')->pluck('LRN');
+    //     return view('rfid.monitoring', ['rfids' => $rfids,'member'=>$member]);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -52,17 +54,28 @@ class RfidController extends Controller
     public function store(Request $request)
     {
        
-        $rfids = new Rfid();
+        $rfid = $request->all();
+        $data = $request->validate([
+            'studentid' => 'required',
+            'studentname' => 'required',
+            'timein' => 'required',
+            'timeout' => 'required',
+            'status' => 'required',
+ 
 
-        $rfids->studentid = $request->input('studentid');
-        $rfids->studentname = $request->input('studentname');
-        $rfids->timein = $request->input('timein');
-        $rfids->timeout = $request->input('timeout');
-        $rfids->status = $request->input('status');
+            
+        ]);
 
-        $rfids->save();
+        
+        $rfid = new Rfid;
+        $rfid->studentid = $request->input('studentid');
+        $rfid->studentname = $request->input('studentname');
+        $rfid->timein = $request->input('timein');  
+        $rfid->timeout = $request->input('timeout');
+        $rfid->status = $request->input('status');
+        $rfid->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Added successfuly');
         
     }
     /**

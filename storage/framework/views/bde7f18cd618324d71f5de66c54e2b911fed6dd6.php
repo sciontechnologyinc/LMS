@@ -32,30 +32,57 @@
         <option value="Departed"/>
     </datalist></div>
     <input type="text" class="RFIDSAVEEEE" autofocus>
+   
 </div>
-  <h2 class="menu-list1">Monitoring</h2>   
+  <h2 class="menu-list1">Monitoring</h2>  
+ 
+      <?php echo Form::open(['id' => 'dataForm', 'url' => '/rfid', 'method' => 'POST']); ?>
+
+
+
+
+<?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <input class="form-control col-lg-12" type="text" value="<?php echo e($member->LRN); ?>" <?php echo e(old('studentid') ? 'selected' : ''); ?> name="studentid" id="studentid"/>                                 
+      <input class="form-control col-lg-12" type="text" value="<?php echo e($member->membername); ?>" <?php echo e(old('studentname') ? 'selected' : ''); ?> name="studentname" id="studentname"/>
+      <?php echo Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '',  ]); ?>
+
+      <?php echo Form::text('timeout',null, ['placeholder' => 'timeout Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
+
+      <?php echo Form::text('status',null, ['placeholder' => 'status Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
+
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      <?php echo Form::submit('Create logsheet', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
+
+<?php echo Form::close(); ?>
 
   
-  <table class="table  offset-1">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Student ID</th>
-        <th>Student Name</th>
-        <th>Time In</th>
-        <th>Time Out</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-  <?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <tbody>
-       
-
-    </tbody>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-  </table>
-</div>
-<?php echo Form::close(); ?>  
+<button href="<?php echo e(url('/rfidgetdata')); ?>" class="btn btn-primary">test</button>
+    <table class="table  offset-1">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Time In</th>
+              <th>Time Out</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        <?php $__currentLoopData = $rfids; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rfid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <tbody>
+              <tr>
+                  <td><?php echo e($rfid->studentid); ?></td>
+                  <td><?php echo e($rfid->studentname); ?></td>
+                  <td><?php echo e($rfid->timein); ?></td>
+                  <td><?php echo e($rfid->timein); ?></td>
+                  <td><?php echo e($rfid->timein); ?></td>
+                  <td><?php echo e($rfid->status); ?></td>
+               </tr>
+          </tbody>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     </table>
+  </div>
+ 
 
 <script>
 
@@ -64,18 +91,12 @@
     $('.RFIDSAVEEEE').focus();
 
       $('.RFIDSAVEEEE').change(function(){
-          $('tbody').append('<tr>'+
-        '<td>1</td>'+
-        '<td><?php echo e($member->LRN); ?></td>'+
-        '<td><?php echo e($member->membername); ?></td>'+
-        '<td>'+now+'</td>'+
-        '<td>'+now+'</td>'+
-        '<td>OUT</td>'+
-        '</tr>');
+        $('#addForm').trigger('click');
 
         $('.RFIDSAVEEEE').val('');
         $('.RFIDSAVEEEE').focus();
       })
+      
 
   });
 </script>
