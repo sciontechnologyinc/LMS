@@ -61,12 +61,18 @@
                     	<tr>
 									<td data-title="SL"><?php echo e($bookissue->id); ?></td>
 									<td data-title="Book Name"><?php echo e($bookissue->bookname); ?></td>
-									<td class="numeric" data-title="Book holder">sathia sultana</td>									</td>
+									<td class="numeric" data-title="Book holder"><?php echo e($bookissue->bookholder); ?></td>									</td>
 									<td data-title="Issue type">issued for days</td>
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									<span class="label label-success"><strong> <?php echo e($bookissue->date_to); ?></strong> days</span>								</td>
+									<?php if($bookissue->difference): ?>
+									<span class="label label-success"><strong><?php echo e($bookissue->difference); ?></strong> days</span>	&nbsp;
+									<?php else: ?>
+									<span class="label label-success"><strong><?php echo e($bookissue->hours); ?></strong> hours</span>	
+									<?php endif; ?>
+															
+									</td>
 									<td class="numeric text-center" data-title="Status">
 									<span class="fa fa-times text-danger"> Pending</span></td>
 									<td class="numeric text-right" data-title="Action">
@@ -121,11 +127,6 @@
         </section>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		alert(<?php echo e($bookissue->date_from); ?>);
-	});
-</script>
+
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -28,7 +28,7 @@
  <?php endif; ?>
  <link rel="stylesheet" href="<?php echo ('/css/memberlistcss.css'); ?>">
 
- <div class="wrapper" style="min-height: 450px;">
+ <div cla	s="wrapper" style="min-height: 450px;">
             <div class="row">
 	<div class="col-md-4">
 		<div class="row">
@@ -126,7 +126,7 @@
 				<div class="panel">
 					<div class="panel-body">
 						<div class="profile-desk">
-							<h1>Kubra</h1>
+							<h1>Culiath</h1>
 							<span class="designation">admin@email.com</span>
 
 							
@@ -146,7 +146,7 @@
 								<label>Name</label>
 								<div class="iconic-input">
 									<i class="fa fa-user"></i>
-									<input type="text" class="form-control" placeholder="Name" value="Kubra" id="name">
+									<input type="text" class="form-control" placeholder="Name" value="Culiath" id="name">
 								</div>
 							</div>
 							

@@ -67,6 +67,7 @@ Route::get('about', function () {
 });
 Route::get('about', 'GeneralsettingsController@index');
 
+
 Auth::routes();
 
 

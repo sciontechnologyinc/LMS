@@ -23,8 +23,9 @@ class BookissueController extends Controller
      */
     public function index()
     {
-	    $bookissues = Bookissue::orderBy('id')->get();
-        return view('bookissues.index', ['bookissues' => $bookissues]);
+        $bookissues = Bookissue::orderBy('id')->get();
+        $admins = User::orderBy('id')->get();
+        return view('bookissues.index', ['bookissues' => $bookissues, 'admins' => $admins]);
     }
     /**
      * Show the form for creating a new resource.
@@ -44,6 +45,10 @@ class BookissueController extends Controller
      */
     public function store(Request $request)
     {
+
+        
+
+
          $bookissue = $request->all();
          $data = $request->validate([
             'bookname' => 'required',
@@ -52,10 +57,13 @@ class BookissueController extends Controller
         ]);
         $bookissue = new Bookissue;
         $bookissue->bookname = $request->input('bookname');
+        $bookissue->bookholder = $request->input('bookholder');
         $bookissue->date_from = $request->input('date_from');
         $bookissue->date_to = $request->input('date_to');
         $bookissue->hour_from = $request->input('hour_from');
         $bookissue->hour_to = $request->input('hour_to');
+        $bookissue->difference = $request->input('difference');
+        $bookissue->hours = $request->input('hours');
         $bookissue->save();
     
 

@@ -9,8 +9,6 @@
 <div class="searchbar">
     <div class="bar-row">
         <div class="bookname"><input type="text" id="search" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
-        <!-- <div class="authorname"><input type="text" id="search" class="searchbartext" placeholder="Author Name"/></div> -->
-        <!-- <div class="publishername"><input type="text" class="searchbartext" placeholder="Publisher Name"/></div> -->
         <div class="searchbtn" type="submit">Search</div>
     </div>
     

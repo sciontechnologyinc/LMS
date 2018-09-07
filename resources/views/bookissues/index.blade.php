@@ -63,12 +63,18 @@
                     	<tr>
 									<td data-title="SL">{{ $bookissue->id }}</td>
 									<td data-title="Book Name">{{ $bookissue->bookname }}</td>
-									<td class="numeric" data-title="Book holder">sathia sultana</td>									</td>
+									<td class="numeric" data-title="Book holder">{{ $bookissue->bookholder }}</td>									</td>
 									<td data-title="Issue type">issued for days</td>
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									<span class="label label-success"><strong> {{ $bookissue->date_to }}</strong> days</span>								</td>
+									@if($bookissue->difference)
+									<span class="label label-success"><strong>{{ $bookissue->difference }}</strong> days</span>	&nbsp;
+									@else
+									<span class="label label-success"><strong>{{ $bookissue->hours }}</strong> hours</span>	
+									@endif
+															
+									</td>
 									<td class="numeric text-center" data-title="Status">
 									<span class="fa fa-times text-danger"> Pending</span></td>
 									<td class="numeric text-right" data-title="Action">
@@ -122,10 +128,5 @@
         </section>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		alert({{ $bookissue->date_from }});
-	});
-</script>
+
  @endsection

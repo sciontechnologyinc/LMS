@@ -16,10 +16,13 @@ class CreateBookissuesTable extends Migration
         Schema::create('bookissues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('bookname');
+            $table->string('bookholder');
             $table->string('date_from')->nullable();
             $table->string('date_to')->nullable();
             $table->string('hour_from')->nullable();
             $table->string('hour_to')->nullable();
+            $table->string('difference')->nullable();
+            $table->string('hours')->nullable();
             $table->timestamps();
         });
     }
