@@ -116,9 +116,6 @@
 								</div>
 							</div>
 						</div>
-                      
-                        
-
                       </div>
                     </div>
               </div>
@@ -126,7 +123,6 @@
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-
                     <div class="form-group">
                        <?php echo Form::label('deparment', 'Deparment', array('class' => 'form-control-label')); ?>
 
@@ -137,7 +133,7 @@
                             <select name="department" class="form-control">
                                     <option value="" disabled <?php echo e(old('department') ? '' : 'selected'); ?>>Choose a deparment</option>
                                     <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($department->id); ?>" <?php echo e(old('department') ? 'selected' : ''); ?>><?php echo e($department->departmentname); ?></option>
+                                        <option value="<?php echo e($department->departmentname); ?>" <?php echo e(old('department') ? 'selected' : ''); ?>><?php echo e($department->departmentname); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>

@@ -335,3 +335,6 @@ span.fa.fa-edit.text-default.pull-right.pointer {
 .label-danger {
     background-color: #d9534f;
 }
+.label-success {
+    background-color: #5cb85c;
+}

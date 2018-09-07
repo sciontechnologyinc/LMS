@@ -20,10 +20,10 @@ class CreateGeneralsettingsTable extends Migration
             $table->string('systemcontactno');
             $table->string('uploadsystemlogo');
             $table->string('uploadfavicon');
-            $table->string('address');
-            $table->string('about');
-            $table->string('mission');
-            $table->string('vision');
+            $table->string('address')->length(1000);
+            $table->string('about')->length(1000);
+            $table->string('mission')->length(1000);
+            $table->string('vision')->length(1000);
             $table->timestamps();
         });
     }

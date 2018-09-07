@@ -8,8 +8,10 @@ class Bookissue extends Model
 {
     protected $table = 'bookissues';
     protected $fillable =  ['bookname',
-                            'datehour',
-                            'memberid'];
+                            'date_from',
+                            'date_to',
+                            'hour_from',
+                            'hour_to'];
 
 
 }

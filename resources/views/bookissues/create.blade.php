@@ -25,48 +25,25 @@
                                       <div class="input-group margin-bottom-sm">
                                       <span class="input-group-addon">
                                       <i class="fa fa-list-alt"></i></span>
-                                      <select class="form-control select select2-hidden-accessible" name="book" id="book" required="" tabindex="-1" aria-hidden="true">
+                                      <select class="form-control select select2-hidden-accessible" name="bookname" id="bookname" required="" tabindex="-1" aria-hidden="true">
                                     <option value="" disabled {{ old('bookname') ? '' : 'selected' }}>Choose a bookname</option>
                                     @foreach($books as $book)
-                                        <option value="{{$book->booknumber}}" {{ old('bookname') ? 'selected' : '' }}>{{$book->bookname}}</option>
+                                        <option value="{{$book->booknumber}} {{$book->bookname}}" {{ old('bookname') ? 'selected' : '' }}>{{$book->bookname}}</option>
                                     @endforeach
                                 </select>
                       </div>
                       
-                      <span class="text-danger">{{ $errors->first('bookname') }}</span>
                       </div>
                     </div>
 
                        
                         <div class="form-group"><div class="form-group">
-                        <label><button  class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; 
-						            <span class="book_result" ></span>
+                        <label><button  class="btn btn-info pointer check_book" type="button"><i class="fa fa-retweet"></i></button> Check Availability &nbsp; <br>
+						           <br> <span class="book_result" ></span>
                         </label></div></div>
 
 
 
-                      <div class="form-group">
-                      <label>Member ID</label>
-                      <div class="iconic-input">
-                      <div class="input-group margin-bottom-sm">
-                      <span class="input-group-addon">
-                      <i class="fa fa-list-alt"></i></span>
-                        <input type="text" class="form-control" id="member_id" name="member" placeholder="Member ID" autocomplete="off">
-                      </div>
-                    </div>
-                   </div>
-                    <div class="form-group">
-                      <label style="width:100%">
-                        <button class="btn btn-info pointer check_member" type="button"><i class="fa fa-retweet"></i></button> Check Member &nbsp; 
-                        <span class="member_result"><span class="fa fa-check-circle text-success"> Valid member</span>
-                  <div class="row"><br>
-                    <div class="col-md-6">Name: Kubra (male)</div>
-                    <div class="col-md-6">Email: admin@email.com</div>
-                    <div class="col-md-6">Phone: 01478578</div>
-                    <div class="col-md-6">Join date: 2017-05-11</div>
-                    <div class="col-md-6">Address:<br> uttra 12</div><div class="col-md-6"><img src="https://yourprogramming.com/library/images/members/23_.jpg" style="max-width:100%"></div></div></span>
-                      </label> 
-                    </div>
 					
                   
  
@@ -91,44 +68,57 @@
     
     <div class="date_area" style='display:none;'>
 					<div class="form-group">
-						<label>Date From</label>
-						<div class="iconic-input">
-							<i class="fa fa-calendar"></i>
-							<input type="date" class="form-control" name="date_from" placeholder="Date from" value="2018-08-15" required="">
+          {!!Form::label('datefrom', 'Date from', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i></span>
+              {!!Form::date('date_from',null, ['placeholder' => 'Date from', 'class' => 'form-control', 'required' => ''])!!}
 						</div>
 					</div>
-					
+			</div>
+
 					<div class="form-group">
-						<label>Date To</label>
-						<div class="iconic-input">
-							<i class="fa fa-calendar"></i>
-							<input type="date" class="form-control" name="date_to" placeholder="Date To" required="">
+          {!!Form::label('dateto', 'Date to', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i></span>
+              {!!Form::date('date_to',null, ['placeholder' => 'Date To', 'class' => 'form-control', 'required' => ''])!!}
 						</div>
           </div>
-        </div>
-        
- 
+        </div> 
+ </div>
         <div class="hour_area" style="display:none">
 					<div class="form-group">
-						<label>Hour From</label>
-						<div class="iconic-input">
-							<i class="fa fa-clock-o"></i>
-							<input type="text" class="form-control" name="hour_from" placeholder="Hour from">
+          {!!Form::label('hourfrom', 'Hour From', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-clock-o"></i></span>
+              {!!Form::text('hour_from',null, ['placeholder' => 'Hour from', 'class' => 'form-control', 'required' => ''])!!}
 						</div>
 					</div>
+          </div>
 					
 					<div class="form-group">
-						<label>Hour To</label>
-						<div class="iconic-input">
-							<i class="fa fa-clock-o"></i>
-							<input type="text" class="form-control" name="hour_to" placeholder="Hour To">
+          {!!Form::label('hourto', 'Hour To', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-clock-o"></i></span>
+              {!!Form::text('hour_to',null, ['placeholder' => 'Hour to', 'class' => 'form-control', 'required' => ''])!!}
 						</div>
 					</div>
-				</div>
+    </div>
+</div>
     
     
     <div class="form-group"><label class="form-control-label"></label>
-                <input type="submit" class="btn btn-success" value="Make this issue"></div>
+    {!!Form::submit('Make this issue', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-4']) !!}
+                </div>
+                
+                <br>
       
                       </div>
                     </div>
@@ -139,11 +129,11 @@
 $(function(){
       $(".check_book").click(function () {
 
-    if($('#book').val() == null){
-      var selectedValue = $("#book").val();
+    if($('#bookname').val() == null){
+      var selectedValue = $("#bookname").val();
       $(".book_result").html("<b class='text-danger'>Select book from <b class='text-success'>Book Name</b> field</b>");
     }else{
-      var selectedValue = $("#book").val();
+      var selectedValue = $("#bookname").val();
     $(".book_result").html("<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + selectedValue + " Books </b>   available</span></span>");
     }
  });

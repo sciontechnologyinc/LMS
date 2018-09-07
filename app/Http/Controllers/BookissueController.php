@@ -47,15 +47,20 @@ class BookissueController extends Controller
          $bookissue = $request->all();
          $data = $request->validate([
             'bookname' => 'required',
-            'memberid' => 'required',
-            'datehour' => 'required',
 
             
         ]);
-        Bookissue::create($data);
+        $bookissue = new Bookissue;
+        $bookissue->bookname = $request->input('bookname');
+        $bookissue->date_from = $request->input('date_from');
+        $bookissue->date_to = $request->input('date_to');
+        $bookissue->hour_from = $request->input('hour_from');
+        $bookissue->hour_to = $request->input('hour_to');
+        $bookissue->save();
+    
 
-	    Session::flash('success', ' Added successfully');
         return redirect()->back()->with('success','Added successfuly');
+    
     }
 
     /**
@@ -95,7 +100,7 @@ class BookissueController extends Controller
         $bookissue->update($data);
 
 	    Session::flash('success', ' Updated successfully');
-        return redirect('/bookissues')->with('success','Updated successfuly');
+        return redirect()->back()->with('success','Added successfuly');
     }
 
     /**

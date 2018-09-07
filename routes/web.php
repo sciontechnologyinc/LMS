@@ -89,6 +89,9 @@ Route::get('members/create','SubjectController@subjectcheckbox');
 Route::get('bookissues/create','BookController@booksdropdown');
 
 
+Route::get('', ['middleware' => 'cors', function() {
+    return view('welcome');
+}]);
 
 
 Route::post('/home', [
@@ -107,3 +110,4 @@ Route::group(['middleware' => 'auth'], function(){
     })->name('dashboard');
 
 });
+
