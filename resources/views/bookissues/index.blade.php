@@ -75,8 +75,8 @@
 									@endif
 															
 									</td>
-									<td class="numeric text-center" data-title="Status">
-									<span class="fa fa-times text-danger"> Pending</span></td>
+									<td class="numeric text-center" id="status" data-title="Status">
+									<span class="fa fa-times text-danger bookissue_result"> Pending</span></td>
 									<td class="numeric text-right" data-title="Action">
 										<a data-toggle="modal" data-target=".bs21" class="btn btn-xs btn-info"><span class="fa fa-fire" title="Make action"></span></a>
 											
@@ -93,16 +93,16 @@
 															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
 														</h2>
 														<div class="panel-body">
-														
+  														  <!-- {!! Form::open(['id' => 'dataForm', 'url' => '/bookissues']) !!}		 -->
 														<input type="hidden" name="isseu_id" value="21">
 															<div class="form-group">
 																<div class="iconic-input">
-																
-																	{{ Form::button('<i class="fa fa-arrow-right"> Submit Return</i>', ['type' => 'submit', 'class' => 'btn btn-primary  col-lg-6'] )  }}
+																	{!!Form::submit('Submit Return', ['id' => 'addForm','class' => 'btn btn-primary submit_return  col-lg-10']) !!}
+																	
 
 																</div>
 															</div>
-													
+   																	 <!-- {!! Form::close() !!}													 -->
 														</div>
 													</section>
 												</div>
@@ -128,5 +128,20 @@
         </section>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+      $(".submit_return").click(function () {
 
+      if($('#status').val() == null){
+
+      var selectedValue = $("#status").val();
+      $(".bookissue_result").html("<span class='fa fa-times text-danger'> Pending</span>");
+    }else{
+      var selectedValue = $("#status").val();
+    $(".bookissue_result").html(" <span class='fa fa-check text-success'> Returned</span>");
+    }
+ });
+})
+</script>
  @endsection

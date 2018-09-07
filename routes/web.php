@@ -18,14 +18,11 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
-<<<<<<< HEAD
 Route::get('/rfid', function () {
     return view('rfid.monitoring');
 });
 Route::get('/rfid','RfidController@rfid');
 
-=======
->>>>>>> d1b249ea74ebc687c1a9a78437e7a4f65311c790
 
 Route::get('addsubject', function () {
     return view('subjects.create');
