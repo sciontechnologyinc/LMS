@@ -34,30 +34,44 @@
         <option value="Departed"/>
     </datalist></div>
     <input type="text" class="RFIDSAVEEEE" autofocus>
+   
 </div>
   <h2 class="menu-list1">Monitoring</h2>   
-
-  
-  <table class="table  offset-1">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Student ID</th>
-        <th>Student Name</th>
-        <th>Time In</th>
-        <th>Time Out</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-  @foreach($members as $member)
-    <tbody>
-       
-
-    </tbody>
-    @endforeach
-  </table>
-</div>
-{!! Form::close() !!}  
+  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '', 'enctype' => 'multipart/form-data']) !!}
+      {!!Form::text('studentid',null , ['placeholder' => 'studentid Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+      {!!Form::text('studentname',null, ['placeholder' => 'studentname Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+      {!!Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+      {!!Form::text('timeout',null, ['placeholder' => 'timeout Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+      {!!Form::text('status',null, ['placeholder' => 'status Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+      {!!Form::submit('Create logsheet', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']) !!}
+  {!! Form::close() !!}
+<button href="{{ url('/rfidgetdata') }}" class="btn btn-primary">test</button>
+    <table class="table  offset-1">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Time In</th>
+              <th>Time Out</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        @foreach($rfids as $rfid)
+          <tbody>
+              <tr>
+                  <td>{{ $rfid->studentid }}</td>
+                  <td>{{ $rfid->studentname }}</td>
+                  <td>{{ $rfid->timein}}</td>
+                  <td>{{ $rfid->timein}}</td>
+                  <td>{{ $rfid->timein}}</td>
+                  <td>{{ $rfid->status}}</td>
+               </tr>
+          </tbody>
+          @endforeach
+     </table>
+  </div>
+ 
 
 <script>
 
@@ -66,18 +80,12 @@
     $('.RFIDSAVEEEE').focus();
 
       $('.RFIDSAVEEEE').change(function(){
-          $('tbody').append('<tr>'+
-        '<td>1</td>'+
-        '<td>{{ $member->LRN }}</td>'+
-        '<td>{{ $member->membername}}</td>'+
-        '<td>'+now+'</td>'+
-        '<td>'+now+'</td>'+
-        '<td>OUT</td>'+
-        '</tr>');
+        $('#addForm').trigger('click');
 
         $('.RFIDSAVEEEE').val('');
         $('.RFIDSAVEEEE').focus();
       })
+      
 
   });
 </script>

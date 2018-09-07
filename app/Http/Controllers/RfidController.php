@@ -21,6 +21,11 @@ class RfidController extends Controller
 
     }
 
+    public function rfidgetdata()
+    {
+        $rfids = Rfid::orderBy('id')->where('studentid', 'JETRO')->get();
+        return view('rfid.monitoring', ['rfids' => $rfids]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -33,8 +38,9 @@ class RfidController extends Controller
 
     public function rfid()
     {
-        $members = Member::orderBy('id')->get();
-        return view('rfid/monitoring', ['members' => $members]);
+        $rfids = Rfid::orderBy('id')->get();
+        $member = DB::table('members')->where('LRN', '1234141412')->pluck('LRN');
+        return view('rfid.monitoring', ['rfids' => $rfids,'member'=>$member]);
     }
 
     /**
@@ -45,21 +51,19 @@ class RfidController extends Controller
      */
     public function store(Request $request)
     {
-        $rfid = $request->all();
-         $data = $request->validate([
-            'studentid' => 'required',
-            'studentname' => 'required',
-            'timein' => 'required',
-            'timeout' => 'required',
-            'status' => 'required'
-        ]);
-        Rfid::create($data);
+       
+        $rfids = new Rfid();
 
-	    Session::flash('success', ' Added successfully');
-        return redirect()->back()->with('success','Added successfuly');
+        $rfids->studentid = $request->input('studentid');
+        $rfids->studentname = $request->input('studentname');
+        $rfids->timein = $request->input('timein');
+        $rfids->timeout = $request->input('timeout');
+        $rfids->status = $request->input('status');
 
-	    // Session::flash('success', ' Added successfully');
-        // return redirect()->back()->with('success','Added successfuly');
+        $rfids->save();
+
+        return redirect()->back();
+        
     }
     /**
      * Display the specified resource.

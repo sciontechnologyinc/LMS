@@ -6,7 +6,7 @@
     <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('title','Add Category list'); ?>
+<?php $__env->startSection('title','Add New Category'); ?>
  
  <?php $__env->startSection('content'); ?>
 
@@ -32,27 +32,52 @@
 
     <div class="col-lg-12">
                     <div class="card">
-                      <div class="card-header"><strong>Create</strong><small> Category</small></div><br>
-                      <div class="row form-group">
-                            <div class="col col-md-12">
+                      <div class="card-header"><strong>Create</strong><small> Category</small></div>
+                      <div class="card-body card-block">
 
-                              <div class="input-group">
-                              <?php echo Form::text('categoryname',null, ['placeholder' => 'Name of Category', 'class' => 'form-control col-lg-8 offset-1']); ?>
 
-                                </div>
+                          <div class="form-group">
+							<div class="form-group col-md-6 offset-2">
+								<?php echo Form::label('categoryname', 'Category Name', array('class' => 'form-control-label')); ?>
 
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+                                <i class="fa fa-list-alt"></i></span>
+									<?php echo Form::text('categoryname',null, ['placeholder' => 'Category Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
+
+								</div>
+							</div>
+						</div>
                                 <br>
-                                <?php echo Form::submit('Create Category', ['class' => 'btn btn-primary  col-lg-2 offset-8']); ?>
+                                <?php echo Form::submit('Create Category', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
 
 
                               </div>
                             </div>
                           </div>
 
-                    </div>
+            </div>
 </div>
 
     <?php echo Form::close(); ?>
 
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+     $("#dataForm").submit(function (event) {
+                 var x = confirm("Are you sure you want to add?");
+                    if (x) {
+                        return true;
+                    }
+                    else {
+
+                        event.preventDefault();
+                        return false;
+                    }
+
+                });
+</script>
+    
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
