@@ -37,11 +37,6 @@
 </div>
   <h2 class="menu-list1">Monitoring</h2>   
 
-<<<<<<< HEAD
-  
-=======
-  {!!Form::text('RFIDSAVEEEE',null, ['placeholder' => 'test No', 'class' => 'form-control col-lg-4', 'required' => '' ])!!}
->>>>>>> 5dbf4f3631642ec015017300d25e89ffc2c49343
   
   <table class="table  offset-1">
     <thead>
