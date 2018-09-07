@@ -10,6 +10,31 @@
  
  <?php $__env->startSection('content'); ?>
 
+  <?php if($message = Session::get('success')): ?>
+    <div class="alert alert-success">
+        <p><?php echo e($message); ?></p>
+    </div>
+<?php endif; ?>
+
+ <?php if($message = Session::get('success1')): ?>
+    <div class="alert alert-danger">
+        <p><?php echo e($message); ?></p>
+    </div>
+<?php endif; ?>
+
+
+ <?php if(count($errors) > 0 ): ?>
+    <div class="alert alert-danger">
+        <strong>Whoooppss !!</strong> There were some problem with your input. <br>
+        <ul>
+          <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li> <?php echo e($error); ?> </li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+    </div>
+ <?php endif; ?>
+ 
+
    <?php echo Form::open(['id' => 'dataForm', 'url' => '/bookissues', 'method' => 'POST']); ?>
 
  <div class="col-lg-6">
@@ -42,10 +67,19 @@
                         </label></div></div>
                
 
-
-					
+                  <div class="form-group">
+            <label class="form-control-label">Book Holder</label><div class="form-group">
+                <div class="iconic-input">
+                  <select class="form-control" id="bookholder" name="bookholder" required="">
+                    <option value="" selected=""> Choose book holder </option>
+                    <option value="admin"> Admin  </option>
+                    <option value="manager"> Manager </option>
+                  </select>
+					</div>
+                  </div>
+					</div>
                   
- 
+
                       </div>
                     </div>
             </div>
@@ -53,8 +87,9 @@
             <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
-                      <div class="card-body card-block">
-                <div class="form-group"><label class="form-control-label">Date / Hour</label><div class="form-group">
+         <div class="card-body card-block">
+              <div class="form-group">
+              <label class="form-control-label">Date / Hour</label><div class="form-group">
                 <div class="iconic-input">
                   <select class="form-control" id="date_hour" name="date_hour" required="">
                     <option value="" selected=""> Choose date/hour </option>
@@ -73,7 +108,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-calendar"></i></span>
-              <?php echo Form::text('date_from',null, ['placeholder' => 'Date from', 'class' => 'form-control date', 'required' => '']); ?>
+              <?php echo Form::text('date_from',null, ['placeholder' => 'Date from', 'class' => 'form-control date_from', 'required' => '']); ?>
 
 						</div>
 					</div>
@@ -86,11 +121,16 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-calendar"></i></span>
-              <?php echo Form::text('date_to',null, ['placeholder' => 'Date To', 'class' => 'form-control date', 'required' => '']); ?>
+              <?php echo Form::text('date_to',null, ['placeholder' => 'Date To', 'class' => 'form-control date_to', 'required' => '']); ?>
 
 						</div>
           </div>
         </div> 
+
+        <div class="form-group">
+              <?php echo Form::hidden('difference',null, ['placeholder' => 'Difference', 'class' => 'form-control difference', 'required' => '']); ?>
+
+                </div>
  </div>
         <div class="hour_area" style="display:none">
 					<div class="form-group">
@@ -100,7 +140,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-clock-o"></i></span>
-              <?php echo Form::text('hour_from',null, ['placeholder' => 'Hour from', 'class' => 'form-control', 'required' => '']); ?>
+              <?php echo Form::text('hour_from',null, ['placeholder' => 'Hour from', 'class' => 'form-control hour_from', 'required' => '']); ?>
 
 						</div>
 					</div>
@@ -113,11 +153,16 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-clock-o"></i></span>
-              <?php echo Form::text('hour_to',null, ['placeholder' => 'Hour to', 'class' => 'form-control', 'required' => '']); ?>
+              <?php echo Form::text('hour_to',null, ['placeholder' => 'Hour to', 'class' => 'form-control hour_to', 'required' => '']); ?>
 
 						</div>
 					</div>
     </div>
+
+              <div class="form-group">
+              <?php echo Form::hidden('hours',null, ['placeholder' => 'Hours', 'class' => 'form-control hours', 'required' => '']); ?>
+
+                </div>
 </div>
     
     
@@ -125,7 +170,7 @@
     <?php echo Form::submit('Make this issue', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-4']); ?>
 
                 </div>
-                
+
                 <br>
       
                       </div>
@@ -143,7 +188,7 @@ $(function(){
       $(".book_result").html("<b class='text-danger'>Select book from <b class='text-success'>Book Name</b> field</b>");
     }else{
       var selectedValue = $("#bookname").val();
-    $(".book_result").html("<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + <?php echo e($book->booknumber); ?> + selectedValue + " Books </b>   available</span></span>");
+    $(".book_result").html(" &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class='fa fa-check-circle text-success'> <b class='text-warning'>" + '<?php echo e($book->booknumber); ?> &nbsp;' + selectedValue + " Books </b>   available</span></span>");
     }
  });
 	//check is book issued by date or hour 
@@ -168,15 +213,56 @@ $(function(){
 		}
 	});
 })
-</script> 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
+
+
     $( function() {
-      $('.date').datepicker({
-      format: 'mm/dd/yy'
+      $(".date_from").datepicker({
+    minDate: 0,
+    maxDate: '+1Y+6M',
+    onSelect: function (dateStr) {
+        var min = $(this).datepicker('getDate'); 
+        $(".date_to").datepicker('option', 'minDate', min || '0'); 
+    }
 });
+
+$(".date_to").datepicker({
+    minDate: '0',
+    maxDate: '+1Y+6M',
+    onSelect: function (dateStr) {
+        var max = $(this).datepicker('getDate'); 
+        $('#datepicker').datepicker('option', 'maxDate', max || '+1Y+6M'); 
+        var start = $(".date_from").datepicker("getDate");
+        var end = $(".date_to").datepicker("getDate");
+        var days = (end - start) / (1000 * 60 * 60 * 24);
+        $(".difference").val(days);
+    }
+  });
+
+   $(function () {
+     function calculate() {
+         var time1 = $(".hour_from").val().split(':'), time2 = $(".hour_to").val().split(':');
+         var hours1 = parseInt(time1[0], 10), 
+             hours2 = parseInt(time2[0], 10),
+             mins1 = parseInt(time1[1], 10),
+             mins2 = parseInt(time2[1], 10);
+         var hours = hours2 - hours1, mins = 0;
+         if(hours < 0) hours = 24 + hours;
+         if(mins2 >= mins1) {
+             mins = mins2 - mins1;
+         }
+         else {
+             mins = (mins2 + 60) - mins1;
+             hours--;
+         }
+         mins = mins / 60; // take percentage in 60
+         hours += mins;
+         hours = hours.toFixed(2);
+         $(".hours").val(hours);
+     }
+     $(".hour_from,.hour_to").change(calculate);
+     calculate();
+ });
+
 })
 </script>
  <?php $__env->stopSection(); ?>

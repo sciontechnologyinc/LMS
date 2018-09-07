@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="<?php echo asset('assets/scss/style.scss'); ?>">
     <link rel="stylesheet" href="<?php echo asset('assets/scss/style.css'); ?>">
     <link href="<?php echo asset('assets/css/lib/vector-map/jqvmap.min.css'); ?>" rel="stylesheet">
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
@@ -69,5 +68,8 @@
     <script src="<?php echo asset('assets/js/lib/vector-map/jquery.vmap.sampledata.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/lib/vector-map/country/jquery.vmap.world.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/custom.js'); ?>"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
 </body>
 </html>

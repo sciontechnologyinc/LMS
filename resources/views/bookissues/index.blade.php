@@ -63,14 +63,20 @@
                     	<tr>
 									<td data-title="SL">{{ $bookissue->id }}</td>
 									<td data-title="Book Name">{{ $bookissue->bookname }}</td>
-									<td class="numeric" data-title="Book holder">sathia sultana</td>									</td>
+									<td class="numeric" data-title="Book holder">{{ $bookissue->bookholder }}</td>									</td>
 									<td data-title="Issue type">issued for days</td>
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									<span class="label label-success"><strong> {{ $bookissue->date_to }}</strong> days</span>								</td>
-									<td class="numeric text-center" data-title="Status">
-									<span class="fa fa-times text-danger"> Pending</span></td>
+									@if($bookissue->difference)
+									<span class="label label-success"><strong>{{ $bookissue->difference }}</strong> days</span>	&nbsp;
+									@else
+									<span class="label label-success"><strong>{{ $bookissue->hours }}</strong> hours</span>	
+									@endif
+															
+									</td>
+									<td class="numeric text-center" id="status" data-title="Status">
+									<span class="fa fa-times text-danger bookissue_result"> Pending</span></td>
 									<td class="numeric text-right" data-title="Action">
 										<a data-toggle="modal" data-target=".bs21" class="btn btn-xs btn-info"><span class="fa fa-fire" title="Make action"></span></a>
 											
@@ -87,16 +93,16 @@
 															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
 														</h2>
 														<div class="panel-body">
-														
+  														  <!-- {!! Form::open(['id' => 'dataForm', 'url' => '/bookissues']) !!}		 -->
 														<input type="hidden" name="isseu_id" value="21">
 															<div class="form-group">
 																<div class="iconic-input">
-																
-																	{{ Form::button('<i class="fa fa-arrow-right"> Submit Return</i>', ['type' => 'submit', 'class' => 'btn btn-primary  col-lg-6'] )  }}
+																	{!!Form::submit('Submit Return', ['id' => 'addForm','class' => 'btn btn-primary submit_return  col-lg-10']) !!}
+																	
 
 																</div>
 															</div>
-													
+   																	 <!-- {!! Form::close() !!}													 -->
 														</div>
 													</section>
 												</div>
@@ -122,10 +128,20 @@
         </section>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		alert({{ $bookissue->date_from }});
-	});
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+      $(".submit_return").click(function () {
+
+      if($('#status').val() == null){
+
+      var selectedValue = $("#status").val();
+      $(".bookissue_result").html("<span class='fa fa-times text-danger'> Pending</span>");
+    }else{
+      var selectedValue = $("#status").val();
+    $(".bookissue_result").html(" <span class='fa fa-check text-success'> Returned</span>");
+    }
+ });
+})
 </script>
  @endsection

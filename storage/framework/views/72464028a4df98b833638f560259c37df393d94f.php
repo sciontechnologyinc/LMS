@@ -61,14 +61,20 @@
                     	<tr>
 									<td data-title="SL"><?php echo e($bookissue->id); ?></td>
 									<td data-title="Book Name"><?php echo e($bookissue->bookname); ?></td>
-									<td class="numeric" data-title="Book holder">sathia sultana</td>									</td>
+									<td class="numeric" data-title="Book holder"><?php echo e($bookissue->bookholder); ?></td>									</td>
 									<td data-title="Issue type">issued for days</td>
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									<span class="label label-success"><strong> <?php echo e($bookissue->date_to); ?></strong> days</span>								</td>
-									<td class="numeric text-center" data-title="Status">
-									<span class="fa fa-times text-danger"> Pending</span></td>
+									<?php if($bookissue->difference): ?>
+									<span class="label label-success"><strong><?php echo e($bookissue->difference); ?></strong> days</span>	&nbsp;
+									<?php else: ?>
+									<span class="label label-success"><strong><?php echo e($bookissue->hours); ?></strong> hours</span>	
+									<?php endif; ?>
+															
+									</td>
+									<td class="numeric text-center" id="status" data-title="Status">
+									<span class="fa fa-times text-danger bookissue_result"> Pending</span></td>
 									<td class="numeric text-right" data-title="Action">
 										<a data-toggle="modal" data-target=".bs21" class="btn btn-xs btn-info"><span class="fa fa-fire" title="Make action"></span></a>
 											
@@ -85,17 +91,17 @@
 															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
 														</h2>
 														<div class="panel-body">
-														
+  														  <!-- <?php echo Form::open(['id' => 'dataForm', 'url' => '/bookissues']); ?>		 -->
 														<input type="hidden" name="isseu_id" value="21">
 															<div class="form-group">
 																<div class="iconic-input">
-																
-																	<?php echo e(Form::button('<i class="fa fa-arrow-right"> Submit Return</i>', ['type' => 'submit', 'class' => 'btn btn-primary  col-lg-6'] )); ?>
+																	<?php echo Form::submit('Submit Return', ['id' => 'addForm','class' => 'btn btn-primary submit_return  col-lg-10']); ?>
 
+																	
 
 																</div>
 															</div>
-													
+   																	 <!-- <?php echo Form::close(); ?>													 -->
 														</div>
 													</section>
 												</div>
@@ -121,11 +127,21 @@
         </section>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		alert(<?php echo e($bookissue->date_from); ?>);
-	});
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+      $(".submit_return").click(function () {
+
+      if($('#status').val() == null){
+
+      var selectedValue = $("#status").val();
+      $(".bookissue_result").html("<span class='fa fa-times text-danger'> Pending</span>");
+    }else{
+      var selectedValue = $("#status").val();
+    $(".bookissue_result").html(" <span class='fa fa-check text-success'> Returned</span>");
+    }
+ });
+})
 </script>
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -18,9 +18,18 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
+<<<<<<< HEAD
 Route::post('/rfids','RfidController@store');
 Route::get('/rfid','RfidController@rfid');
 
+=======
+Route::get('/rfid', function () {
+    return view('rfid.monitoring');
+});
+Route::get('/rfid','RfidController@rfid');
+
+
+>>>>>>> 621f8f148760856069d4760ea176ee9d609de1d6
 Route::get('addsubject', function () {
     return view('subjects.create');
 });
@@ -64,6 +73,7 @@ Route::get('about', function () {
     return view('home.about');
 });
 Route::get('about', 'GeneralsettingsController@index');
+
 
 Auth::routes();
 

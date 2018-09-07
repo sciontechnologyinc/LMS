@@ -11,7 +11,10 @@ class Bookissue extends Model
                             'date_from',
                             'date_to',
                             'hour_from',
-                            'hour_to'];
+                            'hour_to',
+                            'difference',
+                            'hours',
+                            'bookholder'];
 
 
                             
