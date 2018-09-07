@@ -59,18 +59,16 @@
                         </thead>
 					
 						<tbody class="search_result">
-                        								<tr>
-									<td data-title="SL">1</td>
-									<td data-title="Book Name">test 1</td>
-									
-									<td class="numeric" data-title="Book holder">
-										<a href="https://yourprogramming.com/library/admin/Members/member_view/42" target="_blank">sathia sultana</a>									</td>
+						@foreach($bookissues as $bookissue)
+                    	<tr>
+									<td data-title="SL">{{ $bookissue->id }}</td>
+									<td data-title="Book Name">{{ $bookissue->bookname }}</td>
+									<td class="numeric" data-title="Book holder">sathia sultana</td>									</td>
 									<td data-title="Issue type">issued for days</td>
-									
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									<span class="label label-danger">Expired</span>									</td>
+									<span class="label label-success"><strong> {{ $bookissue->date_to }}</strong> days</span>								</td>
 									<td class="numeric text-center" data-title="Status">
 									<span class="fa fa-times text-danger"> Pending</span></td>
 									<td class="numeric text-right" data-title="Action">
@@ -89,7 +87,7 @@
 															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
 														</h2>
 														<div class="panel-body">
-														{!! Form::open(['id' => 'dataForm', 'url' => '/bookissues', 'method' => 'POST']) !!}
+														
 														<input type="hidden" name="isseu_id" value="21">
 															<div class="form-group">
 																<div class="iconic-input">
@@ -98,7 +96,7 @@
 
 																</div>
 															</div>
-															{!! Form::close() !!}
+													
 														</div>
 													</section>
 												</div>
@@ -108,55 +106,9 @@
 										</div>
 										
 									</td>
-								</tr>
-
-								<tr>
-									<td data-title="SL">5</td>
-									<td data-title="Book Name">kamal haldar</td>
-									
-									<td class="numeric" data-title="Book holder">
-										<a href="https://yourprogramming.com/library/admin/Members/member_view/23" target="_blank">Kubra</a>									</td>
-									<td data-title="Issue type">issued for days</td>
-									
-									<td class="numeric" data-title="Issue date">today									</td>
-									<td class="numeric" data-title="Return date">today</td>
-									<td class="numeric" data-title="Remains">
-									<span class="label label-success"><strong>21</strong> days</span>									</td>
-									<td class="numeric text-center" data-title="Status">
-									<span class="fa fa-check text-success"> Returned</span></td>
-									<td class="numeric text-right" data-title="Action">
-										<span class="text-success"> applied</span>										
-										<!-- Small modal -->
-										<div class="modal fade bs17" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-										  <div class="modal-dialog modal-sm" role="document">
-											<div class="modal-content">
-											   <div class="row">
-												<div class="col-sm-12 text-center">
-													<section class="panel">
-														<h2 class="panel-heading">
-															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
-														</h2>
-														<div class="panel-body">
-														<form action="https://yourprogramming.com/library/admin/BookIssue/return_book" method="post">	
-														<input type="hidden" name="isseu_id" value="17">
-															<div class="form-group">
-																<div class="iconic-input">
-																	<i class="fa fa-arrow-right"></i>
-																	<input type="submit" class="form-control btn btn-success" value="Submit Return">
-																</div>
-															</div>
-														</form>
-														</div>
-													</section>
-												</div>
-											  </div>
-											</div>
-										  </div>
-										</div>
-										
-									</td>
-								</tr>							                   
+								</tr>				                   
 					   </tbody>
+					   @endforeach
                     </table>
                 </section>
 
@@ -170,4 +122,10 @@
         </section>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		alert({{ $bookissue->date_from }});
+	});
+</script>
  @endsection
