@@ -43,7 +43,9 @@
                     <thead>
                     
                       <tr>
-                        <th><input type="text" placeholder="Search Member" class="search-memberlist"></th>
+                        <th>
+                        <!-- <input type="text" placeholder="Search Member" class="search-memberlist"> -->
+                        </th>
                       </tr> 
                       <tr>
                         <td>
@@ -101,12 +103,6 @@
                 });
 </script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-	    $("[rel=tooltip]").tooltip({ placement: 'top'});
-	    
-	});
-</script>
         
  @endsection
 

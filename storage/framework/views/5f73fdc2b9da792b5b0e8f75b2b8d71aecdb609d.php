@@ -193,9 +193,9 @@
                                       <span class="input-group-addon">
                                       <i class="fa fa-list-alt"></i></span>
                                       <select name="department" class="form-control">
-                                              
-                                                  <option value="<?php echo e($member->department); ?>"><?php echo e($member->department); ?></option>
-                                             
+									     <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									     <option value="<?php echo e($department->departmentname); ?>"  <?php if($department->departmentname==$member->department): ?> selected='selected' <?php endif; ?> ><?php echo e($department->departmentname); ?></option>
+										 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                                           </select>
                                           
                                            

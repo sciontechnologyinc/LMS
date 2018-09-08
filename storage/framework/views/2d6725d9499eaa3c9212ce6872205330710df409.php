@@ -132,10 +132,14 @@
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                         <div class="form-group">
+                         
+                      <div class="form-group">
                          <label class="form-control-label">Status</label>
-                         <?php echo Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control', 'required' => '')); ?>
-
+                         <select class="form-control status" id="status" name="status" required="">
+                         <option value="" selected=""> Choose status </option>
+                         <option value="available"> Available</option>
+                         <option value="unavailable"> Unavailable</option>
+                         </select>
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('status')); ?></span>
                                 
@@ -143,7 +147,7 @@
                           <label class="form-control-label">Book Type</label>
                
                         <select class="form-control booktype" id="booktype" name="booktype" required="">
-                            <option value="" selected=""> Choose physical/digital </option>
+                            <option value="" selected=""> Choose book type </option>
                             <option value="physical"> Physical</option>
                             <option value="digital"> Digital</option>
                         </select>

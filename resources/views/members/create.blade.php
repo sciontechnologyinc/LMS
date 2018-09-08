@@ -122,7 +122,7 @@
                             <select name="department" class="form-control">
                                     <option value="" disabled {{ old('department') ? '' : 'selected' }}>Choose a deparment</option>
                                     @foreach($departments as $department)
-                                        <option value="{{$department->departmentname}}" {{ old('department') ? 'selected' : '' }}>{{$department->departmentname}}</option>
+                                     <option value="{{ $department->departmentname }}" @if(old('department')&&old('department')== $department->departmentname) selected='selected' @endif >{{ $department->departmentname }}</option>
                                     @endforeach
                                 </select>
                             </div>

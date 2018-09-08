@@ -185,9 +185,9 @@
                                       <span class="input-group-addon">
                                       <i class="fa fa-list-alt"></i></span>
                                       <select name="department" class="form-control">
-                                              
-                                                  <option value="{{ $member->department }}">{{ $member->department }}</option>
-                                             
+									     @foreach($departments as $department)
+									     <option value="{{ $department->departmentname }}"  @if($department->departmentname==$member->department) selected='selected' @endif >{{ $department->departmentname }}</option>
+										 @endforeach 
                                           </select>
                                           
                                            

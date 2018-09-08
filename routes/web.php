@@ -18,15 +18,12 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
-<<<<<<< HEAD
 Route::post('/rfids','RfidController@store');
 Route::get('/rfid','RfidController@rfid');
-=======
 Route::get('rfid', function () {
     return view('rfid.monitoring');
 });
 Route::resource('/rfid','RfidController');
->>>>>>> 02718919e5d1692916802e6bba78316004544f58
 
 
 Route::get('addsubject', function () {
@@ -54,6 +51,8 @@ Route::get('addmembers', function () {
     return view('members.create');
 });
 Route::resource('members','MemberController');
+Route::get('/live_search', 'MemberController@action')->name('members.index');
+
 Route::get('generalsettings', function () {
     return view('admin.pages.generalsettings');
 });
