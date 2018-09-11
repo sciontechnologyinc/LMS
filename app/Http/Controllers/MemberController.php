@@ -8,6 +8,7 @@ use App\Category;
 use App\Generalsettings;
 use App\Member;
 use App\Subject;
+use App\Department;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,8 +67,8 @@ class MemberController extends Controller
             'membername' => 'required',
             'gender' => 'required',
             'contactnumber' => 'required|max:11',
-            'email' => 'required|email',
-            'LRN' => 'required',
+            'email' => 'required|unique:members||email',
+            'LRN' => 'required|unique:members|',
             'profession' => 'required',
             'department' => 'required',
             'subject' => 'required',
@@ -130,9 +131,12 @@ class MemberController extends Controller
     {
         $member = Member::find($id);
         $subjects = Subject::find($id);
+        $deparments = Department::find($id);
+        $departments = DB::table('departments')->get();
         $subjects = DB::table('subjects')->get();
-        
-        return view('members/edit', ['member' => $member,'subjects' => $subjects]);
+
+ 
+        return view('members/edit', ['member' => $member,'subjects' => $subjects, 'departments' => $departments]);
     }
 
     /**

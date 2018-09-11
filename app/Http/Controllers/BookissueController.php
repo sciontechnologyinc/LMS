@@ -51,7 +51,7 @@ class BookissueController extends Controller
 
          $bookissue = $request->all();
          $data = $request->validate([
-            'bookname' => 'required',
+            'bookname' => 'required|unique:bookissues|',
 
             
         ]);

@@ -56,7 +56,7 @@ class DepartmentController extends Controller
     {
          $data = $request->all();
          $data = $request->validate([
-            'departmentname' => 'required',
+            'departmentname' => 'required|unique:departments|',
 
             
         ]);

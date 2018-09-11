@@ -126,7 +126,7 @@
 				<div class="panel">
 					<div class="panel-body">
 						<div class="profile-desk">
-							<h1>Culiath</h1>
+							<h1>Culiat </h1>
 							<span class="designation">admin@email.com</span>
 
 							
@@ -146,7 +146,7 @@
 								<label>Name</label>
 								<div class="iconic-input">
 									<i class="fa fa-user"></i>
-									<input type="text" class="form-control" placeholder="Name" value="Culiath" id="name">
+									<input type="text" class="form-control" placeholder="Name" value="Culiat" id="name">
 								</div>
 							</div>
 							

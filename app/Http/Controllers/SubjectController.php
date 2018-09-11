@@ -56,7 +56,7 @@ class SubjectController extends Controller
     {
          $subject = $request->all();
          $data = $request->validate([
-            'subjectname' => 'required',
+            'subjectname' => 'required|unique:subjects|',
 
             
         ]);

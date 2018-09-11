@@ -114,7 +114,8 @@ class GeneralsettingsController extends Controller
      */
     public function edit($id)
     {
-
+    	$generalsetting = Generalsettings::find($id);
+        return view('admin/pages/generalsettings', ['generalsetting' => $generalsetting]);
     }
 
     /**

@@ -87,11 +87,5 @@
                 });
 </script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-	    $("[rel=tooltip]").tooltip({ placement: 'top'});
-	    
-	});
-</script>
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

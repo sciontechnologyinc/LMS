@@ -110,6 +110,7 @@
 
                          <div class="form-group">
                          <label class="form-control-label">Status</label>
+<<<<<<< HEAD
                          {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')) !!}
                          </div>
                               
@@ -122,6 +123,19 @@
                             <option value="digital"> Digital</option>
                         </select>
                             </div>
+=======
+                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),$book->status,array('class' => 'form-control')) !!}
+                          </div>
+                              
+                          <div class="form-group">
+                          <label class="form-control-label">Book Type</label>
+                          {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'),$book->booktype,array('class' => 'form-control', 'id' => 'booktype')) !!}
+                          </div>
+            
+      
+                         
+
+>>>>>>> c29fb19004134468fe6d53b140f40e80d9064203
                      <div class="form-group book_digital" style='display:none;'>                  
                             <div class="row">
                                 <label>Choose photo (<small>optional</small>) <br>
@@ -137,8 +151,7 @@
                          
 
                           <div class="form-group"><label class="">Book Condition</label>
-                         {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control')) !!}
-                          <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
+                         {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), $book->bookcondition,array('class' => 'form-control')) !!}
                           </div>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
