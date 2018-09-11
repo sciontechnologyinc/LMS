@@ -18,16 +18,10 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
-<<<<<<< HEAD
-Route::post('/rfids','RfidController@store');
-Route::get('/rfid','RfidController@rfid');
-=======
 Route::get('rfid', function () {
     return view('rfid.monitoring');
 });
-Route::resource('/rfid','RfidController');
->>>>>>> 02718919e5d1692916802e6bba78316004544f58
-
+Route::get('/rfid','RfidController@rfidgetdata');
 
 Route::get('addsubject', function () {
     return view('subjects.create');

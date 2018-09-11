@@ -34,23 +34,28 @@
     <input type="text" class="RFIDSAVEEEE" autofocus>
    
 </div>
-  <h2 class="menu-list1">Monitoring</h2>   
-  <?php echo Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '', 'enctype' => 'multipart/form-data']); ?>
+  <h2 class="menu-list1">Monitoring</h2>  
+ 
+      <?php echo Form::open(['id' => 'dataForm', 'url' => '/rfid', 'method' => 'POST']); ?>
 
-      <?php echo Form::text('studentid',null , ['placeholder' => 'studentid Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
 
-      <?php echo Form::text('studentname',null, ['placeholder' => 'studentname Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
 
-      <?php echo Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
+
+<?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <input class="form-control col-lg-12" type="text" value="<?php echo e($member->LRN); ?>" <?php echo e(old('studentid') ? 'selected' : ''); ?> name="studentid" id="studentid"/>                                 
+      <input class="form-control col-lg-12" type="text" value="<?php echo e($member->membername); ?>" <?php echo e(old('studentname') ? 'selected' : ''); ?> name="studentname" id="studentname"/>
+      <?php echo Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '',  ]); ?>
 
       <?php echo Form::text('timeout',null, ['placeholder' => 'timeout Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
 
       <?php echo Form::text('status',null, ['placeholder' => 'status Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
 
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       <?php echo Form::submit('Create logsheet', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
 
-  <?php echo Form::close(); ?>
+<?php echo Form::close(); ?>
 
+  
 <button href="<?php echo e(url('/rfidgetdata')); ?>" class="btn btn-primary">test</button>
     <table class="table  offset-1">
           <thead>

@@ -25,6 +25,17 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
+  'maddhatter/laravel-fullcalendar' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Calendar' => 'MaddHatter\\LaravelFullcalendar\\Facades\\Calendar',
+    ),
+  ),
   'nunomaduro/collision' => 
   array (
     'providers' => 

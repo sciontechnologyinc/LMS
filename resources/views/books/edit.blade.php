@@ -111,7 +111,7 @@
                          <div class="form-group">
                          <label class="form-control-label">Status</label>
                          {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')) !!}
-                          </div>
+                         </div>
                               
                           <div class="form-group">
                           <label class="form-control-label">Book Type</label>
@@ -122,10 +122,6 @@
                             <option value="digital"> Digital</option>
                         </select>
                             </div>
-            
-      
-                         
-
                      <div class="form-group book_digital" style='display:none;'>                  
                             <div class="row">
                                 <label>Choose photo (<small>optional</small>) <br>
