@@ -49,12 +49,9 @@ class RfidController extends Controller
             'timein' => 'required',
             'timeout' => 'required',
             'status' => 'required',
- 
 
-            
         ]);
 
-        
         $rfid = new Rfid;
         $rfid->studentid = $request->input('studentid');
         $rfid->studentname = $request->input('studentname');
