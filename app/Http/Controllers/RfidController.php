@@ -19,15 +19,16 @@ class RfidController extends Controller
     public function index()
     {
 	    $rfids = Rfid::orderBy('id')->get();
-	    $members = Member::orderBy('id')->get();
-        return view('rfid.monitoring', ['rfids' => $rfids, 'members' => $members]);
+        return view('rfid.monitoring', ['rfids' => $rfids]);
+
     }
 
-    // public function rfidgetdata()
-    // {
-    //     $rfids = Rfid::orderBy('id')->where('studentid', 'JETRO')->get();
-    //     return view('rfid.monitoring', ['rfids' => $rfids]);
-    // }
+    public function rfidgetdata()
+    {
+        $rfids = Rfid::orderBy('id')->get();
+	    $members = Member::orderBy('id')->where('membername', 'jetro')->get();
+        return view('rfid.monitoring', ['rfids' => $rfids, 'members' => $members]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -38,19 +39,6 @@ class RfidController extends Controller
         //
     }
 
-    // public function rfid()
-    // {
-    //     $rfids = Rfid::orderBy('id')->get();
-    //     $member = DB::table('members')->where('LRN', '1234141412')->pluck('LRN');
-    //     return view('rfid.monitoring', ['rfids' => $rfids,'member'=>$member]);
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
        

@@ -304,6 +304,10 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
+            'MaddHatter\\LaravelFullcalendar' => 
+            array (
+                0 => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src',
+            ),
         ),
         'J' => 
         array (
@@ -333,6 +337,7 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Generalsettings' => __DIR__ . '/../..' . '/app/Generalsettings.php',
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -346,12 +351,15 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         'App\\Http\\Controllers\\GeneralsettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/GeneralsettingsController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LmsController' => __DIR__ . '/../..' . '/app/Http/Controllers/LmsController.php',
+        'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\MemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/MemberController.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
         'App\\Http\\Controllers\\RfidController' => __DIR__ . '/../..' . '/app/Http/Controllers/RfidController.php',
+        'App\\Http\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingsController.php',
         'App\\Http\\Controllers\\SubjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubjectController.php',
         'App\\Http\\Controllers\\TermController' => __DIR__ . '/../..' . '/app/Http/Controllers/TermController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\Cors' => __DIR__ . '/../..' . '/app/Http/Middleware/Cors.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\IsBrand' => __DIR__ . '/../..' . '/app/Http/Middleware/IsBrand.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -1844,6 +1852,13 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'MaddHatter\\LaravelFullcalendar\\Calendar' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/Calendar.php',
+        'MaddHatter\\LaravelFullcalendar\\Event' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/Event.php',
+        'MaddHatter\\LaravelFullcalendar\\EventCollection' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/EventCollection.php',
+        'MaddHatter\\LaravelFullcalendar\\Facades\\Calendar' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/Facades/Calendar.php',
+        'MaddHatter\\LaravelFullcalendar\\IdentifiableEvent' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/IdentifiableEvent.php',
+        'MaddHatter\\LaravelFullcalendar\\ServiceProvider' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/ServiceProvider.php',
+        'MaddHatter\\LaravelFullcalendar\\SimpleEvent' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/SimpleEvent.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
