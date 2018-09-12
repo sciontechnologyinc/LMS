@@ -23,13 +23,13 @@ Route::get('generalsettings', function () {
 });
 Route::resource('generalsettings','GeneralsettingsController');
 
-Route::post('/rfids','RfidController@store');
-Route::get('/rfid','RfidController@rfid');
+
 Route::get('rfid', function () {
     return view('rfid.monitoring');
 });
 Route::resource('/rfid','RfidController');
 
+Route::get('/rfid','RfidController@rfidgetdata');
 
 Route::get('addsubject', function () {
     return view('subjects.create');
