@@ -102,18 +102,25 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 									<i class="fa fa-user"></i></span>
-									{!!Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control', 'required' => ''])!!}
+                                    <select class="form-control" id="profession" name="profession" required="">
+                                        <option value="" selected=""> Choose Profession  </option>
+                                        <option value="student"> Student</option>
+                                        <option value="professor"> Professor</option>
+                                        <option value="visitor"> Visitor</option>
+                                    </select>
 								</div>
 							</div>
 						</div>
                       </div>
                     </div>
               </div>
+
               <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>First</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                    <div class="form-group">
+
+                    <div class="form-group professor_area" style="display:none;">
                        {!!Form::label('deparment', 'Deparment', array('class' => 'form-control-label'))!!}
                        <div class="iconic-input">
                             <div class="input-group margin-bottom-sm">
@@ -127,21 +134,20 @@
                                 </select>
                             </div>
                       </div>
-                    </div>
+                </div>
                      
 
-                    <div class="form-group">
+                    <div class="form-group student_area" style="display:none;">
 							<label style="width:100%;">Check Subjects </label>
-              @foreach($subjects as $subject)
+                 @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
 								<input class="subject" type="checkbox" name="subject[]" value="{{$subject->subjectname}}">{{$subject->subjectname}}</label>
-                @endforeach
+                 @endforeach
 							</div>
 
 
 
 
-                  <br><br><br> 
                   <div class="form-group">
                       {!!Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
@@ -155,7 +161,7 @@
                           
                             
 
-
+<br>
                                       <div class="form-group photos">
 							<div class="col-lg-7 ">
 								<div class="row">
@@ -179,6 +185,7 @@
 						    	</div>
                                 <br>
                             </div>
+
 
                      <div class="card-footer">
                      {!!Form::submit('Add Member', ['class' => 'btn btn-primary']) !!}
@@ -259,6 +266,34 @@ $(function () {
 	$('.checkbox-inline').click(function(){
 		$('.sub').prop('required',false);
 	});
+
+
+    //onchange
+    $('#profession').on('change', function() {
+      if ( this.value == 'student' )
+      //.....................^.......
+      {
+        $(".student_area").show();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'professor' ){
+        $(".student_area").hide();
+        $(".professor_area").show();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'visitor' ){
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").show();
+      }
+      else
+      {
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+    });
 })
 </script>
 
