@@ -18,6 +18,11 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
+Route::get('generalsettings', function () {
+    return view('generalsettings.generalsettings');
+});
+Route::resource('generalsettings','GeneralsettingsController');
+
 Route::post('/rfids','RfidController@store');
 Route::get('/rfid','RfidController@rfid');
 Route::get('rfid', function () {
@@ -53,11 +58,7 @@ Route::get('addmembers', function () {
 Route::resource('members','MemberController');
 Route::get('/live_search', 'MemberController@action')->name('members.index');
 
-Route::get('generalsettings', function () {
-    return view('admin.pages.generalsettings');
-});
 Route::get('/register', 'RegisterController@index');
-Route::post('/store', 'GeneralsettingsController@store')->name('pages.store');
 
 Route::get('home', function () {
     return view('home.index');
@@ -70,7 +71,6 @@ Route::get('contact', function () {
 Route::get('about', function () {
     return view('home.about');
 });
-Route::get('about', 'GeneralsettingsController@index');
 
 
 Auth::routes();
