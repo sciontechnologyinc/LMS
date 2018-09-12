@@ -22,6 +22,7 @@ class CreateBookissuesTable extends Migration
             $table->string('hour_from')->nullable();
             $table->string('hour_to')->nullable();
             $table->string('difference')->nullable();
+            $table->string('status')->nullable();
             $table->string('hours')->nullable();
             $table->timestamps();
         });

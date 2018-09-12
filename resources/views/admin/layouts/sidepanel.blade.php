@@ -58,8 +58,6 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="{{ url('members/create') }}">Add New Member</a></li>
                             <li><i class="menu-icon fa fa-users"></i><a href="{{ url('members') }}">Member List</a></li>
-                            <li><i class="menu-icon fa fa-users text-success"></i><a href="#">New members</a></li>
-                            <li><i class="menu-icon fa fa-globe text-success"></i><a href="#">Visitors</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
