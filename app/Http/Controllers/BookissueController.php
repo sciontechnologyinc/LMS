@@ -64,6 +64,7 @@ class BookissueController extends Controller
         $bookissue->hour_to = $request->input('hour_to');
         $bookissue->difference = $request->input('difference');
         $bookissue->hours = $request->input('hours');
+        $bookissue->status = $request->input('status');
         $bookissue->save();
     
 

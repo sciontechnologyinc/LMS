@@ -74,7 +74,7 @@
 															
 									</td>
 									<td class="numeric text-center" id="status" data-title="Status">
-									<span class="fa fa-times text-danger bookissue_result"> Pending</span></td>
+									<span class="fa fa-times text-danger bookissue_result"> <?php echo e($bookissue->status); ?></span></td>
 									<td class="numeric text-right" data-title="Action">
 										<a data-toggle="modal" data-target=".bs21" class="btn btn-xs btn-info"><span class="fa fa-fire" title="Make action"></span></a>
 											

@@ -91,20 +91,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
-
-								<div class="iconic-input">
-								<div class="input-group margin-bottom-sm">
-								<span class="input-group-addon">
-								<i class="fa fa-id-card"></i></span>
-									<?php echo Form::number('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => '']); ?>
-
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
+                        <div class="form-group">
 									<?php echo Form::label('profession', 'Profession', array('class' => 'form-control-label')); ?>
 
 								<div class="iconic-input">
@@ -120,13 +107,29 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="form-group">
+									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
+
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+								<i class="fa fa-id-card"></i></span>
+									<?php echo Form::number('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => '']); ?>
+
+								</div>
+							</div>
+						</div>
+
+
+
                       </div>
                     </div>
               </div>
 
               <div class="col-lg-6">
                     <div class="card">
-                      <div class="card-header"><strong>First</strong><small> Portion</small></div>
+                      <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
 
                     <div class="form-group professor_area" style="display:none;">
@@ -147,13 +150,16 @@
                 </div>
                      
 
-                    <div class="form-group student_area" style="display:none;">
-							<label style="width:100%;">Check Subjects </label>
+            <div class="form-group student_area" style="display:none;">
+				<label style="width:100%;">Check Subjects </label>                    
                  <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
 								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 <br>
+                 <br>
 							</div>
+                            
 
 
 
@@ -174,7 +180,7 @@
                             
 
 <br>
-                                      <div class="form-group photos">
+                <div class="form-group photos">
 							<div class="col-lg-7 ">
 								<div class="row">
 									<label>Choose photo (<small>optional</small>)
@@ -196,13 +202,15 @@
                                     </div>
 						    	</div>
                                 <br>
+                                <br>
+                     <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary col-lg-4 offset-8']); ?>
+
+
                             </div>
 
 
-                     <div class="card-footer">
-                     <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary']); ?>
 
-                    </div>
+
             </div>
       </div>
 </div>

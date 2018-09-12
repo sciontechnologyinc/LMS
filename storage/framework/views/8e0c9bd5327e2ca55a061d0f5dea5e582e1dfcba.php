@@ -34,7 +34,7 @@
  <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Member list</strong>
+                            <strong class="card-title">Member list</strong> <input id="myInput" type="text" placeholder="Search Member" class="search-memberlist">
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -42,7 +42,7 @@
                     
                       <tr>
                         <th>
-                        <!-- <input type="text" placeholder="Search Member" class="search-memberlist"> -->
+
                         </th>
                       </tr> 
                       <tr>
@@ -58,7 +58,7 @@
                                 <img src="<?php echo e(asset('storage/uploads/user_icon.png')); ?>" />
                                 <?php endif; ?>
                                 </div>
-                                <div class="col-sm-6 membername"><?php echo e($member->membername); ?><br><?php echo e($member->contactnumber); ?></div>
+                                <div class="col-sm-6"><?php echo e($member->membername); ?><br><?php echo e($member->contactnumber); ?></div>
                                 <div class="col-sm-2"></div>
                               </div>
                               <div class="row-2">
@@ -77,9 +77,11 @@
                               </div>
                             </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+
                         </div>  
                         </td>
                       </tr>
+                      
                     </thead>
                     <tbody>
                   
@@ -104,7 +106,23 @@
                 });
 </script>
 
-        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+   var key = this.value;
+
+       
+    $(".per-member").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
+
+  });
+  
+    
+});
+</script>
  <?php $__env->stopSection(); ?>
 
  
