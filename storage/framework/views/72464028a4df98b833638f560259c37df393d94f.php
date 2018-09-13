@@ -27,7 +27,7 @@
     </div>
  <?php endif; ?>
         
-        <link rel="stylesheet" href="<?php echo ('/css/termscss.css'); ?>">
+        <link rel="stylesheet" href="<?php echo ('/css/bookissue.css'); ?>">
 
 
 
@@ -66,42 +66,98 @@
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									<?php if($bookissue->difference): ?>
-									<span class="label label-success"><strong><?php echo e($bookissue->difference); ?></strong> days</span>	&nbsp;
+									<?php if($bookissue->status == 'Pending'): ?>
+									<?php if(  $bookissue->difference ): ?> 
+									<span class="label label-success"><strong><?php echo e($bookissue->difference); ?></strong> days</span> <?php else: ?> <span class="label label-success"> <?php echo e($bookissue->hours); ?> </strong> hours</span>	&nbsp;<?php endif; ?>
 									<?php else: ?>
-									<span class="label label-success"><strong><?php echo e($bookissue->hours); ?></strong> hours</span>	
+									<?php if(  $bookissue->difference ): ?> 
+									<span class="label label-inactive"><strong><?php echo e($bookissue->difference); ?></strong> days</span> <?php else: ?> <span class="label label-inactive"> <?php echo e($bookissue->hours); ?> </strong> hours</span>	&nbsp;<?php endif; ?>
 									<?php endif; ?>
 															
 									</td>
+									<?php echo Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/bookissues/' . $bookissue->id ]); ?>
+
+
 									<td class="numeric text-center" id="status" data-title="Status">
-									<span class="fa fa-times text-danger bookissue_result"> <?php echo e($bookissue->status); ?></span></td>
+									<?php if($bookissue->status == 'Pending'): ?>
+									<span class="fa fa-times text-danger">&nbsp;<strong><?php echo e($bookissue->status); ?></strong></span>	&nbsp;
+									<?php elseif($bookissue->status == 'Returned'): ?>
+									<span class="fa fa-check text-success">&nbsp;<strong><?php echo e($bookissue->status); ?></strong></span>	&nbsp;
+									<?php else: ?>	
+									<span class="fa fa-check text-success">&nbsp;<strong><?php echo e($bookissue->status); ?></strong> </span>
+									<?php endif; ?>
+									<!-- <span class="fa fa-times text-danger bookissue_result"> <?php echo e($bookissue->status); ?></span>  -->
+									</td>
+
 									<td class="numeric text-right" data-title="Action">
-										<a data-toggle="modal" data-target=".bs21" class="btn btn-xs btn-info"><span class="fa fa-fire" title="Make action"></span></a>
-											
-											
+									<?php if($bookissue->status == 'Pending'): ?>
+									<a data-toggle="modal"  data-target="#<?php echo e($bookissue->id); ?>" class="btn btn-xs btn-info btn-returned"><span class="text-success fa fa-check" title="Make action"></span></a>
+									<?php elseif($bookissue->status == 'Returned'): ?>
+									<a data-toggle="modal"  data-target="#<?php echo e($bookissue->id); ?>" class="btn btn-xs btn-info btn-returned"><span class="text-danger fa fa-times" title="Make action"></span></a>&nbsp;
+									<?php else: ?>	
+									<a data-toggle="modal"  data-target="#<?php echo e($bookissue->id); ?>" class="btn btn-xs btn-info btn-returned"><span class="text-success fa fa-check" title="Make action"></span></a>&nbsp;
+									<?php endif; ?>
+									<!-- <span class="fa fa-times text-danger bookissue_result"> <?php echo e($bookissue->status); ?></span>  -->
+									</td>
 																					
 										<!-- Small modal -->
-										<div class="modal fade bs21" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-										  <div class="modal-dialog modal-sm" role="document">
-											<div class="modal-content">
-											   <div class="row">
+												<?php if($bookissue->status == 'Pending'): ?>
+												<div class="modal fade" id="<?php echo e($bookissue->id); ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+												<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+												<div class="row">
 												<div class="col-sm-12 text-center">
-													<section class="panel">
-														<h2 class="panel-heading">
-															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
-														</h2>
+												<section class="panel">
+												<h2 class="panel-heading">
+												<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
+												</h2>
+												<?php echo Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
+
+
+
+												<?php elseif($bookissue->status == 'Returned'): ?>
+												<div class="modal fade" id="<?php echo e($bookissue->id); ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+												<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+												<div class="row">
+												<div class="col-sm-12 text-center">
+												<section class="panel">
+												<h2 class="panel-heading">
+												<center class="text-danger">Click below button if you want to change the book to pending! Not otherwise!!</center>
+												</h2>
+												<?php echo Form::submit('Change to Pending', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
+
+
+
+												<?php else: ?>
+												<div class="modal fade" id="<?php echo e($bookissue->id); ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+												<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+												<div class="row">
+												<div class="col-sm-12 text-center">
+												<section class="panel">
+												<h2 class="panel-heading">
+												<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
+												</h2>
+												<?php echo Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
+
+
+												<?php endif; ?>
+
+
+
 														<div class="panel-body">
-  														  <!-- <?php echo Form::open(['id' => 'dataForm', 'url' => '/bookissues']); ?>		 -->
-														<input type="hidden" name="isseu_id" value="21">
-															<div class="form-group">
-																<div class="iconic-input">
-																	<?php echo Form::submit('Submit Return', ['id' => 'addForm','class' => 'btn btn-primary submit_return  col-lg-10']); ?>
+														<?php if($bookissue->status == 'Pending'): ?>
+														<input type="hidden" name="status" id="status" class="status" value="Returned">
+														<?php elseif($bookissue->status == 'Returned'): ?>
+														<input type="hidden" name="status" id="status" class="status" value="Pending">
+														<?php else: ?>
+														<input type="hidden" name="status" id="status" class="status" value="Returned">
+														<?php endif; ?>
+														<!-- <?php echo Form::text('status',null, ['placeholder' => 'Status', 'class' => 'form-control col-lg-12', 'value' => 'Returned' ]); ?> -->
 
-																	
-
-																</div>
-															</div>
-   																	 <!-- <?php echo Form::close(); ?>													 -->
+	
+   														 <?php echo Form::close(); ?>													
 														</div>
 													</section>
 												</div>
@@ -127,21 +183,6 @@
         </section>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-$(function(){
-      $(".submit_return").click(function () {
 
-      if($('#status').val() == null){
-
-      var selectedValue = $("#status").val();
-      $(".bookissue_result").html("<span class='fa fa-times text-danger'> Pending</span>");
-    }else{
-      var selectedValue = $("#status").val();
-    $(".bookissue_result").html(" <span class='fa fa-check text-success'> Returned</span>");
-    }
- });
-})
-</script>
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -36,6 +36,7 @@ class BookissueController extends Controller
     {
         return view('bookissues.create');
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -43,6 +44,7 @@ class BookissueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
 
@@ -51,7 +53,7 @@ class BookissueController extends Controller
 
          $bookissue = $request->all();
          $data = $request->validate([
-            'bookname' => 'required',
+            'bookname' => '',
 
             
         ]);
@@ -64,7 +66,6 @@ class BookissueController extends Controller
         $bookissue->hour_to = $request->input('hour_to');
         $bookissue->difference = $request->input('difference');
         $bookissue->hours = $request->input('hours');
-        $bookissue->status = $request->input('status');
         $bookissue->save();
     
 
@@ -92,7 +93,7 @@ class BookissueController extends Controller
     public function edit($id)
     {
     	$bookissue = Bookissue::find($id);
-        return view('bookissues/edit', ['bookissue' => $bookissue]);
+        return view('bookissues/index', ['bookissue' => $bookissue]);
     }
 
     /**
@@ -108,8 +109,10 @@ class BookissueController extends Controller
         $data = $request->all();
         $bookissue->update($data);
 
-	    Session::flash('success', ' Updated successfully');
-        return redirect()->back()->with('success','Added successfuly');
+        return redirect('/bookissues');
+   
+
+       
     }
 
     /**

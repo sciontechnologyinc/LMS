@@ -96,7 +96,7 @@
               @foreach($categories as $category)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
                                
-								<input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->categoryname}}" {{ old('categoryname', $category->categoryname) == 'value' ? 'checked="checked"' : '' }}>{{$category->categoryname}}</label>
+                <input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->id}}" {{ (! empty(old('categoryname')) ? 'checked' : '') }}>{{$category->categoryname}}</label>
                 @endforeach
 							</div>
 
@@ -110,32 +110,18 @@
 
                          <div class="form-group">
                          <label class="form-control-label">Status</label>
-<<<<<<< HEAD
-                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),null,array('class' => 'form-control')) !!}
+                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),$book->status,array('class' => 'form-control')) !!}
                          </div>
                               
-                          <div class="form-group">
-                          <label class="form-control-label">Book Type</label>
-               
-                        <select class="form-control booktype" id="booktype" name="booktype" required="">
-                            <option value="" selected=""> Choose physical/digital </option>
-                            <option value="physical"> Physical</option>
-                            <option value="digital"> Digital</option>
-                        </select>
-                            </div>
-=======
-                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),$book->status,array('class' => 'form-control')) !!}
-                          </div>
+                         <div class="form-group">
+                         <label class="form-control-label">Book Type</label>
+                         {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'),$book->booktype,array('class' => 'form-control', 'id' => 'booktype')) !!}
+                         </div>
+
                               
-                          <div class="form-group">
-                          <label class="form-control-label">Book Type</label>
-                          {!! Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'),$book->booktype,array('class' => 'form-control', 'id' => 'booktype')) !!}
-                          </div>
-            
-      
+
                          
 
->>>>>>> c29fb19004134468fe6d53b140f40e80d9064203
                      <div class="form-group book_digital" style='display:none;'>                  
                             <div class="row">
                                 <label>Choose photo (<small>optional</small>) <br>
@@ -150,7 +136,7 @@
 
                          
 
-                          <div class="form-group"><label class="">Book Condition</label>
+                          <div class="form-group"><label class="form-control-label">Book Condition</label>
                          {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), $book->bookcondition,array('class' => 'form-control')) !!}
                           </div>
 
