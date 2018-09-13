@@ -78,6 +78,7 @@ Route::get('contact', function () {
 Route::get('about', function () {
     return view('home.about');
 });
+Route::resource('about','AboutController');
 
 
 Auth::routes();
@@ -100,6 +101,7 @@ Route::get('books/edit','CategoryController@categorycheckbox1');
 Route::get('members/create','SubjectController@subjectcheckbox');
 //department
 Route::get('bookissues/create','BookController@booksdropdown');
+
 
 
 Route::get('', ['middleware' => 'cors', function() {

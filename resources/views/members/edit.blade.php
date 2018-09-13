@@ -167,34 +167,8 @@
 							</div>
 						</div>
 
-							<div class="form-group">
-									{!!Form::label('profession', 'Profession', array('class' => 'form-control-label'))!!}
-								<div class="iconic-input">
-								<div class="input-group margin-bottom-sm">
-								<span class="input-group-addon">
-									<i class="fa fa-user"></i></span>
-									{!!Form::text('profession',$member->profession, ['placeholder' => 'Profession', 'class' => 'form-control' ])!!}
-								</div>
-							</div>
-						</div>
 
-                             <div class="form-group">
-                                            <label>Department</label>
-                                            <div class="iconic-input">
-                                      <div class="input-group margin-bottom-sm">
-                                      <span class="input-group-addon">
-                                      <i class="fa fa-list-alt"></i></span>
-                                      <select name="department" class="form-control">
-									     @foreach($departments as $department)
-									     <option value="{{ $department->departmentname }}"  @if($department->departmentname==$member->department) selected='selected' @endif >{{ $department->departmentname }}</option>
-										 @endforeach 
-                                          </select>
-                                          
-                                           
-                                        </div>
-                                    </div>
-                                 </div>
-
+						
 						<div class="form-group">
 									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
@@ -206,17 +180,50 @@
 							</div>
 						</div>
 
-						
 
-             				<div class="form-group">
+				
+                       			 <div class="form-group">
+								
+									{!!Form::label('profession', 'Profession', array('class' => 'form-control-label'))!!}
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-user"></i></span>
+									
+									{!! Form::select('profession', array('student' => 'Student', 'professor' => 'Professor', 'visitor' => 'Visitor'),$member->profession,array('class' => 'form-control', 'id' => 'profession')) !!}
+									
+								</div>
+							</div>
+						</div>
+						     @if($member->profession == 'student')
+   
+             				<div class="form-group student_area">
 							<label style="width:100%;">Check Subjects </label>
              				 @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subject" type="checkbox" name="subject[]" value="{{$subject->subjectname}}">{{$subject->subjectname}}</label>
-               				 @endforeach
+								<input class="subject" type="checkbox" name="subject[]" id="subject" checked="{{ old('subject') ? 'checked' : '' }}">{{$subject->subjectname}}</label>
+								@endforeach
+								<br>
+								<br>
 							</div>
-				
-						
+
+								@elseif($member->profession == 'professor')
+                            	 <div class="form-group professor_area">
+                                            <label>Department</label>
+                                            <div class="iconic-input">
+                                      <div class="input-group margin-bottom-sm">
+                                      <span class="input-group-addon">
+                                      <i class="fa fa-list-alt"></i></span>
+                                      <select name="department" class="form-control">
+									     @foreach($departments as $department)
+									     <option value="{{ $department->departmentname }}"  @if($department->departmentname==$member->department) selected='selected' @endif >{{ $department->departmentname }}</option>
+										 @endforeach 
+                                          </select>
+                                        </div>
+                                    </div>
+								 </div>
+								 @endif
+
 
 							<div class="form-group">
 									{!!Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label'))!!}
@@ -247,10 +254,38 @@
 
     </div>
 </div>
-
-
-
-
-            
+ 
 {!! Form::close() !!}
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+$(function () {
+    $('#profession').on('change', function() {
+      if ( this.value == 'student' )
+      //.....................^.......
+      {
+        $(".student_area").show();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'professor' ){
+        $(".student_area").hide();
+        $(".professor_area").show();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'visitor' ){
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").show();
+      }
+      else
+      {
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+    });
+})
+</script>
+
  @endsection

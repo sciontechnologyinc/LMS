@@ -173,36 +173,8 @@
 							</div>
 						</div>
 
-							<div class="form-group">
-									<?php echo Form::label('profession', 'Profession', array('class' => 'form-control-label')); ?>
 
-								<div class="iconic-input">
-								<div class="input-group margin-bottom-sm">
-								<span class="input-group-addon">
-									<i class="fa fa-user"></i></span>
-									<?php echo Form::text('profession',$member->profession, ['placeholder' => 'Profession', 'class' => 'form-control' ]); ?>
-
-								</div>
-							</div>
-						</div>
-
-                             <div class="form-group">
-                                            <label>Department</label>
-                                            <div class="iconic-input">
-                                      <div class="input-group margin-bottom-sm">
-                                      <span class="input-group-addon">
-                                      <i class="fa fa-list-alt"></i></span>
-                                      <select name="department" class="form-control">
-									     <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-									     <option value="<?php echo e($department->departmentname); ?>"  <?php if($department->departmentname==$member->department): ?> selected='selected' <?php endif; ?> ><?php echo e($department->departmentname); ?></option>
-										 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-                                          </select>
-                                          
-                                           
-                                        </div>
-                                    </div>
-                                 </div>
-
+						
 						<div class="form-group">
 									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
 
@@ -216,17 +188,52 @@
 							</div>
 						</div>
 
-						
 
-             				<div class="form-group">
+				
+                       			 <div class="form-group">
+								
+									<?php echo Form::label('profession', 'Profession', array('class' => 'form-control-label')); ?>
+
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-user"></i></span>
+									
+									<?php echo Form::select('profession', array('student' => 'Student', 'professor' => 'Professor', 'visitor' => 'Visitor'),$member->profession,array('class' => 'form-control', 'id' => 'profession')); ?>
+
+									
+								</div>
+							</div>
+						</div>
+						     <?php if($member->profession == 'student'): ?>
+   
+             				<div class="form-group student_area">
 							<label style="width:100%;">Check Subjects </label>
              				 <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
-								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
-               				 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+								<input class="subject" type="checkbox" name="subject[]" id="subject" checked="<?php echo e(old('subject') ? 'checked' : ''); ?>"><?php echo e($subject->subjectname); ?></label>
+								<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+								<br>
+								<br>
 							</div>
-				
-						
+
+								<?php elseif($member->profession == 'professor'): ?>
+                            	 <div class="form-group professor_area">
+                                            <label>Department</label>
+                                            <div class="iconic-input">
+                                      <div class="input-group margin-bottom-sm">
+                                      <span class="input-group-addon">
+                                      <i class="fa fa-list-alt"></i></span>
+                                      <select name="department" class="form-control">
+									     <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									     <option value="<?php echo e($department->departmentname); ?>"  <?php if($department->departmentname==$member->department): ?> selected='selected' <?php endif; ?> ><?php echo e($department->departmentname); ?></option>
+										 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+                                          </select>
+                                        </div>
+                                    </div>
+								 </div>
+								 <?php endif; ?>
+
 
 							<div class="form-group">
 									<?php echo Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label')); ?>
@@ -260,12 +267,40 @@
 
     </div>
 </div>
-
-
-
-
-            
+ 
 <?php echo Form::close(); ?>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+$(function () {
+    $('#profession').on('change', function() {
+      if ( this.value == 'student' )
+      //.....................^.......
+      {
+        $(".student_area").show();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'professor' ){
+        $(".student_area").hide();
+        $(".professor_area").show();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'visitor' ){
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").show();
+      }
+      else
+      {
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+    });
+})
+</script>
 
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

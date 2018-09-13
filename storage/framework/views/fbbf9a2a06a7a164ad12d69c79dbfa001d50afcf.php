@@ -105,7 +105,7 @@
               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
                                
-								<input class="categoryname" type="checkbox" name="categoryname[]" value="<?php echo e($category->categoryname); ?>" <?php echo e(old('categoryname', $category->categoryname) == 'value' ? 'checked="checked"' : ''); ?>><?php echo e($category->categoryname); ?></label>
+                <input class="categoryname" type="checkbox" name="categoryname[]" value="<?php echo e($category->id); ?>" <?php echo e((! empty(old('categoryname')) ? 'checked' : '')); ?>><?php echo e($category->categoryname); ?></label>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>
 
@@ -121,15 +121,16 @@
                          <label class="form-control-label">Status</label>
                          <?php echo Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),$book->status,array('class' => 'form-control')); ?>
 
-                          </div>
+                         </div>
                               
-                          <div class="form-group">
-                          <label class="form-control-label">Book Type</label>
-                          <?php echo Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'),$book->booktype,array('class' => 'form-control', 'id' => 'booktype')); ?>
+                         <div class="form-group">
+                         <label class="form-control-label">Book Type</label>
+                         <?php echo Form::select('booktype', array('physical' => 'Physical', 'digital' => 'Digital'),$book->booktype,array('class' => 'form-control', 'id' => 'booktype')); ?>
 
-                          </div>
-            
-      
+                         </div>
+
+                              
+
                          
 
                      <div class="form-group book_digital" style='display:none;'>                  
@@ -146,7 +147,7 @@
 
                          
 
-                          <div class="form-group"><label class="">Book Condition</label>
+                          <div class="form-group"><label class="form-control-label">Book Condition</label>
                          <?php echo Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), $book->bookcondition,array('class' => 'form-control')); ?>
 
                           </div>

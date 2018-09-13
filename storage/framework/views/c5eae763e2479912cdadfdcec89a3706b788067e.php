@@ -62,6 +62,27 @@
                             </div>
                         </div>
 
+                        
+
+
+                        <div class="form-group row<?php echo e($errors->has('terms') ? ' has-error' : ''); ?>">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    
+                                <input type="checkbox" class="form-check-input" name="terms" value="1" />
+                                    <label class="form-check-label" for="terms">
+                                        <?php echo e(__('I agree with the Terms and Condition of Culiath High School')); ?>
+
+                                    </label>
+                                    <?php if($errors->has('terms')): ?>
+                                <span class="help-block">
+                                <strong><?php echo e($errors->first('terms')); ?></strong>
+                                </span>
+                                <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -70,8 +70,8 @@ class MemberController extends Controller
             'email' => 'required|unique:members||email',
             'LRN' => 'required|unique:members|',
             'profession' => 'required',
-            'department' => 'required',
-            'subject' => 'required',
+            'department' => '',
+            'subject' => '',
             'livingaddress' => 'required',
             'photo' => 'image|nullable|max:1999'
 
@@ -157,8 +157,8 @@ class MemberController extends Controller
             'email' => 'required|email|unique:users',
             'LRN' => 'required',
             'profession' => 'required',
-            'department' => 'required',
-            'subject' => 'required',
+            'department' => '',
+            'subject' => '',
             'livingaddress' => 'required',
             'photo' => 'image|nullable|max:1999'
 

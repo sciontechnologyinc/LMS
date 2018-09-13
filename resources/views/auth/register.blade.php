@@ -64,6 +64,26 @@
                             </div>
                         </div>
 
+                        
+
+
+                        <div class="form-group row{{ $errors->has('terms') ? ' has-error' : '' }}">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    
+                                <input type="checkbox" class="form-check-input" name="terms" value="1" />
+                                    <label class="form-check-label" for="terms">
+                                        {{ __('I agree with the Terms and Condition of Culiath High School') }}
+                                    </label>
+                                    @if ($errors->has('terms'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('terms') }}</strong>
+                                </span>
+                                @endif
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -21,8 +21,8 @@ class CreateMembersTable extends Migration
             $table->string('email');
             $table->string('LRN');
             $table->string('profession');
-            $table->string('department');
-            $table->string('subject');
+            $table->string('department')->nullable();
+            $table->string('subject')->nullable();
             $table->string('livingaddress');
             $table->string('photo');
             $table->string('timestatus')->nullable();

@@ -29,7 +29,7 @@
     </div>
  @endif
         
-        <link rel="stylesheet" href="{!! ('/css/termscss.css') !!}">
+        <link rel="stylesheet" href="{!! ('/css/bookissue.css') !!}">
 
 
 
@@ -68,41 +68,94 @@
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
-									@if($bookissue->difference)
-									<span class="label label-success"><strong>{{ $bookissue->difference }}</strong> days</span>	&nbsp;
-									@else
-									<span class="label label-success"><strong>{{ $bookissue->hours }}</strong> hours</span>	
+									@if($bookissue->status == 'Pending')
+									@if(  $bookissue->difference ) 
+									<span class="label label-success"><strong>{{ $bookissue->difference }}</strong> days</span> @else <span class="label label-success"> {{ $bookissue->hours }} </strong> hours</span>	&nbsp;@endif
+									@else($bookissue->status == 'Returned')
+									@if(  $bookissue->difference ) 
+									<span class="label label-inactive"><strong>{{ $bookissue->difference }}</strong> days</span> @else <span class="label label-inactive"> {{ $bookissue->hours }} </strong> hours</span>	&nbsp;@endif
 									@endif
 															
 									</td>
+									{!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/bookissues/' . $bookissue->id ]) !!}
+
 									<td class="numeric text-center" id="status" data-title="Status">
-									<span class="fa fa-times text-danger bookissue_result"> Pending</span></td>
+									@if($bookissue->status == 'Pending')
+									<span class="fa fa-times text-danger">&nbsp;<strong>{{ $bookissue->status }}</strong></span>	&nbsp;
+									@elseif($bookissue->status == 'Returned')
+									<span class="fa fa-check text-success">&nbsp;<strong>{{ $bookissue->status }}</strong></span>	&nbsp;
+									@else	
+									<span class="fa fa-check text-success">&nbsp;<strong>{{ $bookissue->status }}</strong> </span>
+									@endif
+									<!-- <span class="fa fa-times text-danger bookissue_result"> {{ $bookissue->status}}</span>  -->
+									</td>
+
 									<td class="numeric text-right" data-title="Action">
-										<a data-toggle="modal" data-target=".bs21" class="btn btn-xs btn-info"><span class="fa fa-fire" title="Make action"></span></a>
-											
-											
+									@if($bookissue->status == 'Pending')
+									<a data-toggle="modal"  data-target="#{{$bookissue->id}}" class="btn btn-xs btn-info btn-returned"><span class="text-success fa fa-check" title="Make action"></span></a>
+									@elseif($bookissue->status == 'Returned')
+									<a data-toggle="modal"  data-target="#{{$bookissue->id}}" class="btn btn-xs btn-info btn-returned"><span class="text-danger fa fa-times" title="Make action"></span></a>&nbsp;
+									@else	
+									<a data-toggle="modal"  data-target="#{{$bookissue->id}}" class="btn btn-xs btn-info btn-returned"><span class="text-success fa fa-check" title="Make action"></span></a>&nbsp;
+									@endif
+									<!-- <span class="fa fa-times text-danger bookissue_result"> {{ $bookissue->status}}</span>  -->
+									</td>
 																					
 										<!-- Small modal -->
-										<div class="modal fade bs21" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-										  <div class="modal-dialog modal-sm" role="document">
-											<div class="modal-content">
-											   <div class="row">
+												@if($bookissue->status == 'Pending')
+												<div class="modal fade" id="{{$bookissue->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+												<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+												<div class="row">
 												<div class="col-sm-12 text-center">
-													<section class="panel">
-														<h2 class="panel-heading">
-															<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
-														</h2>
-														<div class="panel-body">
-  														  <!-- {!! Form::open(['id' => 'dataForm', 'url' => '/bookissues']) !!}		 -->
-														<input type="hidden" name="isseu_id" value="21">
-															<div class="form-group">
-																<div class="iconic-input">
-																	{!!Form::submit('Submit Return', ['id' => 'addForm','class' => 'btn btn-primary submit_return  col-lg-10']) !!}
-																	
+												<section class="panel">
+												<h2 class="panel-heading">
+												<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
+												</h2>
+												{!!Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
 
-																</div>
-															</div>
-   																	 <!-- {!! Form::close() !!}													 -->
+
+												@elseif($bookissue->status == 'Returned')
+												<div class="modal fade" id="{{$bookissue->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+												<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+												<div class="row">
+												<div class="col-sm-12 text-center">
+												<section class="panel">
+												<h2 class="panel-heading">
+												<center class="text-danger">Click below button if you want to change the book to pending! Not otherwise!!</center>
+												</h2>
+												{!!Form::submit('Change to Pending', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
+
+
+												@else
+												<div class="modal fade" id="{{$bookissue->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+												<div class="modal-dialog modal-sm" role="document">
+												<div class="modal-content">
+												<div class="row">
+												<div class="col-sm-12 text-center">
+												<section class="panel">
+												<h2 class="panel-heading">
+												<center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
+												</h2>
+												{!!Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
+
+												@endif
+
+
+
+														<div class="panel-body">
+														@if($bookissue->status == 'Pending')
+														<input type="hidden" name="status" id="status" class="status" value="Returned">
+														@elseif($bookissue->status == 'Returned')
+														<input type="hidden" name="status" id="status" class="status" value="Pending">
+														@else
+														<input type="hidden" name="status" id="status" class="status" value="Returned">
+														@endif
+														<!-- {!!Form::text('status',null, ['placeholder' => 'Status', 'class' => 'form-control col-lg-12', 'value' => 'Returned' ])!!} -->
+
+	
+   														 {!! Form::close() !!}													
 														</div>
 													</section>
 												</div>
@@ -128,20 +181,5 @@
         </section>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-$(function(){
-      $(".submit_return").click(function () {
 
-      if($('#status').val() == null){
-
-      var selectedValue = $("#status").val();
-      $(".bookissue_result").html("<span class='fa fa-times text-danger'> Pending</span>");
-    }else{
-      var selectedValue = $("#status").val();
-    $(".bookissue_result").html(" <span class='fa fa-check text-success'> Returned</span>");
-    }
- });
-})
-</script>
  @endsection

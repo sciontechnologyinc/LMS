@@ -36,6 +36,7 @@ class BookissueController extends Controller
     {
         return view('bookissues.create');
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -43,12 +44,13 @@ class BookissueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
 
          $bookissue = $request->all();
          $data = $request->validate([
-            'bookname' => 'required',
+            'bookname' => '',
 
             
         ]);
@@ -88,7 +90,7 @@ class BookissueController extends Controller
     public function edit($id)
     {
     	$bookissue = Bookissue::find($id);
-        return view('bookissues/edit', ['bookissue' => $bookissue]);
+        return view('bookissues/index', ['bookissue' => $bookissue]);
     }
 
     /**
@@ -104,8 +106,10 @@ class BookissueController extends Controller
         $data = $request->all();
         $bookissue->update($data);
 
-	    Session::flash('success', ' Updated successfully');
-        return redirect()->back()->with('success','Added successfuly');
+        return redirect('/bookissues');
+   
+
+       
     }
 
     /**
