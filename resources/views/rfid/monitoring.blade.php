@@ -4,8 +4,6 @@
 <link href="css/monitoring.css" rel="stylesheet"> 
 <link href="css/lms2.css" rel="stylesheet"> 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <div class="img-logo"><img src="{{asset('img/half.jpg')}}"></div>
 <div class="container">
 <div class="filter-bar">
@@ -33,67 +31,94 @@
         <option value="Arrived"/>
         <option value="Departed"/>
     </datalist></div>
-    <input type="text" class="RFIDSAVEEEE" autofocus>
+    <input type="text" class="LRN" name="LRN" autofocus>
    
 </div>
+
   <h2 class="menu-list1">Monitoring</h2>  
- 
-      {!! Form::open(['id' => 'dataForm', 'url' => '/rfid', 'method' => 'POST']) !!}
-
-
-
-@foreach($members as $member)
-      <input class="form-control col-lg-12" type="text" value="{{$member->LRN}}" {{ old('studentid') ? 'selected' : '' }} name="studentid" id="studentid"/>                                 
-      <input class="form-control col-lg-12" type="text" value="{{$member->membername}}" {{ old('studentname') ? 'selected' : '' }} name="studentname" id="studentname"/>
-      {!!Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '',  ])!!}
-      {!!Form::text('timeout',null, ['placeholder' => 'timeout Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
-      {!!Form::text('status',null, ['placeholder' => 'status Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
-      @endforeach
-      {!!Form::submit('Create logsheet', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']) !!}
-{!! Form::close() !!}
-  
-<button href="{{ url('/rfidgetdata') }}" class="btn btn-primary">test</button>
     <table class="table  offset-1">
           <thead>
             <tr>
               <th>#</th>
               <th>Student ID</th>
               <th>Student Name</th>
-              <th>Time In</th>
-              <th>Time Out</th>
+              <th>Time</th>
               <th>Status</th>
             </tr>
           </thead>
         @foreach($rfids as $rfid)
           <tbody>
               <tr>
+                  <td></td>
                   <td>{{ $rfid->studentid }}</td>
                   <td>{{ $rfid->studentname }}</td>
-                  <td>{{ $rfid->timein}}</td>
-                  <td>{{ $rfid->timein}}</td>
-                  <td>{{ $rfid->timein}}</td>
+                  <td>{{ $rfid->timestatus}}</td>
                   <td>{{ $rfid->status}}</td>
                </tr>
           </tbody>
           @endforeach
      </table>
   </div>
- 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+ function savedata(studentid,studentname,timestatuss){
+                console.log(timestatuss);
+                var timestat = new Date().toString("hh:mm:tt");
+                if(timestatuss == '' || timestatuss == 'OUT'){
+                    var status = "IN";
+                }else{
+                    var status = "OUT";
+                }
+                var dataString = "studentid="+studentid+"&studentname="+studentname+"&timestatus="+timestat+"&status="+status;
+                console.log(dataString);
+
+                $.ajax({
+                    url: '/postajax',
+                    type: 'POST',
+                    data: dataString,
+                    dataType: 'JSON',
+                    success: function (data) { 
+                                    $.ajax({
+                                    url:'/updateajax/'+$('.LRN').val(),
+                                    method:"POST",  
+                                    data:{
+                                        timestatus: status
+                                    },                              
+                                    success: function( data ) {
+                                    console.log('YEHEY !!!');
+                                    }
+                                });
+                      
+
+                    }
+                }); 
+ }
   $(document).ready(function(){
-    var now = new Date();
-    $('.RFIDSAVEEEE').focus();
 
-      $('.RFIDSAVEEEE').change(function(){
-        $('#addForm').trigger('click');
+            $('.LRN').change(function(){
+                $.post('/getajax/'+$('.LRN').val(), function(response)
+                    {
+                                var data = response.members[0];
+                                console.log(data.LRN);
+                                $('#studentid').val(data.LRN);
+                                $('#studentname').val(data.membername);
+                            setTimeout(function(){
+                                        savedata(data.LRN,data.membername,data.timestatus);
+                            }, 50);
+                       
+                    }, 'json');
 
-        $('.RFIDSAVEEEE').val('');
-        $('.RFIDSAVEEEE').focus();
-      })
-      
-
+                    
+                   
+            });
   });
 </script>
 @endsection

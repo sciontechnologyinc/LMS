@@ -25,6 +25,7 @@ class CreateMembersTable extends Migration
             $table->string('subject');
             $table->string('livingaddress');
             $table->string('photo');
+            $table->string('timestatus')->nullable();
             $table->timestamps();
         });
     }

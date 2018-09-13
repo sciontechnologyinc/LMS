@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <title>LMS</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     @include('lms.partial.header2')

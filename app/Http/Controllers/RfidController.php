@@ -20,14 +20,20 @@ class RfidController extends Controller
     {
 	    $rfids = Rfid::orderBy('id')->get();
         return view('rfid.monitoring', ['rfids' => $rfids]);
-
     }
 
-    public function rfidgetdata()
+    public function rfidgetdata(Request $request)
     {
+        $membername = $request->input('RFIDSAVE');
         $rfids = Rfid::orderBy('id')->get();
-	    $members = Member::orderBy('id')->where('membername', 'jetro')->get();
+        $members = Member::orderBy('id')->where('membername', $membername)->get();
         return view('rfid.monitoring', ['rfids' => $rfids, 'members' => $members]);
+        
+    }
+
+    public function members()
+    {
+       
     }
     /**
      * Show the form for creating a new resource.
@@ -38,30 +44,41 @@ class RfidController extends Controller
     {
         //
     }
-
+    public function post(Request $request)
+    {
+        $response = array(
+            'studentid' => $request->get('studentid'),
+            'studentname' => $request->get('studentname'),
+            'timestatus' => $request->get('timestatus'),
+            'status' => $request->get('status'),
+        );
+        $rfids = Rfid::orderBy('id')->get();
+        $rfid = new Rfid([
+            'studentid' => $request->get('studentid'),
+            'studentname' => $request->get('studentname'),
+            'timestatus' => $request->get('timestatus'),
+            'status' => $request->get('status'),
+        ]);
+        $rfid->save();
+        return response()->json($response); 
+     }
+     public function getStudent($student)
+     {
+        $studentId = member::where("LRN", $student)->select('LRN','membername','timestatus')->get();
+        return response()->json(['success' => true, 'members' => $studentId]);
+    }
+    
+    public function updateStudent($studentid)
+    {
+        $rfids = Rfid::orderBy('id')->get();
+        $student = member::where('LRN', $studentid)->update(request()->all());
+        $student->save();
+    }
     public function store(Request $request)
     {
-       
-        $rfid = $request->all();
-        $data = $request->validate([
-            'studentid' => 'required',
-            'studentname' => 'required',
-            'timein' => 'required',
-            'timeout' => 'required',
-            'status' => 'required',
-
-        ]);
-
-        $rfid = new Rfid;
-        $rfid->studentid = $request->input('studentid');
-        $rfid->studentname = $request->input('studentname');
-        $rfid->timein = $request->input('timein');  
-        $rfid->timeout = $request->input('timeout');
-        $rfid->status = $request->input('status');
-        $rfid->save();
-
-        return redirect()->back()->with('success','Added successfuly');
-        
+        if(Request::ajax()){
+            return var_dump(Response::json(Request::all()));
+        }
     }
     /**
      * Display the specified resource.

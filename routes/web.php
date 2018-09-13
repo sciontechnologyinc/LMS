@@ -11,7 +11,21 @@
 |
 */
 
+// RFID
+Route::prefix('rfids')->group(function(){
+    Route::get          ('/',                           'RfidController@index'                   )->name('rfid');
+    Route::post         ('/add',                        'RfidController@add'                     )->name('rfid_add');
+    Route::post         ('/save',                       'RfidController@store'                   )->name('rfid_save');
+    Route::get          ('/update/{id}',                'RfidController@update'                  )->name('rfid_update');
+    Route::post         ('/update/{id}/save',           'RfidController@update_save'             )->name('rfid_update_save');
+    Route::get          ('/delete/{id}',                'RfidController@delete'                  )->name('rfid_delete');
+   
+});
 
+Route::get('ajax', function(){ return view('ajax'); });
+Route::post('/postajax','RfidController@post');
+Route::post('/getajax/{student}','RfidController@getStudent');
+Route::post('/updateajax/{student}','RfidController@updateStudent');
 
 Route::get('create', function () {
     return view('categories.create');
@@ -23,13 +37,6 @@ Route::get('generalsettings', function () {
 });
 Route::resource('generalsettings','GeneralsettingsController');
 
-
-Route::get('rfid', function () {
-    return view('rfid.monitoring');
-});
-Route::resource('/rfid','RfidController');
-
-Route::get('/rfid','RfidController@rfidgetdata');
 
 Route::get('addsubject', function () {
     return view('subjects.create');

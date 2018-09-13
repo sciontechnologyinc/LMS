@@ -10,8 +10,7 @@ class Rfid extends Model
     protected $fillable = [ 
                     'studentid',
                     'studentname',
-                    'timein',
-                    'timeout',
+                    'timestatus',
                     'status'
     ];
 }

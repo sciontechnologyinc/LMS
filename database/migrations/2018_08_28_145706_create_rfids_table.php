@@ -17,8 +17,7 @@ class CreateRfidsTable extends Migration
             $table->increments('id');
             $table->string('studentid');
             $table->string('studentname');
-            $table->string('timein');
-            $table->string('timeout');
+            $table->string('timestatus');
             $table->string('status');
             $table->timestamps();
         });
