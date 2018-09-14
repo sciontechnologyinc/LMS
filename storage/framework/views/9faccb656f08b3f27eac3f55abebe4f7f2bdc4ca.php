@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <title>LMS</title>
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 </head>
 <body>
     <?php echo $__env->make('lms.partial.header2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

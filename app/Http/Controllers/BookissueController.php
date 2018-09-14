@@ -48,9 +48,6 @@ class BookissueController extends Controller
     public function store(Request $request)
     {
 
-        
-
-
          $bookissue = $request->all();
          $data = $request->validate([
             'bookname' => '',

@@ -16,7 +16,8 @@ class Member extends Model
 		'department',
 		'subject',
 		'livingaddress',
-		'photo'
+		'photo',
+		'timestatus'
 
 	];
 
