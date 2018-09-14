@@ -58,9 +58,13 @@ class RfidController extends Controller
             'studentname' => $request->get('studentname'),
             'timestatus' => $request->get('timestatus'),
             'status' => $request->get('status'),
+
+
         ]);
+        
         $rfid->save();
         return response()->json($response); 
+        
      }
      public function getStudent($student)
      {
@@ -73,6 +77,7 @@ class RfidController extends Controller
         $rfids = Rfid::orderBy('id')->get();
         $student = member::where('LRN', $studentid)->update(request()->all());
         $student->save();
+        
     }
     public function store(Request $request)
     {
