@@ -62,7 +62,7 @@
          <div class="card-body pb-0">
 
              <h4 class="mb-0">
-                 <span class="count">10468</span>
+                 <span class="count">{{$t_bookissues}}</span>
              </h4>
              <p class="text-light">Book Issued</p>
 
@@ -116,7 +116,7 @@
              <h4 class="mb-0">
              <span class="no-padding center mt txt-sm count">{{$t_departments}}</span> 
              </h4>
-             <a href="{{ url('deparments') }}"><p class="text-light">Departments</p></a>
+             <a href="{{ url('departments') }}"><p class="text-light">Departments</p></a>
 
              <div class="chart-wrapper px-3" style="height:70px;" height="70">
                 
