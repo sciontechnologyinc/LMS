@@ -2,9 +2,8 @@
 <link href="css/monitoring.css" rel="stylesheet"> 
 <link href="css/lms2.css" rel="stylesheet"> 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <div class="img-logo"><img src="<?php echo e(asset('img/half.jpg')); ?>"></div>
+<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
 <div class="container">
 <div class="filter-bar">
     <div class="filter-section" ><input type="text" placeholder="Section" list="section-list">
@@ -31,72 +30,98 @@
         <option value="Arrived"/>
         <option value="Departed"/>
     </datalist></div>
-    <input type="text" class="RFIDSAVEEEE" autofocus>
-   
+
+    <input type="text" class="LRN" name="LRN" autofocus>
+
 </div>
+
   <h2 class="menu-list1">Monitoring</h2>  
- 
-      <?php echo Form::open(['id' => 'dataForm', 'url' => '/rfid', 'method' => 'POST']); ?>
-
-
-
-
-<?php $__currentLoopData = $members; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <input class="form-control col-lg-12" type="text" value="<?php echo e($member->LRN); ?>" <?php echo e(old('studentid') ? 'selected' : ''); ?> name="studentid" id="studentid"/>                                 
-      <input class="form-control col-lg-12" type="text" value="<?php echo e($member->membername); ?>" <?php echo e(old('studentname') ? 'selected' : ''); ?> name="studentname" id="studentname"/>
-      <?php echo Form::text('timein',null, ['placeholder' => 'timein Name', 'class' => 'form-control col-lg-12', 'required' => '',  ]); ?>
-
-      <?php echo Form::text('timeout',null, ['placeholder' => 'timeout Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
-
-      <?php echo Form::text('status',null, ['placeholder' => 'status Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
-
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      <?php echo Form::submit('Create logsheet', ['id' => 'addForm','class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
-
-<?php echo Form::close(); ?>
-
-  
-<button href="<?php echo e(url('/rfidgetdata')); ?>" class="btn btn-primary">test</button>
     <table class="table  offset-1">
           <thead>
             <tr>
               <th>#</th>
               <th>Student ID</th>
               <th>Student Name</th>
-              <th>Time In</th>
-              <th>Time Out</th>
+              <th>Time</th>
               <th>Status</th>
             </tr>
           </thead>
         <?php $__currentLoopData = $rfids; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rfid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <tbody>
+          <tbody class="body">
               <tr>
+                  <td></td>
                   <td><?php echo e($rfid->studentid); ?></td>
                   <td><?php echo e($rfid->studentname); ?></td>
-                  <td><?php echo e($rfid->timein); ?></td>
-                  <td><?php echo e($rfid->timein); ?></td>
-                  <td><?php echo e($rfid->timein); ?></td>
+                  <td><?php echo e($rfid->timestatus); ?></td>
                   <td><?php echo e($rfid->status); ?></td>
                </tr>
           </tbody>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      </table>
   </div>
- 
+  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>"/>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+ function savedata(studentid,studentname,timestatuss){
+                console.log(timestatuss);
+                var timestat = new Date().toString("hh:mm:tt");
+                if(timestatuss == '' || timestatuss == 'IN'){
+                    var status = "OUT";
+                }else{
+                    var status = "IN";
+                }
+                var dataString = "studentid="+studentid+"&studentname="+studentname+"&timestatus="+timestat+"&status="+status;
+                console.log(dataString);
+
+                $.ajax({
+                    url: '/postajax',
+                    type: 'POST',
+                    data: dataString,
+                    dataType: 'JSON',
+                    success: function (data) { 
+                                    $.ajax({
+                                    url:'/updateajax/'+$('.LRN').val(),
+                                    method:"POST",  
+                                    data:{
+                                        timestatus: status
+                                    },                              
+                                    success: function( data ) {
+                                    console.log('YEHEY !!!');
+                                    }
+                                });
+                      
+
+                    }
+                    
+                }); 
+ }
   $(document).ready(function(){
-    var now = new Date();
-    $('.RFIDSAVEEEE').focus();
 
-      $('.RFIDSAVEEEE').change(function(){
-        $('#addForm').trigger('click');
+            $('.LRN').change(function(){
+                $.post('/getajax/'+$('.LRN').val(), function(response)
+                    {
+                                var data = response.members[0];
+                                console.log(data.LRN);
+                                $('#studentid').val(data.LRN);
+                                $('#studentname').val(data.membername);
+                            setTimeout(function(){
+                                        savedata(data.LRN,data.membername,data.timestatus);
+                            }, 50);
+                       
+                    }, 'json');
 
-        $('.RFIDSAVEEEE').val('');
-        $('.RFIDSAVEEEE').focus();
-      })
-      
+                    
+                   
+            });
 
   });
 </script>
