@@ -64,7 +64,15 @@
 									<td data-title="SL">{{ $bookissue->id }}</td>
 									<td data-title="Book Name">{{ $bookissue->bookname }}</td>
 									<td class="numeric" data-title="Book holder">{{ $bookissue->bookholder }}</td>									</td>
-									<td data-title="Issue type">issued for days</td>
+									<td data-title="Issue type">issued for
+									@if($bookissue->status == 'Pending')
+									@if(  $bookissue->difference ) 
+									{{ $bookissue->difference }} days</span> @else  {{ $bookissue->hours }}  hours</span>	&nbsp;@endif
+									@else($bookissue->status == 'Returned')
+									@if(  $bookissue->difference ) 
+									{{ $bookissue->difference }} days</span> @else {{ $bookissue->hours }}  hours</span>	&nbsp;@endif
+									@endif
+									</td>
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">

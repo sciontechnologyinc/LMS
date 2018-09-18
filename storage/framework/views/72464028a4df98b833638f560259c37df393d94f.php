@@ -62,7 +62,15 @@
 									<td data-title="SL"><?php echo e($bookissue->id); ?></td>
 									<td data-title="Book Name"><?php echo e($bookissue->bookname); ?></td>
 									<td class="numeric" data-title="Book holder"><?php echo e($bookissue->bookholder); ?></td>									</td>
-									<td data-title="Issue type">issued for days</td>
+									<td data-title="Issue type">issued for
+									<?php if($bookissue->status == 'Pending'): ?>
+									<?php if(  $bookissue->difference ): ?> 
+									<?php echo e($bookissue->difference); ?> days</span> <?php else: ?>  <?php echo e($bookissue->hours); ?>  hours</span>	&nbsp;<?php endif; ?>
+									<?php else: ?>
+									<?php if(  $bookissue->difference ): ?> 
+									<?php echo e($bookissue->difference); ?> days</span> <?php else: ?> <?php echo e($bookissue->hours); ?>  hours</span>	&nbsp;<?php endif; ?>
+									<?php endif; ?>
+									</td>
 									<td class="numeric" data-title="Issue date">today									</td>
 									<td class="numeric" data-title="Return date">today</td>
 									<td class="numeric" data-title="Remains">
