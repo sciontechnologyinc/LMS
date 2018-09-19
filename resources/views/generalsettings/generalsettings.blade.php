@@ -144,7 +144,7 @@
                       </div>
 
                       <div class="form-group">
-                            {!!Form::label('vision', 'Vision', array('class' => 'form-control-label'))!!}
+                            {!!Form::label('vision', 'Vision', array('class' => 'form-control-label'))!!}   
                             {!!Form::textarea('vision',$generalsetting->vision, ['placeholder' => 'Vision', 'class' => 'form-control', 'value' => 'To Follow.'])!!}
                       </div>
      
