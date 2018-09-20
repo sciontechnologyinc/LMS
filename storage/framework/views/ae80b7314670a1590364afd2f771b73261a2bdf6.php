@@ -109,13 +109,13 @@
 						</div>
 
 						<div class="form-group student_area" style="display:none;">
-									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
+									<?php echo Form::label('LRN', 'Library Card Number', array('class' => 'form-control-label')); ?>
 
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									<?php echo Form::number('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => '']); ?>
+									<?php echo Form::number('LRN',null, ['placeholder' => 'Card Number', 'class' => 'form-control', 'required' => '']); ?>
 
 								</div>
 							</div>
@@ -150,7 +150,7 @@
                 </div>
                      
 
-            <div class="form-group student_area" style="display:none;">
+            <!-- <div class="form-group student_area" style="display:none;">
 				<label style="width:100%;">Check Subjects </label>                    
                  <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
@@ -158,7 +158,7 @@
                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                  <br>
                  <br>
-							</div>
+							</div> -->
                             
 
 

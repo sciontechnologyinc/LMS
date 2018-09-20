@@ -102,12 +102,12 @@
 						</div>
 
 						<div class="form-group student_area" style="display:none;">
-									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
+									{!!Form::label('LRN', 'Library Card Number', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									{!!Form::number('LRN',null, ['placeholder' => 'LRN', 'class' => 'form-control', 'required' => ''])!!}
+									{!!Form::number('LRN',null, ['placeholder' => 'Card Number', 'class' => 'form-control', 'required' => ''])!!}
 								</div>
 							</div>
 						</div>
@@ -140,7 +140,7 @@
                 </div>
                      
 
-            <div class="form-group student_area" style="display:none;">
+            <!-- <div class="form-group student_area" style="display:none;">
 				<label style="width:100%;">Check Subjects </label>                    
                  @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
@@ -148,7 +148,7 @@
                  @endforeach
                  <br>
                  <br>
-							</div>
+							</div> -->
                             
 
 

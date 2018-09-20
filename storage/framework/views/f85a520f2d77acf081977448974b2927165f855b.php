@@ -28,7 +28,7 @@
  <?php endif; ?>
  
 
-  <?php echo Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/generalsettings' ]); ?>
+  <?php echo Form::open(['id' => 'dataForm', 'method' => 'POST', 'url' => '/generalsettings' ]); ?>
 
 
 <?php echo e(csrf_field()); ?>
@@ -163,7 +163,9 @@
                       </div>
      
     
-     <div class="form-group"><label class="form-control-label">&nbsp&nbsp&nbsp&nbsp</label><input type="submit" class="btn btn-success" value="Upgrade General information"></div>
+     <?php echo Form::submit('Submit General information', ['id' => 'addForm','class' => 'btn btn-success  col-lg-3 offset-8']); ?>
+
+
 
 
      

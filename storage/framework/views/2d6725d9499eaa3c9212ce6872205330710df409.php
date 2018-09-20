@@ -57,6 +57,7 @@
                     <span class="text-danger"><?php echo e($errors->first('bookname')); ?></span>
                 </div>
              </div>
+             <a title="QR Code Generator" href="<?php echo e(url('qrcodegenerator')); ?>"><span class="fa fa-qrcode pull-right"></span> </a>
 
                    <div class="form-group">
                       <?php echo Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label' )); ?>
@@ -65,7 +66,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    <?php echo Form::number('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => '']); ?>
+                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('ISBN')); ?></span>

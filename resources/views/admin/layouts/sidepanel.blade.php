@@ -22,6 +22,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="{{ url('books/create') }}">Add New Book</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="{{ url('books') }}">Book List</a></li>
+                            <li><i class="fa fa-qrcode"></i><a href="{{ url('qrcodegenerator') }}">QR Code Generator</a></li>
                             
                         </ul>
                     </li>
@@ -69,7 +70,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url('generalsetting') }}"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
+                        <a href="{{ url('generalsettings') }}"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fa fa-book"></i>My book list </a>

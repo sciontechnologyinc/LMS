@@ -34,17 +34,14 @@ Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
 
 
 
+Route::get('qrcodegenerator', function () {
+    return view('QRCodegenerator.create');
+});
 
 Route::get('create', function () {
     return view('categories.create');
 });
 Route::resource('categories','CategoryController');
-
-Route::get('generalsetting', function () {
-    return view('generalsettings.generalsettings');
-});
-Route::resource('generalsetting','GeneralsettingsController');
-
 
 Route::get('addsubject', function () {
     return view('subjects.create');
@@ -59,12 +56,16 @@ Route::get('bookissue', function () {
     return view('bookissues.create');
 });
 Route::resource('bookissues','BookissueController');
+
 Route::get('', function () {
     return view('welcome');
 });
 Route::resource('dashboard','DashboardController');
 
 Route::resource('/home','LmsController');
+
+
+Route::resource('/generalsettings','GeneralsettingsController');
 
 
 Route::resource('books','BookController');

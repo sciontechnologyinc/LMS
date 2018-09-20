@@ -56,6 +56,7 @@
                     <span class="text-danger">{{ $errors->first('bookname') }}</span>
                 </div>
              </div>
+             <a title="QR Code Generator" href="{{ url('qrcodegenerator') }}"><span class="fa fa-qrcode pull-right"></span> </a>
 
                    <div class="form-group">
                       {!!Form::label('Book ISBN No', 'Book ISBN No', array('class' => 'form-control-label' ))!!}
@@ -63,7 +64,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    {!!Form::number('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => ''])!!}
+                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('ISBN') }}</span>
                 </div>

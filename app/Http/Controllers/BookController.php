@@ -82,7 +82,7 @@ class BookController extends Controller
         $book = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
-            'ISBN' => 'required|unique:books||numeric',
+            'ISBN' => 'required|unique:books|',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
@@ -186,7 +186,7 @@ class BookController extends Controller
         $book = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
-            'ISBN' => 'required|numeric',
+            'ISBN' => 'required',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',

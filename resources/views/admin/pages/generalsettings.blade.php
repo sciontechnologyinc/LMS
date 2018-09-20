@@ -30,7 +30,7 @@
  @endif
  
 
-  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/generalsettings/' . $generalsetting->id ]) !!}
+  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/generalsettings/' . $generalsettings->id ]) !!}
 
 {{ csrf_field() }}
  <div class="col-lg-6">

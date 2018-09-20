@@ -62,7 +62,7 @@
              <h4 class="mb-0">
                  <span class="count"><?php echo e($t_bookissues); ?></span>
              </h4>
-             <p class="text-light">Book Issued</p>
+             <a href="<?php echo e(url('bookissues')); ?>"><p class="text-light">Book Issued</p></a>
 
          </div>
 
