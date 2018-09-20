@@ -18,6 +18,8 @@ class CrateDepartmentsTable extends Migration
             $table->string('departmentname');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE departments AUTO_INCREMENT = 1;");
+        DB::table('departments')->where('id', 1)->delete();
     }
 
     /**

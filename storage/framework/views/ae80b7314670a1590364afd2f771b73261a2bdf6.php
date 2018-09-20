@@ -108,7 +108,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group student_area" style="display:none;">
 									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
 
 								<div class="iconic-input">

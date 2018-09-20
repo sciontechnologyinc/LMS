@@ -78,6 +78,7 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         ),
         'L' => 
         array (
+            'Libern\\QRCodeReader\\' => 20,
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
         ),
@@ -228,6 +229,10 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Libern\\QRCodeReader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/libern/qr-code-reader/src',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -337,6 +342,7 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Generalsettings' => __DIR__ . '/../..' . '/app/Generalsettings.php',
+        'App\\Http\\Controllers\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutController.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -1852,6 +1858,8 @@ class ComposerStaticInit88ee94adf918d3b5f376cb11e0555e8d
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'Libern\\QRCodeReader\\QRCodeReader' => __DIR__ . '/..' . '/libern/qr-code-reader/src/QRCodeReader.php',
+        'Libern\\QRCodeReader\\lib\\QrReader' => __DIR__ . '/..' . '/libern/qr-code-reader/src/lib/QrReader.php',
         'MaddHatter\\LaravelFullcalendar\\Calendar' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/Calendar.php',
         'MaddHatter\\LaravelFullcalendar\\Event' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/Event.php',
         'MaddHatter\\LaravelFullcalendar\\EventCollection' => __DIR__ . '/..' . '/maddhatter/laravel-fullcalendar/src/MaddHatter/LaravelFullcalendar/EventCollection.php',

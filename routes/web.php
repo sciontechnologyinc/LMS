@@ -27,21 +27,30 @@ Route::post('/postajax','RfidController@post');
 Route::post('/getajax/{student}','RfidController@getStudent');
 Route::post('/updateajax/{student}','RfidController@updateStudent');
 
+//BOOKISSUE
+Route::post('/saveisbn','BookissueController@saveisbn');
+Route::post('/getisbn/{isbn}','BookissueController@getIsbn');
+Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
+
+
+
+
 Route::get('create', function () {
     return view('categories.create');
 });
 Route::resource('categories','CategoryController');
 
-Route::get('generalsettings', function () {
+Route::get('generalsetting', function () {
     return view('generalsettings.generalsettings');
 });
-Route::resource('generalsettings','GeneralsettingsController');
+Route::resource('generalsetting','GeneralsettingsController');
 
 
 Route::get('addsubject', function () {
     return view('subjects.create');
 });
 Route::resource('subjects','SubjectController');
+
 Route::get('adddepartment', function () {
     return view('departments.create');
 });

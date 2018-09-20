@@ -174,6 +174,7 @@
 						</div>
 
 
+						     <?php if($member->profession == 'student'): ?>
 						
 						<div class="form-group">
 									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
@@ -187,7 +188,8 @@
 								</div>
 							</div>
 						</div>
-
+						<?php endif; ?>
+	
 
 				
                        			 <div class="form-group">

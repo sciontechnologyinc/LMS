@@ -65,6 +65,35 @@
                         </div>
 
                         
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus>
+
+                                @if ($errors->has('address'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="contactno" class="col-sm-4 col-form-label text-md-right">{{ __('Contact No.') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="contactno" type="contactno" class="form-control{{ $errors->has('contactno') ? ' is-invalid' : '' }}" name="contactno" value="{{ old('contactno') }}" required autofocus>
+
+                                @if ($errors->has('contactno'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('contactno') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
 
                         <div class="form-group row{{ $errors->has('terms') ? ' has-error' : '' }}">

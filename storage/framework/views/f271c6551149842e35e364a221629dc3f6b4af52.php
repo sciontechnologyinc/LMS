@@ -69,7 +69,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?php echo e(url('generalsettings')); ?>"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
+                        <a href="<?php echo e(url('generalsetting')); ?>"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fa fa-book"></i>My book list </a>

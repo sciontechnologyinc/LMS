@@ -32,11 +32,13 @@
     </datalist></div>
 
     <input type="text" class="LRN" name="LRN" autofocus>
+    
 
+</div>
 </div>
 
   <h2 class="menu-list1">Monitoring</h2>  
-    <table class="table  offset-1">
+    <table class="table">
           <thead>
             <tr>
               <th>#</th>
@@ -80,6 +82,7 @@
                     var status = "IN";
                 }
                 var dataString = "studentid="+studentid+"&studentname="+studentname+"&timestatus="+timestat+"&status="+status;
+                
                 console.log(dataString);
 
                 $.ajax({

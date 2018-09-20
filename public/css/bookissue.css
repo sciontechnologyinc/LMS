@@ -359,3 +359,9 @@ span.fa.fa-edit.text-default.pull-right.pointer {
 .btn-return {
     margin-top: 30px;
 }
+
+.details{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 177px;
+}

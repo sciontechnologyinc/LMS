@@ -18,6 +18,8 @@ class CrateSubjectsTable extends Migration
             $table->string('subjectname');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE subjects AUTO_INCREMENT = 1;");
+        DB::table('subjects')->where('id', 1)->delete();
     }
 
     /**

@@ -120,8 +120,8 @@ class CategoryController extends Controller
     {
 	    $category = Category::find($id);
 	    $category->destroy($id);
+        // DB::table('categories')->truncate($category);
 
-	    Session::flash('success', $category['categoryname'] . ' Deleted successfully');
 	    return redirect()->back()->with('success','Deleted successfuly');
     }
 }

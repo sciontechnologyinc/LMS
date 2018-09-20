@@ -69,7 +69,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url('generalsettings') }}"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
+                        <a href="{{ url('generalsetting') }}"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fa fa-book"></i>My book list </a>

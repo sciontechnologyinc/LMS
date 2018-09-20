@@ -30,26 +30,28 @@
  @endif
  
 
-  {!! Form::open(['id' => 'dataForm', 'url' => '/generalsettings', 'method' => 'POST']) !!}
+  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/generalsettings' ]) !!}
 
+{{ csrf_field() }}
  <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header"><strong>General Information</strong></div>
+                      
                       <div class="card-body card-block">
-                      @foreach($generalsettings as $generalsetting)
+                      
                       <div class="form-group">
                             {!!Form::label('systemname', 'System Name', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('systemname',$generalsetting->systemname, ['placeholder' => 'System  Name', 'class' => 'form-control', 'value' => 'Culiat Library'])!!}
+                            {!!Form::text('systemname',null, ['placeholder' => 'System  Name', 'class' => 'form-control', 'value' => 'Culiat Library'])!!}
                       </div>
 
                       <div class="form-group">
                             {!!Form::label('systememail', 'System E-mail', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('systememail',$generalsetting->systemname, ['placeholder' => 'System  E-mail', 'class' => 'form-control', 'value' => 'culiathighschool@gmail.com'])!!}
+                            {!!Form::text('systememail',null, ['placeholder' => 'System  E-mail', 'class' => 'form-control', 'value' => 'culiathighschool@gmail.com'])!!}
                       </div>
 
                       <div class="form-group">
                             {!!Form::label('systemcontactno', 'System Contact No', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('systemcontactno',$generalsetting->systemname, ['placeholder' => 'System Contact No', 'class' => 'form-control', 'value' => '0122333444455555'])!!}
+                            {!!Form::text('systemcontactno',null, ['placeholder' => 'System Contact No', 'class' => 'form-control', 'value' => '0122333444455555'])!!}
                       </div>
 
                       
@@ -61,7 +63,7 @@
                                       <label>Opening time</label>
                                       <div class="iconic-input">
                                         <i class="fa fa-clock-o"></i>
-                                        <input type="text" name="open_time" class="form-control" placeholder="start point" value="">
+                                        <input type="text" name="open_time" class="form-control" placeholder="start point" value="5">
                                       </div>
                             </div>
                     </div>
@@ -70,13 +72,12 @@
                                       <label>Closing time</label>
                                       <div class="iconic-input">
                                         <i class="fa fa-clock-o"></i>
-                                        <input type="text" name="close_time" class="form-control" placeholder="End point" value="">
+                                        <input type="text" name="close_time" class="form-control" placeholder="End point" value="12">
                                       </div>
                                   </div>
                               </div>
-                              
-                             
-                    </div>
+                         </div>
+               
              </div>
        </div>     
        
@@ -88,7 +89,7 @@
                     <div class="panel-body">
 								<div class="form-group">  
 									<div class="col-md-6">
-
+										<small>(Logo should be 144 x 40px)</small>
 										<label for="file-upload" class="custom-file-upload">
 											<i class="fa fa-cloud-upload"></i> Upload System Logo
 										</label>
@@ -97,16 +98,15 @@
                     
 									</div>
 								
-                                                
 									<div class="col-md-6">
-									<br><br><img src=""  style="max-width: 100%;">									</div>
+									<br><br><img src="https://yourprogramming.com/library/images/localhost.jpg"  style="max-width: 100%;">									</div>
 								</div>
 							</div>
-<br>
-                                    <div class="panel-body">
+
+              <div class="panel-body">
 								<div class="form-group">
 									<div class="col-md-6">
-										
+										<small>(Favicon should be 16 x 16px)</small>
 										<label for="file-upload" class="custom-file-upload">
 											<i class="fa fa-cloud-upload"></i> Upload Favicon
 										</label>
@@ -114,10 +114,10 @@
 									</div>
 								
 									<div class="col-md-6">
-									<br><br><img src="" style="max-width: 50px;"></div>
+									<br><br><img src="https://yourprogramming.com/library/images/localhost_favicon.png" style="max-width: 50px;"></div>
 								</div>
 							</div>
-<br>
+
 
      </div>
 
@@ -130,22 +130,22 @@
 		
                        <div class="form-group">
                             {!!Form::label('address', 'Organization address', array('class' => 'form-control-label'))!!}
-                            {!!Form::text('address',$generalsetting->address, ['placeholder' => 'Location', 'class' => 'form-control', 'value' => 'Quezon City, Philippines'])!!}
+                            {!!Form::text('address',null, ['placeholder' => 'Location', 'class' => 'form-control', 'value' => 'Quezon City, Philippines'])!!}
                       </div>
 
                       <div class="form-group">
                             {!!Form::label('address', 'About Organization', array('class' => 'form-control-label'))!!}
-                            {!!Form::textarea('about',$generalsetting->about, ['placeholder' => 'About Organization', 'class' => 'form-control', 'value' => 'Culiat High School aims to provide quality basic education to all learners and equip them with the necessary knowledge, skill, values and attitudes for them to cope with the demands of times and become responsible and productive citizens of the country.'])!!}
+                            {!!Form::textarea('about',null, ['placeholder' => 'About Organization', 'class' => 'form-control', 'value' => 'Culiat High School aims to provide quality basic education to all learners and equip them with the necessary knowledge, skill, values and attitudes for them to cope with the demands of times and become responsible and productive citizens of the country.'])!!}
                       </div>
 
                       <div class="form-group">
                             {!!Form::label('mission', 'Mission', array('class' => 'form-control-label'))!!}
-                            {!!Form::textarea('mission',$generalsetting->mission, ['placeholder' => 'Mission', 'class' => 'form-control', 'value' => 'To Follow.'])!!}
+                            {!!Form::textarea('mission',null, ['placeholder' => 'Mission', 'class' => 'form-control', 'value' => 'To Follow.'])!!}
                       </div>
 
                       <div class="form-group">
-                            {!!Form::label('vision', 'Vision', array('class' => 'form-control-label'))!!}   
-                            {!!Form::textarea('vision',$generalsetting->vision, ['placeholder' => 'Vision', 'class' => 'form-control', 'value' => 'To Follow.'])!!}
+                            {!!Form::label('vision', 'Vision', array('class' => 'form-control-label'))!!}
+                            {!!Form::textarea('vision',null, ['placeholder' => 'Vision', 'class' => 'form-control', 'value' => 'To Follow.'])!!}
                       </div>
      
     
@@ -154,23 +154,8 @@
 
      
 							</div>
-                                          @endforeach
           </div>    
     </div>
  </div>
  {!! Form::close() !!}
- <style>
-input[type="file"] {
-      
-}
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 14px 12px;
-    cursor: pointer;
-    width:94%;
-    font-size: 18px;
-    text-align: center;
-}
-</style>
  @endsection

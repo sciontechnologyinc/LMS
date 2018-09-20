@@ -168,6 +168,7 @@
 						</div>
 
 
+						     @if($member->profession == 'student')
 						
 						<div class="form-group">
 									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
@@ -179,7 +180,8 @@
 								</div>
 							</div>
 						</div>
-
+						@endif
+	
 
 				
                        			 <div class="form-group">

@@ -19,7 +19,8 @@ class GeneralsettingsController extends Controller
      */
     public function index()
     {
-	    $generalsettings = Generalsettings::orderBy('id')->get();
+	    $generalsettings = Generalsettings::orderBy('id')->get();    
+
         return view('generalsettings/generalsettings', ['generalsettings' => $generalsettings]);
     }
 

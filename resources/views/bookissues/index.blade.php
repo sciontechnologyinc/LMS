@@ -46,9 +46,10 @@
                     <table class="table table-bordered table-striped table-condensed cf table-hover">
                         <thead class="cf">
 							<tr>
-								<th>#</th>
+							
+							    <th>Student Name</th>
 								<th>Book Name</th>
-								<th class="numeric">Book holder</th>
+								<th>Book holder</th>
 								<th class="numeric">Issue for</th>
 								<th class="numeric">Issue date</th>
 								<th class="numeric">Return date</th>
@@ -60,8 +61,7 @@
 					
 						<tbody class="search_result">
 						@foreach($bookissues as $bookissue)
-                    	<tr>
-									<td data-title="SL">{{ $bookissue->id }}</td>
+                    	<tr>		<td> {{ $bookissue->name }}</td>
 									<td data-title="Book Name">{{ $bookissue->bookname }}</td>
 									<td class="numeric" data-title="Book holder">{{ $bookissue->bookholder }}</td>									</td>
 									<td data-title="Issue type">issued for

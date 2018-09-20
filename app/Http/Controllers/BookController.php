@@ -83,14 +83,14 @@ class BookController extends Controller
         $data = $request->validate([
             'bookname' => 'required',
             'ISBN' => 'required|unique:books||numeric',
-            'booknumber' => 'required|unique:books||numeric',
-            'bookprice' => 'required|unique:books||numeric',
-            'writername' => 'required|unique:books|',
-            'categoryname' => 'required|unique:books|',
-            'status' => 'required|unique:books|',
-            'booktype' => 'required|unique:books|',
-            'bookcondition' => 'required|unique:books|',
-            'details' => 'required|unique:books|',
+            'booknumber' => 'required|numeric',
+            'bookprice' => 'required|numeric',
+            'writername' => 'required',
+            'categoryname' => 'required',
+            'status' => 'required',
+            'booktype' => 'required',
+            'bookcondition' => 'required',
+            'details' => 'required',
             'digitalphoto' => 'image|nullable|max:1999'
 
             
@@ -247,7 +247,6 @@ class BookController extends Controller
 	    $book = Book::find($id);
 	    $book->destroy($id);
 
-	    Session::flash('success1', $book['bookname'] . ' Deleted successfully');
-	    return redirect()->back()->with('success1','Deleted successfuly');
+	    return redirect()->back()->with('success','Deleted successfuly');
     }
 }
