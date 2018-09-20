@@ -19,6 +19,8 @@ class CreateTermsTable extends Migration
             $table->string('condition');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE terms AUTO_INCREMENT = 1;");
+        DB::table('terms')->where('id', 1)->delete();
     }
 
     /**

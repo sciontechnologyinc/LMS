@@ -22,6 +22,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="{{ url('books/create') }}">Add New Book</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="{{ url('books') }}">Book List</a></li>
+                            <li><i class="fa fa-qrcode"></i><a href="{{ url('qrcodegenerator') }}">QR Code Generator</a></li>
                             
                         </ul>
                     </li>

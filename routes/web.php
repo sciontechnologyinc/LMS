@@ -27,21 +27,27 @@ Route::post('/postajax','RfidController@post');
 Route::post('/getajax/{student}','RfidController@getStudent');
 Route::post('/updateajax/{student}','RfidController@updateStudent');
 
+//BOOKISSUE
+Route::post('/saveisbn','BookissueController@saveisbn');
+Route::post('/getisbn/{isbn}','BookissueController@getIsbn');
+Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
+
+
+
+Route::get('qrcodegenerator', function () {
+    return view('QRCodegenerator.create');
+});
+
 Route::get('create', function () {
     return view('categories.create');
 });
 Route::resource('categories','CategoryController');
 
-Route::get('generalsettings', function () {
-    return view('generalsettings.generalsettings');
-});
-Route::resource('generalsettings','GeneralsettingsController');
-
-
 Route::get('addsubject', function () {
     return view('subjects.create');
 });
 Route::resource('subjects','SubjectController');
+
 Route::get('adddepartment', function () {
     return view('departments.create');
 });
@@ -50,12 +56,16 @@ Route::get('bookissue', function () {
     return view('bookissues.create');
 });
 Route::resource('bookissues','BookissueController');
+
 Route::get('', function () {
     return view('welcome');
 });
 Route::resource('dashboard','DashboardController');
 
 Route::resource('/home','LmsController');
+
+
+Route::resource('/generalsettings','GeneralsettingsController');
 
 
 Route::resource('books','BookController');

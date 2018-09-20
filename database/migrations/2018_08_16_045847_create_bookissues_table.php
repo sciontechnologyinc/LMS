@@ -16,6 +16,11 @@ class CreateBookissuesTable extends Migration
         Schema::create('bookissues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('bookname')->nullable();
+            $table->string('name')->nullable();
+            $table->string('ISBN')->nullable();
+            $table->string('booknumber')->nullable();
+            $table->string('bookprice')->nullable();
+            $table->string('writername')->nullable();
             $table->string('bookholder')->nullable();
             $table->string('date_from')->nullable();
             $table->string('date_to')->nullable();
@@ -26,6 +31,8 @@ class CreateBookissuesTable extends Migration
             $table->string('hours')->nullable();
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE bookissues AUTO_INCREMENT = 1;");
+        DB::table('bookissues')->where('id', 1)->delete();
     }
 
     /**

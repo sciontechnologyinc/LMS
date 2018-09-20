@@ -21,6 +21,8 @@ class CreateRfidsTable extends Migration
             $table->string('status');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE rfids AUTO_INCREMENT = 1;");
+        DB::table('rfids')->where('id', 1)->delete();
     }
 
     /**

@@ -19,7 +19,8 @@ class GeneralsettingsController extends Controller
      */
     public function index()
     {
-	    $generalsettings = Generalsettings::orderBy('id')->get();
+	    $generalsettings = Generalsettings::orderBy('id')->get();    
+
         return view('generalsettings/generalsettings', ['generalsettings' => $generalsettings]);
     }
 
@@ -30,14 +31,11 @@ class GeneralsettingsController extends Controller
      */
 
 
-    public function insertFile()
-    {
-
-    }
 
     public function create()
     {
         
+        return view('generalsettings.generalsettings');
 
     }
 
@@ -51,9 +49,8 @@ class GeneralsettingsController extends Controller
     public function store(Request $request)
     {
 
-
-
-            request()->validate([
+        $generalsettings = $request->all();
+        $data = $request->validate([
             'systemname' => 'required',
             'systememail' => 'required',
             'systemcontactno' => 'required',

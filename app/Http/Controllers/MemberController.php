@@ -155,7 +155,7 @@ class MemberController extends Controller
             'gender' => 'required',
             'contactnumber' => 'required',
             'email' => 'required|email|unique:users',
-            'LRN' => 'required',
+            'LRN' => '',
             'profession' => 'required',
             'department' => '',
             'subject' => '',

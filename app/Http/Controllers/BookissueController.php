@@ -24,8 +24,9 @@ class BookissueController extends Controller
     public function index()
     {
         $bookissues = Bookissue::orderBy('id')->get();
+        $books = Book::orderBy('id')->get();
         $admins = User::orderBy('id')->get();
-        return view('bookissues.index', ['bookissues' => $bookissues, 'admins' => $admins]);
+        return view('bookissues.index', ['bookissues' => $bookissues, 'admins' => $admins,'books' => $books]);
     }
     /**
      * Show the form for creating a new resource.
@@ -35,6 +36,40 @@ class BookissueController extends Controller
     public function create()
     {
         return view('bookissues.create');
+    }
+    public function saveisbn(Request $request)
+    {
+        $response = array(
+            'booknumber' => $request->get('booknumber'),
+        );
+        $bookissue = Bookissue::orderBy('id')->get();
+        $bookissue = new Bookissue([
+            'bookname' => $request->get('bookname'),
+            'ISBN' => $request->get('ISBN'),
+            'booknumber' => $request->get('booknumber'),
+            'bookprice' => $request->get('bookprice'),
+            'writername' => $request->get('writername'),
+            'details' => $request->get('details'),
+
+
+        ]);
+        
+        $bookissue->save();
+        return response()->json($response); 
+        
+     }
+    public function getIsbn($isbn)
+    {
+        $isbnId = Book::where("ISBN", $isbn)->select('bookname','ISBN','booknumber','bookprice','writername','details')->get();
+        return response()->json(['success' => true, 'books' => $isbnId]);
+    }
+
+    public function updateIsbn($isbnid)
+    {
+        $bookissues = Bookissue::orderBy('id')->get();
+        $book = Book::where('ISBN', $isbnid)->update(request()->all());
+        $book->save();
+        
     }
     
 
@@ -56,6 +91,11 @@ class BookissueController extends Controller
         ]);
         $bookissue = new Bookissue;
         $bookissue->bookname = $request->input('bookname');
+        $bookissue->name = $request->input('name');
+        $bookissue->ISBN = $request->input('ISBN');
+        $bookissue->booknumber = $request->input('booknumber');  
+        $bookissue->bookprice = $request->input('bookprice');
+        $bookissue->writername = $request->input('writername');
         $bookissue->bookholder = $request->input('bookholder');
         $bookissue->date_from = $request->input('date_from');
         $bookissue->date_to = $request->input('date_to');
@@ -64,7 +104,6 @@ class BookissueController extends Controller
         $bookissue->difference = $request->input('difference');
         $bookissue->hours = $request->input('hours');
         $bookissue->save();
-    
 
         return redirect()->back()->with('success','Added successfuly');
     

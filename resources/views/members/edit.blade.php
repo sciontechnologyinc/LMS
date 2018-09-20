@@ -168,6 +168,7 @@
 						</div>
 
 
+						     @if($member->profession == 'student')
 						
 						<div class="form-group">
 									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
@@ -179,7 +180,8 @@
 								</div>
 							</div>
 						</div>
-
+						@endif
+	
 
 				
                        			 <div class="form-group">
@@ -197,7 +199,7 @@
 						</div>
 						     @if($member->profession == 'student')
    
-             				<div class="form-group student_area">
+             				<!-- <div class="form-group student_area">
 							<label style="width:100%;">Check Subjects </label>
              				 @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
@@ -205,7 +207,7 @@
 								@endforeach
 								<br>
 								<br>
-							</div>
+							</div> -->
 
 								@elseif($member->profession == 'professor')
                             	 <div class="form-group professor_area">

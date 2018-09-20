@@ -26,6 +26,8 @@ class CreateGeneralsettingsTable extends Migration
             $table->string('vision')->length(1000);
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE generalsettings AUTO_INCREMENT = 1;");
+        DB::table('generalsettings')->where('id', 1)->delete();
     }
 
     /**

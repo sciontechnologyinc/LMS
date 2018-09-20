@@ -96,7 +96,7 @@
               @foreach($categories as $category)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
                                
-                <input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->id}}" {{ (! empty(old('categoryname')) ? 'checked' : '') }}>{{$category->categoryname}}</label>
+                <input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->categoryname}}" {{ (! empty(old('categoryname')) ? 'checked' : '') }}>{{$category->categoryname}}</label>
                 @endforeach
 							</div>
 

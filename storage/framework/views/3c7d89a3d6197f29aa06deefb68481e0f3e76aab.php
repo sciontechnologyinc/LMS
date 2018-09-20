@@ -8,7 +8,7 @@
 </style>
 <div class="searchbar">
     <div class="bar-row">
-        <div class="bookname"><input type="text" id="search" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
+        <div class="bookname"><input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
         <div class="searchbtn" type="submit">Search</div>
     </div>
     
@@ -74,19 +74,22 @@
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-<script type="text/javascript">
-$('#search').on('keyup',function(){
-    $value=$(this).val();
-    $.ajax({
-      type : 'get',
-      url  : '<?php echo e(URL::to('lms')); ?>',
-      data : {'search':$value},
-      success:function(data){
-          $('').html(data);
-      }
-    });
-})
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#searchbartext").on("keyup", function() {
+   var key = this.value;
 
+       
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
+
+  });
+  
+    
+});
 </script>
 
 
