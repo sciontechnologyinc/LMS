@@ -91,6 +91,23 @@
 							</div>
 						</div>
 
+                        <div class="form-group">
+									<?php echo Form::label('profession', 'Profession', array('class' => 'form-control-label')); ?>
+
+								<div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-user"></i></span>
+                                    <select class="form-control" id="profession" name="profession" required="">
+                                        <option value="" selected=""> Choose Profession  </option>
+                                        <option value="student"> Student</option>
+                                        <option value="professor"> Professor</option>
+                                        <option value="visitor"> Visitor</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+
 						<div class="form-group">
 									<?php echo Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label')); ?>
 
@@ -104,26 +121,18 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-									<?php echo Form::label('profession', 'Profession', array('class' => 'form-control-label')); ?>
 
-								<div class="iconic-input">
-								<div class="input-group margin-bottom-sm">
-								<span class="input-group-addon">
-									<i class="fa fa-user"></i></span>
-									<?php echo Form::text('profession',null, ['placeholder' => 'Profession', 'class' => 'form-control', 'required' => '']); ?>
 
-								</div>
-							</div>
-						</div>
                       </div>
                     </div>
               </div>
+
               <div class="col-lg-6">
                     <div class="card">
-                      <div class="card-header"><strong>First</strong><small> Portion</small></div>
+                      <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
-                    <div class="form-group">
+
+                    <div class="form-group professor_area" style="display:none;">
                        <?php echo Form::label('deparment', 'Deparment', array('class' => 'form-control-label')); ?>
 
                        <div class="iconic-input">
@@ -138,21 +147,23 @@
                                 </select>
                             </div>
                       </div>
-                    </div>
+                </div>
                      
 
-                    <div class="form-group">
-							<label style="width:100%;">Check Subjects </label>
-              <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="form-group student_area" style="display:none;">
+				<label style="width:100%;">Check Subjects </label>                    
+                 <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
 								<input class="subject" type="checkbox" name="subject[]" value="<?php echo e($subject->subjectname); ?>"><?php echo e($subject->subjectname); ?></label>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 <br>
+                 <br>
 							</div>
+                            
 
 
 
 
-                  <br><br><br> 
                   <div class="form-group">
                       <?php echo Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label')); ?>
 
@@ -168,8 +179,8 @@
                           
                             
 
-
-                                      <div class="form-group photos">
+<br>
+                <div class="form-group photos">
 							<div class="col-lg-7 ">
 								<div class="row">
 									<label>Choose photo (<small>optional</small>)
@@ -191,12 +202,15 @@
                                     </div>
 						    	</div>
                                 <br>
+                                <br>
+                     <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary col-lg-4 offset-8']); ?>
+
+
                             </div>
 
-                     <div class="card-footer">
-                     <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary']); ?>
 
-                    </div>
+
+
             </div>
       </div>
 </div>
@@ -274,6 +288,34 @@ $(function () {
 	$('.checkbox-inline').click(function(){
 		$('.sub').prop('required',false);
 	});
+
+
+    //onchange
+    $('#profession').on('change', function() {
+      if ( this.value == 'student' )
+      //.....................^.......
+      {
+        $(".student_area").show();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'professor' ){
+        $(".student_area").hide();
+        $(".professor_area").show();
+        $(".visitor_area").hide();
+      }
+      else if( this.value == 'visitor' ){
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").show();
+      }
+      else
+      {
+        $(".student_area").hide();
+        $(".professor_area").hide();
+        $(".visitor_area").hide();
+      }
+    });
 })
 </script>
 

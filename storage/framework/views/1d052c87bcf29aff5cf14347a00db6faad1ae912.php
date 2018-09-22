@@ -3,6 +3,7 @@
 <link href="css/lms2.css" rel="stylesheet"> 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <div class="img-logo"><img src="<?php echo e(asset('img/half.jpg')); ?>"></div>
+<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
 <div class="container">
 <div class="filter-bar">
     <div class="filter-section" ><input type="text" placeholder="Section" list="section-list">
@@ -29,8 +30,9 @@
         <option value="Arrived"/>
         <option value="Departed"/>
     </datalist></div>
+
     <input type="text" class="LRN" name="LRN" autofocus>
-   
+
 </div>
 
   <h2 class="menu-list1">Monitoring</h2>  
@@ -45,7 +47,7 @@
             </tr>
           </thead>
         <?php $__currentLoopData = $rfids; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rfid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <tbody>
+          <tbody class="body">
               <tr>
                   <td></td>
                   <td><?php echo e($rfid->studentid); ?></td>
@@ -57,6 +59,8 @@
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      </table>
   </div>
+  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>"/>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
@@ -70,10 +74,10 @@
  function savedata(studentid,studentname,timestatuss){
                 console.log(timestatuss);
                 var timestat = new Date().toString("hh:mm:tt");
-                if(timestatuss == '' || timestatuss == 'OUT'){
-                    var status = "IN";
-                }else{
+                if(timestatuss == '' || timestatuss == 'IN'){
                     var status = "OUT";
+                }else{
+                    var status = "IN";
                 }
                 var dataString = "studentid="+studentid+"&studentname="+studentname+"&timestatus="+timestat+"&status="+status;
                 console.log(dataString);
@@ -94,9 +98,8 @@
                                     console.log('YEHEY !!!');
                                     }
                                 });
-                      
-
                     }
+                    
                 }); 
  }
   $(document).ready(function(){
@@ -113,10 +116,8 @@
                             }, 50);
                        
                     }, 'json');
-
-                    
-                   
             });
+
   });
 </script>
 <?php $__env->stopSection(); ?>
