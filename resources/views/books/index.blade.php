@@ -42,6 +42,7 @@
                         <tr>
                             <th style="padding-left: 15px;">#</th>
                             <th>Book Name</th>
+                            <th>YearPublish</th>
                             <th>Type</th>
                             <th>ISBN</th>
                             <th>Category</th>
@@ -56,6 +57,7 @@
 
                         <td>{{ $book->id  }}</td>
                         <td> {{ $book->bookname }}</td>
+                        <td> Year Publish</td>
                         <td> {{ $book->booktype }}</td>
                         <td> {{ $book->ISBN }}</td>
                         <td> {{ $book->categoryname }}</td>

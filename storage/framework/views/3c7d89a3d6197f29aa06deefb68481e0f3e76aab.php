@@ -53,14 +53,15 @@
         </button>
       </div>
       <div class="modal-body">
+        <div class="yearpublish">Year Publish. : <?php echo e($book->yearpublish); ?></div>
         <div class="book-isbn">Book ISBN No. : <?php echo e($book->ISBN); ?></div>
         <div class="availbook-number">Available Book No. : <?php echo e($book->booknumber); ?></div>
         <div class="book-price">Book Price : <?php echo e($book->bookprice); ?></div>
-        <div class="writer-name">Writer Name : <?php echo e($book->writername); ?></div>
+        <div class="writer-name">Author Name : <?php echo e($book->writername); ?></div>
         <div class="book-category">Book Category : <?php echo e($book->categoryname); ?></div>
         <div class="book-status">Status : <?php echo e($book->status); ?></div>
         <div class="book-type">Book Type : <?php echo e($book->booktype); ?></div>
-        <div class="book-condition">Book Type : <?php echo e($book->bookcondition); ?></div>
+        <div class="book-condition">Book Condition : <?php echo e($book->bookcondition); ?></div>
         <div class="book-adtl-details">Details : <?php echo e($book->details); ?></div>
       </div>
       

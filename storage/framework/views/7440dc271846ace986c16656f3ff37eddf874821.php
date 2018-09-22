@@ -168,7 +168,7 @@
                   <select class="form-control" id="bookholder" name="bookholder" required="">
                     <option value="" selected=""> Choose book holder </option>
                     <option value="admin"> Admin  </option>
-                    <option value="manager"> Manager </option>
+                    <!-- <option value="manager"> Manager </option> -->
                   </select>
 					</div>
                   </div>
@@ -336,6 +336,29 @@
      });
   });
   
+
+    $('.name').change(function() {
+      var nameId = $('.name').val();
+      $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/getname/' + nameId,
+          dataType : 'json',
+          type: 'POST',
+          data: {},
+          contentType: false,
+          processData: false,
+          success:function(response) {
+                console.log(response); 
+               var data = response.members[0];
+               $('.name').val(data.membername);
+
+          }
+     });
+  });
+
+
 
     $(".date_from").datepicker({
     minDate: 0,

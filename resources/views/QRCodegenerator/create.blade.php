@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Member list')
+@section('title','QR Code Generator')
  
  @section('content')
  

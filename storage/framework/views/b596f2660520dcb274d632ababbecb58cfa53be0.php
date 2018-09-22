@@ -9,21 +9,14 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
+             
 
 
                     </div>
                 </div>
 
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
+    <div class="col-sm-5">
+    <div class="user-area dropdown float-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    <img src="<?php echo asset('storage/uploads/admin.png'); ?>" class="admin"> <?php echo e(Auth::user()->email); ?> <i class="fa fa-caret-down"></i>
                                 </a>
@@ -47,6 +40,22 @@
                         </div>
                     </div>
 
+        <div class="notification-menu float-right">
+		    <div class="open">
+			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
+				<i class="fa fa-bell"></i>
+				<span class="badge">0</span>
+			</a>
+			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
+				<h5 class="title">You have 0 Notification </h5>
+				<div class="dropdown-list normal-list">
+					<div class="new text-center"><a href="#"> View new reservation request</a></div>
+                </div>
+		        	</div>
+                  </div>
+             </div>
+
+    </div>
 
 
         </header><!-- /header -->

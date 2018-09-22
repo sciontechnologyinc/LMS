@@ -73,6 +73,8 @@
                 </div>
              </div>
 
+
+
                     <div class="form-group">
                       <?php echo Form::label('Available book number', 'Available book number', array('class' => 'form-control-label')); ?>
 
@@ -101,14 +103,27 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      <?php echo Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-adjust"></i></span>
+                    <?php echo Form::text('yearpublish',null, ['placeholder' => 'Year Publish', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
-                      <?php echo Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label')); ?>
+                      <?php echo Form::label('Author Name', 'Author Name', array('class' => 'form-control-label')); ?>
 
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control', 'required' => '']); ?>
+                    <?php echo Form::text('writername',null, ['placeholder' => 'Author name', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('writername')); ?></span>

@@ -40,6 +40,7 @@
                         <tr>
                             <th style="padding-left: 15px;">#</th>
                             <th>Book Name</th>
+                            <th>YearPublish</th>
                             <th>Type</th>
                             <th>ISBN</th>
                             <th>Category</th>
@@ -54,6 +55,7 @@
 
                         <td><?php echo e($book->id); ?></td>
                         <td> <?php echo e($book->bookname); ?></td>
+                        <td> Year Publish</td>
                         <td> <?php echo e($book->booktype); ?></td>
                         <td> <?php echo e($book->ISBN); ?></td>
                         <td> <?php echo e($book->categoryname); ?></td>

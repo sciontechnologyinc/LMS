@@ -70,6 +70,8 @@
                 </div>
              </div>
 
+
+
                     <div class="form-group">
                       {!!Form::label('Available book number', 'Available book number', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
@@ -94,13 +96,24 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      {!!Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-adjust"></i></span>
+                    {!!Form::text('yearpublish',null, ['placeholder' => 'Year Publish', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
-                      {!!Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label'))!!}
+                      {!!Form::label('Author Name', 'Author Name', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control', 'required' => ''])!!}
+                    {!!Form::text('writername',null, ['placeholder' => 'Author name', 'class' => 'form-control', 'required' => ''])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('writername') }}</span>
                 </div>

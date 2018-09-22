@@ -56,14 +56,15 @@
         </button>
       </div>
       <div class="modal-body">
+        <div class="yearpublish">Year Publish. : {{$book->yearpublish}}</div>
         <div class="book-isbn">Book ISBN No. : {{$book->ISBN}}</div>
         <div class="availbook-number">Available Book No. : {{$book->booknumber}}</div>
         <div class="book-price">Book Price : {{$book->bookprice}}</div>
-        <div class="writer-name">Writer Name : {{$book->writername}}</div>
+        <div class="writer-name">Author Name : {{$book->writername}}</div>
         <div class="book-category">Book Category : {{$book->categoryname}}</div>
         <div class="book-status">Status : {{$book->status}}</div>
         <div class="book-type">Book Type : {{$book->booktype}}</div>
-        <div class="book-condition">Book Type : {{$book->bookcondition}}</div>
+        <div class="book-condition">Book Condition : {{$book->bookcondition}}</div>
         <div class="book-adtl-details">Details : {{$book->details}}</div>
       </div>
       

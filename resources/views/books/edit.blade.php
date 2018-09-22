@@ -80,13 +80,24 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      {!!Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-money"></i></span>
+                    {!!Form::text('yearpublish',$book->yearpublish, ['placeholder' => 'Year Publish', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
-                      {!!Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label'))!!}
+                      {!!Form::label('Author Name', 'Author Name', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    {!!Form::text('writername',$book->writername, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
+                    {!!Form::text('writername',$book->writername, ['placeholder' => 'Author name', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
