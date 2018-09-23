@@ -8,8 +8,15 @@
 </style>
 <div class="searchbar">
     <div class="bar-row">
-        <div class="bookname"><input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
-        <div class="searchbtn" type="submit">Search</div>
+        <div class="bookname">
+        <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
+        <div class="bookname">
+        <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/></div>
+        <div class="bookname">
+        <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/></div>
+        <div class="bookname">
+        <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/></div>
+        <div class="searchbtn">Search</div>
     </div>
     
 </div>
@@ -28,7 +35,10 @@
                                 <?php endif; ?>
          
         </div>
-        <div class="perbook-title" ><?php echo e($book->bookname); ?> </div>
+        <div class="perbook-title"  ><?php echo e($book->bookname); ?> </div>
+        <div class="perbook-title" hidden="true" ><?php echo e($book->writername); ?> </div>
+        <div class="perbook-title" hidden="true" ><?php echo e($book->yearpublish); ?> </div>
+        <div class="perbook-title" hidden="true" ><?php echo e($book->categoryname); ?> </div>
    </div>
    
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
@@ -80,8 +90,33 @@
 $(document).ready(function(){
     $("#searchbartext").on("keyup", function() {
    var key = this.value;
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
 
-       
+  });
+
+    $("#searchbartext1").on("keyup", function() {
+   var key = this.value;
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
+
+  });
+
+  $("#searchbartext2").on("keyup", function() {
+   var key = this.value;
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
+
+  });
+
+  $("#searchbartext3").on("keyup", function() {
+   var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
        $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);

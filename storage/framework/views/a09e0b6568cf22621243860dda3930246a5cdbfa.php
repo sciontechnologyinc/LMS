@@ -55,7 +55,7 @@
 
                         <td><?php echo e($book->id); ?></td>
                         <td> <?php echo e($book->bookname); ?></td>
-                        <td> Year Publish</td>
+                        <td> <?php echo e($book->yearpublish); ?> </td>
                         <td> <?php echo e($book->booktype); ?></td>
                         <td> <?php echo e($book->ISBN); ?></td>
                         <td> <?php echo e($book->categoryname); ?></td>
@@ -83,8 +83,10 @@
                         </div>
                     </div>
                 </div>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
+$(document).ready(function(){
      $("#deleteForm").submit(function (event) {
                  var x = confirm("Are you sure you want to delete?");
                     if (x) {
@@ -97,19 +99,17 @@
                     }
 
                 });
+
+    $("#myInput").on("keyup", function() {
+   var key = this.value;
+    $(".myTable").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().indexOf(key) >= 0);
+    });
+});
+
+});
 </script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script> 
- 
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

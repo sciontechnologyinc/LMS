@@ -148,6 +148,23 @@
                             </div>
                       </div>
                 </div>
+
+                    <div class="form-group student_area" style="display:none;">
+                       <?php echo Form::label('section', 'Section', array('class' => 'form-control-label')); ?>
+
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon">
+                            <i class="fa fa-bank"></i></span>
+                            <select name="section" class="form-control">
+                                    <option value="" disabled <?php echo e(old('section') ? '' : 'selected'); ?>>Choose a section</option>
+                                    <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                     <option value="<?php echo e($section->sectionname); ?>" <?php if(old('section')&&old('section')== $section->sectionname): ?> selected='selected' <?php endif; ?> ><?php echo e($section->sectionname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                      </div>
+                </div>
                      
 
             <!-- <div class="form-group student_area" style="display:none;">

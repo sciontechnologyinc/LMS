@@ -159,7 +159,6 @@
                             </div>
             
       
-                          <span class="text-danger">{{ $errors->first('booktype') }}</span>
 
                      <div class="form-group book_digital" style='display:none;'>                  
                             <div class="row">
@@ -172,13 +171,17 @@
                     </div>
                     </div>
                
-
-                          <span class="text-danger">{{ $errors->first('booktype') }}</span>
-
-                          <div class="form-group"><label class="form-control-label">Book Condition</label>
-                         {!! Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control', 'required' => '')) !!}
-                          <!-- {!!Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control'])!!} -->
-                          </div>
+                            <span class="text-danger">{{ $errors->first('booktype') }}</span>
+                        <label class="form-control-label">Book Condition</label>
+                          <select class="form-control bookcondition" id="bookcondition" name="bookcondition" required="">
+                            <option value="" selected=""> Choose book condition </option>
+                            <option value="good"> Good</option>
+                            <option value="bad"> Bad</option>
+                            <option value="normal"> Normal</option>
+                        </select>
+                            </div>
+            
+      
                           <span class="text-danger">{{ $errors->first('bookcondition') }}</span>
 
                            <div class="form-group"><label class="form-control-label">Details</label>

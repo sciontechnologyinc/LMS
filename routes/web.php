@@ -59,6 +59,12 @@ Route::get('addsubject', function () {
 });
 Route::resource('subjects','SubjectController');
 
+Route::get('addsection', function () {
+    return view('sections.create');
+});
+Route::resource('sections','SectionController');
+
+
 Route::get('adddepartment', function () {
     return view('departments.create');
 });
