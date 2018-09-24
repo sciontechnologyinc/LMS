@@ -68,6 +68,11 @@ Route::resource('sections','SectionController');
 Route::get('adddepartment', function () {
     return view('departments.create');
 });
+
+Route::get('data', function () {
+    return view('dashboard.data');
+});
+
 Route::resource('departments','DepartmentController');
 Route::get('bookissue', function () {
     return view('bookissues.create');
