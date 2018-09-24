@@ -39,11 +39,15 @@
                         </div>
                     </div>
 
-    <div class="notification-menu float-right">
+        <div class="notification-menu float-right">
 		    <div class="open">
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
                 <i class="fa fa-bell"></i>
 
+<<<<<<< HEAD
+                
+                <span class="badge badge-danger">0</span>
+=======
 
 
  <?php
@@ -79,9 +83,8 @@
      
  ?>
 
-
                 <span class="badge badge-danger" id="total-notif"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
-
+               
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title" id="total-notif">You have <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> Notification </h5>
@@ -93,7 +96,7 @@
              </div>
 
     </div>  
-        </header>
 
 
-
+        </header><!-- /header -->
+        <!-- Header-->
