@@ -48,7 +48,7 @@
 
  <?php
  
- $dataPoints = array();
+
  //Best practice is to create a separate file for handling connection to database
  try{
       // Creating a new connection.
@@ -79,17 +79,12 @@
      
  ?>
 
-<script>
-var json = { ... };
-var key = "foo";
-delete json[key]; 
-</script>
 
-                <span class="badge badge-danger"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
+                <span class="badge badge-danger" id="total-notif"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
 
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
-				<h5 class="title">You have <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> Notification </h5>
+				<h5 class="title" id="total-notif">You have <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> Notification </h5>
 				<div class="dropdown-list normal-list">
 					<div class="new text-center"><a href="{{url('reservations') }}"> View new reservation request</a></div>
                 </div>
