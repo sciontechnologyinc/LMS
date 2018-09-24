@@ -171,12 +171,12 @@
 						     @if($member->profession == 'student')
 						
 						<div class="form-group">
-									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
+									{!!Form::label('Library Card Number', 'Library Card Number', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									{!!Form::number('LRN',$member->LRN, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
+									{!!Form::number('LRN',$member->LRN, ['placeholder' => 'Card Number', 'class' => 'form-control' ])!!}
 								</div>
 							</div>
 						</div>
@@ -199,7 +199,7 @@
 						</div>
 						     @if($member->profession == 'student')
    
-             				<div class="form-group student_area">
+             				<!-- <div class="form-group student_area">
 							<label style="width:100%;">Check Subjects </label>
              				 @foreach($subjects as $subject)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
@@ -207,7 +207,7 @@
 								@endforeach
 								<br>
 								<br>
-							</div>
+							</div> -->
 
 								@elseif($member->profession == 'professor')
                             	 <div class="form-group professor_area">

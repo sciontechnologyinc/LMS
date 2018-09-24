@@ -30,7 +30,7 @@
  @endif
  
 
-  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/generalsettings' ]) !!}
+  {!! Form::open(['id' => 'dataForm', 'method' => 'POST', 'url' => '/generalsettings' ]) !!}
 
 {{ csrf_field() }}
  <div class="col-lg-6">
@@ -149,7 +149,8 @@
                       </div>
      
     
-     <div class="form-group"><label class="form-control-label">&nbsp&nbsp&nbsp&nbsp</label><input type="submit" class="btn btn-success" value="Upgrade General information"></div>
+     {!!Form::submit('Submit General information', ['id' => 'addForm','class' => 'btn btn-success  col-lg-3 offset-8']) !!}
+
 
 
      

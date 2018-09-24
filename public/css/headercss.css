@@ -33,3 +33,48 @@ user-area .user-menu .nav-link {
 p.text-light {
     font-size: 22px;
 }
+.notification-menu .dropdown-menu-head {
+    padding: 0;
+    min-width: 300px;
+    
+}   
+.notification-menu.float-right {
+    margin-top: 4px;
+}
+
+.col-sm-5 {
+    margin-top: -3px;
+}
+.dropdown-menu-head .title {
+    background: #65cea7;
+    color: #fff;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 0;
+}
+.notification-menu .dropdown-menu-head div {
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 0;
+}
+.dropdown-list div:last-child {
+    padding: 10px 15px;
+}
+.notification-menu .dropdown-menu li {
+    display: block;
+    margin: 0;
+    float: none;
+    background: none;
+    padding: 15px;
+}
+.btn .badge {
+    position: relative;
+    top: -11px;
+    left: -10px;
+}
+
+.dropdown-menu.dropdown-menu-head.notifdropdown.pull-right.show {
+    top: 30px !important;
+    left: -120px !important;
+}

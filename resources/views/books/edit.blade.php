@@ -80,13 +80,24 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      {!!Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-money"></i></span>
+                    {!!Form::text('yearpublish',$book->yearpublish, ['placeholder' => 'Year Publish', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
-                      {!!Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label'))!!}
+                      {!!Form::label('Author Name', 'Author Name', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    {!!Form::text('writername',$book->writername, ['placeholder' => 'Writer name', 'class' => 'form-control'])!!}
+                    {!!Form::text('writername',$book->writername, ['placeholder' => 'Author name', 'class' => 'form-control'])!!}
                     </div>
                 </div>
              </div>
@@ -96,7 +107,7 @@
               @foreach($categories as $category)
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
                                
-                <input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->id}}" {{ (! empty(old('categoryname')) ? 'checked' : '') }}>{{$category->categoryname}}</label>
+                <input class="categoryname" type="checkbox" name="categoryname[]" value="{{$category->categoryname}}" {{ (! empty(old('categoryname')) ? 'checked' : '') }}>{{$category->categoryname}}</label>
                 @endforeach
 							</div>
 

@@ -74,7 +74,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    {!!Form::number('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control ISBN', 'required' => '','autofocus'])!!}
+                    {!!Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control ISBN', 'required' => '','autofocus'])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('ISBN') }}</span>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                      {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control bookname', 'required' => ''])!!}
+                      {!!Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control bookname', 'required' => '','readonly'])!!}
                      
                     </div>
                     <span class="text-danger">{{ $errors->first('bookname') }}</span>
@@ -102,7 +102,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    {!!Form::number('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control booknumber', 'required' => ''])!!}
+                    {!!Form::number('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control booknumber', 'required' => '', 'readonly'])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('booknumber') }}</span>
                 </div>
@@ -115,7 +115,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    {!!Form::number('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control bookprice', 'required' => ''])!!}
+                    {!!Form::number('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control bookprice', 'required' => '', 'readonly'])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('bookprice') }}</span>
                 </div>
@@ -127,14 +127,14 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control writername', 'required' => ''])!!}
+                    {!!Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control writername', 'required' => '', 'readonly'])!!}
                     </div>
                     <span class="text-danger">{{ $errors->first('writername') }}</span>
                 </div>
              </div>
 
                         <div class="form-group"><label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => ''])!!}
+                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => '', 'readonly'])!!}
                           </div>
 
                       </div>
@@ -157,7 +157,7 @@
                   <select class="form-control" id="bookholder" name="bookholder" required="">
                     <option value="" selected=""> Choose book holder </option>
                     <option value="admin"> Admin  </option>
-                    <option value="manager"> Manager </option>
+                    <!-- <option value="manager"> Manager </option> -->
                   </select>
 					</div>
                   </div>
@@ -312,6 +312,30 @@
           }
      });
   });
+  
+
+    $('.name').change(function() {
+      var nameId = $('.name').val();
+      $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/getname/' + nameId,
+          dataType : 'json',
+          type: 'POST',
+          data: {},
+          contentType: false,
+          processData: false,
+          success:function(response) {
+                console.log(response); 
+               var data = response.members[0];
+               $('.name').val(data.membername);
+
+          }
+     });
+  });
+
+
 
     $(".date_from").datepicker({
     minDate: 0,

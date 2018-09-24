@@ -87,6 +87,19 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      <?php echo Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-money"></i></span>
+                    <?php echo Form::text('yearpublish',$book->yearpublish, ['placeholder' => 'Year Publish', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
                       <?php echo Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label')); ?>
 
@@ -105,7 +118,7 @@
               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<label class="checkbox-inline pull-left" style="width:30%; margin-left:0px;background:#d9edf7;margin:0.5%;border-radius:20px;">
                                
-                <input class="categoryname" type="checkbox" name="categoryname[]" value="<?php echo e($category->id); ?>" <?php echo e((! empty(old('categoryname')) ? 'checked' : '')); ?>><?php echo e($category->categoryname); ?></label>
+                <input class="categoryname" type="checkbox" name="categoryname[]" value="<?php echo e($category->categoryname); ?>" <?php echo e((! empty(old('categoryname')) ? 'checked' : '')); ?>><?php echo e($category->categoryname); ?></label>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							</div>
 

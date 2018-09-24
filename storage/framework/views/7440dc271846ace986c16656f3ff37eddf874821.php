@@ -74,7 +74,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-undo"></i></span>
-                    <?php echo Form::number('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control ISBN', 'required' => '','autofocus']); ?>
+                    <?php echo Form::text('ISBN',null, ['placeholder' => 'ISBN', 'class' => 'form-control ISBN', 'required' => '','autofocus']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('ISBN')); ?></span>
@@ -89,7 +89,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                      <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control bookname', 'required' => '']); ?>
+                      <?php echo Form::text('bookname',null, ['placeholder' => 'Book name', 'class' => 'form-control bookname', 'required' => '','readonly']); ?>
 
                      
                     </div>
@@ -106,7 +106,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-book"></i></span>
-                    <?php echo Form::number('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control booknumber', 'required' => '']); ?>
+                    <?php echo Form::number('booknumber',null, ['placeholder' => 'Book number', 'class' => 'form-control booknumber', 'required' => '', 'readonly']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('booknumber')); ?></span>
@@ -121,7 +121,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-money"></i></span>
-                    <?php echo Form::number('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control bookprice', 'required' => '']); ?>
+                    <?php echo Form::number('bookprice',null, ['placeholder' => 'Book price', 'class' => 'form-control bookprice', 'required' => '', 'readonly']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('bookprice')); ?></span>
@@ -135,7 +135,7 @@
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control writername', 'required' => '']); ?>
+                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control writername', 'required' => '', 'readonly']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('writername')); ?></span>
@@ -143,7 +143,7 @@
              </div>
 
                         <div class="form-group"><label class="form-control-label">Details</label>
-                          <?php echo Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => '']); ?>
+                          <?php echo Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => '', 'readonly']); ?>
 
                           </div>
 
@@ -168,7 +168,7 @@
                   <select class="form-control" id="bookholder" name="bookholder" required="">
                     <option value="" selected=""> Choose book holder </option>
                     <option value="admin"> Admin  </option>
-                    <option value="manager"> Manager </option>
+                    <!-- <option value="manager"> Manager </option> -->
                   </select>
 					</div>
                   </div>
@@ -335,6 +335,30 @@
           }
      });
   });
+  
+
+    $('.name').change(function() {
+      var nameId = $('.name').val();
+      $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/getname/' + nameId,
+          dataType : 'json',
+          type: 'POST',
+          data: {},
+          contentType: false,
+          processData: false,
+          success:function(response) {
+                console.log(response); 
+               var data = response.members[0];
+               $('.name').val(data.membername);
+
+          }
+     });
+  });
+
+
 
     $(".date_from").datepicker({
     minDate: 0,

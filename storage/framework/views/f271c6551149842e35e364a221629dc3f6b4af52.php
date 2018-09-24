@@ -22,6 +22,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="<?php echo e(url('books/create')); ?>">Add New Book</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="<?php echo e(url('books')); ?>">Book List</a></li>
+                            <li><i class="fa fa-qrcode"></i><a href="<?php echo e(url('qrcodegenerator')); ?>">QR Code Generator</a></li>
                             
                         </ul>
                     </li>
@@ -42,6 +43,16 @@
                             
                         </ul>
                     </li>
+                    
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-building"></i></i>Section</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus"></i><a href="<?php echo e(url('addsection')); ?>">Add New Section</a></li>
+                            <li><i class="fa fa-list-alt"></i><a href="<?php echo e(url('sections')); ?>">Section List</a></li>
+                            
+                        </ul>
+                    </li>
+
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bank"></i>Departments</a>
@@ -69,10 +80,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?php echo e(url('generalsetting')); ?>"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
+                        <a href="<?php echo e(url('generalsettings')); ?>"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-book"></i>My book list </a>
+                        <a href="<?php echo e(url('bookreservation')); ?>"> <i class="menu-icon fa fa-ticket"></i>Book Reservation</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Terms & Condition</a>

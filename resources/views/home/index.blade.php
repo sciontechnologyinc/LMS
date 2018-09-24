@@ -11,8 +11,15 @@
 </style>
 <div class="searchbar">
     <div class="bar-row">
-        <div class="bookname"><input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
-        <div class="searchbtn" type="submit">Search</div>
+        <div class="bookname">
+        <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
+        <div class="bookname">
+        <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/></div>
+        <div class="bookname">
+        <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/></div>
+        <div class="bookname">
+        <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/></div>
+        <div class="searchbtn">Search</div>
     </div>
     
 </div>
@@ -31,7 +38,10 @@
                                 @endif
          
         </div>
-        <div class="perbook-title" >{{$book->bookname}} </div>
+        <div class="perbook-title"  >{{$book->bookname}} </div>
+        <div class="perbook-title" hidden="true" >{{$book->writername}} </div>
+        <div class="perbook-title" hidden="true" >{{$book->yearpublish}} </div>
+        <div class="perbook-title" hidden="true" >{{$book->categoryname}} </div>
    </div>
    
     @endforeach 
@@ -56,14 +66,15 @@
         </button>
       </div>
       <div class="modal-body">
+        <div class="yearpublish">Year Publish. : {{$book->yearpublish}}</div>
         <div class="book-isbn">Book ISBN No. : {{$book->ISBN}}</div>
         <div class="availbook-number">Available Book No. : {{$book->booknumber}}</div>
         <div class="book-price">Book Price : {{$book->bookprice}}</div>
-        <div class="writer-name">Writer Name : {{$book->writername}}</div>
+        <div class="writer-name">Author Name : {{$book->writername}}</div>
         <div class="book-category">Book Category : {{$book->categoryname}}</div>
         <div class="book-status">Status : {{$book->status}}</div>
         <div class="book-type">Book Type : {{$book->booktype}}</div>
-        <div class="book-condition">Book Type : {{$book->bookcondition}}</div>
+        <div class="book-condition">Book Condition : {{$book->bookcondition}}</div>
         <div class="book-adtl-details">Details : {{$book->details}}</div>
       </div>
       
@@ -82,8 +93,33 @@
 $(document).ready(function(){
     $("#searchbartext").on("keyup", function() {
    var key = this.value;
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
 
-       
+  });
+
+    $("#searchbartext1").on("keyup", function() {
+   var key = this.value;
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
+
+  });
+
+  $("#searchbartext2").on("keyup", function() {
+   var key = this.value;
+    $(".perbook-container").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+    });
+
+  });
+
+  $("#searchbartext3").on("keyup", function() {
+   var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
        $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);

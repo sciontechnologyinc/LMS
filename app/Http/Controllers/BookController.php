@@ -82,7 +82,8 @@ class BookController extends Controller
         $book = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
-            'ISBN' => 'required|unique:books||numeric',
+            'yearpublish' => 'required|',
+            'ISBN' => 'required|unique:books|',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
@@ -98,6 +99,7 @@ class BookController extends Controller
             
         ],[
             'bookname.required' => ' The book name field is required.',
+            'yearpublish.required' => ' The Year field is required.',
             'ISBN.required' => ' The ISBN field is required.',
             'booknumber.required' => ' The book number field is required.',
             'bookprice.required' => ' The book price field is required.',
@@ -128,6 +130,7 @@ class BookController extends Controller
         
         $book = new Book;
         $book->bookname = $request->input('bookname');
+        $book->yearpublish = $request->input('yearpublish');
         $book->ISBN = $request->input('ISBN');
         $book->booknumber = $request->input('booknumber');  
         $book->bookprice = $request->input('bookprice');
@@ -186,7 +189,8 @@ class BookController extends Controller
         $book = $request->all();
         $data = $request->validate([
             'bookname' => 'required',
-            'ISBN' => 'required|numeric',
+            'yearpublish' => 'required',
+            'ISBN' => 'required',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
@@ -220,6 +224,7 @@ class BookController extends Controller
         
         $book = Book::find($id);
         $book->bookname = $request->input('bookname');
+        $book->yearpublish = $request->input('yearpublish');
         $book->ISBN = $request->input('ISBN');
         $book->booknumber = $request->input('booknumber');  
         $book->bookprice = $request->input('bookprice');

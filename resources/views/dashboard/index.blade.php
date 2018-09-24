@@ -64,7 +64,7 @@
              <h4 class="mb-0">
                  <span class="count">{{$t_bookissues}}</span>
              </h4>
-             <p class="text-light">Book Issued</p>
+             <a href="{{ url('bookissues') }}"><p class="text-light">Book Issued</p></a>
 
          </div>
 
