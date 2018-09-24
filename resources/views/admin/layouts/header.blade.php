@@ -44,10 +44,7 @@
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
                 <i class="fa fa-bell"></i>
 
-<<<<<<< HEAD
-                
-                <span class="badge badge-danger">0</span>
-=======
+
 
 
  <?php

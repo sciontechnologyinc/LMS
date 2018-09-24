@@ -45,10 +45,7 @@
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
                 <i class="fa fa-bell"></i>
 
-<<<<<<< HEAD
-                
-                <span class="badge badge-danger">0</span>
-=======
+
 
 
  <?php
@@ -84,14 +81,7 @@
      
  ?>
 
-
-<<<<<<< HEAD
                 <span class="badge badge-danger" id="total-notif"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
-=======
-                <span class="badge badge-danger"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
->>>>>>> 80f6e45af3b238790893dc0e52b6d7369206a342
->>>>>>> 2aee394bf062d4629715659d233bb168b9921df7
-
                
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
