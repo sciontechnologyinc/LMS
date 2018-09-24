@@ -39,17 +39,17 @@
 
                           <div class="form-group">
 							<div class="form-group col-md-6 offset-2">
-								{!!Form::label('departmentname', 'Department Name', array('class' => 'form-control-label'))!!}
+								{!!Form::label('departmentname', 'Grade Name', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
                                 <i class="fa fa-bank"></i></span>
-									{!!Form::text('departmentname',null, ['placeholder' => 'Department Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
+									{!!Form::text('departmentname',null, ['placeholder' => 'Grade Name', 'class' => 'form-control col-lg-12', 'required' => '' ])!!}
 								</div>
 							</div>
 						</div>
                                 <br>
-                                {!!Form::submit('Create Department', ['class' => 'btn btn-primary  col-lg-2 offset-7']) !!}
+                                {!!Form::submit('Create Grade', ['class' => 'btn btn-primary  col-lg-2 offset-7']) !!}
 
                               </div>
                             </div>

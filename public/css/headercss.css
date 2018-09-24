@@ -78,3 +78,7 @@ p.text-light {
     top: 30px !important;
     left: -120px !important;
 }
+
+a.btn.btn-default.info-number {
+    color: #000000;
+}

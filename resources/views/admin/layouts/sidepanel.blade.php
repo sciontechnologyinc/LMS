@@ -45,6 +45,15 @@
                     </li>
                     
                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bank"></i>Grades</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus"></i><a href="{{ url('addgrade') }}">Add New Grade</a></li>
+                            <li><i class="fa fa-list-alt"></i><a href="{{ url('grades') }}">Grade List</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-building"></i></i>Section</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="{{ url('addsection') }}">Add New Section</a></li>
@@ -54,14 +63,7 @@
                     </li>
 
 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bank"></i>Departments</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="{{ url('adddepartment') }}">Add New Department</a></li>
-                            <li><i class="fa fa-list-alt"></i><a href="{{ url('departments') }}">Department List</a></li>
-                            
-                        </ul>
-                    </li>
+
 
 
                     <li class="menu-item-has-children dropdown">

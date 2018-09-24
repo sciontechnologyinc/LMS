@@ -65,15 +65,19 @@ Route::get('addsection', function () {
 Route::resource('sections','SectionController');
 
 
-Route::get('adddepartment', function () {
+Route::get('addgrade', function () {
     return view('departments.create');
 });
+<<<<<<< HEAD
 
 Route::get('data', function () {
     return view('dashboard.data');
 });
 
 Route::resource('departments','DepartmentController');
+=======
+Route::resource('grades','DepartmentController');
+>>>>>>> c6b02393c0a2c63a815cc3c905792c7512419fba
 Route::get('bookissue', function () {
     return view('bookissues.create');
 });

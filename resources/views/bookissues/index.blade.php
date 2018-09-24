@@ -28,14 +28,18 @@
         <link rel="stylesheet" href="{!! ('/css/bookissue.css') !!}">
  <div class="wrapper" style="min-height: 450px;">
             
-<div class="row">
-    <div class="col-sm-12">
+ <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+         <strong class="card-title">Book issue list</strong> &nbsp;&nbsp;&nbsp;  <input id="myInput" type="text" placeholder="Search Book Issue" class="search-memberlist">
+                        </div>
         <section class="panel">
-            <header class="panel-heading">
-            
-            </header>
+        
+      
             <div class="panel-body">
+            
                 <section id="no-more-tables">
+                
                     <table class="table table-bordered table-striped table-condensed cf table-hover">
                         <thead class="cf">
                             <tr>

@@ -124,6 +124,7 @@
      </div>
  </div>
 
+<<<<<<< HEAD
 
 
 
@@ -182,6 +183,29 @@
  </div>
  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   
+=======
+<div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                                    <h4 class="mb-3">Yearly Sales </h4>
+                                    <canvas id="sales-chart" height="236" width="473" style="display: block; width: 473px; height: 236px;"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+
+                       
+
+
+
+                </div>
+
+            </div><!-- .animated -->
+        </div>
+>>>>>>> c6b02393c0a2c63a815cc3c905792c7512419fba
 
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

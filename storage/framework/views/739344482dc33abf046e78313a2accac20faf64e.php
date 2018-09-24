@@ -38,19 +38,19 @@
 
                           <div class="form-group">
 							<div class="form-group col-md-6 offset-2">
-								<?php echo Form::label('departmentname', 'Department Name', array('class' => 'form-control-label')); ?>
+								<?php echo Form::label('departmentname', 'Grade Name', array('class' => 'form-control-label')); ?>
 
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
                                 <i class="fa fa-bank"></i></span>
-									<?php echo Form::text('departmentname',null, ['placeholder' => 'Department Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
+									<?php echo Form::text('departmentname',null, ['placeholder' => 'Grade Name', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
 
 								</div>
 							</div>
 						</div>
                                 <br>
-                                <?php echo Form::submit('Create Department', ['class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
+                                <?php echo Form::submit('Create Grade', ['class' => 'btn btn-primary  col-lg-2 offset-7']); ?>
 
 
                               </div>

@@ -101,13 +101,13 @@
              </div>
 
                 <div class="form-group">
-                      <?php echo Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label')); ?>
+                      <?php echo Form::label('Author Name', 'Author Name', array('class' => 'form-control-label')); ?>
 
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    <?php echo Form::text('writername',$book->writername, ['placeholder' => 'Writer name', 'class' => 'form-control']); ?>
+                    <?php echo Form::text('writername',$book->writername, ['placeholder' => 'Author name', 'class' => 'form-control']); ?>
 
                     </div>
                 </div>
