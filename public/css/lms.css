@@ -102,7 +102,7 @@ span.copyright-color {
     display: inline-flex;
     border: 18px solid #2C3E50;
     border-radius: 5px;
-    width: 450px;
+    width: 600px;
 }
 
 input.searchbartext {
@@ -305,8 +305,7 @@ input.contactmessagefield {
 
 .or-txt {
     text-align: center;
-    padding: 15px;
-    font-weight: bold;
+    padding: 19px;
     font-size: 15px;
     color: #3f3f3f;
 }
@@ -450,4 +449,8 @@ button.btn.btn-secondary {
 .perbook-img img {
     width: 100%;
     height: 140px;
+}
+
+form.reservations {
+    margin-bottom: 0px;
 }

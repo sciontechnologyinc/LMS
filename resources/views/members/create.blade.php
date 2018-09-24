@@ -138,6 +138,22 @@
                             </div>
                       </div>
                 </div>
+
+                    <div class="form-group student_area" style="display:none;">
+                       {!!Form::label('section', 'Section', array('class' => 'form-control-label'))!!}
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon">
+                            <i class="fa fa-bank"></i></span>
+                            <select name="section" class="form-control">
+                                    <option value="" disabled {{ old('section') ? '' : 'selected' }}>Choose a section</option>
+                                    @foreach($sections as $section)
+                                     <option value="{{ $section->sectionname }}" @if(old('section')&&old('section')== $section->sectionname) selected='selected' @endif >{{ $section->sectionname }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                      </div>
+                </div>
                      
 
             <!-- <div class="form-group student_area" style="display:none;">

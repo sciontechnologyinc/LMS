@@ -171,12 +171,12 @@
 						     @if($member->profession == 'student')
 						
 						<div class="form-group">
-									{!!Form::label('LRN', 'LRN(student number)', array('class' => 'form-control-label'))!!}
+									{!!Form::label('Library Card Number', 'Library Card Number', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
 								<i class="fa fa-id-card"></i></span>
-									{!!Form::number('LRN',$member->LRN, ['placeholder' => 'LRN', 'class' => 'form-control' ])!!}
+									{!!Form::number('LRN',$member->LRN, ['placeholder' => 'Card Number', 'class' => 'form-control' ])!!}
 								</div>
 							</div>
 						</div>

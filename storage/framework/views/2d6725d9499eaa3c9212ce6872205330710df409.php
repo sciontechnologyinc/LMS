@@ -73,6 +73,8 @@
                 </div>
              </div>
 
+
+
                     <div class="form-group">
                       <?php echo Form::label('Available book number', 'Available book number', array('class' => 'form-control-label')); ?>
 
@@ -101,14 +103,27 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      <?php echo Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-adjust"></i></span>
+                    <?php echo Form::text('yearpublish',null, ['placeholder' => 'Year Publish', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
-                      <?php echo Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label')); ?>
+                      <?php echo Form::label('Author Name', 'Author Name', array('class' => 'form-control-label')); ?>
 
                     <div class="iconic-input">
                     <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon">
                     <i class="fa fa-user"></i></span>
-                    <?php echo Form::text('writername',null, ['placeholder' => 'Writer name', 'class' => 'form-control', 'required' => '']); ?>
+                    <?php echo Form::text('writername',null, ['placeholder' => 'Author name', 'class' => 'form-control', 'required' => '']); ?>
 
                     </div>
                     <span class="text-danger"><?php echo e($errors->first('writername')); ?></span>
@@ -155,7 +170,6 @@
                             </div>
             
       
-                          <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
 
                      <div class="form-group book_digital" style='display:none;'>                  
                             <div class="row">
@@ -168,14 +182,17 @@
                     </div>
                     </div>
                
-
-                          <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
-
-                          <div class="form-group"><label class="form-control-label">Book Condition</label>
-                         <?php echo Form::select('bookcondition', array('good' => 'Good', 'bad' => 'Bad', 'normal' => 'Normal'), null,array('class' => 'form-control', 'required' => '')); ?>
-
-                          <!-- <?php echo Form::text('status',null, ['placeholder' => 'status', 'class' => 'form-control']); ?> -->
-                          </div>
+                            <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
+                        <label class="form-control-label">Book Condition</label>
+                          <select class="form-control bookcondition" id="bookcondition" name="bookcondition" required="">
+                            <option value="" selected=""> Choose book condition </option>
+                            <option value="good"> Good</option>
+                            <option value="bad"> Bad</option>
+                            <option value="normal"> Normal</option>
+                        </select>
+                            </div>
+            
+      
                           <span class="text-danger"><?php echo e($errors->first('bookcondition')); ?></span>
 
                            <div class="form-group"><label class="form-control-label">Details</label>

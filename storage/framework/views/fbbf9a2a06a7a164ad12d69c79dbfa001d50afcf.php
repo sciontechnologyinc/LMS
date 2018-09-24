@@ -87,6 +87,19 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      <?php echo Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-money"></i></span>
+                    <?php echo Form::text('yearpublish',$book->yearpublish, ['placeholder' => 'Year Publish', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
                       <?php echo Form::label('Writer Name', 'Writer Name', array('class' => 'form-control-label')); ?>
 

@@ -32,11 +32,22 @@ Route::post('/saveisbn','BookissueController@saveisbn');
 Route::post('/getisbn/{isbn}','BookissueController@getIsbn');
 Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
 
+//getstudentname
+Route::post('/getname/{name}','BookissueController@getName');
+Route::post('/updatename/{isbn}','BookissueController@updateIsbn');
+
+
 
 
 Route::get('qrcodegenerator', function () {
     return view('QRCodegenerator.create');
 });
+
+
+Route::get('contact', function () {
+    return view('reservations.create');
+});
+Route::resource('bookreservation','ReservationController');
 
 Route::get('create', function () {
     return view('categories.create');
@@ -47,6 +58,12 @@ Route::get('addsubject', function () {
     return view('subjects.create');
 });
 Route::resource('subjects','SubjectController');
+
+Route::get('addsection', function () {
+    return view('sections.create');
+});
+Route::resource('sections','SectionController');
+
 
 Route::get('adddepartment', function () {
     return view('departments.create');
@@ -82,9 +99,7 @@ Route::get('home', function () {
 });
 Route::get('/home','LmsController@search');
 Route::get('/home','LmsController@index');
-Route::get('contact', function () {
-    return view('home.contact');
-});
+
 Route::get('about', function () {
     return view('home.about');
 });

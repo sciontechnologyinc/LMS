@@ -9,6 +9,7 @@ use App\Subject;
 use App\Department;
 use App\Generalsettings;
 use App\Member;
+use App\Section;
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -33,7 +34,8 @@ class SubjectController extends Controller
     {
         $subjects = Subject::orderBy('id')->get();
         $departments = Department::orderBy('id')->get();
-        return view('members/create', ['subjects' => $subjects,'departments' => $departments]);
+        $sections = Section::orderBy('id')->get();
+        return view('members/create', ['subjects' => $subjects,'departments' => $departments,'sections' => $sections]);
     }
 
     /**

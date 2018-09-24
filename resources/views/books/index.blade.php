@@ -42,6 +42,7 @@
                         <tr>
                             <th style="padding-left: 15px;">#</th>
                             <th>Book Name</th>
+                            <th>YearPublish</th>
                             <th>Type</th>
                             <th>ISBN</th>
                             <th>Category</th>
@@ -56,6 +57,7 @@
 
                         <td>{{ $book->id  }}</td>
                         <td> {{ $book->bookname }}</td>
+                        <td> {{ $book->yearpublish }} </td>
                         <td> {{ $book->booktype }}</td>
                         <td> {{ $book->ISBN }}</td>
                         <td> {{ $book->categoryname }}</td>
@@ -80,8 +82,10 @@
                         </div>
                     </div>
                 </div>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
+$(document).ready(function(){
      $("#deleteForm").submit(function (event) {
                  var x = confirm("Are you sure you want to delete?");
                     if (x) {
@@ -94,18 +98,16 @@
                     }
 
                 });
+
+    $("#myInput").on("keyup", function() {
+   var key = this.value;
+    $(".myTable").each(function() {
+       var $this = $(this);
+       $this.toggle($(this).text().indexOf(key) >= 0);
+    });
+});
+
+});
 </script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script> 
- 
  @endsection

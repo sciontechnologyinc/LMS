@@ -42,7 +42,7 @@
                                 <th>StudentName</th>
                                 <th>BookName</th>
                                 <th class="numeric">Bookholder</th>
-                                <th class="numeric">Issuefor</th>
+                                <th class="numeric issuefor">Issue for</th>
                                 <th class="numeric">Issuedate</th>
                                 <th class="numeric">Returndate</th>
                                 <th class="numeric">Remains</th>
@@ -57,8 +57,16 @@
                                     <td data-title="SL"><?php echo e($bookissue->id); ?></td>
                                     <td data-title="Student Name"><?php echo e($bookissue->name); ?></td>
                                     <td data-title="Book Name"><?php echo e($bookissue->bookname); ?></td>
-                                    <td class="numeric" data-title="Book holder"><?php echo e($bookissue->bookholder); ?></td>                                   </td>
-                                    <td data-title="Issue type">issued for days</td>
+                                    <td class="numeric" data-title="Book holder"><?php echo e($bookissue->bookholder); ?></td>                                   
+                                    <td class="issuedtype"data-title="Issue type">
+                                    <?php if($bookissue->status == 'Pending'): ?>
+                                    <?php if(  $bookissue->difference ): ?> 
+                                    issued for days <?php else: ?> issued for hours <?php endif; ?>
+                                    <?php else: ?>
+                                    <?php if(  $bookissue->difference ): ?> 
+                                    issued for days <?php else: ?> issued for hours <?php endif; ?>
+                                    <?php endif; ?>
+                                    </td>
                                     <td class="numeric" data-title="Issue date">today                                 </td>
                                     <td class="numeric" data-title="Return date">today</td>
                                     <td class="numeric" data-title="Remains">

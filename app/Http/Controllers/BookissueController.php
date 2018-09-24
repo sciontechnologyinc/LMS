@@ -71,8 +71,20 @@ class BookissueController extends Controller
         $book->save();
         
     }
-    
 
+    public function getName($name)
+    {
+        $nameId = Member::where("LRN", $name)->select('membername')->get();
+        return response()->json(['success' => true, 'members' => $nameId]);
+    }
+    
+    public function updateName($nameid)
+    {
+        $bookissues = Bookissue::orderBy('id')->get();
+        $member = Member::where('LRN', $nameid)->update(request()->all());
+        $member->save();
+        
+    }
     /**
      * Store a newly created resource in storage.
      *

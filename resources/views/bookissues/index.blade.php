@@ -43,7 +43,7 @@
                                 <th>StudentName</th>
                                 <th>BookName</th>
                                 <th class="numeric">Bookholder</th>
-                                <th class="numeric">Issuefor</th>
+                                <th class="numeric issuefor">Issue for</th>
                                 <th class="numeric">Issuedate</th>
                                 <th class="numeric">Returndate</th>
                                 <th class="numeric">Remains</th>
@@ -58,8 +58,16 @@
                                     <td data-title="SL">{{ $bookissue->id }}</td>
                                     <td data-title="Student Name">{{ $bookissue->name }}</td>
                                     <td data-title="Book Name">{{ $bookissue->bookname }}</td>
-                                    <td class="numeric" data-title="Book holder">{{ $bookissue->bookholder }}</td>                                   </td>
-                                    <td data-title="Issue type">issued for days</td>
+                                    <td class="numeric" data-title="Book holder">{{ $bookissue->bookholder }}</td>                                   
+                                    <td class="issuedtype"data-title="Issue type">
+                                    @if($bookissue->status == 'Pending')
+                                    @if(  $bookissue->difference ) 
+                                    issued for days @else issued for hours @endif
+                                    @else($bookissue->status == 'Returned')
+                                    @if(  $bookissue->difference ) 
+                                    issued for days @else issued for hours @endif
+                                    @endif
+                                    </td>
                                     <td class="numeric" data-title="Issue date">today                                 </td>
                                     <td class="numeric" data-title="Return date">today</td>
                                     <td class="numeric" data-title="Remains">
