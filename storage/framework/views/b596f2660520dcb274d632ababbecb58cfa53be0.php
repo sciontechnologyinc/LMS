@@ -45,11 +45,20 @@
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
                 <i class="fa fa-bell"></i>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f9aacbee56a4f71558ccfe43c00681b84c75f2b
 
 
  <?php
  
+<<<<<<< HEAD
  $dataPoints = array();
+=======
+
+ //Best practice is to create a separate file for handling connection to database
+>>>>>>> 0f9aacbee56a4f71558ccfe43c00681b84c75f2b
  try{
      
      $link = new \PDO(   'mysql:host=127.0.0.1;dbname=lms;charset=utf8mb4', 
@@ -76,6 +85,7 @@
 
  ?>
 
+<<<<<<< HEAD
  
     
 
@@ -85,6 +95,13 @@
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title">You have <?php echo e(json_encode($row, JSON_NUMERIC_CHECK)); ?> ?> Notification </h5>
+=======
+                <span class="badge badge-danger" id="total-notif"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
+               
+			</a>
+			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
+				<h5 class="title" id="total-notif">You have <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> Notification </h5>
+>>>>>>> 0f9aacbee56a4f71558ccfe43c00681b84c75f2b
 				<div class="dropdown-list normal-list">
 					<div class="new text-center"><a href="<?php echo e(url('reservations')); ?>"> View new reservation request</a></div>
                 </div>

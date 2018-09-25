@@ -146,7 +146,7 @@
                         )
                     );
      
-     $handle = $link->prepare('SELECT id, bookname, COUNT(*) as TOTAL FROM bookissues GROUP BY bookname HAVING COUNT(*) > 1'); 
+     $handle = $link->prepare('SELECT id, bookname, COUNT(*) as TOTAL FROM bookissues GROUP BY bookname HAVING COUNT(*) > 0'); 
      $handle->execute(); 
      $result = $handle->fetchAll(\PDO::FETCH_OBJ);
          
