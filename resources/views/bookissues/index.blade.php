@@ -24,14 +24,14 @@
         </ul>
     </div>
  @endif
-        
+ <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{!! ('/css/bookissue.css') !!}">
  <div class="wrapper" style="min-height: 450px;">
             
  <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-         <strong class="card-title">Book issue list</strong> &nbsp;&nbsp;&nbsp;  <input id="myInput" type="text" placeholder="Search Book Issue" class="search-memberlist">
+         <strong class="card-title">Book issue list</strong> &nbsp;&nbsp;&nbsp;  <input type="text" id="search" placeholder=" Search Book issue"></input>
                         </div>
         <section class="panel">
         
@@ -42,7 +42,7 @@
                 
                     <table class="table table-bordered table-striped table-condensed cf table-hover">
                         <thead class="cf">
-                            <tr>
+                            <tr class="header">
                                 <th>#</th>
                                 <th>StudentName</th>
                                 <th>BookName</th>
@@ -56,7 +56,7 @@
                             </tr>
                         </thead>
                     
-                        <tbody class="search_result">
+                        <tbody  id="myTable">
                         @foreach($bookissues as $bookissue)
                         <tr>
                                     <td data-title="SL">{{ $bookissue->id }}</td>
@@ -176,4 +176,25 @@
         </section>
     </div>
 </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+    $("#search").keyup(function () {
+    var value = this.value.toLowerCase().trim();
+
+    $("table tr").each(function (index) {
+        if (!index) return;
+        $(this).find("td").each(function () {
+            var id = $(this).text().toLowerCase().trim();
+            var not_found = (id.indexOf(value) == -1);
+            $(this).closest('tr').toggle(!not_found);
+            return not_found;
+        });
+    });
+});
+
+});
+</script>
  @endsection

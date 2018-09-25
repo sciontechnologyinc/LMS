@@ -32,7 +32,7 @@
    <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Book list</strong> &nbsp;&nbsp;&nbsp;  <input id="myInput" type="text" placeholder="Search Book" class="search-memberlist">
+                            <strong class="card-title">Book list</strong> &nbsp;&nbsp;&nbsp;  <input id="search" type="text" placeholder="Search Book" class="search-memberlist">
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -100,11 +100,17 @@ $(document).ready(function(){
 
                 });
 
-    $("#myInput").on("keyup", function() {
-   var key = this.value;
-    $(".myTable").each(function() {
-       var $this = $(this);
-       $this.toggle($(this).text().indexOf(key) >= 0);
+    $("#search").keyup(function () {
+    var value = this.value.toLowerCase().trim();
+
+    $("table tr").each(function (index) {
+        if (!index) return;
+        $(this).find("td").each(function () {
+            var id = $(this).text().toLowerCase().trim();
+            var not_found = (id.indexOf(value) == -1);
+            $(this).closest('tr').toggle(!not_found);
+            return not_found;
+        });
     });
 });
 
