@@ -64,13 +64,15 @@
     <script src="<?php echo asset('assets/js/lib/chart-js/Chart.bundle.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/dashboard.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/widgets.js'); ?>"></script>
+    <script src="<?php echo asset('assets/js/chartjs.min.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/lib/vector-map/jquery.vmap.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/lib/vector-map/jquery.vmap.min.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/lib/vector-map/jquery.vmap.sampledata.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/lib/vector-map/country/jquery.vmap.world.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/custom.js'); ?>"></script>
+    <script src="<?php echo asset('assets/js/lib/chart-js/chartjs-init.js'); ?>"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>\
     
 </body>
 </html>

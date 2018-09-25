@@ -151,3 +151,6 @@ Route::group(['middleware' => 'auth'], function(){
 
 });
 
+Route::get('charts', function(){
+    return view('admin.charts-chartjs');
+});
