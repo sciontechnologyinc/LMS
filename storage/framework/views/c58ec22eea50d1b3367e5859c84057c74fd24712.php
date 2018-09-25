@@ -46,9 +46,12 @@
                 <i class="fa fa-bell"></i>
 
 
-          
-                <span class="badge badge-danger">0</span>
+                <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($reservation->notification == '1'): ?>                
+                <span class="badge badge-danger"><?php echo e($t_reservations); ?></span>
+                <?php endif; ?>
 
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title">You have 0 Notification </h5>
@@ -62,5 +65,33 @@
     </div>  
         </header>
 
-
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.badge').change(function() {
+      var notifyId = $('.badge').val();
+      $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/getnotify/' + notifyId,
+          dataType : 'json',
+          type: 'POST',
+          data: {},
+          contentType: false,
+          processData: false,
+          success:function(response) {
+               console.log(response);
+          }
+     });
+    });
+  
+  });
+</script>
 

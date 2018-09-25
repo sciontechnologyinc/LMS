@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 class HeaderController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +15,7 @@ class HeaderController extends Controller
      */
     public function index()
     {
-        $reservations = Reservation::orderBy('id')->get();    
-        return view('admin.layouts.header', ['reservations' => $reservations]);
+        //
     }
 
     /**
@@ -23,6 +23,21 @@ class HeaderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getNotif()
+    {
+
+        $notifId = Reservation::where("notification")->value('1')->get();
+        return response()->json(['success' => true, 'reservations' => $notifId]);
+    }
+
+    public function updateNotif($isbnid)
+    {
+        $bookissues = Bookissue::orderBy('id')->get();
+        $book = Book::where('ISBN', $isbnid)->update(request()->all());
+        $book->save();
+        
+    }
+
     public function create()
     {
         //

@@ -12,6 +12,7 @@
  
  @section('content')
  <div class="content mt-3">
+     
  <link rel="stylesheet" href="{!! ('/css/headercss.css') !!}">
 
 
@@ -127,15 +128,6 @@
  </div>
 
 
-<<<<<<< HEAD
-                            <div class="card">
-                                <div class="card-body"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-                                    <h4 class="mb-3">Books Stats </h4>
-                                    <canvas id="sales-chart" height="236" width="473" style="display: block; width: 473px; height: 236px;"></canvas>
-                                </div>
-                            </div>
-=======
->>>>>>> a608e3bf142b9daf06e5ee2880d3f711cf508862
 
 
  <?php

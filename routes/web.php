@@ -36,6 +36,9 @@ Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
 Route::post('/getname/{name}','BookissueController@getName');
 Route::post('/updatename/{isbn}','BookissueController@updateIsbn');
 
+//getnotif
+Route::post('/getnotify/{notif}','HeaderController@getNotif');
+Route::post('/updatnotify/{notif}','HeaderController@updateNotif');
 
 
 
@@ -69,16 +72,9 @@ Route::resource('sections','SectionController');
 Route::get('addgrade', function () {
     return view('grades.create');
 });
-<<<<<<< HEAD
 
-Route::get('data', function () {
-    return view('dashboard.data');
-});
-
-Route::resource('departments','DepartmentController');
-=======
 Route::resource('grades','DepartmentController');
->>>>>>> c6b02393c0a2c63a815cc3c905792c7512419fba
+
 Route::get('bookissue', function () {
     return view('bookissues.create');
 });
@@ -88,6 +84,7 @@ Route::get('', function () {
     return view('welcome');
 });
 Route::resource('dashboard','DashboardController');
+
 
 Route::resource('/home','LmsController');
 
