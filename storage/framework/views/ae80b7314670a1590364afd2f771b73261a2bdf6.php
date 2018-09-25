@@ -132,15 +132,15 @@
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
 
-                    <div class="form-group professor_area" style="display:none;">
-                       <?php echo Form::label('deparment', 'Deparment', array('class' => 'form-control-label')); ?>
+                    <div class="form-group student_area" style="display:none;">
+                       <?php echo Form::label('deparment', 'Grade', array('class' => 'form-control-label')); ?>
 
                        <div class="iconic-input">
                             <div class="input-group margin-bottom-sm">
                             <span class="input-group-addon">
                             <i class="fa fa-bank"></i></span>
                             <select name="department" class="form-control">
-                                    <option value="" disabled <?php echo e(old('department') ? '' : 'selected'); ?>>Choose a deparment</option>
+                                    <option value="" disabled <?php echo e(old('department') ? '' : 'selected'); ?>>Choose a grade</option>
                                     <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                      <option value="<?php echo e($department->departmentname); ?>" <?php if(old('department')&&old('department')== $department->departmentname): ?> selected='selected' <?php endif; ?> ><?php echo e($department->departmentname); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -149,7 +149,7 @@
                       </div>
                 </div>
 
-                    <div class="form-group student_area" style="display:none;">
+                    <!-- <div class="form-group student_area" style="display:none;">
                        <?php echo Form::label('section', 'Section', array('class' => 'form-control-label')); ?>
 
                        <div class="iconic-input">
@@ -164,7 +164,7 @@
                                 </select>
                             </div>
                       </div>
-                </div>
+                </div> -->
                      
 
             <!-- <div class="form-group student_area" style="display:none;">
@@ -197,7 +197,8 @@
                             
 
 <br>
-                <div class="form-group photos">
+                        <div class="form-group photos">
+                        
 							<div class="col-lg-7 ">
 								<div class="row">
 									<label>Choose photo (<small>optional</small>)
@@ -206,18 +207,20 @@
 									</label>
 									<input id="file-upload" name="photo" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
 									<button type="button" id="remove_photo" class="btn btn-danger" style="width: 94%; display: none;"><span class="ladda-label">Remove?</span></button>
-									
-								</label>
+								    </label>
                                 </div>
 							</div>
-							
+					   
+
 							<div class="col-lg-5">
 								<div class="row">
 									<img class="pre_img" src="https://yourprogramming.com/library/images/no_img.jpg" style="width: 100%; max-width: 100%;">
 									<p class="image_view"></p><img src="">
                                     </div>
-                                    </div>
-						    	</div>
+                                </div>
+
+							</div>
+
                                 <br>
                                 <br>
                      <?php echo Form::submit('Add Member', ['class' => 'btn btn-primary col-lg-4 offset-8']); ?>

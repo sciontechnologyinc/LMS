@@ -65,10 +65,10 @@ Route::get('addsection', function () {
 Route::resource('sections','SectionController');
 
 
-Route::get('adddepartment', function () {
+Route::get('addgrade', function () {
     return view('departments.create');
 });
-Route::resource('departments','DepartmentController');
+Route::resource('grades','DepartmentController');
 Route::get('bookissue', function () {
     return view('bookissues.create');
 });

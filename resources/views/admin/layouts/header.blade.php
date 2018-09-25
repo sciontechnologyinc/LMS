@@ -1,9 +1,9 @@
         <!-- Header-->
     
+        <link rel="stylesheet" href="{!! ('/css/headercss.css') !!}">
 
 
         <header id="header" class="header">
-        <link rel="stylesheet" href="{!! ('/css/headercss.css') !!}">
             <div class="header-menu">
 
                 <div class="col-sm-7">
@@ -43,7 +43,7 @@
 		    <div class="open">
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
 				<i class="fa fa-bell"></i>
-				<span class="badge">0</span>
+				<span class="badge badge-danger">0</span>
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title">You have 0 Notification </h5>
