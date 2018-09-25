@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Bookissue;
 use App\Category;
+use App\Reservation;
 use App\Generalsettings;
 use App\Member;
 use App\User;
@@ -25,7 +26,8 @@ class CategoryController extends Controller
     {
         
 	    $categories = Category::orderBy('id')->get();
-        return view('categories.index', ['categories' => $categories]);
+	    $reservations = Reservation::orderBy('id')->get();
+        return view('categories.index', ['categories' => $categories,'reservations' => $reservations]);
     }
 
     public function categorycheckbox()

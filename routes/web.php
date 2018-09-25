@@ -147,15 +147,31 @@ Route::post('/home', [
 ]);
 
 
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('home.index', function(){
-          return view('home.index');
-    })->name('home');;
+// Route::group(['middleware' => 'auth'], function(){
+//     Route::get('home.index', function(){
+//           return view('home.index');
+//     })->name('home');
 
-    Route::get('dashboard.index', function(){
-        return view('dashboard.index');
-    })->name('dashboard');
+//     Route::get('dashboard.index', function(){
+//         return view('dashboard.index');
+//     })->name('dashboard');
 
+// });
+
+
+Route::group(['middleware' => ['web', 'auth']],function (){
+    Route::get('home.index', function (){
+        return view('home.index');
+    })->name('home');
+});
+
+Route::get('dashboard.index', function (){
+    if (Auth::user()->admin == 0){
+        return view('home.index');
+    }else{
+        $users['users'] = \App\User::all();
+        return view('dashboard.index', $users);
+    }
 });
 
 Route::get('charts', function(){

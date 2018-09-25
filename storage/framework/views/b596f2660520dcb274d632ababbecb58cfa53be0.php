@@ -47,17 +47,15 @@
 
 
 
-
  <?php
  
 
  //Best practice is to create a separate file for handling connection to database
  try{
-      // Creating a new connection.
-     // Replace your-hostname, your-db, your-username, your-password according to your database
-     $link = new \PDO(   'mysql:host=127.0.0.1;dbname=lms;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
-                        'root', //'root',
-                        '', //'',
+     
+     $link = new \PDO(   'mysql:host=127.0.0.1;dbname=lms;charset=utf8mb4', 
+                        'root', 
+                        '', 
                         array(
                             \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                             \PDO::ATTR_PERSISTENT => false
@@ -67,7 +65,7 @@
      $handle = $link->prepare('SELECT COUNT(*) as TOTAL FROM reservations where notification = 1'); 
      $handle->execute(); 
      $result = $handle->fetchAll(\PDO::FETCH_OBJ);
-         
+                    
      foreach($result as $row){
          array($row->TOTAL);
      }
@@ -77,8 +75,6 @@
      print($ex->getMessage());
  }
 
- 
-     
  ?>
 
                 <span class="badge badge-danger" id="total-notif"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
