@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Book;
+use App\Department;
 use DB;
 class LmsController extends Controller
 {
@@ -16,7 +17,8 @@ class LmsController extends Controller
     public function index()
     {
         $books = Book::orderBy('id')->get();
-        return view('home.index', ['books' => $books]);
+        $departments = Department::orderBy('id')->get();
+        return view('home.index', ['books' => $books,'departments' => $departments]);
     }
 
     public function search(Request $request)
