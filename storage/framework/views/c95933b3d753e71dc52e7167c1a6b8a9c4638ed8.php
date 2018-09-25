@@ -124,6 +124,66 @@
      </div>
  </div>
 
+<<<<<<< HEAD
+
+
+
+ <?php
+ 
+ $dataPoints = array();
+ //Best practice is to create a separate file for handling connection to database
+ try{
+      // Creating a new connection.
+     // Replace your-hostname, your-db, your-username, your-password according to your database
+     $link = new \PDO(   'mysql:host=127.0.0.1;dbname=lms;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+                        'root', //'root',
+                        '', //'',
+                        array(
+                            \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                            \PDO::ATTR_PERSISTENT => false
+                        )
+                    );
+     
+     $handle = $link->prepare('SELECT id, bookname, COUNT(*) as TOTAL FROM bookissues GROUP BY bookname HAVING COUNT(*) > 1'); 
+     $handle->execute(); 
+     $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+         
+     foreach($result as $row){
+         array_push($dataPoints, array("label"=> $row->bookname, "y"=> $row->TOTAL));
+     }
+     $link = null;
+ }
+ catch(\PDOException $ex){
+     print($ex->getMessage());
+ }
+     
+ ?>
+ <script>
+ window.onload = function () {
+  
+ var chart = new CanvasJS.Chart("chartContainer", {
+     animationEnabled: true,
+     exportEnabled: true,
+     theme: "light1", // "light1", "light2", "dark1", "dark2"
+     title:{
+         text: "Most Borrowed Books"
+     },
+     data: [{
+         type: "column", //change type to bar, line, area, pie, etc  
+         dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+     }]
+ });
+ chart.render();
+  
+ }
+ </script>
+
+ <div class="col-sm-12 col-lg-12">
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+ </div>
+ <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  
+=======
 <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
@@ -143,6 +203,7 @@
 
             </div><!-- .animated -->
         </div>
+>>>>>>> c6b02393c0a2c63a815cc3c905792c7512419fba
 
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

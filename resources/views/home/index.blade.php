@@ -9,19 +9,22 @@
 }
         
 </style>
-<div class="searchbar">
-    <div class="bar-row">
-        <div class="bookname">
-        <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/></div>
-        <div class="searchbtn">Search</div>
+<div class="Search">Search</div>
+<div class="container search">
+  <div class="row search">
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/>
     </div>
-    
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/>
+    </div>
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/>
+    </div>
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/>
+    </div>
+  </div>
 </div>
 
 <div class="booklist-container">
