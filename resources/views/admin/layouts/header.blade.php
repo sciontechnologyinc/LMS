@@ -44,13 +44,58 @@
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
                 <i class="fa fa-bell"></i>
 
+<<<<<<< HEAD
                 
                 <span class="badge badge-danger">0</span>
+=======
+
+
+ <?php
+ 
+ $dataPoints = array();
+ //Best practice is to create a separate file for handling connection to database
+ try{
+      // Creating a new connection.
+     // Replace your-hostname, your-db, your-username, your-password according to your database
+     $link = new \PDO(   'mysql:host=127.0.0.1;dbname=lms;charset=utf8mb4', //'mysql:host=localhost;dbname=canvasjs_db;charset=utf8mb4',
+                        'root', //'root',
+                        '', //'',
+                        array(
+                            \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                            \PDO::ATTR_PERSISTENT => false
+                        )
+                    );
+     
+     $handle = $link->prepare('SELECT COUNT(*) as TOTAL FROM reservations where notification = 1'); 
+     $handle->execute(); 
+     $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+         
+     foreach($result as $row){
+         array($row->TOTAL);
+     }
+     $link = null;
+ }
+ catch(\PDOException $ex){
+     print($ex->getMessage());
+ }
+
+ 
+     
+ ?>
+
+<script>
+var json = { ... };
+var key = "foo";
+delete json[key]; 
+</script>
+
+                <span class="badge badge-danger"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
+>>>>>>> 80f6e45af3b238790893dc0e52b6d7369206a342
 
                
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
-				<h5 class="title">You have 0 Notification </h5>
+				<h5 class="title">You have <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> Notification </h5>
 				<div class="dropdown-list normal-list">
 					<div class="new text-center"><a href="{{url('reservations') }}"> View new reservation request</a></div>
                 </div>
