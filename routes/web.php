@@ -44,10 +44,11 @@ Route::get('qrcodegenerator', function () {
 });
 
 
-Route::get('contact', function () {
+Route::get('addreservation', function () {
     return view('reservations.create');
 });
-Route::resource('bookreservation','ReservationController');
+Route::resource('reservations','ReservationController');
+
 
 Route::get('create', function () {
     return view('categories.create');
@@ -66,7 +67,7 @@ Route::resource('sections','SectionController');
 
 
 Route::get('addgrade', function () {
-    return view('departments.create');
+    return view('grades.create');
 });
 Route::resource('grades','DepartmentController');
 Route::get('bookissue', function () {

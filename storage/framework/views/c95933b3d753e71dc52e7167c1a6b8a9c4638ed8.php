@@ -114,7 +114,7 @@
              <h4 class="mb-0">
              <span class="no-padding center mt txt-sm count"><?php echo e($t_departments); ?></span> 
              </h4>
-             <a href="<?php echo e(url('departments')); ?>"><p class="text-light">Departments</p></a>
+             <a href="<?php echo e(url('grades')); ?>"><p class="text-light">Grades</p></a>
 
              <div class="chart-wrapper px-3" style="height:70px;" height="70">
                 
@@ -128,14 +128,12 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-                                    <h4 class="mb-3">Yearly Sales </h4>
+                                    <h4 class="mb-3">Books Stats </h4>
                                     <canvas id="sales-chart" height="236" width="473" style="display: block; width: 473px; height: 236px;"></canvas>
                                 </div>
                             </div>
-                        </div><!-- /# column -->
 
                        
 

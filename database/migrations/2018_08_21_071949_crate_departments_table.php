@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CrateDepartmentsTable extends Migration
 {
@@ -17,9 +18,11 @@ class CrateDepartmentsTable extends Migration
             $table->increments('id');
             $table->string('departmentname');
             $table->timestamps();
+        
         });
-        DB::statement("ALTER TABLE departments AUTO_INCREMENT = 1;");
-        DB::table('departments')->where('id', 1)->delete();
+        DB::update('ALTER TABLE departments AUTO_INCREMENT = 1');
+        DB::table('departments')->truncate();
+
     }
 
     /**

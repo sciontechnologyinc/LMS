@@ -19,6 +19,7 @@ class CreateReservationsTable extends Migration
             $table->string('membername');
             $table->string('bookname');
             $table->string('message');
+            $table->boolean('notification')->default(1);
             $table->timestamps();
         });
     }

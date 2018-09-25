@@ -85,7 +85,7 @@
                         <a href="<?php echo e(url('generalsettings')); ?>"> <i class="menu-icon fa fa-cogs"></i>General Setting </a>
                     </li>
                     <li>
-                        <a href="<?php echo e(url('bookreservation')); ?>"> <i class="menu-icon fa fa-ticket"></i>Book Reservation</a>
+                        <a href="<?php echo e(url('reservations')); ?>"> <i class="menu-icon fa fa-ticket"></i>Book Reservation</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Terms & Condition</a>

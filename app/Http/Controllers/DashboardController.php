@@ -8,6 +8,7 @@ use App\Bookissue;
 use App\Category;
 use App\Generalsettings;
 use App\Member;
+use App\Reservation;
 use App\Subject;
 use App\Department;
 use App\User;
@@ -29,10 +30,10 @@ class DashboardController extends Controller
      * @return View
      */
     public function index(){
- 
-
+        
         $t_books = Book::all()->count();
         $t_bookissues = Bookissue::all()->count();
+        $t_reservations = Reservation::all()->count();
         $t_categories = Category::all()->count();
         $t_generalsettings = Generalsettings::all()->count();
         $t_members = Member::all()->count();
@@ -44,6 +45,7 @@ class DashboardController extends Controller
         return view('dashboard.index')
             ->with([
                 't_books'                =>  $t_books,
+                't_reservations'         =>  $t_reservations,
                 't_bookissues'           =>  $t_bookissues,
                 't_categories'           =>  $t_categories,
                 't_generalsettings'      =>  $t_generalsettings,

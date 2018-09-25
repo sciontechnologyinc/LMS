@@ -43,13 +43,17 @@
         <div class="notification-menu float-right">
 		    <div class="open">
 			<a href="#" class="btn btn-default info-number" data-toggle="dropdown" aria-expanded="true">
-				<i class="fa fa-bell"></i>
-				<span class="badge badge-danger">0</span>
+                <i class="fa fa-bell"></i>
+
+                
+                <span class="badge badge-danger"><?php echo e($t_reservations); ?></span>
+
+               
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title">You have 0 Notification </h5>
 				<div class="dropdown-list normal-list">
-					<div class="new text-center"><a href="#"> View new reservation request</a></div>
+					<div class="new text-center"><a href="<?php echo e(url('reservations')); ?>"> View new reservation request</a></div>
                 </div>
 		        	</div>
                   </div>

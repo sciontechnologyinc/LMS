@@ -29,8 +29,8 @@ class CreateBooksTable extends Migration
             $table->string('digitalphoto');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE books AUTO_INCREMENT = 1;");
-        DB::table('books')->where('id', 1)->delete();
+
+
     }
 
     /**
