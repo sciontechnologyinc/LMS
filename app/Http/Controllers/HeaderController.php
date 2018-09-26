@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Reservation;
+use App\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 
 class HeaderController extends Controller
 {
@@ -23,18 +25,28 @@ class HeaderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getNotif()
+    public function getNotif($notifyid)
     {
-
-        $notifId = Reservation::where("notification")->value('1')->get();
-        return response()->json(['success' => true, 'reservations' => $notifId]);
+        $notifyId = Reservation::where("notification", $notifyid)->select('notification')->get();
+        return response()->json(['success' => true, 'reservations' => $notifyId]);
     }
 
-    public function updateNotif($isbnid)
+    public function updateNotif()
     {
-        $bookissues = Bookissue::orderBy('id')->get();
-        $book = Book::where('ISBN', $isbnid)->update(request()->all());
-        $book->save();
+         DB::table('reservations')
+         ->update(['notification' => 0]);
+        
+    }
+
+    public function getBooknumber($booknumberid)
+    {
+        $booknumberId = Book::where("booknumber", $booknumberid)->select('booknumber')->get();
+        return response()->json(['success' => true, 'books' => $booknumberId]);
+    }
+
+    public function updateBooknumber()
+    {
+         DB::table('books')->update(['booknumber'=> DB::raw('booknumber+1')]);
         
     }
 

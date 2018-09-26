@@ -77,13 +77,13 @@
 
  ?>
 
-                <span class="badge badge-danger" id="total-notif"> <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> </span>
+                <span class="badge badge-danger total" id="total-notif"><?php echo e($row->TOTAL); ?></span>
                
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
-				<h5 class="title" id="total-notif">You have <?php echo json_encode($row, JSON_NUMERIC_CHECK); ?> Notification </h5>
+				<h5 class="title total" id="total-notif">You have <?php echo e($row->TOTAL); ?> Notification </h5>
 				<div class="dropdown-list normal-list">
-					<div class="new text-center"><a href="<?php echo e(url('reservations')); ?>"> View new reservation request</a></div>
+					<div class="new text-center"><a href="<?php echo e(url('reservations')); ?>" class="total"> View new reservation request</a></div>
                 </div>
 		        	</div>
                   </div>
@@ -92,5 +92,55 @@
     </div>  
 
 
-        </header><!-- /header -->
-        <!-- Header-->
+        </header>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
+<script>
+$(document).ready(function(){
+    $('.total').click(function() {
+      var notifyId = $('TOTAL').val();
+      $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/getnotify/' + notifyId,
+          dataType : 'json',
+          type: 'POST',
+          data: {},
+          contentType: false,
+          processData: false,
+          success:function(response) {
+                      $('TOTAL').val();
+                      console.log(response);
+                      $.ajax({
+                      headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                      url:'/updatenotify',
+                      method:"POST",  
+                      data:{},                              
+                      success: function( data ) {
+                          if($('.total').text() != 0){
+                              $('.badge-danger').css( 'color', 'red' );
+                          }else{
+                              $('.badge-danger').css( 'color', 'white' );
+                              
+                          }
+                        
+                      }
+                  }); 
+          }
+     });
+  });
+  
+
+});
+
+</script>

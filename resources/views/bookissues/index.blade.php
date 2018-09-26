@@ -34,7 +34,10 @@
          <strong class="card-title">Book issue list</strong> &nbsp;&nbsp;&nbsp;  <input type="text" id="search" placeholder=" Search Book issue"></input>
                         </div>
         <section class="panel">
-        
+        @foreach($books as $book)
+        <input type="hidden" class="booknumber" value="{{ $book->booknumber }}"></input>
+        @endforeach
+
       
             <div class="panel-body">
             
@@ -194,6 +197,40 @@ $(document).ready(function(){
         });
     });
 });
+
+
+$('.btn-returned').click(function() {
+      var booknumberId = $('.booknumber').val();
+      $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/getbooknumber/' + booknumberId,
+          dataType : 'json',
+          type: 'POST',
+          data: {},
+          contentType: false,
+          processData: false,
+          success:function(response) {
+
+                      $('.booknumber').val();
+                      console.log(response);
+                      $.ajax({
+                      headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                      url:'/updatebooknumber',
+                      method:"POST",  
+                      data:{},                              
+                      success: function( data ) {
+                        
+                      }
+                  }); 
+          }
+     });
+  });
+  
+
 
 });
 </script>

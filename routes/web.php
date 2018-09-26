@@ -38,8 +38,11 @@ Route::post('/updatename/{isbn}','BookissueController@updateIsbn');
 
 //getnotif
 Route::post('/getnotify/{notif}','HeaderController@getNotif');
-Route::post('/updatnotify/{notif}','HeaderController@updateNotif');
+Route::post('/updatenotify','HeaderController@updateNotif');
 
+//getbooknumber
+Route::post('/getbooknumber/{booknumber}','HeaderController@getBooknumber');
+Route::post('/updatebooknumber','HeaderController@updateBooknumber');
 
 
 Route::get('qrcodegenerator', function () {
