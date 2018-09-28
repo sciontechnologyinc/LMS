@@ -22,11 +22,11 @@
                                 </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                                <a class="nav-link" href="<?php echo e(url('editProfile')); ?>"><i class="fa fa-user"></i> My Profile</a>
 
                                
 
-                                <a class="nav-link" href="<?php echo e(url('changepassword')); ?>"><i class="fa fa-cog"></i> Settings</a>
+                                <a class="nav-link" href="<?php echo e(url('changePassword')); ?>"><i class="fa fa-cog"></i> Settings</a>
 
                                     <a class="nav-link" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();

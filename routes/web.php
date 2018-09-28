@@ -95,6 +95,8 @@ Route::resource('/home','LmsController');
 Route::resource('/generalsettings','GeneralsettingsController');
 
 
+
+
 Route::resource('books','BookController');
 Route::get('addmembers', function () {
     return view('members.create');
@@ -123,9 +125,14 @@ Route::get('addterms', function () {
     return view('terms.create');
 });
 
-Route::get('changepassword', function () {
-    return view('settings.index');
+Route::get('editProfile', function () {
+    return view('settings.edit');
 });
+
+Route::get('/changePassword','ChangepasswordController@showChangePasswordForm');
+
+Route::post('/changepassword','ChangepasswordController@changePassword')->name('changePassword');
+ 
 
 Route::resource('terms','TermController');
 //Category

@@ -22,11 +22,11 @@
                                 </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                                <a class="nav-link" href="{{ url('editProfile') }}"><i class="fa fa-user"></i> My Profile</a>
 
                                
 
-                                <a class="nav-link" href="{{ url('changepassword') }}"><i class="fa fa-cog"></i> Settings</a>
+                                <a class="nav-link" href="{{ url('changePassword') }}"><i class="fa fa-cog"></i> Settings</a>
 
                                     <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
