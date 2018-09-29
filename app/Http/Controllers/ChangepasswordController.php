@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -38,6 +39,15 @@ class ChangepasswordController extends Controller
     }
 
     public function changePassword(Request $request){
+        $user = $request->all();
+        $data = $request->validate([
+            'name' => 'required',
+            'contactno' => 'required',
+            'address' => 'required',
+            'email' => 'required|email',
+
+            
+        ]);
  
         if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
             // The passwords matches
@@ -57,9 +67,14 @@ class ChangepasswordController extends Controller
         //Change Password
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
+        $user->name = $request->input('name');
+        $user->contactno = $request->input('contactno');
+        $user->address = $request->input('address');
+        $user->email = $request->input('email');
         $user->save();
+
  
-        return redirect('/settings')->with("success","Password changed successfully !");
+        return redirect()->back()->with("success","Password changed successfully !");
  
     }
 
@@ -98,7 +113,14 @@ class ChangepasswordController extends Controller
      */
     public function edit($id)
     {
-        //
+        $member = Member::find($id);
+        $subjects = Subject::find($id);
+        $deparments = Department::find($id);
+        $departments = DB::table('departments')->get();
+        $subjects = DB::table('subjects')->get();
+
+ 
+        return view('members/edit', ['member' => $member,'subjects' => $subjects, 'departments' => $departments]);
     }
 
     /**

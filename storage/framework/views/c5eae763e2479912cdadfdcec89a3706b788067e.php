@@ -26,6 +26,37 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="contactno" class="col-sm-4 col-form-label text-md-right"><?php echo e(__('Contact No.')); ?></label>
+
+                            <div class="col-md-6">
+                                <input id="contactno" type="contactno" class="form-control<?php echo e($errors->has('contactno') ? ' is-invalid' : ''); ?>" name="contactno" value="<?php echo e(old('contactno')); ?>" required autofocus>
+
+                                <?php if($errors->has('contactno')): ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($errors->first('contactno')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-4 col-form-label text-md-right"><?php echo e(__('Address')); ?></label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="address" class="form-control<?php echo e($errors->has('address') ? ' is-invalid' : ''); ?>" name="address" value="<?php echo e(old('address')); ?>" required autofocus>
+
+                                <?php if($errors->has('address')): ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($errors->first('address')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right"><?php echo e(__('E-Mail Address')); ?></label>
 
@@ -61,37 +92,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
-                        
-                        <div class="form-group row">
-                            <label for="address" class="col-sm-4 col-form-label text-md-right"><?php echo e(__('Address')); ?></label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="address" class="form-control<?php echo e($errors->has('address') ? ' is-invalid' : ''); ?>" name="address" value="<?php echo e(old('address')); ?>" required autofocus>
-
-                                <?php if($errors->has('address')): ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($errors->first('address')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="contactno" class="col-sm-4 col-form-label text-md-right"><?php echo e(__('Contact No.')); ?></label>
-
-                            <div class="col-md-6">
-                                <input id="contactno" type="contactno" class="form-control<?php echo e($errors->has('contactno') ? ' is-invalid' : ''); ?>" name="contactno" value="<?php echo e(old('contactno')); ?>" required autofocus>
-
-                                <?php if($errors->has('contactno')): ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($errors->first('contactno')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
 
 
                         <div class="form-group row<?php echo e($errors->has('terms') ? ' has-error' : ''); ?>">
