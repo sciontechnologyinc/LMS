@@ -103,10 +103,9 @@
                                 });
                     }
                     
-                }); 
+                },'json'); 
  }
   $(document).ready(function(){
-
             $('.LRN').change(function(){
                 $.post('/getajax/'+$('.LRN').val(), function(response)
                     {
@@ -119,11 +118,7 @@
                             }, 50);
                        
                     }, 'json');
-
-                    
-                   
             });
-
   });
 </script>
 <?php $__env->stopSection(); ?>
