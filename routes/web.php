@@ -36,9 +36,6 @@ Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
 Route::post('/getname/{name}','BookissueController@getName');
 Route::post('/updatename/{isbn}','BookissueController@updateIsbn');
 
-
-
-
 Route::get('qrcodegenerator', function () {
     return view('QRCodegenerator.create');
 });
