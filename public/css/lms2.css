@@ -78,7 +78,7 @@ body {
 .copyright {
     padding: 15px;
     color: #ababab;
-    margin-top: 200px !important;
+    margin-top: 520px !important;
 }
 
 span.copyright-color {
@@ -446,4 +446,8 @@ button.btn.btn-secondary {
 .perbook-img img {
     width: 100%;
     height: auto;
+}
+input.LRN {
+    background: none;
+    border: none;
 }

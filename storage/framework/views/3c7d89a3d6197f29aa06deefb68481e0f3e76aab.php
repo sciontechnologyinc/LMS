@@ -6,19 +6,22 @@
 }
         
 </style>
-<div class="searchbar">
-    <div class="bar-row">
-        <div class="bookname">
-        <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/></div>
-        <div class="searchbtn">Search</div>
+<div class="Search">Search</div>
+<div class="container search">
+  <div class="row search">
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/>
     </div>
-    
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/>
+    </div>
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/>
+    </div>
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/>
+    </div>
+  </div>
 </div>
 
 <div class="booklist-container">
@@ -69,6 +72,9 @@
         <div class="book-price">Book Price : <?php echo e($book->bookprice); ?></div>
         <div class="writer-name">Author Name : <?php echo e($book->writername); ?></div>
         <div class="book-category">Book Category : <?php echo e($book->categoryname); ?></div>
+        <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="book-category">Book Section : <?php echo e($department->departmentname); ?></div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <div class="book-status">Status : <?php echo e($book->status); ?></div>
         <div class="book-type">Book Type : <?php echo e($book->booktype); ?></div>
         <div class="book-condition">Book Condition : <?php echo e($book->bookcondition); ?></div>

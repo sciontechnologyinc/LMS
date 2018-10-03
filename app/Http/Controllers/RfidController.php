@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Session;
 use App\Member;
 use DB;
+use Response;
 
 class RfidController extends Controller
 {
@@ -44,6 +45,7 @@ class RfidController extends Controller
     {
         //
     }
+    
     public function post(Request $request)
     {
         $response = array(
@@ -76,7 +78,7 @@ class RfidController extends Controller
     {
         $rfids = Rfid::orderBy('id')->get();
         $student = member::where('LRN', $studentid)->update(request()->all());
-        $student->save();
+        
         
     }
     public function store(Request $request)

@@ -26,7 +26,7 @@ class DepartmentController extends Controller
     public function index()
     {
 	    $departments = Department::orderBy('id')->get();
-        return view('departments.index', ['departments' => $departments]);
+        return view('grades.index', ['departments' => $departments]);
     }
 
     public function departmentdropdown()
@@ -43,7 +43,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('departments.create');
+        return view('grades.create');
     }
 
     /**
@@ -86,7 +86,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
     	$department = Department::find($id);
-        return view('departments/edit', ['department' => $department]);
+        return view('grades/edit', ['department' => $department]);
     }
 
     /**
@@ -103,7 +103,8 @@ class DepartmentController extends Controller
         $department->update($data);
 
 	    Session::flash('success', $department['departmentname'] . ' Updated successfully');
-        return redirect('/departments')->with('success','Updated successfuly');
+        return redirect('/grades')->with('success','Updated successfuly');
+        
     }
 
     /**

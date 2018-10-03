@@ -36,15 +36,28 @@ Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
 Route::post('/getname/{name}','BookissueController@getName');
 Route::post('/updatename/{isbn}','BookissueController@updateIsbn');
 
+<<<<<<< HEAD
+=======
+//getnotif
+Route::post('/getnotify/{notif}','HeaderController@getNotif');
+Route::post('/updatenotify','HeaderController@updateNotif');
+
+//getbooknumber
+Route::post('/getbooknumber/{booknumber}','HeaderController@getBooknumber');
+Route::post('/updatebooknumber','HeaderController@updateBooknumber');
+
+
+>>>>>>> 2321b7930886b32454afb311527656be3926d1cd
 Route::get('qrcodegenerator', function () {
     return view('QRCodegenerator.create');
 });
 
 
-Route::get('contact', function () {
+Route::get('addreservation', function () {
     return view('reservations.create');
 });
-Route::resource('bookreservation','ReservationController');
+Route::resource('reservations','ReservationController');
+
 
 Route::get('create', function () {
     return view('categories.create');
@@ -62,10 +75,12 @@ Route::get('addsection', function () {
 Route::resource('sections','SectionController');
 
 
-Route::get('adddepartment', function () {
-    return view('departments.create');
+Route::get('addgrade', function () {
+    return view('grades.create');
 });
-Route::resource('departments','DepartmentController');
+
+Route::resource('grades','DepartmentController');
+
 Route::get('bookissue', function () {
     return view('bookissues.create');
 });
@@ -76,10 +91,13 @@ Route::get('', function () {
 });
 Route::resource('dashboard','DashboardController');
 
+
 Route::resource('/home','LmsController');
 
 
 Route::resource('/generalsettings','GeneralsettingsController');
+
+
 
 
 Route::resource('books','BookController');
@@ -110,9 +128,14 @@ Route::get('addterms', function () {
     return view('terms.create');
 });
 
-Route::get('changepassword', function () {
-    return view('settings.index');
+Route::get('editProfile', function () {
+    return view('settings.edit');
 });
+
+Route::get('/changePassword','ChangepasswordController@showChangePasswordForm');
+
+Route::post('/changepassword','ChangepasswordController@changePassword')->name('changePassword');
+ 
 
 Route::resource('terms','TermController');
 //Category
@@ -137,14 +160,33 @@ Route::post('/home', [
 ]);
 
 
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('home.index', function(){
-          return view('home.index');
-    })->name('home');;
+// Route::group(['middleware' => 'auth'], function(){
+//     Route::get('home.index', function(){
+//           return view('home.index');
+//     })->name('home');
 
-    Route::get('dashboard.index', function(){
-        return view('dashboard.index');
-    })->name('dashboard');
+//     Route::get('dashboard.index', function(){
+//         return view('dashboard.index');
+//     })->name('dashboard');
 
+// });
+
+
+Route::group(['middleware' => ['web', 'auth']],function (){
+    Route::get('home.index', function (){
+        return view('home.index');
+    })->name('home');
 });
 
+Route::get('dashboard.index', function (){
+    if (Auth::user()->admin == 0){
+        return view('home.index');
+    }else{
+        $users['users'] = \App\User::all();
+        return view('dashboard.index', $users);
+    }
+});
+
+Route::get('charts', function(){
+    return view('admin.charts-chartjs');
+});

@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Edit Member')
+@section('title','Edit Profile')
  
  @section('content')
  
@@ -30,166 +30,161 @@
  @endif
  <link rel="stylesheet" href="{!! ('/css/memberlistcss.css') !!}">
 
- <div cla	s="wrapper" style="min-height: 450px;">
-            <div class="row">
+<form class="form-horizontal" method="POST" action="{{ route('changePassword') }}">
+                        {{ csrf_field() }}
+ <div class="wrapper" style="min-height: 450px;">
+            
+<div class="row"> 
 	<div class="col-md-4">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel">
 					<div class="panel-body">
-						<div class="profile-pic text-center">
-							<img alt="Logger" src="https://yourprogramming.com/library/images/members/23_.jpg"><br>
-							<p class="fa fa-camera pointer text-primary" data-toggle="modal" data-target=".bd-example-modal-sm"> Choose photo</p>
+
+							<div class="profile-pic text-center">
+							 <br>
+							<label class="pointer text-primary"> 
+									<label for="phto" class="custom-file-uploads" style="display: inline-block;">
+										<!-- <i class="fa fa-camera pointer text-primary"></i> <small>Choose Photo</small> -->
+									</label>
+									<input id="phto" name="photo" hidden="true" class="photo" type="file" accept="image/x-png,image/gif,image/jpeg" value="asd">
+									
+									</label>
+						
+
 						</div>
 					</div>
 				</div>
 			</div>
-						<!-- user analytical info-->
-						<div class="col-md-12">
-				<div class="panel">
-					<div class="panel-body pbody-info">
-						<ul class="p-info">
-							<li>
-								<div class="title">Name</div>
-								<div class="desk">asdasdsadasdasd</div>
-							</li>
-							<li>
-								<div class="title">Gender</div>
-								<div class="desk">asdsadasd</div>
-							</li>
-							<li>
-								<div class="title">Profession</div>
-								<div class="desk">asdasdas</div>
-							</li>
-							<li>
-								<div class="title">Department</div>
-								<div class="desk">asdasd</div>
-							</li>
-							<li>
-								<div class="title">Book issued</div>
-								<div class="desk">0</div>
-							</li>
-							<li>
-								<div class="title">Book Return</div>
-								<div class="desk">
-								0 | <span class="text-danger">Return 0% successfully!</span> </div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-12">
+			<div class="col-lg-12">
 				<div class="panel">
 					<p class="text-center text-danger">Update Your Password </p>
-					<div class="panel-body">
-
-						<div class="form-group">
-							<label>Running password</label>
-							<div class="iconic-input">
-							<div class="input-group margin-bottom-sm">
-                   				 <span class="input-group-addon">
-								<i class="fa fa-lock text-success"></i></span>
-								<input type="password" class="form-control" placeholder="Old password" id="running_pass">
+					<div class="panel-body changepassword">
+						<div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
+							<label>Current password</label>
+                            <div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-lock text-success"></i></span>
+                                    <input id="current-password" type="password" placeholder="Current Password" class="form-control" name="current-password" required>
+                                    @if ($errors->has('current-password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('current-password') }}</strong>
+                                    </span>
+                                @endif
 							</div>
 						</div>
-					</div>
-
+                    </div>
 						<div class="form-group">
 							<label>Set new password</label>
-							<div class="iconic-input">
-								<i class="fa fa-lock text-success"></i>
-								<input type="password" class="form-control" placeholder="New password" id="new_pass">
+                            <div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-lock text-success"></i></span>
+                                    <input id="new-password" type="password" placeholder="New Password" class="form-control" name="new-password" required>
+ 
+                                    @if ($errors->has('new-password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('new-password') }}</strong>
+                                        </span>
+                                    @endif
 							</div>
 						</div>
+                    </div>
 						<div class="form-group">
 							<label>Confirm new password</label>
-							<div class="iconic-input">
-								<i class="fa fa-lock text-success"></i>
-								<input type="password" class="form-control" placeholder="Confirm new password" id="new_pass2">
+                            <div class="iconic-input">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-lock text-success"></i></span>
+                                    <input id="new-password-confirm" type="password" placeholder="Confirm new password" class="form-control" name="new-password_confirmation" required>
 							</div>
 						</div>
-						<div class="form-group">	
-							<div class="iconic-input text-center"><b class="result_pass text-danger"></b></div>
-							<div class="iconic-input text-center">
-								<input type="button" class="btn btn-info" value="Update Password" id="update_pass">
-							</div>
-							
-						</div>
-					</div>
-				</div>
+                    </div>
+
 			</div>
-		   
+		</div>
+	</div>
+            
+            
+
 		</div>
 	</div>
 	<div class="col-md-8">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel">
-					<div class="panel-body">
+					<div class="panel-body pbody-media">
 						<div class="profile-desk">
-							<h1>Culiat </h1>
-							<span class="designation">admin@email.com</span>
+							<h3>{{ Auth::user()->name }}</h3>
+              <span class="designation"><b class="text-danger"></b> </span>
+							<p>Update your info <span class="fa fa-arrow-down"></span></p>
 
 							
-			
+							<ul class="p-social-link pull-right">
+															</ul>
 							
 						</div>
 					</div>
 					
-					<br id="user_edit_panel">
-					
-					
+	
 					<!-- user update information -->	
-					<div class="panel-body bg-info">
+					<div class="panel-body bg-info" style="border:1px solid #353f4f">
 						<div class="col-lg-12">
 							<p>Update personal information <span class="fa fa-angle-double-down"></span></p>
 							<hr><div class="form-group">
-								<label>Name</label>
+							     	{!!Form::label('membername', 'Name', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
-									<i class="fa fa-user"></i>
-									<input type="text" class="form-control" placeholder="Name" value="Culiat" id="name">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-user"></i></span>
+									{!!Form::text('name',Auth::user()->name, ['placeholder' => 'Name', 'class' => 'form-control' ])!!}
 								</div>
 							</div>
-							
+						</div>
+
 							<div class="form-group">
-								<label>E-mail</label>
+									{!!Form::label('contactnumber', 'Contact Number', array('class' => 'form-control-label'))!!}	
 								<div class="iconic-input">
-									<i class="fa fa-envelope"></i>
-									<input type="text" class="form-control" placeholder="Email" value="admin@email.com" disabled="">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-phone-square"></i></span>
+									{!!Form::number('contactno',Auth::user()->contactno, ['placeholder' => 'Contact Number', 'class' => 'form-control' ])!!}
 								</div>
 							</div>
-							
+						</div>
+
+
 							<div class="form-group">
-								<label>Role in system</label>
+									{!!Form::label('email', 'Email-Address', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
-									<select class="form-control" id="role">
-										<option value="admin" selected="">admin</option>										<option value="admin">Admin</option>
-										<option value="manager">Manager</option>
-										<option value="member">Member</option>
-									</select>
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-envelope"></i></span>
+									{!!Form::email('email',Auth::user()->email, ['placeholder' => 'Email-Address', 'class' => 'form-control' ])!!}
 								</div>
 							</div>
-							
+						</div>
+
 							<div class="form-group">
-								<label>Phone No</label>
+									{!!Form::label('livingaddress', 'Living Address', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
-									<i class="fa fa-phone-square"></i>
-									<input type="text" class="form-control" placeholder="contact" value="01478578" id="contact">
+								<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon">
+									<i class="fa fa-map-marker"></i></span>
+									{!!Form::text('address',Auth::user()->address, ['placeholder' => 'Living Address', 'class' => 'form-control' ])!!}
 								</div>
 							</div>
-							
-							<div class="form-group">
-								<label>Living address</label>
-								<div class="iconic-input">
-									<i class="fa fa-map-marker"></i>
-									<input type="text" class="form-control" placeholder="Address" value="uttra 12" id="address">
-								</div>
-							</div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-info update_user">Upload User info</button> &nbsp; 
-								<span class="result_user"></span>
-							</div>
+						</div>
+
+                    <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 						</div>
 					</div>	
 				</div>
@@ -200,108 +195,10 @@
 </div>
 
 
+    </div>
+</div>
+ 
 
 
 
-<style>
-input[type="file"] {
-    display: none;
-}
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 14px 12px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    text-align: center;
-}
-</style>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>
-$(function () {
-	var url = $("#url").val();
-	//logo image preview 
-	function filePreview(input){
-		if(input.files && input.files[0]){
-			var reader = new FileReader();
-			reader.onload = function(e){
-				$('.pre_img').hide();
-				$('.image_view').after('<img src="'+e.target.result+'" />');
-				$('.photos img').css('max-width','100%');
-				$('.photos img').css('border-radius','50%');
-				$("#remove_photo").show(200);
-			}
-			reader.readAsDataURL(input.files[0]);
-		}
-	}
-	$('.userPhoto').change(function(){
-		filePreview(this);	
-		$('.upload_photo').show();
-	});
-	//remove logo img 
-	$("#remove_photo").click(function(){
-		$('.photos img').hide();
-		$('.pre_img').show();
-		$('.userPhoto').val('');
-		$("#remove_photo").slideUp(300);
-		$('.upload_photo').slideUp();
-	});
-	//show edit panel 
-	$(".edit_social").click(function(){
-		var x = document.getElementById('social_edit');
-		if (x.style.display === 'block') {
-			x.style.display = 'none';
-		} else {x.style.display = 'block';}
-	}); 
-	
-	//update social links 
-	$(".update_social").click(function(){
-		$.ajax({
-			type: "POST",
-			url: url+"admin/Members/update_social",
-			data:{ member_id: $('#member_id').val(), fb:$('#fb').val(),twitter:$('#twitter').val(),google:$('#google').val()},
-			success: function(result){
-				$(".result").html(result);
-			},
-			error: function (request, status, error) {
-				$(".result").html(request.responseText);
-			}
-		});
-	});
-	
-	//update user info
-	$(".update_user").click(function(){
-		$.ajax({
-			type: "POST",
-			url: url+"admin/Members/update_user",
-			data:{ member_id: $('#member_id').val(), name:$('#name').val(),role:$('#role').val(),contact:$('#contact').val(), address:$('#address').val()},
-			success: function(result){
-				$(".result_user").html(result);
-			},
-			error: function (request, status, error) {
-				$(".result_user").html(request.responseText);
-			}
-		});
-	});
-	
-	//update login user password
-	$("#update_pass").click(function(){
-		$.ajax({
-			type: "POST",
-			url: url+"Login/update_pass",
-			data:{member_id: $('#member_id').val(), oldPass: $('#running_pass').val(), newPass:$('#new_pass').val(), newPass2:$('#new_pass2').val()},
-			success: function(result){
-				$(".result_pass").html(result);
-			},
-			error: function (request, status, error) {
-				$(".result_pass").html(request.responseText);
-			}
-		});
-	});
-
-})
-</script>
-<!-- this portion of jquery will load if is 'update' variable set at url-->
-            </div>
  @endsection

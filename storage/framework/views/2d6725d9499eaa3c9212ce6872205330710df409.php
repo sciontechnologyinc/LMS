@@ -171,18 +171,30 @@
             
       
 
-                     <div class="form-group book_digital" style='display:none;'>                  
-                            <div class="row">
-                                <label>Choose photo (<small>optional</small>) <br>
-									<label for="phto" class="custom-file-upload" style="display: inline-block;">
+                    <div class="form-group digitalphotos" style='display:none;'>
+							<div class="col-lg-7 ">
+								<div class="row">
+									<label>Choose photo (<small>optional</small>)
+									<label for="file-upload" class="custom-file-upload" style="">
 										<i class="fa fa-cloud-upload"></i> Upload Photo
 									</label>
-									<input id="phto" name="digitalphoto" hidden="true" class="digitalphoto" type="file" accept="image/x-png,image/gif,image/jpeg">
-                        </label>
-                    </div>
-                    </div>
+									<input id="file-upload" name="digitalphoto" class="digitalphoto" type="file" accept="image/x-png,image/gif,image/jpeg">
+									<button type="button" id="remove_photo" class="btn btn-danger" style="width: 94%; display: none;"><span class="ladda-label">Remove?</span></button>
+									
+								</label>
+                                </div>
+							</div>
+							
+							<div class="col-lg-5">
+								<div class="row">
+									<img class="pre_img" src="https://yourprogramming.com/library/images/no_img.jpg" style="width: 100%; max-width: 100%;">
+									<p class="image_view"></p><img src="">
+                                    </div>
+                                    </div>
+						    	</div>
                
-                            <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
+                     <span class="text-danger"><?php echo e($errors->first('booktype')); ?></span>
+                     <div class="form-group">
                         <label class="form-control-label">Book Condition</label>
                           <select class="form-control bookcondition" id="bookcondition" name="bookcondition" required="">
                             <option value="" selected=""> Choose book condition </option>
@@ -195,7 +207,8 @@
       
                           <span class="text-danger"><?php echo e($errors->first('bookcondition')); ?></span>
 
-                           <div class="form-group"><label class="form-control-label">Details</label>
+                           <div class="form-group">
+                           <label class="form-control-label">Details</label>
                           <?php echo Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control', 'required' => '']); ?>
 
                           </div>
@@ -232,14 +245,15 @@
       if ( this.value == 'digital' )
       //.....................^.......
       {
-        $(".book_digital").show();
+        $(".digitalphotos").show();
       }
       else
       {
-        $(".book_digital").hide();
+        $(".digitalphotos").hide();
       }
 
     });
+    
 
   });
 </script>
@@ -261,6 +275,66 @@
                 });
 </script>
 
+<style>
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 14px 12px;
+    cursor: pointer;
+    width:94%;
+    font-size: 18px;
+    text-align: center;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+$(function () {
+	//logo image preview 
+	function filePreview(input){
+		if(input.files && input.files[0]){
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('.pre_img').hide();
+				$('.image_view').after('<img src="'+e.target.result+'" />');
+				$('.digitalphotos img').css('max-width','100%');
+				$("#remove_photo").show(200);
+				$(".custom-file-upload").slideUp(0);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$('.digitalphoto').change(function(){
+		filePreview(this);	
+		$('.upload_photo').show();
+	});
+
+	//remove logo img 
+	$("#remove_photo").click(function(){
+		$('.digitalphotos img').hide();
+		$('.pre_img').show();
+		$('.digitalphoto').val('');
+		$("#remove_photo").slideUp(300);
+		$('.upload_photo').slideUp();
+		$('.custom-file-upload').slideDown(0);
+	});
+	
+	$(".upload_photo").click(function(){
+		var new_img = $('.new_img').attr('src');
+		$('.pre_img_main').attr('src',new_img);
+		var mainPhto = $('.digitalphoto').val();
+		alert(mainPhto);
+	});
+	//check is one of the check-box chosen or not
+	$('.checkbox-inline').click(function(){
+		$('.sub').prop('required',false);
+	});
+
+
+})
+</script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

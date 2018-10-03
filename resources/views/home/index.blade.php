@@ -9,19 +9,22 @@
 }
         
 </style>
-<div class="searchbar">
-    <div class="bar-row">
-        <div class="bookname">
-        <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/></div>
-        <div class="bookname">
-        <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/></div>
-        <div class="searchbtn">Search</div>
+<div class="Search">Search</div>
+<div class="container search">
+  <div class="row search">
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/>
     </div>
-    
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/>
+    </div>
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/>
+    </div>
+    <div class="col-sm searchbar">
+      <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/>
+    </div>
+  </div>
 </div>
 
 <div class="booklist-container">
@@ -72,6 +75,9 @@
         <div class="book-price">Book Price : {{$book->bookprice}}</div>
         <div class="writer-name">Author Name : {{$book->writername}}</div>
         <div class="book-category">Book Category : {{$book->categoryname}}</div>
+        @foreach($departments as $department)
+        <div class="book-category">Book Section : {{$department->departmentname}}</div>
+        @endforeach
         <div class="book-status">Status : {{$book->status}}</div>
         <div class="book-type">Book Type : {{$book->booktype}}</div>
         <div class="book-condition">Book Condition : {{$book->bookcondition}}</div>
