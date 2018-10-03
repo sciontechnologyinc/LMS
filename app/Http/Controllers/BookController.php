@@ -7,6 +7,7 @@ use App\Bookissue;
 use App\Category;
 use App\Generalsettings;
 use App\Member;
+use App\Section;
 use App\Subject;
 use App\User;
 use Carbon\Carbon;

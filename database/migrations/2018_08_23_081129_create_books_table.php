@@ -17,11 +17,13 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('bookname');
             $table->string('yearpublish');
+            $table->string('publisher');
             $table->string('ISBN');
             $table->string('booknumber');
             $table->string('bookprice');
             $table->string('writername');
             $table->string('categoryname');
+            $table->string('section');
             $table->string('status');
             $table->string('booktype');
             $table->string('bookcondition');

@@ -30,11 +30,22 @@
  @endif
  
     <a class="btn btn-primary col-lg-2 offset-9" href="{{ url('books/create') }}" style="margin-bottom: 10px;">Create New</a>
+    <link rel="stylesheet" href="{!! ('/css/books.css') !!}">
 
    <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Book list</strong> &nbsp;&nbsp;&nbsp;  <input id="search" type="text" placeholder="Search Book" class="search-memberlist">
+                            <strong class="card-title">Book list</strong> &nbsp;&nbsp;&nbsp; 
+                          <select class="formlabel" id="bookcondition" name="bookcondition" required="">
+                            <option value="" selected="">FILTER SEARCH &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option value="category"> CATEGORY</option>
+                            <option value="author"> AUTHOR</option>
+                            <option value="publisher"> PUBLISHER</option>
+                        </select>
+                             <input style="display:none;" id="searchcategory" type="text" placeholder="SEARCH CATEGORY" class="search-category">
+                             <input style="display:none;" id="searchauthor" type="text" placeholder="SEARCH AUTHOR" class="search-author">
+                             <input style="display:none;" id="searchpublisher" type="text" placeholder="SEARCH PUBLISHER" class="search-publisher">
+
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -99,7 +110,7 @@ $(document).ready(function(){
 
                 });
 
-    $("#search").keyup(function () {
+    $("#searchcategory").keyup(function () {
     var value = this.value.toLowerCase().trim();
 
     $("table tr").each(function (index) {
@@ -112,6 +123,60 @@ $(document).ready(function(){
         });
     });
 });
+
+    $("#searchauthor").keyup(function () {
+    var value = this.value.toLowerCase().trim();
+
+    $("table tr").each(function (index) {
+        if (!index) return;
+        $(this).find("td").each(function () {
+            var id = $(this).text().toLowerCase().trim();
+            var not_found = (id.indexOf(value) == -1);
+            $(this).closest('tr').toggle(!not_found);
+            return not_found;
+        });
+    });
+});
+$("#searchpublisher").keyup(function () {
+    var value = this.value.toLowerCase().trim();
+
+    $("table tr").each(function (index) {
+        if (!index) return;
+        $(this).find("td").each(function () {
+            var id = $(this).text().toLowerCase().trim();
+            var not_found = (id.indexOf(value) == -1);
+            $(this).closest('tr').toggle(!not_found);
+            return not_found;
+        });
+    });
+});
+
+    $('#bookcondition').on('change', function() {
+      if ( this.value == 'category' )
+      //.....................^.......
+      {
+        $(".search-category").show();
+        $(".search-author").hide();
+        $(".search-publisher").hide();
+      }
+      else if( this.value == 'author' ){
+        $(".search-category").hide();
+        $(".search-author").show();
+        $(".search-publisher").hide();
+      }
+      else if( this.value == 'publisher' ){
+        $(".search-category").hide();
+        $(".search-author").hide();
+        $(".search-publisher").show();
+      }
+      else
+      {
+        $(".search-category").hide();
+        $(".search-author").hide();
+        $(".search-publisher").hide();
+      }
+    });
+
 
 });
 </script>

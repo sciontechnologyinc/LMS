@@ -116,6 +116,19 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      <?php echo Form::label('Publisher', 'Publisher', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-users"></i></span>
+                    <?php echo Form::text('publisher',null, ['placeholder' => 'Publisher', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
                       <?php echo Form::label('Author Name', 'Author Name', array('class' => 'form-control-label')); ?>
 
@@ -148,6 +161,22 @@
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
+
+                    <div class="form-group">
+                       <?php echo Form::label('section', 'Section', array('class' => 'form-control-label')); ?>
+
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <select name="section" class="form-control">
+                                    <option value="" disabled <?php echo e(old('section') ? '' : 'selected'); ?>>Choose a section</option>
+                                    <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                     <option value="<?php echo e($section->sectionname); ?>" <?php if(old('section')&&old('section')== $section->sectionname): ?> selected='selected' <?php endif; ?> ><?php echo e($section->sectionname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                      </div>
+                </div>
+
                          
                       <div class="form-group">
                          <label class="form-control-label">Status</label>

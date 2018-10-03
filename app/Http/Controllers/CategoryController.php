@@ -8,6 +8,7 @@ use App\Category;
 use App\Reservation;
 use App\Generalsettings;
 use App\Member;
+use App\Section;
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -33,7 +34,8 @@ class CategoryController extends Controller
     public function categorycheckbox()
     {
 	    $categories = Category::orderBy('id')->get();
-        return view('books/create', ['categories' => $categories]);
+	    $sections = Section::orderBy('id')->get();
+        return view('books/create', ['categories' => $categories, 'sections' => $sections]);
     }
 
     public function categorycheckbox1()
