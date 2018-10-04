@@ -72,9 +72,7 @@
         <div class="book-price">Book Price : <?php echo e($book->bookprice); ?></div>
         <div class="writer-name">Author Name : <?php echo e($book->writername); ?></div>
         <div class="book-category">Book Category : <?php echo e($book->categoryname); ?></div>
-        <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="book-category">Book Section : <?php echo e($department->departmentname); ?></div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <div class="book-category">Book Section : <?php echo e($book->section); ?></div>
         <div class="book-status">Status : <?php echo e($book->status); ?></div>
         <div class="book-type">Book Type : <?php echo e($book->booktype); ?></div>
         <div class="book-condition">Book Condition : <?php echo e($book->bookcondition); ?></div>

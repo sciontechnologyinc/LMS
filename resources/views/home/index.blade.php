@@ -75,9 +75,7 @@
         <div class="book-price">Book Price : {{$book->bookprice}}</div>
         <div class="writer-name">Author Name : {{$book->writername}}</div>
         <div class="book-category">Book Category : {{$book->categoryname}}</div>
-        @foreach($departments as $department)
-        <div class="book-category">Book Section : {{$department->departmentname}}</div>
-        @endforeach
+        <div class="book-category">Book Section : {{$book->section}}</div>
         <div class="book-status">Status : {{$book->status}}</div>
         <div class="book-type">Book Type : {{$book->booktype}}</div>
         <div class="book-condition">Book Condition : {{$book->bookcondition}}</div>

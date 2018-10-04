@@ -6,7 +6,7 @@
     <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('title','Department list'); ?>
+<?php $__env->startSection('title','Grade list'); ?>
  
  <?php $__env->startSection('content'); ?>
  

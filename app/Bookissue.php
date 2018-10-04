@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 class Bookissue extends Model
 {
     protected $table = 'bookissues';
@@ -22,6 +25,8 @@ class Bookissue extends Model
                             'hours',
                             'status',
                             'bookholder'];
+
+    protected $dates = ['deleted_at'];
 
 
                             

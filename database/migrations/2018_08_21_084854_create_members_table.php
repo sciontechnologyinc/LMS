@@ -28,6 +28,7 @@ class CreateMembersTable extends Migration
             $table->string('photo');
             $table->string('timestatus')->nullable();
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         });
         DB::statement("ALTER TABLE members AUTO_INCREMENT = 1;");
         DB::table('members')->where('id', 1)->delete();

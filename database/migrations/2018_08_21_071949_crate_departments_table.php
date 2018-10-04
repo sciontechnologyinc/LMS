@@ -18,6 +18,7 @@ class CrateDepartmentsTable extends Migration
             $table->increments('id');
             $table->string('departmentname');
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         
         });
         DB::update('ALTER TABLE departments AUTO_INCREMENT = 1');

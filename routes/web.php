@@ -61,6 +61,10 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
+Route::resource('categoryTrash','CategoryTrashController');
+
+Route::resource('bookTrash','BookTrashController');
+
 Route::get('addsubject', function () {
     return view('subjects.create');
 });

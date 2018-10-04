@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 class Rfid extends Model
 {
     protected $table = 'rfids';
@@ -13,4 +16,6 @@ class Rfid extends Model
                     'timestatus',
                     'status'
     ];
+	protected $dates = ['deleted_at'];
+
 }

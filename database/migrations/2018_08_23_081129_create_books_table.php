@@ -30,6 +30,7 @@ class CreateBooksTable extends Migration
             $table->string('details');
             $table->string('digitalphoto');
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         });
 
 

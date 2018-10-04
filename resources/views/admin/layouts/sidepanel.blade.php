@@ -23,6 +23,8 @@
                             <li><i class="fa fa-plus"></i><a href="{{ url('books/create') }}">Add New Book</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="{{ url('books') }}">Book List</a></li>
                             <li><i class="fa fa-qrcode"></i><a href="{{ url('qrcodegenerator') }}">QR Code Generator</a></li>
+                            <li><i class="fa fa-trash"></i><a href="{{ url('bookTrash') }}">Trash</a></li>
+
                             
                         </ul>
                     </li>
@@ -31,6 +33,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="{{ url('create') }}">Add New Category</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="{{ url('categories') }}">Category List</a></li>
+                            <li><i class="fa fa-trash"></i><a href="{{ url('categoryTrash') }}">Trash</a></li>
                             
                         </ul>
                     </li>
@@ -42,6 +45,8 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="{{ url('addgrade') }}">Add New Grade</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="{{ url('grades') }}">Grade List</a></li>
+                            <li><i class="fa fa-trash"></i><a href="{{ url('gradeTrash') }}">Trash</a></li>
+
                             
                         </ul>
                     </li>
@@ -51,6 +56,8 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus"></i><a href="{{ url('addsection') }}">Add New Section</a></li>
                             <li><i class="fa fa-list-alt"></i><a href="{{ url('sections') }}">Section List</a></li>
+                            <li><i class="fa fa-trash"></i><a href="{{ url('sectionTrash') }}">Trash</a></li>
+
                             
                         </ul>
                     </li>
@@ -64,6 +71,8 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="{{ url('members/create') }}">Add New Member</a></li>
                             <li><i class="menu-icon fa fa-users"></i><a href="{{ url('members') }}">Member List</a></li>
+                            <li><i class="fa fa-trash"></i><a href="{{ url('memberTrash') }}">Trash</a></li>
+
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

@@ -21,6 +21,7 @@ class CreateReservationsTable extends Migration
             $table->string('message');
             $table->boolean('notification')->default(1);
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         });
     }
 

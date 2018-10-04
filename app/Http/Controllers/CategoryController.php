@@ -44,6 +44,7 @@ class CategoryController extends Controller
         return view('books/edit', ['categories' => $categories]);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -123,8 +124,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
 	    $category = Category::find($id);
-	    $category->destroy($id);
-        // DB::table('categories')->truncate($category);
+	    $category->delete($id);
 
 	    return redirect()->back()->with('success','Deleted successfuly');
     }

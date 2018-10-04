@@ -98,9 +98,9 @@
          <div class="card-body pb-0">
 
              <h4 class="mb-0">
-             <span class="no-padding center mt txt-sm count">{{$t_subjects}}</span> 
+             <span class="no-padding center mt txt-sm count">{{$t_sections}}</span> 
              </h4>
-             <a href="{{ url('subjects') }}"><p class="text-light">Subjects</p></a>
+             <a href="{{ url('sections') }}"><p class="text-light">Sections</p></a>
 
              <div class="chart-wrapper px-3" style="height:70px;" height="70">
                 

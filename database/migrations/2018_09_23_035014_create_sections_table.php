@@ -17,6 +17,7 @@ class CreateSectionsTable extends Migration
             $table->increments('id');
             $table->string('sectionname');
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         });
     }
 
