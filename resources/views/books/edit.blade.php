@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Update Category list')
+@section('title','Update Book list')
  
  @section('content')
 
@@ -79,6 +79,7 @@
                     </div>
                 </div>
              </div>
+             
 
               <div class="form-group">
                       {!!Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label'))!!}
@@ -90,6 +91,18 @@
                     </div>
                 </div>
              </div>
+
+               <div class="form-group">
+                      {!!Form::label('Publisher', 'Publisher', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-users"></i></span>
+                    {!!Form::text('publisher',$book->publisher, ['placeholder' => 'Publisher', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
 
                 <div class="form-group">
                       {!!Form::label('Author Name', 'Author Name', array('class' => 'form-control-label'))!!}
@@ -118,11 +131,25 @@
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
+                      
+                      <div class="form-group">
+                       {!!Form::label('section', 'Section', array('class' => 'form-control-label'))!!}
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <select name="section" class="form-control">
+                                    <option value="" disabled {{ old(' $book->section ') ? '' : 'selected' }}>Choose a section</option>
+                                    @foreach($sections as $section)
+                                     <option value="{{ $section->sectionname }}" @if(old('$book->section')&&old('$book->section')== $book->section) selected='selected' @endif >{{ $section->sectionname }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                      </div>
+                </div>
 
                          <div class="form-group">
-                         <label class="form-control-label">Status</label>
-                         {!! Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),$book->status,array('class' => 'form-control')) !!}
-                         </div>
+                           <label class="form-control-label">Status</label>
+                          {!!Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
+                          </div>
                               
                          <div class="form-group">
                          <label class="form-control-label">Book Type</label>
@@ -152,7 +179,7 @@
                           </div>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',$book->details, ['placeholder' => 'details', 'class' => 'form-control'])!!}
+                          {!!Form::textarea('details',$book->details, ['placeholder' => 'details', 'class' => 'form-control details'])!!}
                           </div>
   
 

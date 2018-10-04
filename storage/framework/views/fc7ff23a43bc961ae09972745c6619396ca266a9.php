@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+<link rel="stylesheet" href="<?php echo ('/css/lms.css'); ?>">
 
 <?php echo Form::open(['id' => 'dataForm','class' => 'reservations', 'url' => '/reservations']); ?>
 
@@ -21,12 +22,17 @@
             </div>
         </div>
         </div>
-        <div class="contact-row2">
-            <div class="contactsubject">
-            <?php echo Form::text('bookname',null, ['placeholder' => 'Book Name', 'class' => 'contactsubjectfield', 'required' => '' ]); ?>
 
-        </div>
-        </div>
+        <div class="contact-row3">
+
+                            <select name="bookname" class="form-control">
+                                    <option value="" disabled <?php echo e(old('bookname') ? '' : 'selected'); ?>>Choose a books</option>
+                                    <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                     <option value="<?php echo e($book->bookname); ?>" <?php if(old('bookname')&&old('bookname')== $book->bookname): ?> selected='selected' <?php endif; ?> ><?php echo e($book->bookname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                </div>
+
         <div class="contact-row3">
             <div class="contactmessage">
             <?php echo Form::text('message',null, ['placeholder' => 'Your Message', 'class' => 'contactmessagefield', 'required' => '' ]); ?>

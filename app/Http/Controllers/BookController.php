@@ -177,10 +177,11 @@ class BookController extends Controller
         $book = Book::find($id);
         $categories = Category::find($id);
         $categories = DB::table('categories')->get();
+        $sections = DB::table('sections')->get();
         
    
         
-        return view('books/edit', ['book' => $book,'categories'=>$categories]);
+        return view('books/edit', ['book' => $book,'categories'=>$categories,'sections'=>$sections]);
     }
     
 

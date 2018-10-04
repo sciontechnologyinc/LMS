@@ -2,6 +2,7 @@
 
 
 @section('content')
+<link rel="stylesheet" href="{!! ('/css/lms.css') !!}">
 
 {!! Form::open(['id' => 'dataForm','class' => 'reservations', 'url' => '/reservations']) !!}
 
@@ -21,11 +22,17 @@
             </div>
         </div>
         </div>
-        <div class="contact-row2">
-            <div class="contactsubject">
-            {!!Form::text('bookname',null, ['placeholder' => 'Book Name', 'class' => 'contactsubjectfield', 'required' => '' ])!!}
-        </div>
-        </div>
+
+        <div class="contact-row3">
+
+                            <select name="bookname" class="form-control">
+                                    <option value="" disabled {{ old('bookname') ? '' : 'selected' }}>Choose a books</option>
+                                    @foreach($books as $book)
+                                     <option value="{{ $book->bookname }}" @if(old('bookname')&&old('bookname')== $book->bookname) selected='selected' @endif >{{ $book->bookname }}</option>
+                                    @endforeach
+                                </select>
+                </div>
+
         <div class="contact-row3">
             <div class="contactmessage">
             {!!Form::text('message',null, ['placeholder' => 'Your Message', 'class' => 'contactmessagefield', 'required' => '' ])!!}

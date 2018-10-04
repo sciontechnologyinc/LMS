@@ -164,13 +164,9 @@
                 </div>
 
                          
-                      <div class="form-group">
-                         <label class="form-control-label">Status</label>
-                         <select class="form-control status" id="status" name="status" required="">
-                         <option value="" selected=""> Choose status </option>
-                         <option value="available"> Available</option>
-                         <option value="unavailable"> Unavailable</option>
-                         </select>
+                         <div class="form-group">
+                           <label class="form-control-label">Status</label>
+                          {!!Form::textarea('status',null, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
                           </div>
                           <span class="text-danger">{{ $errors->first('status') }}</span>
                                 
@@ -224,7 +220,7 @@
 
                            <div class="form-group">
                            <label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control', 'required' => ''])!!}
+                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => ''])!!}
                           </div>
                           <span class="text-danger">{{ $errors->first('details') }}</span>
   
