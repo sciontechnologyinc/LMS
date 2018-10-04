@@ -42,11 +42,11 @@
                         </tr>
                         </thead>
                     <tbody>
-                    <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                       <tr>
 
-                        <td><?php echo e($book->id); ?></td>
+                        <td><?php echo e($index +1); ?></td>
                         <td><?php echo e($book->bookname); ?></td>
                         <td><center>
                         <?php echo Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/bookTrash/' . $book->id]); ?>

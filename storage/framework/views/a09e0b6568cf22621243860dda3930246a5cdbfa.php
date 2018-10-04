@@ -61,10 +61,10 @@
                         </tr>
                         </thead>
                         <tbody id="myTable">
-                         <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                         <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <tr>
 
-                        <td><?php echo e($book->id); ?></td>
+                        <td><?php echo e($index +1); ?></td>
                         <td> <?php echo e($book->bookname); ?></td>
                         <td> <?php echo e($book->yearpublish); ?> </td>
                         <td> <?php echo e($book->booktype); ?></td>
@@ -98,18 +98,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
 $(document).ready(function(){
-     $("#deleteForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
-                    if (x) {
-                        return true;
-                    }
-                    else {
-
-                        event.preventDefault();
-                        return false;
-                    }
-
-                });
+    $("#deleteForm").on("submit", function() {
+            return confirm("Are you sure you want to delete?")
+        })
 
     $("#searchcategory").keyup(function () {
     var value = this.value.toLowerCase().trim();
