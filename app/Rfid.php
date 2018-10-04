@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rfid extends Model
 {
+    use SoftDeletes;
     protected $table = 'rfids';
     protected $fillable = [ 
                     'studentid',

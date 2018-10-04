@@ -261,7 +261,7 @@ class BookController extends Controller
     public function destroy($id)
     {
 	    $book = Book::find($id);
-	    $book->destroy($id);
+	    $book->delete($id);
 
 	    return redirect()->back()->with('success','Deleted successfuly');
     }

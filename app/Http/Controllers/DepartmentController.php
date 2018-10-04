@@ -116,9 +116,8 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
 	    $department = Department::find($id);
-	    $department->destroy($id);
+	    $department->delete($id);
 
-	    Session::flash('success', $department['departmentname'] . ' Deleted successfully');
 	    return redirect()->back()->with('success','Deleted successfuly');
     }
 }

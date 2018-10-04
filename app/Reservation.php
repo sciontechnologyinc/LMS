@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reservation extends Model
 {
+    use SoftDeletes;
     protected $table = 'reservations';
     protected $fillable =  ['LRN',
                             'membername',

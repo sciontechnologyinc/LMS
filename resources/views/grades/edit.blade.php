@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Update Department')
+@section('title','Update Grade')
  
  @section('content')
 
@@ -30,27 +30,27 @@
  @endif
 
 
-  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/departments/' . $department->id ]) !!}
+  {!! Form::open(['id' => 'dataForm', 'method' => 'PATCH', 'url' => '/grades/' . $department->id ]) !!}
     <div class="col-lg-12">
                     <div class="card">
-                      <div class="card-header"><strong>Update</strong><small> Department</small></div><br>
+                      <div class="card-header"><strong>Update</strong><small> Grade</small></div><br>
                       <div class="row form-group">
                             <div class="col col-md-12">
 
                           <div class="form-group">
 							<div class="form-group col-md-6 offset-2">
-								{!!Form::label('departmentname', 'Department Name', array('class' => 'form-control-label'))!!}
+								{!!Form::label('gradename', 'Grade Name', array('class' => 'form-control-label'))!!}
 								<div class="iconic-input">
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
                                 <i class="fa fa-list-alt"></i></span>
-									{!!Form::text('departmentname',$department->departmentname, ['placeholder' => 'Department Name', 'class' => 'form-control col-lg-12' ])!!}
+									{!!Form::text('gradename',$department->departmentname, ['placeholder' => 'Grade Name', 'class' => 'form-control col-lg-12' ])!!}
 								</div>
 							</div>
 						</div>
 
                                 <br>
-                                {!!Form::submit('Update Category', ['class' => 'btn btn-primary  col-lg-2 offset-8']) !!}
+                                {!!Form::submit('Update Grade', ['class' => 'btn btn-primary  col-lg-2 offset-8']) !!}
 
                               </div>
                             </div>

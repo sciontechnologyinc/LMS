@@ -8,7 +8,7 @@
     @include('admin.layouts.header')
 @endsection
 
-@section('title','Add New Department')
+@section('title','Add New Grades')
  
  @section('content')
 
