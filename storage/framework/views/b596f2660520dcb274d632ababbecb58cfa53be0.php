@@ -63,12 +63,27 @@
                     );
      
      $handle = $link->prepare('SELECT COUNT(*) as TOTAL FROM reservations where notification = 1'); 
+     $handle1 = $link->prepare('SELECT bookname FROM `books` WHERE booknumber<=3'); 
+     $handle2 = $link->prepare('SELECT count(*) as BOOKTOTAL from (SELECT bookname FROM `books` WHERE booknumber<=3)src;'); 
+     
      $handle->execute(); 
      $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+     $handle1->execute(); 
+     $result1 = $handle1->fetchAll(\PDO::FETCH_OBJ);
+
+     $handle2->execute(); 
+     $result2 = $handle2->fetchAll(\PDO::FETCH_OBJ);
                     
+     foreach($result2 as $row2){
+        array($row2->BOOKTOTAL);
+    }
      foreach($result as $row){
          array($row->TOTAL);
      }
+     $notif = $row->TOTAL + $row2->BOOKTOTAL;
+     
+
      $link = null;
  }
  catch(\PDOException $ex){
@@ -77,12 +92,15 @@
 
  ?>
 
-                <span class="badge badge-danger total" id="total-notif"><?php echo e($row->TOTAL); ?></span>
+                <span class="badge badge-danger total" id="total-notif"><?php echo e($notif); ?></span>
                
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title total" id="total-notif">You have <?php echo e($row->TOTAL); ?> Notification </h5>
 				<div class="dropdown-list normal-list">
+                <?php $__currentLoopData = $result1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $result1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="new text-center"><a href="books" class="booknotif"><?php echo e($result1->bookname); ?> book stocks are going out</a></div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 					<div class="new text-center"><a href="<?php echo e(url('reservations')); ?>" class="total"> View new reservation request</a></div>
                 </div>
 		        	</div>
