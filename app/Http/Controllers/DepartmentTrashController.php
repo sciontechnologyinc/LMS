@@ -21,7 +21,7 @@ class DepartmentTrashController extends Controller
         ->whereNotNull('deleted_at')
         ->get();
         
-        return view('departments/trash', ['departments' => $departments]);
+        return view('grades/trash', ['departments' => $departments]);
     }
 
     /**

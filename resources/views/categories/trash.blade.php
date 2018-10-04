@@ -44,11 +44,11 @@
                         </tr>
                         </thead>
                     <tbody>
-                    @foreach($categories as $category)
+                    @foreach($categories as $index => $category)
 
                       <tr>
 
-                        <td>{{ $category->id }}</td>
+                        <td>{{ $index +1 }}</td>
                         <td>{{ $category->categoryname }}</td>
                         <td><center>
                         {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/categoryTrash/' . $category->id]) !!}

@@ -63,10 +63,10 @@
                         </tr>
                         </thead>
                         <tbody id="myTable">
-                         @foreach($books as $book)
+                         @foreach($books as $index => $book)
                       <tr>
 
-                        <td>{{ $book->id  }}</td>
+                        <td>{{ $index +1  }}</td>
                         <td> {{ $book->bookname }}</td>
                         <td> {{ $book->yearpublish }} </td>
                         <td> {{ $book->booktype }}</td>
@@ -97,18 +97,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
 $(document).ready(function(){
-     $("#deleteForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
-                    if (x) {
-                        return true;
-                    }
-                    else {
-
-                        event.preventDefault();
-                        return false;
-                    }
-
-                });
+    $("#deleteForm").on("submit", function() {
+            return confirm("Are you sure you want to delete?")
+        })
 
     $("#searchcategory").keyup(function () {
     var value = this.value.toLowerCase().trim();

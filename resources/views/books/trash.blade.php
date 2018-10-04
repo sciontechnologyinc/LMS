@@ -44,11 +44,11 @@
                         </tr>
                         </thead>
                     <tbody>
-                    @foreach($books as $book)
+                    @foreach($books as $index => $book)
 
                       <tr>
 
-                        <td>{{ $book->id }}</td>
+                        <td>{{ $index +1 }}</td>
                         <td>{{ $book->bookname }}</td>
                         <td><center>
                         {!! Form::open(['id' => 'deleteForm', 'method' => 'DELETE', 'url' => '/bookTrash/' . $book->id]) !!}
