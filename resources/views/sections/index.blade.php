@@ -48,10 +48,10 @@
                         </tr>
                         </thead>
                     <tbody>
-                    @foreach($sections as $section)
+                    @foreach($sections as $index => $section)
                       <tr>
 
-                        <td>{{ $section->id }}</td>
+                        <td>{{ $index +1 }}</td>
                         <td> {{ $section->sectionname }}
                         </td>
                         <td><center>
