@@ -62,12 +62,27 @@
                     );
      
      $handle = $link->prepare('SELECT COUNT(*) as TOTAL FROM reservations where notification = 1'); 
+     $handle1 = $link->prepare('SELECT bookname FROM `books` WHERE booknumber<=3'); 
+     $handle2 = $link->prepare('SELECT count(*) as BOOKTOTAL from (SELECT bookname FROM `books` WHERE booknumber<=3)src;'); 
+     
      $handle->execute(); 
      $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+     $handle1->execute(); 
+     $result1 = $handle1->fetchAll(\PDO::FETCH_OBJ);
+
+     $handle2->execute(); 
+     $result2 = $handle2->fetchAll(\PDO::FETCH_OBJ);
                     
+     foreach($result2 as $row2){
+        array($row2->BOOKTOTAL);
+    }
      foreach($result as $row){
          array($row->TOTAL);
      }
+     $notif = $row->TOTAL + $row2->BOOKTOTAL;
+     
+
      $link = null;
  }
  catch(\PDOException $ex){
@@ -76,12 +91,15 @@
 
  ?>
 
-                <span class="badge badge-danger total" id="total-notif">{{ $row->TOTAL}}</span>
+                <span class="badge badge-danger total" id="total-notif">{{ $notif }}</span>
                
 			</a>
 			<div class="dropdown-menu dropdown-menu-head notifdropdown pull-right">
 				<h5 class="title total" id="total-notif">You have {{ $row->TOTAL}} Notification </h5>
 				<div class="dropdown-list normal-list">
+                @foreach($result1 as $result1)
+                    <div class="new text-center"><a href="books" class="booknotif">{{ $result1->bookname}} book stocks are going out</a></div>
+                @endforeach
 					<div class="new text-center"><a href="{{url('reservations') }}" class="total"> View new reservation request</a></div>
                 </div>
 		        	</div>
