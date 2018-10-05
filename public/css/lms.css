@@ -506,6 +506,13 @@ form.reservations {
     padding: 10px;
 }
 
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 20px);
+    width: 329px;
+    margin-right: center;
+    position: center;
+    margin-left: 512px;
+}
 .perbook-img {
     /* background: black; */
     border-bottom: 1px solid white;
