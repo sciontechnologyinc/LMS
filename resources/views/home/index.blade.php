@@ -12,17 +12,30 @@
 <div class="Search">Search</div>
 <div class="container search">
   <div class="row search">
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/>
+  <div class="col-sm searchbar">
+  <select id="searchbartext" class="filtersearch">
+                                        <option value="filter" selected="" disabled=""> FILTER SEARCH  </option>
+                                        <option value="book"> BOOK</option>
+                                        <option value="category"> CATEGORY</option>
+                                        <option value="author"> AUTHOR</option>
+                                        <option value="publisher"> PUBLISHER</option>
+                                    </select>
     </div>
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/>
+    <div class="col-sm searchbar menusearch">
+      <input type="text" id="searchbartext" class="searchbartext" name="searchmenu" placeholder="SEARCH MENU" readonly=""/>
     </div>
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/>
+    
+    <div class="col-sm searchbar booksearch" style="display:none;">
+      <input type="text" id="booksearch" class="searchbartext" name="book" placeholder="Book Name"/>
     </div>
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/>
+    <div class="col-sm searchbar categorysearch" style="display:none;">
+      <input type="text" id="categorysearch" class="searchbartext" name="category" placeholder="Category"/>
+    </div>
+    <div class="col-sm searchbar authorsearch" style="display:none;">
+      <input type="text" id="authorsearch" class="searchbartext" name="author" placeholder="Author Name"/>
+    </div>
+    <div class="col-sm searchbar publishersearch" style="display:none;">
+      <input type="text" id="publishersearch" class="searchbartext" name="publisher" placeholder="Publisher"/>
     </div>
   </div>
 </div>
@@ -42,9 +55,9 @@
          
         </div>
         <div class="perbook-title"  >{{$book->bookname}} </div>
+        <div class="perbook-title" hidden="true" >{{$book->category}} </div>
         <div class="perbook-title" hidden="true" >{{$book->writername}} </div>
-        <div class="perbook-title" hidden="true" >{{$book->yearpublish}} </div>
-        <div class="perbook-title" hidden="true" >{{$book->categoryname}} </div>
+        <div class="perbook-title" hidden="true" >{{$book->publisher}} </div>
    </div>
    
     @endforeach 
@@ -95,7 +108,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("#searchbartext").on("keyup", function() {
+    $("#booksearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -104,7 +117,7 @@ $(document).ready(function(){
 
   });
 
-    $("#searchbartext1").on("keyup", function() {
+    $("#categorysearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -113,7 +126,7 @@ $(document).ready(function(){
 
   });
 
-  $("#searchbartext2").on("keyup", function() {
+  $("#authorsearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -122,7 +135,7 @@ $(document).ready(function(){
 
   });
 
-  $("#searchbartext3").on("keyup", function() {
+  $("#publishersearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -130,6 +143,55 @@ $(document).ready(function(){
     });
 
   });
+
+
+      $('.filtersearch').on('change', function() {
+      if ( this.value == 'filter' )
+      //.....................^.......
+      {
+        $(".menusearch").show();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'book' ){
+        $(".menusearch").hide();
+        $(".booksearch").show();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'category' ){
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").show();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'author' ){
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").show();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'publisher' ){
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").show();
+      }
+      else
+      {
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+    });
   
     
 });

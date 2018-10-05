@@ -112,14 +112,31 @@ input.searchbartext {
     background: none;
     background: rgba(255, 255, 255, 0.9);
     text-align: center;
-    width: 100%;
+    width: 300px;
     border: 5px solid #017751;
     border-radius: 5px;
     font-size: 20px;
     padding: 10px;
     color: #3f3f3f;
+    margin-right: 335px;
 }
 
+select#searchbartext {
+    border: 0px;
+    outline: none;
+    background: none;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    width: 280px;
+    height: 57px;
+    border: 5px solid #017751;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    color: #3f3f3f;
+    margin-left: 390px;
+
+}
 .bookname {
     border: 1px Solid #3f3f3f;
     background: white;
