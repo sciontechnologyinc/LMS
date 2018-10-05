@@ -209,9 +209,6 @@ class BookController extends Controller
             'bookcondition' => 'required',
             'details' => 'required',
             'digitalphoto' => 'image|nullable|max:1999'
-
-            
-
             
         ]);
 

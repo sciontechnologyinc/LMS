@@ -70,6 +70,8 @@ class SuperAdminController extends Controller
          User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'admin' => $data['admin'],
+            'permission' => $data['permission'],
             'password' => Hash::make($data['password']),
 
             

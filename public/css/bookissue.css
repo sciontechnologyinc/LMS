@@ -256,6 +256,8 @@ a{
     position: relative;
     background-color: #fff;
     margin-left:540px;
+    width: 480px;
+    height: 370px;
 
 }
 .row {
@@ -364,4 +366,8 @@ span.fa.fa-edit.text-default.pull-right.pointer {
     margin-top: 0px;
     margin-bottom: 0px;
     height: 177px;
+}
+
+input.btn.btn-primary.btn-return.col-lg-14 {
+    margin-top: 45px;
 }
