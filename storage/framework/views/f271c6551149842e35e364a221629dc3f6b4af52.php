@@ -97,7 +97,7 @@
                         </ul>
                     </li>
                     
-                    <?php if( Auth::user()->name == 'Admin'  ): ?>
+                    <?php if( Auth::user()->permission == 'Admin'  ): ?>
                     <li class="menu-item-has-children dropdown" style="display:none;">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-secret"></i>Administrator</a>
                         <ul class="sub-menu children dropdown-menu">

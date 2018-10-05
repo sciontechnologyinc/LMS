@@ -120,14 +120,24 @@
                                                 <h2 class="panel-heading">
                                                 <center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
                                                 </h2>
+
+                                                <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                
+                                                <?php echo Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => '']); ?>
+
+                                                
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                                                 <?php echo Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
 
+                                                
                                                 <?php elseif($bookissue->status == 'Returned'): ?>
                                                 <div class="modal fade" id="<?php echo e($bookissue->id); ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                 <div class="modal-dialog modal-sm" role="document">
                                                 <div class="modal-content">
                                                 <div class="row">
                                                 <div class="col-sm-12 text-center">
+                                                
                                                 <section class="panel">
                                                 <h2 class="panel-heading">
                                                 <center class="text-danger">Click below button if you want to change the book to pending! Not otherwise!!</center>
@@ -135,6 +145,7 @@
                                                 <?php echo Form::submit('Change to Pending', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
 
                                                 <?php else: ?>
+         
                                                 <div class="modal fade" id="<?php echo e($bookissue->id); ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                 <div class="modal-dialog modal-sm" role="document">
                                                 <div class="modal-content">
@@ -144,9 +155,11 @@
                                                 <h2 class="panel-heading">
                                                 <center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
                                                 </h2>
+       
                                                 <?php echo Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
 
                                                 <?php endif; ?>
+
                                                         <div class="panel-body">
                                                         <?php if($bookissue->status == 'Pending'): ?>
                                                         <input type="hidden" name="status" id="status" class="status" value="Returned">

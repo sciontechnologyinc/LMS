@@ -120,19 +120,29 @@
                                                 <h2 class="panel-heading">
                                                 <center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
                                                 </h2>
+
+                                                @foreach($books as $book)
+                                                
+                                                {!!Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
+                                                
+                                                @endforeach
+
                                                 {!!Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
+                                                
                                                 @elseif($bookissue->status == 'Returned')
                                                 <div class="modal fade" id="{{$bookissue->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                 <div class="modal-dialog modal-sm" role="document">
                                                 <div class="modal-content">
                                                 <div class="row">
                                                 <div class="col-sm-12 text-center">
+                                                
                                                 <section class="panel">
                                                 <h2 class="panel-heading">
                                                 <center class="text-danger">Click below button if you want to change the book to pending! Not otherwise!!</center>
                                                 </h2>
                                                 {!!Form::submit('Change to Pending', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
                                                 @else
+         
                                                 <div class="modal fade" id="{{$bookissue->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                 <div class="modal-dialog modal-sm" role="document">
                                                 <div class="modal-content">
@@ -142,8 +152,10 @@
                                                 <h2 class="panel-heading">
                                                 <center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
                                                 </h2>
+       
                                                 {!!Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
                                                 @endif
+
                                                         <div class="panel-body">
                                                         @if($bookissue->status == 'Pending')
                                                         <input type="hidden" name="status" id="status" class="status" value="Returned">
