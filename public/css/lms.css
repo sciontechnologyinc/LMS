@@ -506,14 +506,6 @@ form.reservations {
     padding: 10px;
 }
 
-<<<<<<< HEAD
-select.form-control:not([size]):not([multiple]) {
-    height: calc(2.25rem + 20px);
-    width: 329px;
-    margin-right: center;
-    position: center;
-    margin-left: 512px;
-=======
 .perbook-img {
     /* background: black; */
     border-bottom: 1px solid white;
@@ -535,5 +527,4 @@ select.form-control:not([size]):not([multiple]) {
 .modal-header .close {
     padding: 0px !important;
     margin: 0px !important;
->>>>>>> 8cabfca3f21a8ae68b535ddaade63a6eb614bdf3
 }
