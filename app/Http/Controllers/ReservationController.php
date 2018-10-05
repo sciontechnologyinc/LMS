@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Reservation;
+use App\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,6 +19,11 @@ class ReservationController extends Controller
         return view('reservations.index', ['reservations' => $reservations]);
     }
 
+    public function reservation()
+    {
+        $books = Book::orderBy('id')->get();    
+        return view('reservations.create', ['books' => $books]);
+    }
 
 
     /**

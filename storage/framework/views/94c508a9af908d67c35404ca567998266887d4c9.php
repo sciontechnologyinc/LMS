@@ -11,7 +11,7 @@
     <div class="lms-menu">
         <div class="menu-list1"><a href="<?php echo e(url('home')); ?>">HOME</a></div>
         <div class="menu-list2"><a href="<?php echo e(url('about')); ?>">ABOUT</a></div>
-        <div class="menu-list3"><a href="<?php echo e(url('addreservation')); ?>">CONTACT</a></div>
+        <div class="menu-list3"><a href="<?php echo e(url('reservations/create')); ?>">CONTACT</a></div>
 
       
                

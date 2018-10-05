@@ -6,7 +6,7 @@
     <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('title','Update Category list'); ?>
+<?php $__env->startSection('title','Update Book list'); ?>
  
  <?php $__env->startSection('content'); ?>
 
@@ -86,6 +86,7 @@
                     </div>
                 </div>
              </div>
+             
 
               <div class="form-group">
                       <?php echo Form::label('Year Publish', 'Year Publish', array('class' => 'form-control-label')); ?>
@@ -99,6 +100,20 @@
                     </div>
                 </div>
              </div>
+
+               <div class="form-group">
+                      <?php echo Form::label('Publisher', 'Publisher', array('class' => 'form-control-label')); ?>
+
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-users"></i></span>
+                    <?php echo Form::text('publisher',$book->publisher, ['placeholder' => 'Publisher', 'class' => 'form-control']); ?>
+
+                    </div>
+                </div>
+             </div>
+
 
                 <div class="form-group">
                       <?php echo Form::label('Author Name', 'Author Name', array('class' => 'form-control-label')); ?>
@@ -129,12 +144,27 @@
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
+                      
+                      <div class="form-group">
+                       <?php echo Form::label('section', 'Section', array('class' => 'form-control-label')); ?>
+
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <select name="section" class="form-control">
+                                    <option value="" disabled <?php echo e(old(' $book->section ') ? '' : 'selected'); ?>>Choose a section</option>
+                                    <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                     <option value="<?php echo e($section->sectionname); ?>" <?php if(old('$book->section')&&old('$book->section')== $book->section): ?> selected='selected' <?php endif; ?> ><?php echo e($section->sectionname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                      </div>
+                </div>
 
                          <div class="form-group">
-                         <label class="form-control-label">Status</label>
-                         <?php echo Form::select('status', array('available' => 'Available', 'unavailable' => 'Unavailable'),$book->status,array('class' => 'form-control')); ?>
+                           <label class="form-control-label">Status</label>
+                          <?php echo Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => '']); ?>
 
-                         </div>
+                          </div>
                               
                          <div class="form-group">
                          <label class="form-control-label">Book Type</label>
@@ -166,7 +196,7 @@
                           </div>
 
                            <div class="form-group"><label class="form-control-label">Details</label>
-                          <?php echo Form::textarea('details',$book->details, ['placeholder' => 'details', 'class' => 'form-control']); ?>
+                          <?php echo Form::textarea('details',$book->details, ['placeholder' => 'details', 'class' => 'form-control details']); ?>
 
                           </div>
   

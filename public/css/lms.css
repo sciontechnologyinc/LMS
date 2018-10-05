@@ -479,3 +479,11 @@ form.reservations {
     background: rgba(0, 0, 0, 0.6);
     padding: 10px;
 }
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 20px);
+    width: 329px;
+    margin-right: center;
+    position: center;
+    margin-left: 512px;
+}
