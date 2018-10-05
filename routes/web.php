@@ -36,8 +36,6 @@ Route::post('/updateisbn/{isbn}','BookissueController@updateIsbn');
 Route::post('/getname/{name}','BookissueController@getName');
 Route::post('/updatename/{isbn}','BookissueController@updateIsbn');
 
-<<<<<<< HEAD
-=======
 //getnotif
 Route::post('/getnotify/{notif}','HeaderController@getNotif');
 Route::post('/updatenotify','HeaderController@updateNotif');
@@ -47,7 +45,6 @@ Route::post('/getbooknumber/{booknumber}','HeaderController@getBooknumber');
 Route::post('/updatebooknumber','HeaderController@updateBooknumber');
 
 
->>>>>>> 2321b7930886b32454afb311527656be3926d1cd
 Route::get('qrcodegenerator', function () {
     return view('QRCodegenerator.create');
 });
