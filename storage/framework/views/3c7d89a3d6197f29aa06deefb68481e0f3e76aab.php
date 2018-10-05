@@ -9,17 +9,30 @@
 <div class="Search">Search</div>
 <div class="container search">
   <div class="row search">
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext" class="searchbartext" name="bookname" placeholder="Book Name"/>
+  <div class="col-sm searchbar">
+  <select id="searchbartext" class="filtersearch">
+                                        <option value="filter" selected="" disabled=""> FILTER SEARCH  </option>
+                                        <option value="book"> BOOK</option>
+                                        <option value="category"> CATEGORY</option>
+                                        <option value="author"> AUTHOR</option>
+                                        <option value="publisher"> PUBLISHER</option>
+                                    </select>
     </div>
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext1" class="searchbartext" name="authorname" placeholder="Category"/>
+    <div class="col-sm searchbar menusearch">
+      <input type="text" id="searchbartext" class="searchbartext" name="searchmenu" placeholder="SEARCH MENU" readonly=""/>
     </div>
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext2" class="searchbartext" name="publishername" placeholder="Author Name"/>
+    
+    <div class="col-sm searchbar booksearch" style="display:none;">
+      <input type="text" id="booksearch" class="searchbartext" name="book" placeholder="Book Name"/>
     </div>
-    <div class="col-sm searchbar">
-      <input type="text" id="searchbartext3" class="searchbartext" name="publishername" placeholder="Year Publish"/>
+    <div class="col-sm searchbar categorysearch" style="display:none;">
+      <input type="text" id="categorysearch" class="searchbartext" name="category" placeholder="Category"/>
+    </div>
+    <div class="col-sm searchbar authorsearch" style="display:none;">
+      <input type="text" id="authorsearch" class="searchbartext" name="author" placeholder="Author Name"/>
+    </div>
+    <div class="col-sm searchbar publishersearch" style="display:none;">
+      <input type="text" id="publishersearch" class="searchbartext" name="publisher" placeholder="Publisher"/>
     </div>
   </div>
 </div>
@@ -39,9 +52,9 @@
          
         </div>
         <div class="perbook-title"  ><?php echo e($book->bookname); ?> </div>
+        <div class="perbook-title" hidden="true" ><?php echo e($book->category); ?> </div>
         <div class="perbook-title" hidden="true" ><?php echo e($book->writername); ?> </div>
-        <div class="perbook-title" hidden="true" ><?php echo e($book->yearpublish); ?> </div>
-        <div class="perbook-title" hidden="true" ><?php echo e($book->categoryname); ?> </div>
+        <div class="perbook-title" hidden="true" ><?php echo e($book->publisher); ?> </div>
    </div>
    
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
@@ -72,9 +85,7 @@
         <div class="book-price">Book Price : <?php echo e($book->bookprice); ?></div>
         <div class="writer-name">Author Name : <?php echo e($book->writername); ?></div>
         <div class="book-category">Book Category : <?php echo e($book->categoryname); ?></div>
-        <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="book-category">Book Section : <?php echo e($department->departmentname); ?></div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <div class="book-category">Book Section : <?php echo e($book->section); ?></div>
         <div class="book-status">Status : <?php echo e($book->status); ?></div>
         <div class="book-type">Book Type : <?php echo e($book->booktype); ?></div>
         <div class="book-condition">Book Condition : <?php echo e($book->bookcondition); ?></div>
@@ -94,7 +105,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("#searchbartext").on("keyup", function() {
+    $("#booksearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -103,7 +114,7 @@ $(document).ready(function(){
 
   });
 
-    $("#searchbartext1").on("keyup", function() {
+    $("#categorysearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -112,7 +123,7 @@ $(document).ready(function(){
 
   });
 
-  $("#searchbartext2").on("keyup", function() {
+  $("#authorsearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -121,7 +132,7 @@ $(document).ready(function(){
 
   });
 
-  $("#searchbartext3").on("keyup", function() {
+  $("#publishersearch").on("keyup", function() {
    var key = this.value;
     $(".perbook-container").each(function() {
        var $this = $(this);
@@ -129,6 +140,55 @@ $(document).ready(function(){
     });
 
   });
+
+
+      $('.filtersearch').on('change', function() {
+      if ( this.value == 'filter' )
+      //.....................^.......
+      {
+        $(".menusearch").show();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'book' ){
+        $(".menusearch").hide();
+        $(".booksearch").show();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'category' ){
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").show();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'author' ){
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").show();
+        $(".publishersearch").hide();
+      }
+      else if( this.value == 'publisher' ){
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").show();
+      }
+      else
+      {
+        $(".menusearch").hide();
+        $(".booksearch").hide();
+        $(".categorysearch").hide();
+        $(".authorsearch").hide();
+        $(".publishersearch").hide();
+      }
+    });
   
     
 });
@@ -138,5 +198,5 @@ $(document).ready(function(){
 
 
 <?php $__env->stopSection(); ?>
-
+  
 <?php echo $__env->make('lms.master.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

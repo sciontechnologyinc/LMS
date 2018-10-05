@@ -48,10 +48,10 @@
                         </tr>
                         </thead>
                     <tbody>
-                    @foreach($sections as $section)
+                    @foreach($sections as $index => $section)
                       <tr>
 
-                        <td>{{ $section->id }}</td>
+                        <td>{{ $index +1 }}</td>
                         <td> {{ $section->sectionname }}
                         </td>
                         <td><center>
@@ -69,20 +69,14 @@
                         </div>
                     </div>
                 </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript">
-     $("#deleteForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
-                    if (x) {
-                        return true;
-                    }
-                    else {
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function(){
+        $("#deleteForm").on("submit", function() {
+            return confirm("Are you sure you want to delete?")
+        })
 
-                        event.preventDefault();
-                        return false;
-                    }
-
-                });
+    })
 </script>
 
  @endsection

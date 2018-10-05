@@ -33,7 +33,7 @@
                             <label for="contactno" class="col-sm-4 col-form-label text-md-right">{{ __('Contact No.') }}</label>
 
                             <div class="col-md-6">
-                                <input id="contactno" type="contactno" class="form-control{{ $errors->has('contactno') ? ' is-invalid' : '' }}" name="contactno" value="{{ old('contactno') }}" required autofocus>
+                                <input id="contactno" type="number" class="form-control{{ $errors->has('contactno') ? ' is-invalid' : '' }}" name="contactno" value="{{ old('contactno') }}" required autofocus>
 
                                 @if ($errors->has('contactno'))
                                     <span class="invalid-feedback" role="alert">

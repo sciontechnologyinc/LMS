@@ -8,6 +8,7 @@ use App\Category;
 use App\Reservation;
 use App\Generalsettings;
 use App\Member;
+use App\Section;
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -33,7 +34,8 @@ class CategoryController extends Controller
     public function categorycheckbox()
     {
 	    $categories = Category::orderBy('id')->get();
-        return view('books/create', ['categories' => $categories]);
+	    $sections = Section::orderBy('id')->get();
+        return view('books/create', ['categories' => $categories, 'sections' => $sections]);
     }
 
     public function categorycheckbox1()
@@ -41,6 +43,7 @@ class CategoryController extends Controller
 	    $categories = Category::orderBy('id')->get();
         return view('books/edit', ['categories' => $categories]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -68,7 +71,6 @@ class CategoryController extends Controller
         ]);
         Category::create($data);
 
-	    Session::flash('success', ' Added successfully');
         return redirect()->back()->with('success','Added successfuly');
     }
 
@@ -121,8 +123,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
 	    $category = Category::find($id);
-	    $category->destroy($id);
-        // DB::table('categories')->truncate($category);
+	    $category->delete($id);
 
 	    return redirect()->back()->with('success','Deleted successfuly');
     }

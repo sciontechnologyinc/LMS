@@ -17,6 +17,7 @@ class CrateSubjectsTable extends Migration
             $table->increments('id');
             $table->string('subjectname');
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         });
 
     }

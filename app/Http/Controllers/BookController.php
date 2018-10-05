@@ -7,6 +7,7 @@ use App\Bookissue;
 use App\Category;
 use App\Generalsettings;
 use App\Member;
+use App\Section;
 use App\Subject;
 use App\User;
 use Carbon\Carbon;
@@ -83,12 +84,14 @@ class BookController extends Controller
         $data = $request->validate([
             'bookname' => 'required',
             'yearpublish' => 'required|',
+            'publisher' => 'required|',
             'ISBN' => 'required|unique:books|',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
             'categoryname' => 'required',
-            'status' => 'required',
+            'categoryname' => 'required',
+            'section' => 'required',
             'booktype' => 'required',
             'bookcondition' => 'required',
             'details' => 'required',
@@ -100,12 +103,14 @@ class BookController extends Controller
         ],[
             'bookname.required' => ' The book name field is required.',
             'yearpublish.required' => ' The Year field is required.',
+            'publisher.required' => ' The Year field is required.',
             'ISBN.required' => ' The ISBN field is required.',
             'booknumber.required' => ' The book number field is required.',
             'bookprice.required' => ' The book price field is required.',
             'writername.required' => ' The writer name field is required.',
             'categoryname.required' => ' The category  field is required.',
             'status.required' => ' The status  field is required.',
+            'section.required' => ' The status  field is required.',
             'booktype.required' => ' The book type field is required.',
             'bookcondition.required' => ' The book condition field is required.',
             'details.required' => ' The details field is required.',
@@ -131,11 +136,13 @@ class BookController extends Controller
         $book = new Book;
         $book->bookname = $request->input('bookname');
         $book->yearpublish = $request->input('yearpublish');
+        $book->publisher = $request->input('publisher');
         $book->ISBN = $request->input('ISBN');
         $book->booknumber = $request->input('booknumber');  
         $book->bookprice = $request->input('bookprice');
         $book->writername = $request->input('writername');
         $book->categoryname = implode(', ', (array) $request->get('categoryname'));
+        $book->section = $request->input('section');
         $book->status = $request->input('status');
         $book->booktype = $request->input('booktype');
         $book->bookcondition = $request->input('bookcondition');
@@ -170,10 +177,11 @@ class BookController extends Controller
         $book = Book::find($id);
         $categories = Category::find($id);
         $categories = DB::table('categories')->get();
+        $sections = DB::table('sections')->get();
         
    
         
-        return view('books/edit', ['book' => $book,'categories'=>$categories]);
+        return view('books/edit', ['book' => $book,'categories'=>$categories,'sections'=>$sections]);
     }
     
 
@@ -190,11 +198,13 @@ class BookController extends Controller
         $data = $request->validate([
             'bookname' => 'required',
             'yearpublish' => 'required',
+            'publisher' => 'required',
             'ISBN' => 'required',
             'booknumber' => 'required|numeric',
             'bookprice' => 'required|numeric',
             'writername' => 'required',
             'categoryname' => 'required',
+            'section' => 'required',
             'status' => 'required',
             'booktype' => 'required',
             'bookcondition' => 'required',
@@ -225,11 +235,13 @@ class BookController extends Controller
         $book = Book::find($id);
         $book->bookname = $request->input('bookname');
         $book->yearpublish = $request->input('yearpublish');
+        $book->publisher = $request->input('publisher');
         $book->ISBN = $request->input('ISBN');
         $book->booknumber = $request->input('booknumber');  
         $book->bookprice = $request->input('bookprice');
         $book->writername = $request->input('writername');
         $book->categoryname = implode(', ', (array) $request->get('categoryname'));
+        $book->section = $request->input('section');
         $book->status = $request->input('status');
         $book->booktype = $request->input('booktype');
         $book->bookcondition = $request->input('bookcondition');
@@ -250,7 +262,7 @@ class BookController extends Controller
     public function destroy($id)
     {
 	    $book = Book::find($id);
-	    $book->destroy($id);
+	    $book->delete($id);
 
 	    return redirect()->back()->with('success','Deleted successfuly');
     }

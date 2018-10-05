@@ -62,7 +62,6 @@ class DepartmentController extends Controller
         ]);
         Department::create($data);
 
-	    Session::flash('success', ' Added successfully');
         return redirect()->back()->with('success','Added successfuly');
     }
 
@@ -116,9 +115,8 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
 	    $department = Department::find($id);
-	    $department->destroy($id);
+	    $department->delete($id);
 
-	    Session::flash('success', $department['departmentname'] . ' Deleted successfully');
 	    return redirect()->back()->with('success','Deleted successfuly');
     }
 }

@@ -6,7 +6,7 @@
     <?php echo $__env->make('admin.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('title','Department list'); ?>
+<?php $__env->startSection('title','Grade list'); ?>
  
  <?php $__env->startSection('content'); ?>
  
@@ -72,20 +72,14 @@
                     </div>
                 </div>
                 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript">
-     $("#deleteForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
-                    if (x) {
-                        return true;
-                    }
-                    else {
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function(){
+        $("#deleteForm").on("submit", function() {
+            return confirm("Are you sure you want to delete?")
+        })
 
-                        event.preventDefault();
-                        return false;
-                    }
-
-                });
+    })
 </script>
 
 

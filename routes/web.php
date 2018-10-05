@@ -61,6 +61,14 @@ Route::get('create', function () {
 });
 Route::resource('categories','CategoryController');
 
+Route::resource('categoryTrash','CategoryTrashController');
+
+Route::resource('bookTrash','BookTrashController');
+
+Route::resource('gradeTrash','DepartmentTrashController');
+
+Route::resource('sectionTrash','SectionTrashController');
+
 Route::get('addsubject', function () {
     return view('subjects.create');
 });
@@ -77,6 +85,13 @@ Route::get('addgrade', function () {
 });
 
 Route::resource('grades','DepartmentController');
+
+Route::get('addaccounts', function () {
+    return view('administrators.create');
+});
+
+Route::resource('administrators','SuperAdminController');
+
 
 Route::get('bookissue', function () {
     return view('bookissues.create');
@@ -125,6 +140,7 @@ Route::get('addterms', function () {
     return view('terms.create');
 });
 
+
 Route::get('editProfile', function () {
     return view('settings.edit');
 });
@@ -143,6 +159,9 @@ Route::get('books/edit','CategoryController@categorycheckbox1');
 Route::get('members/create','SubjectController@subjectcheckbox');
 //department
 Route::get('bookissues/create','BookController@booksdropdown');
+//reservations
+Route::get('reservations/create','ReservationController@reservation');
+
 
 
 

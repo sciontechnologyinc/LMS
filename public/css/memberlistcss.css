@@ -388,3 +388,10 @@
     .panel-body.changepassword {
         height: 330px;
     }
+
+    textarea.form-control.status {
+        height: 130px;
+    }
+    textarea.form-control.details {
+        height: 180px;
+    }

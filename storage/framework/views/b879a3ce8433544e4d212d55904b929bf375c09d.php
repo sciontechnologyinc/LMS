@@ -46,10 +46,10 @@
                         </tr>
                         </thead>
                     <tbody>
-                    <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <tr>
 
-                        <td><?php echo e($section->id); ?></td>
+                        <td><?php echo e($index +1); ?></td>
                         <td> <?php echo e($section->sectionname); ?>
 
                         </td>
@@ -71,20 +71,14 @@
                         </div>
                     </div>
                 </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript">
-     $("#deleteForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
-                    if (x) {
-                        return true;
-                    }
-                    else {
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function(){
+        $("#deleteForm").on("submit", function() {
+            return confirm("Are you sure you want to delete?")
+        })
 
-                        event.preventDefault();
-                        return false;
-                    }
-
-                });
+    })
 </script>
 
  <?php $__env->stopSection(); ?>

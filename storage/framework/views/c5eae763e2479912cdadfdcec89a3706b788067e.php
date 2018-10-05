@@ -31,7 +31,7 @@
                             <label for="contactno" class="col-sm-4 col-form-label text-md-right"><?php echo e(__('Contact No.')); ?></label>
 
                             <div class="col-md-6">
-                                <input id="contactno" type="contactno" class="form-control<?php echo e($errors->has('contactno') ? ' is-invalid' : ''); ?>" name="contactno" value="<?php echo e(old('contactno')); ?>" required autofocus>
+                                <input id="contactno" type="number" class="form-control<?php echo e($errors->has('contactno') ? ' is-invalid' : ''); ?>" name="contactno" value="<?php echo e(old('contactno')); ?>" required autofocus>
 
                                 <?php if($errors->has('contactno')): ?>
                                     <span class="invalid-feedback" role="alert">

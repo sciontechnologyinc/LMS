@@ -48,10 +48,10 @@
                         </tr>
                         </thead>
                     <tbody>
-                    @foreach($categories as $category)
+                    @foreach($categories as $index => $category)
                       <tr>
 
-                        <td>{{ $category->id }}</td>
+                        <td>{{ $index +1}}</td>
                         <td> {{ $category->categoryname }}</td>
                         <td><center>
                         <div class="form-group" style="display:inline-flex">
@@ -71,18 +71,12 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script type="text/javascript">
-     $("#deleteForm").submit(function (event) {
-                 var x = confirm("Are you sure you want to delete?");
-                    if (x) {
-                        return true;
-                    }
-                    else {
+    $(document).ready(function(){
+        $("#deleteForm").on("submit", function() {
+            return confirm("Are you sure you want to delete?")
+        })
 
-                        event.preventDefault();
-                        return false;
-                    }
-
-                });
+    })
 </script>
 
 

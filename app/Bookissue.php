@@ -4,8 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 class Bookissue extends Model
 {
+    use SoftDeletes;
     protected $table = 'bookissues';
     protected $fillable =  ['bookname',
                             'ISBN',
@@ -22,6 +26,8 @@ class Bookissue extends Model
                             'hours',
                             'status',
                             'bookholder'];
+
+    protected $dates = ['deleted_at'];
 
 
                             

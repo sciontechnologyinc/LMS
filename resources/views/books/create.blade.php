@@ -107,6 +107,17 @@
                 </div>
              </div>
 
+              <div class="form-group">
+                      {!!Form::label('Publisher', 'Publisher', array('class' => 'form-control-label'))!!}
+                    <div class="iconic-input">
+                    <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon">
+                    <i class="fa fa-users"></i></span>
+                    {!!Form::text('publisher',null, ['placeholder' => 'Publisher', 'class' => 'form-control'])!!}
+                    </div>
+                </div>
+             </div>
+
                 <div class="form-group">
                       {!!Form::label('Author Name', 'Author Name', array('class' => 'form-control-label'))!!}
                     <div class="iconic-input">
@@ -137,14 +148,25 @@
                     <div class="card">
                       <div class="card-header"><strong>Second</strong><small> Portion</small></div>
                       <div class="card-body card-block">
+
+                    <div class="form-group">
+                       {!!Form::label('section', 'Section', array('class' => 'form-control-label'))!!}
+                       <div class="iconic-input">
+                            <div class="input-group margin-bottom-sm">
+                            <select name="section" class="form-control">
+                                    <option value="" disabled {{ old('section') ? '' : 'selected' }}>Choose a section</option>
+                                    @foreach($sections as $section)
+                                     <option value="{{ $section->sectionname }}" @if(old('section')&&old('section')== $section->sectionname) selected='selected' @endif >{{ $section->sectionname }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                      </div>
+                </div>
+
                          
-                      <div class="form-group">
-                         <label class="form-control-label">Status</label>
-                         <select class="form-control status" id="status" name="status" required="">
-                         <option value="" selected=""> Choose status </option>
-                         <option value="available"> Available</option>
-                         <option value="unavailable"> Unavailable</option>
-                         </select>
+                         <div class="form-group">
+                           <label class="form-control-label">Status</label>
+                          {!!Form::textarea('status',null, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
                           </div>
                           <span class="text-danger">{{ $errors->first('status') }}</span>
                                 
@@ -198,7 +220,7 @@
 
                            <div class="form-group">
                            <label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control', 'required' => ''])!!}
+                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => ''])!!}
                           </div>
                           <span class="text-danger">{{ $errors->first('details') }}</span>
   
