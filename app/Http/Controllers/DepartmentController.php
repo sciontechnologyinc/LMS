@@ -62,7 +62,6 @@ class DepartmentController extends Controller
         ]);
         Department::create($data);
 
-	    Session::flash('success', ' Added successfully');
         return redirect()->back()->with('success','Added successfuly');
     }
 

@@ -96,6 +96,25 @@
                             <li><i class="menu-icon fa fa-eye"></i><a href="<?php echo e(url('terms')); ?>">View Terms</a></li>
                         </ul>
                     </li>
+                    
+                    <?php if( Auth::user()->name == 'Admin'  ): ?>
+                    <li class="menu-item-has-children dropdown" style="display:none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-secret"></i>Administrator</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="<?php echo e(url('addaccounts')); ?>">Add New Account</a></li>
+                            <li><i class="menu-icon fa fa-eye"></i><a href="<?php echo e(url('accounts')); ?>">List of Account</a></li>
+                        </ul>
+                    </li>
+                    <?php else: ?>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-secret"></i>Administrator</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="<?php echo e(url('addaccounts')); ?>">Add New Account</a></li>
+                            <li><i class="menu-icon fa fa-eye"></i><a href="<?php echo e(url('administrators')); ?>">List of Account</a></li>
+                            <li><i class="fa fa-trash"></i><a href="<?php echo e(url('adminTrash')); ?>">Trash</a></li>
+                        </ul>
+                    </li>
+                    <?php endif; ?>
                     <li>
                         <a href="#"> <i class="menu-icon fa fa-power-off" style="color:red"></i> <label style="color:red"> Logout </label> </a>
                     </li>

@@ -86,6 +86,13 @@ Route::get('addgrade', function () {
 
 Route::resource('grades','DepartmentController');
 
+Route::get('addaccounts', function () {
+    return view('administrators.create');
+});
+
+Route::resource('administrators','SuperAdminController');
+
+
 Route::get('bookissue', function () {
     return view('bookissues.create');
 });
@@ -132,6 +139,7 @@ Auth::routes();
 Route::get('addterms', function () {
     return view('terms.create');
 });
+
 
 Route::get('editProfile', function () {
     return view('settings.edit');
