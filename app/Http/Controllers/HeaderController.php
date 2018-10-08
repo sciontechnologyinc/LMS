@@ -40,13 +40,19 @@ class HeaderController extends Controller
 
     public function getBooknumber($booknumberid)
     {
-        $booknumberId = Book::where("booknumber", $booknumberid)->select('booknumber')->get();
+        $booknumberId = Book::where("booknumber","status", $booknumberid)->select('booknumber','status')->get();
         return response()->json(['success' => true, 'books' => $booknumberId]);
     }
 
     public function updateBooknumber()
     {
-         DB::table('books')->update(['booknumber'=> DB::raw('booknumber+1')]);
+         
+         DB::table('books')
+         ->update(['booknumber'=> DB::raw('booknumber+1'),
+                    'status'=> 'Good']);
+                    
+ 
+      
         
     }
 

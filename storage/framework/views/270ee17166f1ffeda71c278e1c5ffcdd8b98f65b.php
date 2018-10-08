@@ -117,9 +117,13 @@
 								<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon">
                                 <i class="fa fa-tasks"></i></span>
-                                <input id="admin" type="number" class="form-control" name="admin" placeholder="Permission" required>
+								<?php echo Form::number('admin',null, ['placeholder' => 'Permission', 'class' => 'form-control col-lg-12', 'required' => '' ]); ?>
+
+
 
 								</div>
+                                <input type="hidden" name="permission" id="permission" class="permission" value="Admin">
+
 							</div>
 						</div>
                                 <br>

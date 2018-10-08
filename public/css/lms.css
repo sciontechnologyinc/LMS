@@ -118,7 +118,7 @@ input.searchbartext {
     font-size: 20px;
     padding: 10px;
     color: #3f3f3f;
-    margin-right: 335px;
+    margin-right: 500px;
 }
 
 select#searchbartext {
@@ -134,7 +134,7 @@ select#searchbartext {
     font-size: 20px;
     padding: 10px;
     color: #3f3f3f;
-    margin-left: 390px;
+    margin-left: 530px;
 
 }
 .bookname {

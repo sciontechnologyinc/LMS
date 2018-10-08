@@ -21,6 +21,7 @@ class User extends Authenticatable
         'address',
         'password',
         'admin',
+        'permission',
         'terms',
     ];
 
