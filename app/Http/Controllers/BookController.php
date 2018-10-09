@@ -90,7 +90,6 @@ class BookController extends Controller
             'bookprice' => 'required|numeric',
             'writername' => 'required',
             'categoryname' => 'required',
-            'categoryname' => 'required',
             'section' => 'required',
             'booktype' => 'required',
             'bookcondition' => 'required',
