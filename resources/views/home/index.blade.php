@@ -1,4 +1,3 @@
-
 @extends('lms.master.template')
 
 @section('content')
@@ -9,6 +8,8 @@
 }
         
 </style>
+        <link rel="stylesheet" href="{!! ('/css/lms.css') !!}">
+
 <div class="Search">Search</div>
 <div class="container search">
   <div class="row search">

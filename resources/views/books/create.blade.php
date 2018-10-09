@@ -198,7 +198,7 @@
 							
 							<div class="col-lg-5">
 								<div class="row">
-									<img class="pre_img" src="https://yourprogramming.com/library/images/no_img.jpg" style="width: 100%; max-width: 100%;">
+									<img class="pre_img" src="https://www.freeiconspng.com/uploads/camera-icon-clip-art--royalty--1.png" style="width: 100%; max-width: 100%;">
 									<p class="image_view"></p><img src="">
                                     </div>
                                     </div>

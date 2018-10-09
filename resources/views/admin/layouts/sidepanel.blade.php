@@ -71,7 +71,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="{{ url('members/create') }}">Add New Member</a></li>
                             <li><i class="menu-icon fa fa-users"></i><a href="{{ url('members') }}">Member List</a></li>
-                            <li><i class="fa fa-trash"></i><a href="{{ url('memberTrash') }}">Trash</a></li>
+                            
 
                         </ul>
                     </li>
@@ -111,7 +111,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-plus"></i><a href="{{ url('addaccounts') }}">Add New Account</a></li>
                             <li><i class="menu-icon fa fa-eye"></i><a href="{{ url('administrators') }}">List of Account</a></li>
-                            <li><i class="fa fa-trash"></i><a href="{{ url('adminTrash') }}">Trash</a></li>
+                            
                         </ul>
                     </li>
                     @endif
