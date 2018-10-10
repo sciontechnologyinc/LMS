@@ -166,7 +166,7 @@
                          
                          <div class="form-group">
                            <label class="form-control-label">Status</label>
-                          {!!Form::textarea('status',null, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
+                          {!!Form::textarea('comments',null, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
                           </div>
                           <span class="text-danger">{{ $errors->first('status') }}</span>
                                 

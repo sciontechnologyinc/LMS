@@ -50,8 +50,10 @@ class HeaderController extends Controller
          DB::table('books')
          ->update(['booknumber'=> DB::raw('booknumber+1'),
                     'status'=> 'Good']);
-                    
- 
+        
+
+
+        
       
         
     }

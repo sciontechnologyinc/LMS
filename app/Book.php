@@ -20,7 +20,7 @@ class Book extends Model
                             'writername',
                             'categoryname',
                             'section',
-                            'status',
+                            'comments',
                             'booktype',
                             'bookcondition',
                             'details',

@@ -180,7 +180,7 @@
                          
                          <div class="form-group">
                            <label class="form-control-label">Status</label>
-                          <?php echo Form::textarea('status',null, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => '']); ?>
+                          <?php echo Form::textarea('comments',null, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => '']); ?>
 
                           </div>
                           <span class="text-danger"><?php echo e($errors->first('status')); ?></span>
@@ -213,7 +213,7 @@
 							
 							<div class="col-lg-5">
 								<div class="row">
-									<img class="pre_img" src="https://yourprogramming.com/library/images/no_img.jpg" style="width: 100%; max-width: 100%;">
+									<img class="pre_img" src="https://www.freeiconspng.com/uploads/camera-icon-clip-art--royalty--1.png" style="width: 100%; max-width: 100%;">
 									<p class="image_view"></p><img src="">
                                     </div>
                                     </div>

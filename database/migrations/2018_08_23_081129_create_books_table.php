@@ -24,7 +24,7 @@ class CreateBooksTable extends Migration
             $table->string('writername');
             $table->string('categoryname');
             $table->string('section');
-            $table->string('status');
+            $table->string('comments');
             $table->string('booktype');
             $table->string('bookcondition');
             $table->string('details');

@@ -49,7 +49,7 @@ class BookissueController extends Controller
             'booknumber' => $request->get('booknumber'),
             'bookprice' => $request->get('bookprice'),
             'writername' => $request->get('writername'),
-            'details' => $request->get('details'),
+            'comments' => $request->get('comments'),
 
 
         ]);
@@ -60,7 +60,7 @@ class BookissueController extends Controller
      }
     public function getIsbn($isbn)
     {
-        $isbnId = Book::where("ISBN", $isbn)->select('bookname','ISBN','booknumber','bookprice','writername','details')->get();
+        $isbnId = Book::where("ISBN", $isbn)->select('bookname','ISBN','booknumber','bookprice','writername','comments')->get();
         return response()->json(['success' => true, 'books' => $isbnId]);
     }
 
@@ -108,6 +108,7 @@ class BookissueController extends Controller
         $bookissue->booknumber = $request->input('booknumber');  
         $bookissue->bookprice = $request->input('bookprice');
         $bookissue->writername = $request->input('writername');
+        $bookissue->comments = $request->input('comments');
         $bookissue->bookholder = $request->input('bookholder');
         $bookissue->date_from = $request->input('date_from');
         $bookissue->date_to = $request->input('date_to');

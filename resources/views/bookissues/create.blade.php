@@ -133,8 +133,8 @@
                 </div>
              </div>
 
-                        <div class="form-group"><label class="form-control-label">Details</label>
-                          {!!Form::textarea('details',null, ['placeholder' => 'Details', 'class' => 'form-control details', 'required' => '', 'readonly'])!!}
+                        <div class="form-group"><label class="form-control-label">Status</label>
+                          {!!Form::textarea('comments',null, ['placeholder' => 'Status', 'class' => 'form-control comments', 'required' => '', 'readonly'])!!}
                           </div>
 
                       </div>
@@ -255,9 +255,9 @@
       }
     });
 
- function savedata(bookname,ISBN,booknumber,bookprice,writername,details){
+ function savedata(bookname,ISBN,booknumber,bookprice,writername,comments){
                 
-                var dataString = "bookname="+bookname+"&ISBN="+ISBN+"&booknumber="+booknumber+"&bookprice="+bookprice+"&writername="+writername+"&details="+details;
+                var dataString = "bookname="+bookname+"&ISBN="+ISBN+"&booknumber="+booknumber+"&bookprice="+bookprice+"&writername="+writername+"&comments="+comments;
                 var updatedbooknumber = booknumber - 1;
                 console.log(updatedbooknumber);
                 $.ajax({
@@ -294,7 +294,7 @@
                $('.booknumber').val(data.booknumber);
                $('.bookprice').val(data.bookprice);
                $('.writername').val(data.writername);
-               $('.details').val(data.details);
+               $('.comments').val(data.comments);
                console.log(updatedbooknumber);
                $.ajax({
                       headers: {

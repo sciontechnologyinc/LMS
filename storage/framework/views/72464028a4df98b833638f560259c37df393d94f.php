@@ -49,9 +49,10 @@
                                 <th>StudentName</th>
                                 <th>BookName</th>
                                 <th class="numeric">Bookholder</th>
-                                <th class="numeric issuefor">Issue for</th>
+                                <th class="numeric issuefor">Issuefor</th>
                                 <th class="numeric">Issuedate</th>
                                 <th class="numeric">Returndate</th>
+                                <th class="numeric">Comment</th>
                                 <th class="numeric">Remains</th>
                                 <th class="numeric text-center">Status</th>
                                 <th class="numeric text-right">Action</th>
@@ -76,6 +77,7 @@
                                     </td>
                                     <td class="numeric" data-title="Issue date">today                                 </td>
                                     <td class="numeric" data-title="Return date">today</td>
+                                    <td class="numeric" data-title="Return date"><?php echo e($bookissue->comments); ?></td>
                                     <td class="numeric" data-title="Remains">
                                     <?php if($bookissue->status == 'Pending'): ?>
                                     <?php if(  $bookissue->difference ): ?> 
@@ -121,12 +123,12 @@
                                                 <center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
                                                 </h2>
 
-                                                <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                               
                                                 
-                                                <?php echo Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => '']); ?>
+                                                <?php echo Form::textarea('comments',$bookissue->comments, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => '']); ?>
 
                                                 
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                
 
                                                 <?php echo Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']); ?>
 

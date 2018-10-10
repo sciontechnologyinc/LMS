@@ -148,7 +148,7 @@
 
                          <div class="form-group">
                            <label class="form-control-label">Status</label>
-                          {!!Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
+                          {!!Form::textarea('comments',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
                           </div>
                               
                          <div class="form-group">

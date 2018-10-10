@@ -108,7 +108,7 @@ class BookController extends Controller
             'bookprice.required' => ' The book price field is required.',
             'writername.required' => ' The writer name field is required.',
             'categoryname.required' => ' The category  field is required.',
-            'status.required' => ' The status  field is required.',
+            'comments.required' => ' The comments  field is required.',
             'section.required' => ' The status  field is required.',
             'booktype.required' => ' The book type field is required.',
             'bookcondition.required' => ' The book condition field is required.',
@@ -142,7 +142,7 @@ class BookController extends Controller
         $book->writername = $request->input('writername');
         $book->categoryname = implode(', ', (array) $request->get('categoryname'));
         $book->section = $request->input('section');
-        $book->status = $request->input('status');
+        $book->comments = $request->input('comments');
         $book->booktype = $request->input('booktype');
         $book->bookcondition = $request->input('bookcondition');
         $book->details = $request->input('details');
@@ -204,7 +204,7 @@ class BookController extends Controller
             'writername' => 'required',
             'categoryname' => 'required',
             'section' => 'required',
-            'status' => 'required',
+            'comments' => 'required',
             'booktype' => 'required',
             'bookcondition' => 'required',
             'details' => 'required',
@@ -238,7 +238,7 @@ class BookController extends Controller
         $book->writername = $request->input('writername');
         $book->categoryname = implode(', ', (array) $request->get('categoryname'));
         $book->section = $request->input('section');
-        $book->status = $request->input('status');
+        $book->comments = $request->input('comments');
         $book->booktype = $request->input('booktype');
         $book->bookcondition = $request->input('bookcondition');
         $book->details = $request->input('details');

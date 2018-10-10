@@ -17,6 +17,7 @@ class Bookissue extends Model
                             'booknumber',
                             'bookprice',
                             'writername',
+                            'comments',
                             'date_from',
                             'name',
                             'date_to',

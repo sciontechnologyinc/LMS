@@ -21,6 +21,7 @@ class CreateBookissuesTable extends Migration
             $table->string('booknumber')->nullable();
             $table->string('bookprice')->nullable();
             $table->string('writername')->nullable();
+            $table->string('comments')->nullable();
             $table->string('bookholder')->nullable();
             $table->string('date_from')->nullable();
             $table->string('date_to')->nullable();

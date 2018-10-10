@@ -50,9 +50,10 @@
                                 <th>StudentName</th>
                                 <th>BookName</th>
                                 <th class="numeric">Bookholder</th>
-                                <th class="numeric issuefor">Issue for</th>
+                                <th class="numeric issuefor">Issuefor</th>
                                 <th class="numeric">Issuedate</th>
                                 <th class="numeric">Returndate</th>
+                                <th class="numeric">Comment</th>
                                 <th class="numeric">Remains</th>
                                 <th class="numeric text-center">Status</th>
                                 <th class="numeric text-right">Action</th>
@@ -77,6 +78,7 @@
                                     </td>
                                     <td class="numeric" data-title="Issue date">today                                 </td>
                                     <td class="numeric" data-title="Return date">today</td>
+                                    <td class="numeric" data-title="Return date">{{ $bookissue->comments }}</td>
                                     <td class="numeric" data-title="Remains">
                                     @if($bookissue->status == 'Pending')
                                     @if(  $bookissue->difference ) 
@@ -121,11 +123,11 @@
                                                 <center class="text-danger">Click below button if only the book is returned! Not otherwise!!</center>
                                                 </h2>
 
-                                                @foreach($books as $book)
+                                               
                                                 
-                                                {!!Form::textarea('status',$book->status, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
+                                                {!!Form::textarea('comments',$bookissue->comments, ['placeholder' => 'Status', 'class' => 'form-control status', 'required' => ''])!!}
                                                 
-                                                @endforeach
+                                                
 
                                                 {!!Form::submit('Submit Return', ['class' => 'btn btn-primary btn-return  col-lg-14']) !!}
                                                 
